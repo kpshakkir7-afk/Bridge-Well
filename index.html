@@ -348,6 +348,35 @@ a { text-decoration: none; color: inherit; } ul { list-style: none; }
   color: var(--muted);
   line-height: 1.7;
 }
+
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.12;
+  transition: opacity .3s;
+}
+
+.stp:hover .stp-n {
+  opacity: 0.25;
+}
+
+/* TITLE */
+.stp h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 7px;
+  line-height: 1.25;
+}
+
+/* TEXT */
+.stp p {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.7;
+}
 /* AI */
 .ai-split { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
 .ai-h { font-family: 'Cormorant Garamond', serif; font-size: clamp(34px,4vw,54px); font-weight: 700; line-height: 1.05; color: var(--navy); margin-top: 16px; letter-spacing: -.01em; }
