@@ -287,16 +287,67 @@ a { text-decoration: none; color: inherit; } ul { list-style: none; }
 .ck-ico { width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0; border: 1px solid rgba(191,155,111,.4); display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 11px; margin-top: 1px; }
 
 /* PROCESS */
-.proc-header { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 72px; }
-.steps { display: grid; grid-template-columns: repeat(5,1fr); border-top: 1px solid var(--rule); }
-.stp { padding: 40px 24px 40px 0; border-right: 1px solid var(--rule); transition: background .25s; cursor: default; }
-.stp:last-child { border-right: none; padding-right: 0; }
-.stp:hover { background: rgba(26,68,163,.03); }
-.stp-n { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 900; color: rgba(10,28,70,.07); line-height: 1; margin-bottom: 20px; transition: color .3s; }
-.stp:hover .stp-n { color: rgba(26,68,163,.14); }
-.stp h3 { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; color: var(--navy); margin-bottom: 7px; line-height: 1.25; letter-spacing: -.005em; }
-.stp p { font-size: 12.5px; font-weight: 400; color: #4B5563; line-height: 1.7; }
+.proc-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 72px;
+}
 
+.steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-top: 1px solid var(--rule);
+}
+
+/* STEP */
+.stp {
+  padding: 40px 24px 40px 0;
+  border-right: 1px solid var(--rule);
+  transition: background .25s;
+  cursor: default;
+}
+
+.stp:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.stp:hover {
+  background: rgba(30,94,255,.04);
+}
+
+/* NUMBER */
+.stp-n {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.12;
+  transition: opacity .3s;
+}
+
+.stp:hover .stp-n {
+  opacity: 0.25;
+}
+
+/* TITLE */
+.stp h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 7px;
+  line-height: 1.25;
+}
+
+/* TEXT */
+.stp p {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.7;
+}
 /* AI */
 .ai-split { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
 .ai-h { font-family: 'Cormorant Garamond', serif; font-size: clamp(34px,4vw,54px); font-weight: 700; line-height: 1.05; color: var(--navy); margin-top: 16px; letter-spacing: -.01em; }
