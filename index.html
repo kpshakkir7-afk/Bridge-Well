@@ -1,10 +1,28 @@
 <style>
 :root {
-  --night: #07090F; --navy: #0B1F46; --ink: #0C1018;
-  --canvas: #F8F6F2; --white: #FFFFFF;
-  --gold: #BF9B6F; --gold-lt: #D4B896;
-  --blue: #1A44A3; --blue-h: #2358C8;
-  --muted: #6B7280; --rule: #E5E1DA;
+ :root 
+  {
+  /* BACKGROUND */
+  --night: #020617;
+  --navy: #0A2540;
+  --ink: #0C1018;
+  --canvas: #E6F0FF;
+
+  /* TEXT */
+  --white: #FFFFFF;
+  --muted: #94A3B8;
+
+  /* BRAND */
+  --blue: #1E5EFF;
+  --blue-h: #4F8CFF;
+
+  /* ACCENT */
+  --gold: #C9A86A;
+  --gold-lt: #E6C999;
+
+  /* UI */
+  --rule: rgba(255,255,255,0.08);
+}
 }
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { font-size: 16px; overflow-x: hidden; scroll-behavior: smooth; }
@@ -141,7 +159,7 @@ a { text-decoration: none; color: inherit; } ul { list-style: none; }
 .btn-primary {
   display: inline-flex; align-items: center; gap: 12px;
   font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
-  color: #fff; background: #1A44A3;
+  color: #fff; background: var(--blue);
   padding: 15px 38px; border-radius: 3px;
   position: relative; overflow: hidden;
   border: 1px solid rgba(91,143,255,.4);
@@ -155,7 +173,7 @@ a { text-decoration: none; color: inherit; } ul { list-style: none; }
 }
 .btn-primary:hover::before { transform: translateX(120%); }
 .btn-primary:hover {
-  background: #2358C8;
+  background: var(--blue-h);
   box-shadow: 0 0 0 1px rgba(91,143,255,.5), 0 8px 48px rgba(26,68,163,.55);
   transform: translateY(-3px);
 }
@@ -213,7 +231,7 @@ a { text-decoration: none; color: inherit; } ul { list-style: none; }
 .sec-h { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px,4.6vw,68px); font-weight: 700; line-height: 1.04; color: var(--navy); margin-top: 16px; letter-spacing: -.015em; }
 .sec-h em { font-style: italic; color: var(--blue); font-weight: 300; }
 .sec-h-white { color: #ffffff; }
-.sec-h-white em { color: #BF9B6F; font-weight: 300; }
+.sec-h-white em { color: var(--gold); font-weight: 300; }
 .sec-p { font-size: 16px; font-weight: 400; color: #4B5563; line-height: 1.8; }
 
 /* STATS */
