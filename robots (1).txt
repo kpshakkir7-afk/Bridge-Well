@@ -1,0 +1,23 @@
+# Bridgewell Advisory — robots.txt
+# https://bridgewell-advisory.in
+
+User-agent: *
+Allow: /
+
+# Allow Google's image crawler
+User-agent: Googlebot-Image
+Allow: /
+
+# Block common admin/utility paths (update if you add a CMS)
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /cdn-cgi/
+
+# Sitemap location — submit this to Google Search Console too
+Sitemap: https://bridgewell-advisory.in/sitemap.xml
+
+# Crawl delay (optional — removes pressure on server)
+Crawl-delay: 5
