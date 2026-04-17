@@ -1493,10 +1493,13 @@ body, p, li, a, span, div,
 .faq-item.open .faq-a { max-height: 260px; padding-bottom: 24px; }
 .faq-a strong { color: rgba(255,255,255,.8); font-weight: 500; }
 @media (max-width: 1024px) { .faq-inner { grid-template-columns: 1fr; gap: 40px; } .faq-left { position: static; } }
-.trusted-strip { background: rgba(7,11,53,.6); border-top: 1px solid rgba(255,255,255,.06); border-bottom: 1px solid rgba(255,255,255,.06); padding: 22px 0; overflow: hidden; }
-.trusted-inner { display: flex; gap: 56px; align-items: center; animation: strip-scroll 28s linear infinite; white-space: nowrap; width: max-content; }
-.trusted-item { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: rgba(196,162,88,.3); white-space: nowrap; }
-.trusted-item span { color: var(--blue); }
+.trusted-strip { position: relative; background: transparent; padding: 0; overflow: hidden; }
+.trusted-strip::before, .trusted-strip::after { content: ''; display: block; height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(196,162,88,.3) 20%, rgba(196,162,88,.3) 80%, transparent 100%); }
+.trusted-scroll-track { padding: 18px 0; overflow: hidden; }
+.trusted-inner { display: flex; gap: 0; align-items: center; animation: strip-scroll 38s linear infinite; white-space: nowrap; width: max-content; }
+.trusted-item { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.7); white-space: nowrap; padding: 0 24px; display: flex; align-items: center; gap: 24px; }
+.trusted-item::after { content: '◆'; font-size: 5px; color: rgba(196,162,88,.6); flex-shrink: 0; }
+.trusted-item span { color: var(--gold); font-weight: 700; }
 @keyframes strip-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
 /* ══════════════════════════════════════════════════
@@ -2037,7 +2040,10 @@ body.aw-line-height-2 p, body.aw-line-height-2 li { line-height: 2.6 !important;
     </div>
     <div class="hero-bottom" id="heroBot" style="opacity:0;transition:opacity .8s ease">
       <div class="scroll-cue"><div class="scroll-line"></div><span>Scroll to explore</span></div>
-      <div class="hero-contact"><a href="tel:+917904411277">+91 79044 11277</a> &nbsp;&middot;&nbsp; <a href="https://bridgewell-advisory.in" rel="noopener noreferrer">bridgewell-advisory.in</a></div>
+      <div class="hero-contact"><a href="tel:+917904411277" style="display:inline-flex;align-items:center;gap:7px;">
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  +91 79044 11277
+</a> &nbsp;&middot;&nbsp; <a href="https://bridgewell-advisory.in" rel="noopener noreferrer">bridgewell-advisory.in</a></div>
     </div>
   </div>
 </section>
@@ -2263,24 +2269,26 @@ body.aw-line-height-2 p, body.aw-line-height-2 li { line-height: 2.6 !important;
 </section>
 
 <!-- TRUSTED BY STRIP -->
-<div class="trusted-strip" aria-label="Trusted recruitment advisory across industries in India">
-  <div class="trusted-inner" id="trustedInner">
-    <span class="trusted-item"><span>Recruitment Advisory</span> India</span>
-    <span class="trusted-item"><span>Executive Search</span> Bengaluru</span>
-    <span class="trusted-item"><span>Leadership Hiring</span> Startups</span>
-    <span class="trusted-item"><span>CXO Hiring</span> India</span>
-    <span class="trusted-item"><span>Mid-Senior</span> Hiring Partner</span>
-    <span class="trusted-item"><span>Hiring Advisory</span> for Founders</span>
-    <span class="trusted-item"><span>Strategic</span> Hiring Advisory</span>
-    <span class="trusted-item"><span>Critical Role</span> Hiring Partner</span>
-    <span class="trusted-item"><span>Recruitment Advisory</span> India</span>
-    <span class="trusted-item"><span>Executive Search</span> Bengaluru</span>
-    <span class="trusted-item"><span>Leadership Hiring</span> Startups</span>
-    <span class="trusted-item"><span>CXO Hiring</span> India</span>
-    <span class="trusted-item"><span>Mid-Senior</span> Hiring Partner</span>
-    <span class="trusted-item"><span>Hiring Advisory</span> for Founders</span>
-    <span class="trusted-item"><span>Strategic</span> Hiring Advisory</span>
-    <span class="trusted-item"><span>Critical Role</span> Hiring Partner</span>
+<div class="trusted-strip" aria-label="Specialist recruitment advisory across industries in India" aria-hidden="true">
+  <div class="trusted-scroll-track">
+    <div class="trusted-inner" id="trustedInner">
+      <span class="trusted-item"><span>Recruitment Advisory</span> India</span>
+      <span class="trusted-item"><span>Executive Search</span> Bengaluru</span>
+      <span class="trusted-item"><span>Leadership Hiring</span> Startups</span>
+      <span class="trusted-item"><span>CXO Hiring</span> India</span>
+      <span class="trusted-item"><span>Mid-Senior</span> Hiring Partner</span>
+      <span class="trusted-item"><span>Hiring Advisory</span> for Founders</span>
+      <span class="trusted-item"><span>Strategic</span> Hiring Advisory</span>
+      <span class="trusted-item"><span>Critical Role</span> Hiring Partner</span>
+      <span class="trusted-item"><span>Recruitment Advisory</span> India</span>
+      <span class="trusted-item"><span>Executive Search</span> Bengaluru</span>
+      <span class="trusted-item"><span>Leadership Hiring</span> Startups</span>
+      <span class="trusted-item"><span>CXO Hiring</span> India</span>
+      <span class="trusted-item"><span>Mid-Senior</span> Hiring Partner</span>
+      <span class="trusted-item"><span>Hiring Advisory</span> for Founders</span>
+      <span class="trusted-item"><span>Strategic</span> Hiring Advisory</span>
+      <span class="trusted-item"><span>Critical Role</span> Hiring Partner</span>
+    </div>
   </div>
 </div>
 
@@ -2365,12 +2373,15 @@ body.aw-line-height-2 p, body.aw-line-height-2 li { line-height: 2.6 !important;
   </a>
 </li><li><a href="#services">Workforce Planning</a></li><li><a href="#services">AI-Powered TNA</a></li></ul></div>
       <div class="fc"><h5>HR Consulting</h5><ul><li><a href="#services">Payroll Management</a></li><li><a href="#services">Compliance Audit</a></li><li><a href="#services">Startup HR Setup</a></li></ul></div>
-      <div class="fc"><h5>Contact</h5><ul><li><a href="https://bridgewell-advisory.in" rel="noopener noreferrer">bridgewell-advisory.in</a></li><li><a href="tel:+917904411277">+91 79044 11277</a></li><li><a href="mailto:shakkir.kp@bridgewell-advisory.in" class="tm-email">
+      <div class="fc"><h5>Contact</h5><ul><li><a href="https://bridgewell-advisory.in" rel="noopener noreferrer">bridgewell-advisory.in</a></li><li><a href="tel:+917904411277">+91 79044 11277</a></li><li><a href="mailto:shakkir.kp@bridgewell-advisory.in" class="tm-email" style="display:inline-flex;align-items:center;gap:7px;">
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
   shakkir.kp@bridgewell-advisory.in
-         <li><a href="/recruitment-advisory-india">How hiring actually breaks in India </a></li>
-</a></li><li><a href="https://tally.so/r/2EJNAV" target="_blank" rel="noopener noreferrer">Book a Consultation &rarr;</a></li><li><a href="https://www.linkedin.com/company/bridgewell-advisory-inc" target="_blank" rel="noopener">LinkedIn &rarr;</a></li></ul></div>
+</a></li><li><a href="https://tally.so/r/2EJNAV" target="_blank" rel="noopener noreferrer">Book a Consultation &rarr;</a></li><li><a href="https://www.linkedin.com/company/bridgewell-advisory-inc" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:7px;">
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+  LinkedIn
+</a></li></ul></div>
     </div>
-    <div class="fbot"><p>&copy; 2026 Bridgewell Advisory. All rights reserved.</p><p><a href="https://bridgewell-advisory.in" rel="noopener noreferrer">bridgewell-advisory.in</a> &middot; Bengaluru, India &middot; <a href="https://www.linkedin.com/company/bridgewell-advisory-inc" target="_blank" rel="noopener">LinkedIn</a></p></div>
+    <div class="fbot"><p>&copy; 2026 Bridgewell Advisory. All rights reserved.</p><p><a href="https://bridgewell-advisory.in" rel="noopener noreferrer">bridgewell-advisory.in</a> &middot; Bengaluru, India &middot; <a href="https://www.linkedin.com/company/bridgewell-advisory-inc" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:5px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></p></div>
   </div>
 </footer>
 
