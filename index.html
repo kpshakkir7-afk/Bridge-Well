@@ -1762,6 +1762,25 @@ body.aw-line-height-2 p, body.aw-line-height-2 li { line-height: 2.6 !important;
 
 <!-- Scroll Progress Bar -->
 <div id="scroll-progress" aria-hidden="true"></div>
+     /* ───── GLOBAL PREMIUM MOTION SYSTEM ───── */
+.motion {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: 
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.motion.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* stagger delays */
+.m1 { transition-delay: 0.1s; }
+.m2 { transition-delay: 0.2s; }
+.m3 { transition-delay: 0.3s; }
+.m4 { transition-delay: 0.4s; }
 
 <!-- ══════════════════════════════════════════
      ACCESSIBILITY WIDGET  (Joveo / UserWay style)
