@@ -991,33 +991,66 @@ footer { background:var(--dark); padding:60px 0 28px; border-top:1px solid rgba(
   .cta-contacts     { flex-direction:column; align-items:center; gap:16px; }
   .compare          { grid-template-columns:1fr; }
 }
+ a:focus, button:focus {
+  outline: 2px solid #C0A27C;
+  outline-offset: 3px;
+}
 </style>
 </head>
-<body>
-<div id="reading-bar"></div>
 
+<body>
+
+<!-- GLOBAL ELEMENTS -->
+<div id="reading-bar"></div>
 <div id="cur-dot"></div>
 <div id="cur-ring"></div>
 
+<!-- MAIN START -->
+<main>
+
 <!-- ══ NAV ══ -->
-<nav id="nav">
-  <a href="/" class="nav-logo"><div class="nav-wm">Bridgewell</div><div class="nav-sub">Advisory</div></a>
+<nav id="nav" role="navigation" aria-label="Main Navigation">
+  <a href="/" class="nav-logo">
+    <div class="nav-wm">Bridgewell</div>
+    <div class="nav-sub">Advisory</div>
+  </a>
+
   <ul class="nav-links">
     <li><a href="/#services">Services</a></li>
     <li><a href="/#process">Our Method</a></li>
     <li><a href="/#sectors">Who We Serve</a></li>
     <li><a href="/#team">Team</a></li>
   </ul>
-  <a href="https://tally.so/r/2EJNAV" target="_blank" class="nav-cta">Book a Call</a>
-  <button class="nav-ham" id="navHam" aria-label="Open menu"><span></span><span></span><span></span></button>
-</nav>
-<div class="drawer" id="drawer">
-  <div class="drawer-hd"><div class="drawer-wm">Bridgewell</div><div class="drawer-tag">Executive Search &amp; HR Advisory</div></div>
-  <a href="/#services">Services</a><a href="/#process">Our Method</a>
-  <a href="/#sectors">Who We Serve</a><a href="/#team">Team</a>
-  <a href="https://tally.so/r/2EJNAV" target="_blank" class="drawer-cta">Book a Strategy Call →</a>
-</div>
 
+  <a href="https://tally.so/r/2EJNAV" target="_blank" class="nav-cta">
+    Book a Call
+  </a>
+
+  <button class="nav-ham" id="navHam"
+    aria-label="Open menu"
+    aria-expanded="false"
+    aria-controls="drawer">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- DRAWER -->
+<div class="drawer" id="drawer">
+  <div class="drawer-hd">
+    <div class="drawer-wm">Bridgewell</div>
+    <div class="drawer-tag">Executive Search &amp; HR Advisory</div>
+  </div>
+
+  <a href="/#services">Services</a>
+  <a href="/#process">Our Method</a>
+  <a href="/#sectors">Who We Serve</a>
+  <a href="/#team">Team</a>
+
+  <a href="https://tally.so/r/2EJNAV" target="_blank" class="drawer-cta">
+    Book a Strategy Call →
+  </a>
+</div>
+  
 <!-- ══════════════════════════════════════════
      HERO
 ══════════════════════════════════════════ -->
@@ -1738,7 +1771,52 @@ if(dot && ring && !('ontouchstart' in window)){
   if(dot)  dot.style.display  = 'none';
   if(ring) ring.style.display = 'none';
 }
+/* ======================================================
+   2. ACCESSIBILITY — READ PAGE (Text-to-Speech)
+====================================================== */
 
+var playBtn = document.getElementById("aw-read-play");
+var pauseBtn = document.getElementById("aw-read-pause");
+var stopBtn = document.getElementById("aw-read-stop");
+var status = document.getElementById("aw-read-status");
+
+var speech;
+
+if (playBtn) {
+  playBtn.onclick = function () {
+    var main = document.querySelector("main");
+    var text = main ? main.innerText : document.body.innerText;
+
+    speech = new SpeechSynthesisUtterance(text);
+    speech.lang = "en-IN";
+
+    speech.onstart = function () {
+      if (status) status.textContent = "Reading...";
+      if (pauseBtn) pauseBtn.disabled = false;
+      if (stopBtn) stopBtn.disabled = false;
+    };
+
+    speech.onend = function () {
+      if (status) status.textContent = "Finished";
+    };
+
+    window.speechSynthesis.speak(speech);
+  };
+}
+
+if (pauseBtn) {
+  pauseBtn.onclick = function () {
+    window.speechSynthesis.pause();
+    if (status) status.textContent = "Paused";
+  };
+}
+
+if (stopBtn) {
+  stopBtn.onclick = function () {
+    window.speechSynthesis.cancel();
+    if (status) status.textContent = "Stopped";
+  };
+}
 /* ─────────────────────────────────────────────────
    3. NAV SCROLL STATE
 ───────────────────────────────────────────────── */
