@@ -181,22 +181,48 @@
   "name": "Shakkir KP",
   "givenName": "Shakkir",
   "familyName": "KP",
+  "honorificSuffix": "SHRM-CP",
   "jobTitle": "Founder & Principal Recruitment Advisor",
-  "description": "Founder of Bridgewell Advisory — a specialist recruitment advisory and executive search firm in India. Works with founders, CXOs, and leadership teams on strategic hiring and HR advisory.",
+  "description": "Shakkir KP, SHRM-CP, is the founder of Bridgewell Advisory — a specialist recruitment advisory and executive search firm in India. He personally leads every mid-to-senior and CXO mandate, working directly with founders, CEOs, and leadership teams on strategic hiring, role definition, and HR advisory. Specialises in IT, Digital, E-Commerce, FMCG, and Renewable Energy.",
   "url": "https://bridgewell-advisory.in",
   "email": "shakkir.kp@bridgewell-advisory.in",
   "telephone": "+91-79044-11277",
+  "image": "https://bridgewell-advisory.in/shakkir-kp.jpg",
   "worksFor": { "@id": "https://bridgewell-advisory.in/#organization" },
-  "sameAs": ["https://www.linkedin.com/company/bridgewell-advisory-inc"],
+  "sameAs": [
+    "https://www.linkedin.com/in/shakkir-kp",
+    "https://www.linkedin.com/company/bridgewell-advisory-inc"
+  ],
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Professional Certification",
+      "name": "SHRM Certified Professional (SHRM-CP)",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "Society for Human Resource Management",
+        "url": "https://www.shrm.org"
+      }
+    }
+  ],
   "knowsAbout": [
-    "Recruitment Advisory",
-    "Executive Search",
+    "Recruitment Advisory India",
+    "Executive Search India",
+    "Mid to Senior Level Hiring",
     "Leadership Hiring",
     "CXO Hiring",
     "HR Consulting",
     "Startup HR",
-    "Talent Strategy"
+    "Talent Strategy",
+    "IT Recruitment",
+    "Digital Recruitment",
+    "E-Commerce Hiring",
+    "FMCG Hiring",
+    "Renewable Energy Hiring",
+    "Hiring Strategy",
+    "Role Definition and Intake"
   ],
+  "knowsLanguage": ["English", "Hindi", "Malayalam"],
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Bengaluru",
@@ -333,6 +359,22 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "We work with startups, founders, CXOs, and growing companies that need a strategic partner for critical hiring."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who leads engagements at Bridgewell Advisory?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every mandate is personally led by Shakkir KP, SHRM-CP, founder and principal advisor. Intake, role diagnosis, calibration, shortlist, and close — all run through one desk. No handoffs to junior recruiters and no account managers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What level of hiring does Bridgewell specialise in?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bridgewell specialises in mid-to-senior level hiring across India — Managers, Heads-of, VPs, Directors, and CXO roles in IT, Digital, E-Commerce, FMCG, and Renewable Energy. Not transactional volume hiring."
       }
     },
     {
@@ -2034,6 +2076,540 @@ body.aw-line-height-2 p, body.aw-line-height-2 li { line-height: 2.6 !important;
   animation:stickPulse 2.8s ease-out infinite; pointer-events:none;
 }
 @keyframes stickPulse { 0%{transform:scale(1);opacity:.7} 100%{transform:scale(1.3);opacity:0} }
+
+/* ══════════ STAT SOURCE CITATIONS ══════════ */
+.stat-src {
+  font-family:'Inter',sans-serif;
+  font-size:10.5px; font-weight:500;
+  color:var(--body-lt-2);
+  letter-spacing:.04em;
+  margin-top:14px; padding-top:12px;
+  border-top:1px solid rgba(8,20,98,.07);
+  display:block; font-style:italic;
+}
+.stat-src b { font-style:normal; font-weight:600; color:var(--blue); letter-spacing:.02em; }
+.stat-src::before {
+  content:''; display:inline-block;
+  width:14px; height:1px; background:var(--gold);
+  vertical-align:middle; margin-right:8px; margin-top:-2px;
+}
+
+/* ══════════ MEET THE FOUNDER — tight editorial ══════════ */
+#founder {
+  padding:96px 0;
+  position:relative;
+  background:#FAFBFF;
+  border-top:1px solid rgba(8,20,98,.06);
+  border-bottom:1px solid rgba(8,20,98,.06);
+}
+#founder::before, #founder::after {
+  content:''; position:absolute; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, rgba(196,162,88,.35), transparent);
+}
+#founder::before { top:0; }
+#founder::after  { bottom:0; }
+
+.fnd {
+  max-width:760px; margin:0 auto;
+  text-align:center;
+  padding:0 4%;
+}
+
+/* Eyebrow */
+.fnd-eye {
+  display:inline-flex; align-items:center; gap:14px;
+  margin-bottom:36px;
+}
+.fnd-eye-line {
+  width:32px; height:1px;
+  background:#C4A258;
+  display:inline-block;
+}
+.fnd-eye-txt {
+  font-family:'Inter', sans-serif;
+  font-size:10.5px; font-weight:600;
+  letter-spacing:.28em; text-transform:uppercase;
+  color:#C4A258;
+}
+
+/* Hero pull-quote */
+.fnd-pull {
+  position:relative;
+  margin:0 auto;
+  max-width:640px;
+  padding:0;
+}
+.fnd-pull-mark {
+  display:block;
+  font-family:'Cormorant Garamond', serif;
+  font-size:clamp(80px, 9vw, 130px);
+  line-height:.6;
+  color:rgba(196,162,88,.18);
+  margin-bottom:-12px;
+  user-select:none;
+  font-style:italic;
+}
+.fnd-pull p {
+  font-family:'Cormorant Garamond', serif;
+  font-size:clamp(24px, 3.2vw, 40px);
+  font-weight:400; font-style:italic;
+  line-height:1.28; letter-spacing:-.005em;
+  color:#09103A;
+  margin-bottom:18px;
+}
+.fnd-pull p:last-child { margin-bottom:0; }
+.fnd-pull p em {
+  font-style:italic;
+  color:#1A3FCC;
+  font-weight:500;
+  background:linear-gradient(180deg, transparent 60%, rgba(196,162,88,.18) 60%);
+  padding:0 2px;
+}
+.fnd-pull p strong {
+  font-style:normal; font-weight:700;
+  color:#09103A;
+}
+
+/* Signature block */
+.fnd-sig {
+  display:inline-flex; align-items:center; gap:18px;
+  margin-top:44px;
+  padding-top:28px;
+  position:relative;
+}
+.fnd-sig::before {
+  content:''; position:absolute; top:0; left:50%;
+  transform:translateX(-50%);
+  width:48px; height:1px;
+  background:rgba(8,20,98,.18);
+}
+.fnd-sig-line {
+  width:60px; height:18px;
+  color:#C4A258;
+  flex-shrink:0;
+}
+.fnd-sig-meta {
+  display:flex; flex-direction:column;
+  align-items:flex-start; gap:3px;
+  text-align:left;
+}
+.fnd-sig-name {
+  font-family:'Cormorant Garamond', serif;
+  font-size:22px; font-weight:700; font-style:italic;
+  color:#09103A; letter-spacing:.005em;
+  line-height:1;
+}
+.fnd-sig-role {
+  font-family:'Inter', sans-serif;
+  font-size:10.5px; font-weight:500;
+  letter-spacing:.16em; text-transform:uppercase;
+  color:rgba(8,20,98,.55);
+}
+
+/* Specialism pills */
+.fnd-pills {
+  display:flex; flex-wrap:wrap; justify-content:center;
+  gap:8px;
+  margin-top:36px;
+}
+.fnd-pill {
+  font-family:'Inter', sans-serif;
+  font-size:11.5px; font-weight:500;
+  letter-spacing:.04em;
+  color:#2E3A6B;
+  background:#fff;
+  border:1px solid rgba(8,20,98,.12);
+  padding:7px 14px;
+  border-radius:100px;
+  transition:all .22s ease;
+  cursor:default;
+}
+.fnd-pill:hover {
+  border-color:#C4A258;
+  background:#FFFBF0;
+  color:#09103A;
+  transform:translateY(-2px);
+}
+.fnd-pill--key {
+  background:#09103A;
+  color:#fff;
+  border-color:#09103A;
+  font-weight:600;
+  letter-spacing:.08em;
+}
+.fnd-pill--key:hover {
+  background:#1A3FCC;
+  border-color:#1A3FCC;
+  color:#fff;
+}
+
+/* CTAs */
+.fnd-cta {
+  display:flex; flex-wrap:wrap; justify-content:center;
+  gap:12px;
+  margin-top:36px;
+}
+
+/* Co-founder mention — small */
+.fnd-with {
+  display:flex; flex-wrap:wrap; justify-content:center;
+  align-items:baseline; gap:6px;
+  margin-top:48px;
+  padding-top:28px;
+  border-top:1px solid rgba(8,20,98,.08);
+  font-family:'Inter', sans-serif;
+  font-size:12.5px; font-weight:400;
+  color:rgba(8,20,98,.55);
+  line-height:1.6;
+}
+.fnd-with-l {
+  font-size:9.5px; font-weight:700;
+  letter-spacing:.22em; text-transform:uppercase;
+  color:#C4A258;
+  margin-right:4px;
+}
+.fnd-with-name {
+  font-family:'Cormorant Garamond', serif;
+  font-size:15px; font-weight:700; font-style:italic;
+  color:#09103A;
+  letter-spacing:.005em;
+}
+.fnd-with-role { color:rgba(8,20,98,.55); }
+
+/* Reveal animation timings */
+#founder .rv { opacity:0; transform:translateY(18px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); }
+#founder .rv.in { opacity:1; transform:translateY(0); }
+
+/* Mobile */
+@media(max-width:768px){
+  #founder { padding:64px 0; }
+  .fnd-pull p { font-size:22px; }
+  .fnd-pull-mark { font-size:72px; }
+  .fnd-cta { flex-direction:column; }
+  .fnd-cta .btn { width:100%; justify-content:center; }
+  .fnd-sig { gap:14px; flex-wrap:wrap; justify-content:center; }
+  .fnd-with { font-size:12px; }
+  .fnd-eye { margin-bottom:24px; }
+  .fnd-eye-line { width:22px; }
+}
+@media(max-width:480px){
+  #founder { padding:48px 0; }
+  .fnd-pull p { font-size:20px; line-height:1.32; }
+  .fnd-pull-mark { font-size:56px; }
+  .fnd-pill { font-size:11px; padding:6px 12px; }
+}
+
+/* ══════════ WHATSAPP BUTTONS ══════════ */
+:root { --wa-green:#25D366; --wa-green-h:#1DA851; }
+
+.nav-wa {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:38px; height:38px; border-radius:3px;
+  background:rgba(37,211,102,.12);
+  border:1px solid rgba(37,211,102,.4);
+  color:#5EEA95;
+  transition:all .25s;
+  flex-shrink:0;
+}
+.nav-wa:hover {
+  background:var(--wa-green); color:#fff;
+  border-color:var(--wa-green);
+  box-shadow:0 0 16px rgba(37,211,102,.4);
+}
+
+.btn-wa {
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:'Inter',sans-serif;
+  font-size:11.5px; font-weight:600; letter-spacing:.12em; text-transform:uppercase;
+  color:#fff;
+  background:var(--wa-green);
+  padding:14px 26px; border-radius:2px;
+  border:1px solid rgba(37,211,102,.4);
+  transition:background .25s, box-shadow .3s, transform .2s;
+  position:relative; overflow:hidden;
+}
+.btn-wa:hover {
+  background:var(--wa-green-h);
+  box-shadow:0 4px 28px rgba(37,211,102,.4);
+  transform:translateY(-2px);
+  color:#fff;
+}
+.btn-wa svg { flex-shrink:0; }
+
+/* Drawer mobile menu — WhatsApp + Book row */
+.drawer-cta-row {
+  display:flex; gap:10px; margin-top:32px;
+  flex-wrap:wrap;
+}
+.drawer-wa {
+  display:inline-flex !important; align-items:center; gap:8px;
+  font-family:'Inter', sans-serif !important;
+  font-size:12px !important; font-weight:600 !important;
+  letter-spacing:.12em !important; text-transform:uppercase !important;
+  color:#fff !important;
+  background:var(--wa-green) !important;
+  border:1px solid var(--wa-green) !important;
+  padding:13px 22px !important; border-radius:2px !important;
+  transition:all .25s !important;
+  border-bottom:1px solid var(--wa-green) !important;
+}
+.drawer-wa:hover {
+  background:var(--wa-green-h) !important;
+  border-color:var(--wa-green-h) !important;
+  box-shadow:0 0 18px rgba(37,211,102,.35) !important;
+}
+
+/* CTA section — WhatsApp contact link */
+.ct-wa {
+  color:#5EEA95 !important;
+}
+.ct-wa:hover { color:#fff !important; }
+.ct-wa svg { color:#5EEA95; }
+.ct-wa:hover svg { color:#fff; }
+
+/* Floating mobile WhatsApp button — bottom-right, only on mobile */
+#float-wa {
+  position:fixed;
+  bottom:88px; right:16px;
+  z-index:8950;
+  width:54px; height:54px;
+  border-radius:50%;
+  background:var(--wa-green);
+  border:2px solid #fff;
+  display:none; align-items:center; justify-content:center;
+  color:#fff;
+  box-shadow:0 6px 24px rgba(37,211,102,.45),
+             0 2px 8px rgba(0,0,0,.15);
+  text-decoration:none;
+  transition:transform .25s cubic-bezier(.22,1,.36,1), box-shadow .25s;
+}
+#float-wa:hover, #float-wa:focus-visible {
+  transform:scale(1.08);
+  background:var(--wa-green-h);
+  box-shadow:0 8px 32px rgba(37,211,102,.55),
+             0 0 0 4px rgba(37,211,102,.2);
+  outline:none;
+}
+#float-wa::before {
+  content:'';
+  position:absolute; inset:-6px;
+  border-radius:50%;
+  border:2px solid rgba(37,211,102,.4);
+  animation:waPulse 2.4s ease-out infinite;
+  pointer-events:none;
+}
+@keyframes waPulse {
+  0%   { transform:scale(1);   opacity:.7; }
+  100% { transform:scale(1.4); opacity:0;  }
+}
+@media(max-width:768px){
+  #float-wa { display:flex; }
+  #sticky-cta { bottom:80px !important; right:80px !important; left:auto !important; }
+}
+
+/* Dark-bg ghost */
+.btn-ghost-dk {
+  font-family:'Inter',sans-serif;
+  font-size:11.5px; font-weight:600; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink);
+  border:1px solid rgba(8,20,98,.18);
+  padding:14px 26px; border-radius:2px;
+  display:inline-flex; align-items:center; gap:8px;
+  transition:all .25s;
+  background:transparent;
+}
+.btn-ghost-dk:hover {
+  color:var(--blue); border-color:var(--blue);
+  background:rgba(26,63,204,.04);
+}
+
+/* Floating mobile WhatsApp button */
+#wa-float {
+  position:fixed; z-index:8800;
+  bottom:92px; right:20px;
+  width:54px; height:54px; border-radius:50%;
+  background:var(--wa-green);
+  color:#fff;
+  display:none; align-items:center; justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,.35), 0 0 0 0 rgba(37,211,102,.5);
+  transition:transform .25s, box-shadow .25s;
+  animation:waPulse 2.4s ease-out infinite;
+}
+#wa-float:hover {
+  transform:scale(1.08); background:var(--wa-green-h);
+  box-shadow:0 6px 28px rgba(37,211,102,.5);
+}
+@keyframes waPulse {
+  0% { box-shadow:0 4px 20px rgba(37,211,102,.35), 0 0 0 0 rgba(37,211,102,.5); }
+  60% { box-shadow:0 4px 20px rgba(37,211,102,.35), 0 0 0 18px rgba(37,211,102,0); }
+  100% { box-shadow:0 4px 20px rgba(37,211,102,.35), 0 0 0 0 rgba(37,211,102,0); }
+}
+
+/* ══════════ FOUNDER SECTION ══════════ */
+#founder {
+  background:
+    linear-gradient(180deg, rgba(245,247,255,0) 0%, rgba(245,247,255,.6) 100%),
+    #fff;
+  position:relative;
+  overflow:hidden;
+}
+#founder::before {
+  content:''; position:absolute; top:-200px; right:-150px;
+  width:500px; height:500px; border-radius:50%;
+  background:radial-gradient(circle, rgba(26,63,204,.05) 0%, transparent 65%);
+  pointer-events:none;
+}
+.founder-grid {
+  display:grid; grid-template-columns:minmax(260px, 1fr) 2fr;
+  gap:80px; align-items:start;
+  position:relative; z-index:1;
+}
+.founder-visual {
+  position:sticky; top:100px;
+  display:flex; flex-direction:column; align-items:center;
+  text-align:center;
+}
+.founder-mono {
+  width:220px; height:220px; border-radius:50%;
+  background:linear-gradient(155deg, #060930 0%, #081462 55%, #0C1A7A 100%);
+  border:1px solid rgba(196,162,88,.25);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Cormorant Garamond',serif;
+  font-size:82px; font-weight:600;
+  color:#fff; letter-spacing:.04em;
+  box-shadow:0 16px 48px rgba(8,20,98,.18), inset 0 0 0 6px rgba(196,162,88,.08);
+  position:relative;
+}
+.founder-mono::after {
+  content:''; position:absolute; inset:-8px;
+  border:1px solid rgba(196,162,88,.18);
+  border-radius:50%;
+  pointer-events:none;
+}
+.founder-cred {
+  margin-top:22px;
+  font-family:'Inter',sans-serif;
+  font-size:10.5px; font-weight:600;
+  letter-spacing:.22em; text-transform:uppercase;
+  color:var(--gold);
+  padding:6px 14px;
+  border:1px solid rgba(196,162,88,.35);
+  background:rgba(196,162,88,.06);
+  border-radius:2px;
+}
+.founder-links {
+  display:flex; gap:10px; margin-top:18px; justify-content:center;
+}
+.founder-links a {
+  width:36px; height:36px; border-radius:50%;
+  display:inline-flex; align-items:center; justify-content:center;
+  border:1px solid rgba(8,20,98,.15);
+  color:var(--ink-2);
+  transition:all .25s;
+}
+.founder-links a:hover {
+  border-color:var(--blue); color:var(--blue);
+  background:rgba(26,63,204,.05);
+}
+.founder-content .eyebrow { margin-bottom:18px; display:block; }
+.founder-h {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(34px,4.2vw,56px);
+  font-weight:700; line-height:1.04; letter-spacing:-.02em;
+  color:var(--ink);
+}
+.founder-h em {
+  font-style:italic; font-weight:300; color:var(--blue);
+}
+.founder-quote {
+  margin-top:32px; padding:26px 30px;
+  background:linear-gradient(135deg, rgba(26,63,204,.04), rgba(196,162,88,.04));
+  border-left:3px solid var(--gold);
+  border-radius:2px;
+  position:relative;
+}
+.founder-quote::before {
+  content:'"'; position:absolute;
+  top:-20px; left:18px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:90px; font-weight:700;
+  color:rgba(196,162,88,.22);
+  line-height:1;
+}
+.founder-quote p {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(18px,1.8vw,22px);
+  font-style:italic; font-weight:400;
+  color:var(--ink-2); line-height:1.55;
+  letter-spacing:-.005em;
+}
+.founder-bio {
+  margin-top:32px;
+  font-family:'Inter',sans-serif;
+  font-size:15px; font-weight:400;
+  color:var(--body-lt); line-height:1.85;
+}
+.founder-bio p + p { margin-top:16px; }
+.founder-bio strong { color:var(--ink); font-weight:600; }
+
+.founder-meta {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:0; margin-top:40px;
+  border-top:1px solid var(--border-lt);
+  border-bottom:1px solid var(--border-lt);
+}
+.fm-item {
+  padding:22px 18px;
+  border-right:1px solid var(--border-lt);
+}
+.fm-item:last-child { border-right:none; }
+.fm-n {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(28px,3vw,38px);
+  font-weight:700; line-height:1;
+  color:var(--blue); letter-spacing:-.01em;
+  display:block;
+}
+.fm-l {
+  font-family:'Inter',sans-serif;
+  font-size:11px; font-weight:500;
+  color:var(--body-lt-2); letter-spacing:.08em;
+  margin-top:8px; display:block; line-height:1.4;
+}
+.founder-signature {
+  margin-top:32px;
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic; font-size:18px;
+  color:var(--ink-2);
+}
+.founder-signature span {
+  display:block; font-family:'Inter',sans-serif;
+  font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--body-lt-2); margin-top:6px; font-style:normal;
+}
+.founder-cta {
+  display:flex; gap:12px; flex-wrap:wrap;
+  margin-top:32px;
+}
+
+/* Founder responsive */
+@media(max-width:900px){
+  .founder-grid { grid-template-columns:1fr; gap:44px; }
+  .founder-visual { position:static; flex-direction:row; gap:20px; justify-content:flex-start; text-align:left; }
+  .founder-mono { width:120px; height:120px; font-size:46px; }
+  .founder-mono::after { inset:-5px; }
+  .founder-cred { margin-top:0; }
+  .founder-links { justify-content:flex-start; margin-top:0; }
+  .founder-meta { grid-template-columns:1fr; }
+  .fm-item { border-right:none; border-bottom:1px solid var(--border-lt); padding:18px 0; }
+  .fm-item:last-child { border-bottom:none; }
+}
+@media(max-width:480px){
+  .founder-visual { flex-wrap:wrap; }
+  .founder-quote { padding:22px 20px; }
+  .founder-quote::before { font-size:70px; top:-15px; left:12px; }
+  .founder-cta .btn { width:100%; justify-content:center; }
+}
 </style>
 
 <!-- ══════════════════════════════════════════
@@ -2224,6 +2800,14 @@ body.aw-line-height-2 p, body.aw-line-height-2 li { line-height: 2.6 !important;
   Give it a Try
 </a>
 
+<!-- Floating mobile WhatsApp button -->
+<a id="float-wa"
+   href="https://wa.me/917904411277?text=Hi%20Shakkir%2C%20I%27d%20like%20to%20discuss%20a%20hiring%20mandate%20with%20Bridgewell."
+   target="_blank" rel="noopener noreferrer"
+   aria-label="Chat with Shakkir on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
 <!-- cursor -->
 <div id="cur-dot"></div>
 <div id="cur-ring"></div>
@@ -2253,8 +2837,14 @@ body.aw-line-height-2 p, body.aw-line-height-2 li { line-height: 2.6 !important;
   <a href="#services" onclick="closeDrawer()">Services</a>
   <a href="/recruitment-advisory-india" onclick="closeDrawer()">Hiring Insights</a>
   <a href="#approach" onclick="closeDrawer()">Approach</a>
-  <a href="#team" onclick="closeDrawer()">Team</a>
-  <a href="https://tally.so/r/2EJNAV" target="_blank" class="drawer-book" rel="noopener noreferrer">Book a Consultation &rarr;</a>
+  <a href="#founder" onclick="closeDrawer()">Founder</a>
+  <div class="drawer-cta-row">
+    <a href="https://wa.me/917904411277?text=Hi%20Shakkir%2C%20I%27d%20like%20to%20discuss%20a%20hiring%20mandate%20with%20Bridgewell." target="_blank" class="drawer-wa" rel="noopener noreferrer" aria-label="Chat with Shakkir on WhatsApp">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      WhatsApp
+    </a>
+    <a href="https://tally.so/r/2EJNAV" target="_blank" class="drawer-book" rel="noopener noreferrer">Book a Consultation &rarr;</a>
+  </div>
 </div>
 
 <!-- NAV -->
@@ -2270,9 +2860,12 @@ body.aw-line-height-2 p, body.aw-line-height-2 li { line-height: 2.6 !important;
     <a href="#about">About</a>
     <a href="#services">Services</a>
     <a href="#approach">Approach</a>
-    <a href="#team">Team</a>
+    <a href="#founder">Founder</a>
   </div>
-  <div style="display:flex;align-items:center;gap:14px">
+  <div style="display:flex;align-items:center;gap:10px">
+    <a href="https://wa.me/917904411277?text=Hi%20Shakkir%2C%20I%27d%20like%20to%20explore%20a%20hiring%20mandate%20with%20Bridgewell%20Advisory." target="_blank" class="nav-wa" rel="noopener noreferrer" aria-label="Chat with Shakkir on WhatsApp" title="WhatsApp Shakkir">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </a>
     <a href="https://tally.so/r/2EJNAV" target="_blank" class="nav-cta" rel="noopener noreferrer">Book a Consultation</a>
     <button class="nav-ham" id="navHam"><span></span><span></span><span></span></button>
   </div>
@@ -2318,6 +2911,10 @@ body.aw-line-height-2 p, body.aw-line-height-2 li { line-height: 2.6 !important;
         </div>
         <div class="hero-btns" id="heroBtns" style="opacity:0;transform:translateY(12px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)">
           <a href="https://tally.so/r/2EJNAV" target="_blank" class="btn btn-primary" rel="noopener noreferrer">Start a Conversation <span class="btn-arr">&#8594;</span></a>
+          <a href="https://wa.me/917904411277?text=Hi%20Shakkir%2C%20I%27d%20like%20to%20explore%20a%20hiring%20mandate%20with%20Bridgewell%20Advisory." target="_blank" class="btn btn-wa" rel="noopener noreferrer" aria-label="Message Shakkir on WhatsApp">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Chat on WhatsApp
+          </a>
           <a href="#services" class="btn btn-ghost">Our Services</a>
         </div>
       </div>
@@ -2353,10 +2950,10 @@ body.aw-line-height-2 p, body.aw-line-height-2 li { line-height: 2.6 !important;
 <section class="sec sec-off" style="padding:96px 0">
   <div class="wrap">
     <div class="stats-row">
-      <div class="stat rv"><div class="stat-num"><span class="ctr" data-to="40">0</span><b>%</b></div><div class="stat-label">of mid-senior hires underperform within their first 18 months</div></div>
-      <div class="stat rv d1"><div class="stat-num">3<b>&ndash;</b>5<b>&times;</b></div><div class="stat-label">annual salary lost on every single mis-hire at this level</div></div>
-      <div class="stat rv d2"><div class="stat-num"><span class="ctr" data-to="82">0</span><b>%</b></div><div class="stat-label">of role failures trace back to poor job definition at intake</div></div>
-      <div class="stat rv d3"><div class="stat-num"><span class="ctr" data-to="67">0</span><b>%</b></div><div class="stat-label">of startups operate without a structured hiring framework</div></div>
+      <div class="stat rv"><div class="stat-num"><span class="ctr" data-to="40">0</span><b>%</b></div><div class="stat-label">of executives hired at the senior level are pushed out, fail or quit within 18 months</div><div class="stat-src"><b>Source:</b> Heidrick &amp; Struggles, via <em>Financial Times</em></div></div>
+      <div class="stat rv d1"><div class="stat-num">3<b>&ndash;</b>5<b>&times;</b></div><div class="stat-label">annual salary lost on every single mis-hire at this level</div><div class="stat-src"><b>Source:</b> U.S. Dept. of Labor &middot; SHRM</div></div>
+      <div class="stat rv d2"><div class="stat-num"><span class="ctr" data-to="82">0</span><b>%</b></div><div class="stat-label">of hiring managers admit they spotted warning signs at interview &mdash; and ignored them</div><div class="stat-src"><b>Source:</b> Leadership IQ, <em>Hiring for Attitude</em> (5,247 hiring managers)</div></div>
+      <div class="stat rv d3"><div class="stat-num">5<b>&times;</b></div><div class="stat-label">more likely to make a bad hire when there&rsquo;s no consistent interview process</div><div class="stat-src"><b>Source:</b> SHRM benchmarking research</div></div>
     </div>
   </div>
 </section>
@@ -2497,15 +3094,69 @@ body.aw-line-height-2 p, body.aw-line-height-2 li { line-height: 2.6 !important;
   </div>
 </section>
 
-<!-- TEAM -->
-<section id="team" class="sec sec-white">
+<!-- ════════════════════════════════════════════
+     MEET THE FOUNDER — Editorial · single screen
+════════════════════════════════════════════ -->
+<section id="founder" class="sec sec-white" itemscope itemtype="https://schema.org/Person">
   <div class="wrap">
-    <div class="eyebrow rv">The Team</div>
-    <h2 class="sec-h rv d1" style="margin-bottom:0">Senior practitioners.<br><em>Not account managers.</em></h2>
-    <p class="sec-p rv d2" style="max-width:480px;margin-top:14px">Every client relationship is personally led by the people who do the actual work. No hand-offs. No surprises.</p>
-    <div class="team-grid">
-      <div class="tm rv d2"><div class="tm-av">SK</div><div><div class="tm-name">Shakkir K P</div><div class="tm-role">SHRM-CP &middot; Founder &amp; Principal Consultant</div><div class="tm-bio">Leads all strategic client engagements personally. Specialises in IT, Digital, E-Commerce, FMCG and Renewable Energy. Every mandate from intake to close, no exceptions.</div><a href="/cdn-cgi/l/email-protection#f3809b9298989a81dd9883b391819a97949684969f9fde9297859a809c818add9a9d" class="tm-email"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> <span class="__cf_email__" data-cfemail="3a49525b5151534814514a7a5848535e5d5f4d5f5656175b5e4c5349554843145354">[email&#160;protected]</span></a></div></div>
-      <div class="tm rv d3"><div class="tm-av" style="background:linear-gradient(135deg,#0C1A7A,#081462);color:#E8C98A">ZS</div><div><div class="tm-name">Zaira S</div><div class="tm-role">Cofounder &amp;Talent Acquisition Partner</div><div class="tm-bio">Manages the full recruitment lifecycle from requirement mapping through to final closure. Focused on quality pipelines, structured communication and seamless experience at every touchpoint.</div><a href="/cdn-cgi/l/email-protection#e99388809b88c79aa98b9b808d8e8c9e8c8585c4888d9f809a869b90c78087" class="tm-email"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> <span class="__cf_email__" data-cfemail="413b202833206f320123332825262436242d2d6c20253728322e33386f282f">[email&#160;protected]</span></a></div></div>
+    <div class="fnd">
+
+      <!-- Eyebrow -->
+      <div class="fnd-eye rv">
+        <span class="fnd-eye-line"></span>
+        <span class="fnd-eye-txt">Meet the Founder</span>
+        <span class="fnd-eye-line"></span>
+      </div>
+
+      <!-- Hero pull-quote -->
+      <blockquote class="fnd-pull rv d1" itemprop="description">
+        <span class="fnd-pull-mark" aria-hidden="true">&ldquo;</span>
+        <p>I started Bridgewell because too many founders were handing their most consequential <em>mid-to-senior</em> and <em>CXO hires</em> to junior recruiters &mdash; and paying for it eighteen months later.</p>
+        <p>Here, every mandate begins on my desk and ends on my desk. <strong>No handoffs. No exceptions.</strong></p>
+      </blockquote>
+
+      <!-- Signature -->
+      <div class="fnd-sig rv d2">
+        <svg class="fnd-sig-line" viewBox="0 0 80 20" aria-hidden="true">
+          <path d="M2 14 Q 12 4, 22 12 T 42 10 T 62 12 T 78 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <div class="fnd-sig-meta">
+          <span class="fnd-sig-name" itemprop="name">Shakkir KP</span>
+          <span class="fnd-sig-role" itemprop="jobTitle">SHRM-CP &middot; Founder &amp; Principal Advisor &middot; Bengaluru</span>
+        </div>
+      </div>
+
+      <!-- Inline credentials / specialisms -->
+      <div class="fnd-pills rv d3" aria-label="Specialisms">
+        <span class="fnd-pill fnd-pill--key">SHRM-CP</span>
+        <span class="fnd-pill fnd-pill--key">Mid &mdash; CXO Mandates</span>
+        <span class="fnd-pill">IT</span>
+        <span class="fnd-pill">Digital</span>
+        <span class="fnd-pill">E-Commerce</span>
+        <span class="fnd-pill">FMCG</span>
+        <span class="fnd-pill">Renewable Energy</span>
+      </div>
+
+      <!-- CTAs -->
+      <div class="fnd-cta rv d4">
+        <a href="https://wa.me/917904411277?text=Hi%20Shakkir%2C%20I%27d%20like%20to%20discuss%20a%20senior%20hiring%20mandate."
+           target="_blank" rel="noopener noreferrer"
+           class="btn btn-wa" aria-label="Message Shakkir on WhatsApp">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          WhatsApp Shakkir
+        </a>
+        <a href="https://tally.so/r/2EJNAV" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          Book a 30-min call <span class="btn-arr">&rarr;</span>
+        </a>
+      </div>
+
+      <!-- Co-founder mention — small, unobtrusive -->
+      <div class="fnd-with rv d5">
+        <span class="fnd-with-l">With</span>
+        <span class="fnd-with-name">Zaira S</span>
+        <span class="fnd-with-role">Co-founder &amp; Talent Acquisition Partner &mdash; runs every search lifecycle from requirement mapping to final closure.</span>
+      </div>
+
     </div>
   </div>
 </section>
@@ -2550,6 +3201,7 @@ body.aw-line-height-2 p, body.aw-line-height-2 li { line-height: 2.6 !important;
       <div class="cta-contacts rv d5">
         <a href="https://bridgewell-advisory.in" class="ct" rel="noopener noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> bridgewell-advisory.in</a>
         <a href="tel:+917904411277" class="ct"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> +91 79044 11277</a>
+        <a href="https://wa.me/917904411277?text=Hi%20Shakkir%2C%20I%27d%20like%20to%20discuss%20a%20hiring%20mandate%20with%20Bridgewell." target="_blank" class="ct ct-wa" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> WhatsApp</a>
         <a href="/cdn-cgi/l/email-protection#5b28333a3030322975302b1b3929323f3c3e2c3e3737763a3f2d3228342922753235" class="ct"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> <span class="__cf_email__" data-cfemail="e09388818b8b8992ce8b90a082928984878597858c8ccd81849689938f9299ce898e">[email&#160;protected]</span></a>
         <a href="/cdn-cgi/l/email-protection#a6dcc7cfd4c788d5e6c4d4cfc2c1c3d1c3caca8bc7c2d0cfd5c9d4df88cfc8" class="ct"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> <span class="__cf_email__" data-cfemail="b9c3d8d0cbd897caf9dbcbd0dddedccedcd5d594d8ddcfd0cad6cbc097d0d7">[email&#160;protected]</span></a>
       </div>
