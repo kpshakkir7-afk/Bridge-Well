@@ -995,6 +995,32 @@ footer { background:var(--dark); padding:60px 0 28px; border-top:1px solid rgba(
   outline: 2px solid #C0A27C;
   outline-offset: 3px;
 }
+  #aw-trigger {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99999;
+  background: #C0A27C;
+  color: #000;
+  border: none;
+  padding: 12px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+#aw-panel {
+  position: fixed;
+  right: 20px;
+  bottom: 80px;
+  width: 260px;
+  background: #111;
+  color: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  display: none;
+  z-index: 99999;
+}
 </style>
 </head>
 
@@ -2105,6 +2131,22 @@ if(!prefersReducedMotion){
 
 })(); /* end IIFE */
 </script>
+
+<!-- ACCESSIBILITY TRIGGER -->
+<button id="aw-trigger" aria-label="Accessibility Options">
+  ⚙️
+</button>
+
+<!-- ACCESSIBILITY PANEL -->
+<div id="aw-panel">
+  <p style="font-size:14px; margin-bottom:10px;">Accessibility</p>
+  <button id="aw-read-play">Read</button>
+  <button id="aw-read-pause">Pause</button>
+  <button id="aw-read-stop">Stop</button>
+  <div id="aw-read-status" style="font-size:12px; margin-top:6px;"></div>
+</div>
+
+<script src="accessibility.js"></script>
 
 </body>
 </html>
