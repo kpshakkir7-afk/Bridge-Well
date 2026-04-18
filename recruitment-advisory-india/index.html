@@ -71,12 +71,12 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,600;1,9..144,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
 
 <style>
 /* ════════════════════════════════════════════════════
    BRIDGEWELL ADVISORY — Design System v3
-   Fraunces (display) + Plus Jakarta Sans (body)
+   Playfair Display (display) + Manrope (body)
    Palette: Forest #1B3E2C · Stone #C0A27C · Dark #0C0C0A
 ════════════════════════════════════════════════════ */
 
@@ -114,7 +114,7 @@
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 html { font-size:16px; scroll-behavior:smooth; overflow-x:hidden; }
 body {
-  font-family:'Plus Jakarta Sans',sans-serif;
+  font-family:'Manrope',sans-serif;
   font-weight:400; line-height:1.7;
   background:var(--canvas); color:var(--ink);
   -webkit-font-smoothing:antialiased;
@@ -208,17 +208,13 @@ body.cursor-hover #cur-dot {
 /* ─────────────────────────────────────────────────
    TYPOGRAPHY — Full Optical-Size System
 
-   Fraunces supports the opsz axis (9–144).
-   Larger headings use opsz 144 for maximum
-   display impact. Smaller uses opsz 72 for
-   tighter control.
+   Premium serif display + modern sans body pairing
+   tuned for a corporate editorial look.
 ───────────────────────────────────────────────── */
 
 /* H1 — Hero display. Massive, compressed. */
 .h1-display {
-  font-family:'Fraunces',serif;
-  font-optical-sizing:auto;
-  font-variation-settings:'opsz' 144;
+  font-family:'Playfair Display',serif;
   font-size:clamp(46px,6.2vw,92px);
   font-weight:700;
   line-height:.97;
@@ -229,14 +225,11 @@ body.cursor-hover #cur-dot {
   font-style:italic;
   font-weight:300;
   color:rgba(255,255,255,.3);
-  font-variation-settings:'opsz' 144;
 }
 
 /* H2 — Section headings */
 .h2 {
-  font-family:'Fraunces',serif;
-  font-optical-sizing:auto;
-  font-variation-settings:'opsz' 72;
+  font-family:'Playfair Display',serif;
   font-size:clamp(30px,3.8vw,54px);
   font-weight:700;
   line-height:1.05;
@@ -249,8 +242,7 @@ body.cursor-hover #cur-dot {
 
 /* H3 — Sub-section / regional headings */
 .h3 {
-  font-family:'Fraunces',serif;
-  font-variation-settings:'opsz' 48;
+  font-family:'Playfair Display',serif;
   font-size:clamp(20px,2.4vw,34px);
   font-weight:700;
   line-height:1.12;
@@ -263,8 +255,7 @@ body.cursor-hover #cur-dot {
 
 /* H4 — Card headings */
 .h4 {
-  font-family:'Fraunces',serif;
-  font-variation-settings:'opsz' 36;
+  font-family:'Playfair Display',serif;
   font-size:clamp(16px,1.7vw,22px);
   font-weight:700;
   line-height:1.22;
@@ -439,7 +430,7 @@ body.cursor-hover #cur-dot {
 .card-left-bar:hover::before   { transform:scaleY(1); }
 
 /* Ghost number behind card content */
-.card-n    { font-family:'Fraunces',serif; font-size:52px; font-weight:900; color:rgba(26,26,22,.05);   line-height:1; letter-spacing:-.03em; margin-bottom:16px; }
+.card-n    { font-family:'Playfair Display',serif; font-size:52px; font-weight:900; color:rgba(26,26,22,.05);   line-height:1; letter-spacing:-.03em; margin-bottom:16px; }
 .card-n-dk { color:rgba(255,255,255,.05); }
 
 /* ─────────────────────────────────────────────────
@@ -453,7 +444,7 @@ body.cursor-hover #cur-dot {
 }
 .stat-item:hover { background:rgba(255,255,255,.055); }
 .stat-n {
-  font-family:'Fraunces',serif; font-size:52px; font-weight:700;
+  font-family:'Playfair Display',serif; font-size:52px; font-weight:700;
   color:var(--forest-3); line-height:1; letter-spacing:-.03em; margin-bottom:10px;
   transition:color var(--dur-base) ease;
 }
@@ -618,7 +609,7 @@ body.cursor-hover #cur-dot {
   border-color:rgba(255,255,255,.06);
 }
 .nav-logo       { display:flex; flex-direction:column; cursor:pointer; }
-.nav-wm         { font-family:'Fraunces',serif; font-size:19px; font-weight:700; color:#fff; letter-spacing:-.01em; line-height:1; }
+.nav-wm         { font-family:'Playfair Display',serif; font-size:19px; font-weight:700; color:#fff; letter-spacing:-.01em; line-height:1; }
 .nav-sub        { font-size:8.5px; font-weight:500; letter-spacing:.22em; color:rgba(255,255,255,.28); text-transform:uppercase; margin-top:3px; }
 .nav-links      { display:flex; gap:36px; }
 .nav-links a {
@@ -670,10 +661,10 @@ body.cursor-hover #cur-dot {
 }
 .drawer.open { transform:none; }
 .drawer-hd { margin-bottom:52px; padding-bottom:32px; border-bottom:1px solid var(--border-dk); }
-.drawer-wm  { font-family:'Fraunces',serif; font-size:22px; font-weight:700; color:#fff; }
+.drawer-wm  { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:#fff; }
 .drawer-tag { font-size:9px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color:rgba(255,255,255,.28); margin-top:5px; }
 .drawer a {
-  font-family:'Fraunces',serif; font-size:38px; font-weight:600;
+  font-family:'Playfair Display',serif; font-size:38px; font-weight:600;
   color:rgba(255,255,255,.48); padding:15px 0;
   border-bottom:1px solid var(--border-dk); display:block;
   transition:color var(--dur-fast) ease, padding-left var(--dur-fast) ease;
@@ -683,7 +674,7 @@ body.cursor-hover #cur-dot {
 .drawer a:hover { color:#fff; padding-left:8px; }
 .drawer-cta {
   margin-top:36px; display:inline-flex !important;
-  font-family:'Plus Jakarta Sans',sans-serif !important;
+  font-family:'Manrope',sans-serif !important;
   font-size:11px !important; font-weight:700 !important;
   letter-spacing:.1em !important; text-transform:uppercase !important;
   color:var(--stone-lt) !important; border:1px solid rgba(192,162,124,.3) !important;
@@ -878,7 +869,7 @@ body.cursor-hover #cur-dot {
   width:100%; background:none; border:none; cursor:pointer;
   display:flex; align-items:center; justify-content:space-between;
   padding:20px 0; text-align:left;
-  font-family:'Fraunces',serif; font-size:18px; font-weight:700;
+  font-family:'Playfair Display',serif; font-size:18px; font-weight:700;
   color:var(--ink); letter-spacing:-.008em;
   transition:color var(--dur-fast) ease;
 }
@@ -921,7 +912,7 @@ body.cursor-hover #cur-dot {
 .fee-row:hover { background:var(--canvas-3); }
 .fee-name  { font-size:14px; font-weight:300; color:var(--ink-2); }
 .fee-range {
-  font-family:'Fraunces',serif; font-size:16px; font-weight:700; color:var(--forest);
+  font-family:'Playfair Display',serif; font-size:16px; font-weight:700; color:var(--forest);
   transition:color var(--dur-fast) ease;
 }
 .fee-row:hover .fee-range { color:var(--forest-2); }
@@ -931,7 +922,7 @@ body.cursor-hover #cur-dot {
 ───────────────────────────────────────────────── */
 footer { background:var(--dark); padding:60px 0 28px; border-top:1px solid rgba(192,162,124,.08); }
 .ft { display:grid; grid-template-columns:2fr 1fr 1fr 1.2fr; gap:56px; padding-bottom:44px; border-bottom:1px solid var(--border-dk); }
-.fb-wm  { font-family:'Fraunces',serif; font-size:19px; font-weight:700; color:#fff; letter-spacing:-.01em; }
+.fb-wm  { font-family:'Playfair Display',serif; font-size:19px; font-weight:700; color:#fff; letter-spacing:-.01em; }
 .fb-tag { font-size:8.5px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color:rgba(255,255,255,.22); margin-top:4px; }
 .fb-p   { font-size:13px; font-weight:300; color:rgba(255,255,255,.34); line-height:1.8; max-width:270px; margin-top:16px; }
 .fc h5  { font-size:9px; font-weight:700; letter-spacing:.24em; text-transform:uppercase; color:rgba(192,162,124,.48); margin-bottom:20px; }
@@ -995,31 +986,121 @@ footer { background:var(--dark); padding:60px 0 28px; border-top:1px solid rgba(
   outline: 2px solid #C0A27C;
   outline-offset: 3px;
 }
-  #aw-trigger {
+#aw-trigger {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 18px;
+  right: 18px;
   z-index: 99999;
   background: #C0A27C;
-  color: #000;
-  border: none;
-  padding: 12px 14px;
+  color: #0C0C0A;
+  border: 1px solid rgba(12,12,10,.12);
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 28px rgba(0,0,0,.18);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+#aw-trigger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(0,0,0,.26);
+  background: #d0b08a;
+}
+#aw-trigger:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
 }
 
 #aw-panel {
   position: fixed;
-  right: 20px;
-  bottom: 80px;
-  width: 260px;
-  background: #111;
+  right: 18px;
+  bottom: 86px;
+  width: min(330px, calc(100vw - 24px));
+  background: #12120f;
   color: #fff;
   padding: 16px;
-  border-radius: 12px;
-  display: none;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.12);
   z-index: 99999;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+}
+#aw-panel.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+#aw-panel p {
+  font-size: 14px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  letter-spacing: .03em;
+}
+#aw-top {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:8px;
+}
+#aw-close {
+  border: 1px solid rgba(255,255,255,.2);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  font-size: 15px;
+}
+#aw-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+#aw-panel button {
+  border: 1px solid rgba(255,255,255,.25);
+  background: transparent;
+  color: #fff;
+  font-size: 13px;
+  border-radius: 999px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+#aw-read-play {
+  background: rgba(192,162,124,.2);
+  border-color: rgba(192,162,124,.5);
+}
+#aw-panel button:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+#aw-panel button:hover {
+  background: rgba(255,255,255,.14);
+}
+#aw-panel button:focus-visible {
+  outline: 2px solid #C0A27C;
+  outline-offset: 2px;
+}
+#aw-read-status {
+  font-size: 12px;
+  margin-top: 10px;
+  color: rgba(255,255,255,.78);
+  min-height: 18px;
+}
+@media (max-width: 640px) {
+  #aw-trigger { bottom: 12px; right: 12px; }
+  #aw-panel { right: 12px; bottom: 78px; }
 }
 </style>
 </head>
@@ -1568,7 +1649,7 @@ footer { background:var(--dark); padding:60px 0 28px; border-top:1px solid rgba(
 
       <div class="rv d3">
         <div style="background:var(--canvas-2);padding:32px;border:1px solid var(--border);border-left:3px solid var(--forest);">
-          <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:300;font-style:italic;color:var(--ink);line-height:1.45;letter-spacing:-.01em;">"We take a limited number of retained mandates at any time. Every mandate receives genuine senior partner attention — which requires that we don't take every mandate."</div>
+          <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:300;font-style:italic;color:var(--ink);line-height:1.45;letter-spacing:-.01em;">"We take a limited number of retained mandates at any time. Every mandate receives genuine senior partner attention — which requires that we don't take every mandate."</div>
           <div style="font-size:9.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-4);margin-top:14px;">— Bridgewell Advisory</div>
         </div>
 
@@ -1800,48 +1881,155 @@ if(dot && ring && !('ontouchstart' in window)){
 /* ======================================================
    2. ACCESSIBILITY — READ PAGE (Text-to-Speech)
 ====================================================== */
+function initAccessibilityWidget(){
+  var playBtn = document.getElementById("aw-read-play");
+  var pauseBtn = document.getElementById("aw-read-pause");
+  var stopBtn = document.getElementById("aw-read-stop");
+  var closeBtn = document.getElementById("aw-close");
+  var status = document.getElementById("aw-read-status");
+  var awTrigger = document.getElementById("aw-trigger");
+  var awPanel = document.getElementById("aw-panel");
+  var speech;
+  var hasSpeech = "speechSynthesis" in window && "SpeechSynthesisUtterance" in window;
+  var isSpeaking = false;
+  var isPaused = false;
 
-var playBtn = document.getElementById("aw-read-play");
-var pauseBtn = document.getElementById("aw-read-pause");
-var stopBtn = document.getElementById("aw-read-stop");
-var status = document.getElementById("aw-read-status");
+  if (!awTrigger || !awPanel) return;
 
-var speech;
+  function setStatus(message){
+    if (status) status.textContent = message;
+  }
+  function updateControls(){
+    if (!pauseBtn || !stopBtn || !playBtn) return;
+    pauseBtn.disabled = !isSpeaking;
+    stopBtn.disabled = !isSpeaking;
+    pauseBtn.textContent = isPaused ? "Resume" : "Pause";
+    playBtn.textContent = isSpeaking && !isPaused ? "Reading…" : "Read Aloud";
+  }
+  var closeAccessibilityPanel = function () {
+    awPanel.classList.remove("open");
+    awTrigger.setAttribute("aria-expanded", "false");
+  };
+  var openAccessibilityPanel = function () {
+    awPanel.classList.add("open");
+    awTrigger.setAttribute("aria-expanded", "true");
+  };
+  awTrigger.addEventListener("click", function () {
+    if (awPanel.classList.contains("open")) closeAccessibilityPanel();
+    else openAccessibilityPanel();
+  });
+  document.addEventListener("click", function (e) {
+    if (!awPanel.classList.contains("open")) return;
+    if (awPanel.contains(e.target) || awTrigger.contains(e.target)) return;
+    closeAccessibilityPanel();
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && awPanel.classList.contains("open")) {
+      closeAccessibilityPanel();
+      awTrigger.focus();
+    }
+  });
+  if (closeBtn) {
+    closeBtn.addEventListener("click", function () {
+      closeAccessibilityPanel();
+      awTrigger.focus();
+    });
+  }
 
-if (playBtn) {
-  playBtn.onclick = function () {
+  if (!hasSpeech) {
+    if (playBtn) playBtn.disabled = true;
+    if (pauseBtn) pauseBtn.disabled = true;
+    if (stopBtn) stopBtn.disabled = true;
+    setStatus("Read aloud is not supported in this browser.");
+    return;
+  }
+
+  function readPageText(){
     var main = document.querySelector("main");
-    var text = main ? main.innerText : document.body.innerText;
+    if (!main) return "";
+    var text = main.innerText || "";
+    return text.replace(/\s+/g, " ").trim();
+  }
 
-    speech = new SpeechSynthesisUtterance(text);
-    speech.lang = "en-IN";
+  updateControls();
+  setStatus("Ready to read this page.");
 
-    speech.onstart = function () {
-      if (status) status.textContent = "Reading...";
-      if (pauseBtn) pauseBtn.disabled = false;
-      if (stopBtn) stopBtn.disabled = false;
+  if (playBtn) {
+    playBtn.onclick = function () {
+      if (isSpeaking && isPaused) {
+        window.speechSynthesis.resume();
+        isPaused = false;
+        setStatus("Reading resumed.");
+        updateControls();
+        return;
+      }
+      var text = readPageText();
+      if (!text) {
+        setStatus("Nothing to read on this page.");
+        return;
+      }
+
+      window.speechSynthesis.cancel();
+      speech = new SpeechSynthesisUtterance(text);
+      speech.lang = "en-IN";
+      speech.rate = 1;
+      speech.pitch = 1;
+
+      speech.onstart = function () {
+        isSpeaking = true;
+        isPaused = false;
+        setStatus("Reading...");
+        updateControls();
+      };
+
+      speech.onend = function () {
+        isSpeaking = false;
+        isPaused = false;
+        setStatus("Finished reading.");
+        updateControls();
+      };
+
+      speech.onerror = function () {
+        isSpeaking = false;
+        isPaused = false;
+        setStatus("Could not start read aloud.");
+        updateControls();
+      };
+
+      window.speechSynthesis.speak(speech);
     };
+  }
 
-    speech.onend = function () {
-      if (status) status.textContent = "Finished";
+  if (pauseBtn) {
+    pauseBtn.onclick = function () {
+      if (!isSpeaking) return;
+      if (isPaused) {
+        window.speechSynthesis.resume();
+        isPaused = false;
+        setStatus("Reading resumed.");
+      } else {
+        window.speechSynthesis.pause();
+        isPaused = true;
+        setStatus("Paused.");
+      }
+      updateControls();
     };
+  }
 
-    window.speechSynthesis.speak(speech);
-  };
+  if (stopBtn) {
+    stopBtn.onclick = function () {
+      window.speechSynthesis.cancel();
+      isSpeaking = false;
+      isPaused = false;
+      setStatus("Stopped.");
+      updateControls();
+    };
+  }
 }
-
-if (pauseBtn) {
-  pauseBtn.onclick = function () {
-    window.speechSynthesis.pause();
-    if (status) status.textContent = "Paused";
-  };
-}
-
-if (stopBtn) {
-  stopBtn.onclick = function () {
-    window.speechSynthesis.cancel();
-    if (status) status.textContent = "Stopped";
-  };
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initAccessibilityWidget);
+} else {
+  initAccessibilityWidget();
 }
 /* ─────────────────────────────────────────────────
    3. NAV SCROLL STATE
@@ -2133,20 +2321,29 @@ if(!prefersReducedMotion){
 </script>
 
 <!-- ACCESSIBILITY TRIGGER -->
-<button id="aw-trigger" aria-label="Accessibility Options">
-  ⚙️
+<button
+  id="aw-trigger"
+  aria-label="Accessibility options"
+  aria-controls="aw-panel"
+  aria-expanded="false"
+  aria-haspopup="dialog"
+  type="button">
+  A11Y
 </button>
 
 <!-- ACCESSIBILITY PANEL -->
-<div id="aw-panel">
-  <p style="font-size:14px; margin-bottom:10px;">Accessibility</p>
-  <button id="aw-read-play">Read</button>
-  <button id="aw-read-pause">Pause</button>
-  <button id="aw-read-stop">Stop</button>
-  <div id="aw-read-status" style="font-size:12px; margin-top:6px;"></div>
+<div id="aw-panel" role="dialog" aria-label="Accessibility options panel" aria-modal="false">
+  <div id="aw-top">
+    <p>Read Aloud</p>
+    <button id="aw-close" type="button" aria-label="Close accessibility panel">×</button>
+  </div>
+  <div id="aw-actions">
+    <button id="aw-read-play" type="button">Read Aloud</button>
+    <button id="aw-read-pause" type="button">Pause</button>
+    <button id="aw-read-stop" type="button">Stop</button>
+  </div>
+  <div id="aw-read-status" aria-live="polite"></div>
 </div>
-
-<script src="accessibility.js"></script>
 
 </body>
 </html>
