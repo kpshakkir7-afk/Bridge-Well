@@ -3944,7 +3944,7 @@ document.querySelectorAll('.sec-h-underline').forEach(function(el){ ulObs.observ
   const ctx     = canvas.getContext('2d');
 
   let W, H, CX, CY, raf;
-  const N   = 7000;
+  const N   = 12000;
   const PHI = Math.PI * (1 + Math.sqrt(5));
   const FOV = 540;
   const CAM = 650;
@@ -3962,7 +3962,7 @@ document.querySelectorAll('.sec-h-underline').forEach(function(el){ ulObs.observ
   let globalT = 0;
   let logoTargetsSet = false;
 
-  const PHASE_DUR = [32, 55, 58, 48, 35];
+  const PHASE_DUR = [30, 48, 52, 62, 32];
 
   function resize(){
     const dpr = Math.min(window.devicePixelRatio||1, 2);
@@ -3985,21 +3985,26 @@ document.querySelectorAll('.sec-h-underline').forEach(function(el){ ulObs.observ
     }
   }
 
-  /* ── Logo targets: sample the actual logo image — no text, exact shape ── */
+  /* ── Logo targets: sample logo PNG at high density, perfect centering ── */
   function setLogoTargets(){
     const logoImg = document.querySelector('.nav-logo-img img');
 
-    /* Logo is a JPEG (1205x880) — white bg, navy mark + text.
-       Draw it scaled to fill ~72% of canvas width, centered.
-       Sample dark pixels (navy content) → particle targets.
-       Display on white bg so navy particles reproduce the exact logo. */
+    /* Smart sizing: scale logo to fit comfortably in viewport with breathing room.
+       Max dimensions: 78% of W or 70% of H (whichever is smaller). */
+    const natW  = logoImg.naturalWidth || 1205;
+    const natH  = logoImg.naturalHeight || 880;
+    const ratio = natH / natW;
 
-    const maxW  = Math.min(W * 0.72, 600);
-    const ratio = logoImg.naturalHeight / logoImg.naturalWidth;
-    const lW    = Math.round(maxW);
-    const lH    = Math.round(maxW * ratio);
-    const ox    = (W - lW) / 2;
-    const oy    = (H - lH) / 2;
+    let lW = Math.min(W * 0.78, 640);
+    let lH = lW * ratio;
+    /* If resulting height exceeds 70% of viewport, constrain by height instead */
+    if(lH > H * 0.70){
+      lH = H * 0.70;
+      lW = lH / ratio;
+    }
+
+    const ox = (W - lW) / 2;
+    const oy = (H - lH) / 2;   /* perfectly centered */
 
     const off = document.createElement('canvas');
     off.width  = W; off.height = H;
@@ -4014,17 +4019,17 @@ document.querySelectorAll('.sec-h-underline').forEach(function(el){ ulObs.observ
 
     const d    = c2.getImageData(0, 0, W, H).data;
     const pts  = [];
-    const step = 2;
+    const step = 1;   /* sample every pixel — maximum detail capture */
 
     for(let y = 0; y < H; y += step){
       for(let x = 0; x < W; x += step){
         const i      = (y * W + x) * 4;
         const bright = d[i] + d[i+1] + d[i+2];
-        /* Keep dark pixels — navy mark + text (white bg is bright ≥ 680) */
-        if(bright < 500 && d[i+3] > 20){   /* calibrated for new PNG */
+        /* Dark navy logo pixels — tight threshold for crisp edges */
+        if(bright < 520 && d[i+3] > 20){
           pts.push(
-            x - CX + (Math.random() - 0.5) * 0.4,
-            y - CY + (Math.random() - 0.5) * 0.4
+            x - CX + (Math.random() - 0.5) * 0.3,
+            y - CY + (Math.random() - 0.5) * 0.3
           );
         }
       }
@@ -4096,30 +4101,42 @@ document.querySelectorAll('.sec-h-underline').forEach(function(el){ ulObs.observ
       }
 
       if(isDissolve){
-        ttx += (Math.random()-.5)*14;
-        tty += (Math.random()-.5)*14;
-        ttz += (Math.random()-.5)*14;
+        ttx += (Math.random()-.5)*16;
+        tty += (Math.random()-.5)*16;
+        ttz += (Math.random()-.5)*16;
       }
 
-      const sp = isSphere ? 0.017 : (phase===2 ? 0.018 : 0.025);
+      /* Snappier arrival to logo shape, tight hold for crisp edges */
+      const sp = isSphere ? 0.017
+               : (phase===2 ? 0.028        /* faster form */
+               : (phase===3 ? 0.12         /* tight lock to target */
+               : 0.025));
       vx[i] += (ttx-px[i])*sp;
       vy[i] += (tty-py[i])*sp;
       vz[i] += (ttz-pz[i])*sp;
 
-      vx[i]*=0.80; vy[i]*=0.80; vz[i]*=0.80;
+      /* More damping during hold phase = less jitter = sharper edges */
+      const damp = phase===3 ? 0.62 : 0.80;
+      vx[i]*=damp; vy[i]*=damp; vz[i]*=damp;
       px[i]+=vx[i]; py[i]+=vy[i]; pz[i]+=vz[i];
     }
   }
 
   /* ── Draw ── */
   function draw(){
-    /* Text phase: solid white bg so bold navy particles are fully visible */
-    if(phase >= 2 && phase <= 3){
-      ctx.fillStyle = 'rgba(255,255,255,0.92)';
+    /* Clear frame with opacity based on phase for crisp rendering */
+    if(phase === 3){
+      /* Hold phase: completely solid white — no trails, maximum logo clarity */
+      ctx.fillStyle = 'rgba(255,255,255,1.0)';
+    } else if(phase === 2){
+      /* Forming phase: near-solid white with subtle motion trails */
+      ctx.fillStyle = 'rgba(255,255,255,0.85)';
     } else if(phase === 4){
-      ctx.fillStyle = 'rgba(7,11,53,0.42)';
+      /* Dissolve: fade back to navy */
+      ctx.fillStyle = 'rgba(7,11,53,0.38)';
     } else {
-      ctx.fillStyle = 'rgba(7,11,53,0.22)';
+      /* Sphere phase: navy with trails */
+      ctx.fillStyle = 'rgba(7,11,53,0.18)';
     }
     ctx.fillRect(0,0,W,H);
 
@@ -4139,16 +4156,20 @@ document.querySelectorAll('.sec-h-underline').forEach(function(el){ ulObs.observ
       let h, s, l;
 
       if(isSphere){
-        /* cool teal/green sphere — brand aligned */
+        /* Teal/green sphere — brand aligned */
         h = 155 + (i/N)*35;
         s = 70; l = 62;
         a *= 0.8;
+      } else if(phase === 3){
+        /* HOLD phase: fully solid navy, uniform size, crystal clear logo */
+        h = 221; s = 44; l = 31;
+        a = 1.0;              /* fully opaque */
+        size = 1.2;           /* uniform crisp dot */
       } else {
-        /* Logo phase: exact deep navy — hsl(223,38%,32%) from logo pixel sampling.
-           High base alpha (0.88) so colour reads true on white — never washed-out. */
-        h = 221; s = 44; l = 31;   /* exact logo navy hsl(221,44%,31%) = rgb(45,67,115) */
-        a = Math.min(1, 0.88 + spd * 0.06);
-        size = Math.max(0.9, size * 1.0);
+        /* Forming/dissolve phase: navy with some motion dynamics */
+        h = 221; s = 44; l = 31;
+        a = Math.min(1, 0.82 + spd * 0.05);
+        size = Math.max(0.95, size * 1.0);
       }
 
       ctx.beginPath();
