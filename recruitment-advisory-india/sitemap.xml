@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Main landing page -->
+  <url>
+    <loc>https://bridgewell-advisory.in/recruitment-advisory-india/</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Sub-pages (YOU SHOULD CREATE THESE) -->
+  <url>
+    <loc>https://bridgewell-advisory.in/recruitment-advisory-india/executive-hiring</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bridgewell-advisory.in/recruitment-advisory-india/startup-hiring</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bridgewell-advisory.in/recruitment-advisory-india/assessment-center</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://bridgewell-advisory.in/recruitment-advisory-india/hiring-process-design</loc>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
