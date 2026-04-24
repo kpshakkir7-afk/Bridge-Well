@@ -3542,33 +3542,206 @@ function animHeadline(){
   });
 }
 
-/* ─── PARTICLES ─── */
-(function(){
-  var cv=document.getElementById('heroCanvas');
-  if(!cv) return;
-  var ctx=cv.getContext('2d');
-  var W,H,P=[];
-  function resize(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;}
-  resize(); window.addEventListener('resize',resize);
-  function mkP(){return{x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.2+.3,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,a:Math.random()*.28+.04};}
-  for(var i=0;i<55;i++) P.push(mkP());
-  function loop(){
-    ctx.clearRect(0,0,W,H);
-    P.forEach(function(p){
-      p.x+=p.vx; p.y+=p.vy;
-      if(p.x<0||p.x>W||p.y<0||p.y>H) Object.assign(p,mkP());
-      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle='rgba(196,162,88,'+p.a+')'; ctx.fill();
-    });
-    for(var i=0;i<P.length;i++) for(var j=i+1;j<P.length;j++){
-      var dx=P[i].x-P[j].x,dy=P[i].y-P[j].y,d=Math.sqrt(dx*dx+dy*dy);
-      if(d<120){ctx.beginPath();ctx.moveTo(P[i].x,P[i].y);ctx.lineTo(P[j].x,P[j].y);ctx.strokeStyle='rgba(196,162,88,'+(0.06*(1-d/120))+')';ctx.lineWidth=.5;ctx.stroke();}
-    }
-    requestAnimationFrame(loop);
-  }
-  loop();
-})();
+/* ─── HERO CANVAS · Three.js Network Nodes ─── */
+(function () {
+  'use strict';
 
+  var canvas = document.getElementById('heroCanvas');
+  if (!canvas) return;
+
+  /* ── 1. Device tier ───────────────────────────────────── */
+  var isMobile = window.innerWidth < 768;
+  var isLowEnd = (navigator.hardwareConcurrency || 4) <= 2 ||
+                 ((navigator.deviceMemory || 4) < 2);
+
+  /* Skip entirely on low-end mobile — let CSS gradient carry the bg */
+  if (isMobile && isLowEnd) return;
+
+  /* ── 2. Config ─────────────────────────────────────────── */
+  var CFG = {
+    N          : isMobile ? 26 : 52,     /* node count */
+    connDist   : 200,                    /* world-space connection threshold (units) */
+    nodeSize   : isMobile ? 1.6 : 2.0,
+    driftSpeed : 0.055,                  /* units/frame — very slow */
+    rotSpeed   : 0.00016,               /* radians/frame — ~55s per full rotation */
+    nodeColor  : 0xC4A258,              /* brand gold */
+    lineColor  : 0xC4A258,
+    nodeAlpha  : 0.48,
+    lineAlpha  : 0.06,
+    dpr        : Math.min(window.devicePixelRatio || 1, isMobile ? 1.0 : 1.5),
+  };
+
+  /* ── 3. Lazy-load Three.js r128 ────────────────────────── */
+  var s   = document.createElement('script');
+  s.src   = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+  s.async = true;
+  s.onload = initScene;
+  document.head.appendChild(s);
+
+  /* ── 4. Scene init ─────────────────────────────────────── */
+  function initScene() {
+    var THREE = window.THREE;
+    var N     = CFG.N;
+
+    /* Canvas dimensions */
+    var W = canvas.offsetWidth  || window.innerWidth;
+    var H = canvas.offsetHeight || window.innerHeight;
+
+    /* World half-extents (units) — camera at z=560, FOV 55°
+       visible half-height at z=0: 560 * tan(27.5°) ≈ 291
+       We spread nodes slightly wider so edges are populated  */
+    var HW = 580;   /* ± x */
+    var HH = 320;   /* ± y */
+    var HZ = 240;   /* ± z */
+
+    /* ── Renderer ────────────────────────────────────────── */
+    var renderer = new THREE.WebGLRenderer({
+      canvas          : canvas,
+      antialias       : false,   /* no MSAA needed — points/lines */
+      alpha           : true,
+      powerPreference : 'low-power',
+    });
+    renderer.setPixelRatio(CFG.dpr);
+    renderer.setSize(W, H, false);   /* false = don't set style width/height */
+    renderer.setClearColor(0x000000, 0);
+
+    /* ── Scene + Camera ───────────────────────────────────── */
+    var scene  = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(55, W / H, 1, 2000);
+    camera.position.z = 560;
+
+    /* ── Node data (Float32Arrays — no GC pressure) ────────── */
+    var px = new Float32Array(N), py = new Float32Array(N), pz = new Float32Array(N);
+    var vx = new Float32Array(N), vy = new Float32Array(N), vz = new Float32Array(N);
+
+    for (var i = 0; i < N; i++) {
+      px[i] = (Math.random() - 0.5) * HW * 2;
+      py[i] = (Math.random() - 0.5) * HH * 2;
+      pz[i] = (Math.random() - 0.5) * HZ * 2;
+      vx[i] = (Math.random() - 0.5) * CFG.driftSpeed;
+      vy[i] = (Math.random() - 0.5) * CFG.driftSpeed;
+      vz[i] = (Math.random() - 0.5) * CFG.driftSpeed * 0.35; /* less z-movement */
+    }
+
+    /* ── Points (nodes) ─────────────────────────────────────── */
+    var ptGeo = new THREE.BufferGeometry();
+    var ptPos = new Float32Array(N * 3);
+    ptGeo.setAttribute('position', new THREE.BufferAttribute(ptPos, 3));
+
+    var ptMat = new THREE.PointsMaterial({
+      color           : CFG.nodeColor,
+      size            : CFG.nodeSize,
+      transparent     : true,
+      opacity         : CFG.nodeAlpha,
+      sizeAttenuation : true,   /* nodes further away appear smaller — adds depth */
+    });
+
+    scene.add(new THREE.Points(ptGeo, ptMat));
+
+    /* ── Line segments (connections) ────────────────────────── */
+    /* Pre-allocate the theoretical maximum: N*(N-1)/2 pairs */
+    var maxConn  = Math.ceil(N * (N - 1) / 2);
+    var lnData   = new Float32Array(maxConn * 6); /* 2 vertices × xyz per segment */
+
+    var lnGeo    = new THREE.BufferGeometry();
+    var lnAttr   = new THREE.BufferAttribute(lnData, 3);
+    lnAttr.setUsage(THREE.DynamicDrawUsage);
+    lnGeo.setAttribute('position', lnAttr);
+
+    var lnMat = new THREE.LineBasicMaterial({
+      color       : CFG.lineColor,
+      transparent : true,
+      opacity     : CFG.lineAlpha,
+    });
+
+    var lineSegs = new THREE.LineSegments(lnGeo, lnMat);
+    scene.add(lineSegs);
+
+    /* ── Animation state ────────────────────────────────────── */
+    var raf     = null;
+    var angle   = 0;
+    var running = !document.hidden;
+    var connDistSq = CFG.connDist * CFG.connDist; /* avoid sqrt in inner loop */
+
+    /* Pause/resume on tab visibility */
+    document.addEventListener('visibilitychange', function () {
+      running = !document.hidden;
+      if (running) tick();
+    });
+
+    /* ── Per-frame update ───────────────────────────────────── */
+    function tick() {
+      if (!running) return;
+      raf = requestAnimationFrame(tick);
+
+      /* Move nodes, bounce at world bounds */
+      for (var i = 0; i < N; i++) {
+        px[i] += vx[i]; py[i] += vy[i]; pz[i] += vz[i];
+        if (px[i] < -HW || px[i] > HW) { vx[i] *= -1; px[i] = Math.max(-HW, Math.min(HW, px[i])); }
+        if (py[i] < -HH || py[i] > HH) { vy[i] *= -1; py[i] = Math.max(-HH, Math.min(HH, py[i])); }
+        if (pz[i] < -HZ || pz[i] > HZ) { vz[i] *= -1; pz[i] = Math.max(-HZ, Math.min(HZ, pz[i])); }
+
+        var b = i * 3;
+        ptPos[b]     = px[i];
+        ptPos[b + 1] = py[i];
+        ptPos[b + 2] = pz[i];
+      }
+      ptGeo.getAttribute('position').needsUpdate = true;
+
+      /* Rebuild connection segments for this frame */
+      var connIdx = 0;
+      for (var a = 0; a < N - 1; a++) {
+        for (var c = a + 1; c < N; c++) {
+          var dx = px[a] - px[c];
+          var dy = py[a] - py[c];
+          var dz = pz[a] - pz[c];
+          if (dx*dx + dy*dy + dz*dz < connDistSq) {
+            var k = connIdx * 6;
+            lnData[k]   = px[a]; lnData[k+1] = py[a]; lnData[k+2] = pz[a];
+            lnData[k+3] = px[c]; lnData[k+4] = py[c]; lnData[k+5] = pz[c];
+            connIdx++;
+          }
+        }
+      }
+      lnGeo.setDrawRange(0, connIdx * 2);
+      lnAttr.needsUpdate = true;
+
+      /* Slow global Y rotation — gives 3D depth perception */
+      angle += CFG.rotSpeed;
+      scene.rotation.y = angle;
+
+      renderer.render(scene, camera);
+    }
+
+    /* ── Resize handler ─────────────────────────────────────── */
+    var resizeTimer;
+    function onResize() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        W = canvas.offsetWidth  || window.innerWidth;
+        H = canvas.offsetHeight || window.innerHeight;
+        camera.aspect = W / H;
+        camera.updateProjectionMatrix();
+        renderer.setSize(W, H, false);
+      }, 150); /* debounced — avoids thrashing on every resize pixel */
+    }
+    window.addEventListener('resize', onResize, { passive: true });
+
+    /* ── Memory cleanup on unload ───────────────────────────── */
+    window.addEventListener('unload', function () {
+      cancelAnimationFrame(raf);
+      ptGeo.dispose();
+      lnGeo.dispose();
+      ptMat.dispose();
+      lnMat.dispose();
+      renderer.dispose();
+    });
+
+    /* Boot */
+    tick();
+  }
+
+}());
 /* ─── TICKER ─── */
 var items=['Executive Search','Mid & Senior Hiring','HR Advisory','Workforce Planning','AI-Powered TNA','Payroll & Compliance','Startup HR Setup','Recruitment Advisory'];
 var tt=document.getElementById('tickerTrack');
