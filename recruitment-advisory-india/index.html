@@ -1,6 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+$ sed -n '1,508p' /home/claude/repo/project/recruitment-advisory-india/bridgewell-standalone.html
+
+<!DOCTYPE html><html data-src-ver="a9a08cb9" lang="en"><head>
+
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -71,8 +73,8 @@
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&amp;family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
 
 <style>
 /* ═══════════════════════════════════════════════════
@@ -499,6 +501,193 @@ strong { font-weight:600; }
 .filter-lbl--no  { color:var(--ink-3); }
 
 /* ─────────────────────────────────
+   CONTAINER (max-width wrapper)
+───────────────────────────────── */
+.container {
+  max-width:1160px; margin:0 auto; padding:0 48px;
+}
+@media (max-width:1024px) { .container { padding:0 28px; } }
+@media (max-width:768px)  { .container { padding:0 20px; } }
+$ sed -n '509,1016p' /home/claude/repo/project/recruitment-advisory-india/bridgewell-clean.html
+
+/* ─────────────────────────────────
+   HERO GRID (two-column layout)
+───────────────────────────────── */
+.hero-grid {
+  display:grid; grid-template-columns:1fr 360px;
+  gap:64px; align-items:start;
+  padding-bottom:64px;
+}
+@media (max-width:1024px) { .hero-grid { grid-template-columns:1fr; gap:40px; } }
+
+/* Hero qualifier badge */
+.hero-qualifier {
+  display:inline-block;
+  font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--stone); border:1px solid rgba(192,162,124,.32);
+  border-radius:3px; padding:5px 12px; margin-bottom:22px;
+}
+
+/* Hero buttons */
+.hero-btns { display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
+@media (max-width:768px) { .hero-btns { flex-direction:column; } }
+@media (max-width:768px) { .hero-btns .btn { width:100%; justify-content:center; } }
+
+/* Hero panel (regional labels) */
+.hero-panel {
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--radius); overflow:hidden;
+  align-self:center;
+}
+
+/* Hero panel label (right-side descriptor) */
+.hp-l { font-size:11px; color:rgba(255,255,255,.45); text-align:right; line-height:1.4; }
+
+/* Stat card number */
+.card-n {
+  font-family:'Libre Caslon Display',serif;
+  font-size:36px; font-weight:400; line-height:1;
+  letter-spacing:-0.02em; color:var(--forest); margin-bottom:12px;
+}
+
+/* Failure scenario box */
+.failure-scenario {
+  margin-top:48px; padding:28px 32px;
+  background:var(--canvas-2);
+  border-left:3px solid var(--forest);
+  border-radius:0 var(--radius) var(--radius) 0;
+}
+
+/* CTA decorative elements */
+.cta-n {
+  position:absolute; inset:0; pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
+  opacity:.4;
+}
+.cta-bg-g {
+  position:absolute; width:640px; height:640px;
+  background:var(--forest-2); border-radius:50%;
+  filter:blur(130px); opacity:.3;
+  top:-200px; right:-120px; pointer-events:none;
+}
+
+/* ─────────────────────────────────
+   SITE HEADER (brand bar)
+───────────────────────────────── */
+.site-header {
+  position: sticky; top: 0; z-index: 150;
+  background: rgba(247,245,240,.92);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.site-header-inner {
+  max-width: 1160px; margin: 0 auto; padding: 14px 48px;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+}
+.brand {
+  display: flex; align-items: center; gap: 14px;
+  text-decoration: none; color: var(--ink);
+  perspective: 600px;
+}
+.brand-mark-wrap {
+  position: relative; width: 44px; height: 44px; flex-shrink: 0;
+  border-radius: 6px;
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255,255,255,.95) 0%, rgba(255,255,255,.4) 28%, transparent 55%),
+    radial-gradient(circle at 68% 78%, rgba(20,40,80,.18) 0%, transparent 60%),
+    linear-gradient(145deg, #f4efe6 0%, #e3dccf 55%, #c9bfae 100%);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.9) inset,
+    0 -1px 2px rgba(60,45,30,.12) inset,
+    0 2px 4px rgba(40,30,20,.08),
+    0 8px 18px -6px rgba(40,30,20,.25),
+    0 14px 28px -12px rgba(20,30,60,.22);
+  transform-style: preserve-3d;
+  transform: rotateX(6deg) rotateY(-8deg);
+  transition: transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s;
+}
+.brand-mark-wrap::before {
+  content: ""; position: absolute; inset: 0; border-radius: 6px;
+  background: linear-gradient(160deg, rgba(255,255,255,.55) 0%, transparent 38%, transparent 62%, rgba(0,0,0,.1) 100%);
+  pointer-events: none; mix-blend-mode: overlay;
+}
+.brand-mark-wrap::after {
+  content: ""; position: absolute; left: 50%; bottom: -6px;
+  transform: translateX(-50%); width: 70%; height: 8px;
+  background: radial-gradient(ellipse at center, rgba(20,25,40,.28) 0%, transparent 70%);
+  filter: blur(3px); z-index: -1; pointer-events: none;
+  transition: opacity .5s, transform .5s;
+}
+.brand:hover .brand-mark-wrap {
+  transform: rotateX(2deg) rotateY(4deg) translateY(-1px);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.95) inset,
+    0 -1px 2px rgba(60,45,30,.14) inset,
+    0 3px 6px rgba(40,30,20,.1),
+    0 14px 28px -8px rgba(40,30,20,.3),
+    0 22px 40px -14px rgba(20,30,60,.28);
+}
+.brand:hover .brand-mark-wrap::after {
+  transform: translateX(-50%) scaleX(1.15); opacity: .8;
+}
+.brand-mark {
+  position: absolute; inset: 4px;
+  width: calc(100% - 8px); height: calc(100% - 8px);
+  object-fit: cover; object-position: center;
+  display: block; border-radius: 4px;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,.15));
+  transform: translateZ(6px);
+}
+.brand-word {
+  transform-style: preserve-3d;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.8),
+    0 2px 3px rgba(20,35,25,.18),
+    0 4px 8px rgba(20,35,25,.1);
+  transition: transform .4s cubic-bezier(.2,.7,.2,1), text-shadow .4s;
+}
+.brand:hover .brand-word {
+  transform: translateZ(4px) translateY(-1px);
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.9),
+    0 3px 5px rgba(20,35,25,.22),
+    0 6px 14px rgba(20,35,25,.14);
+}
+.brand-word {
+  font-family: 'Libre Caslon Display', serif;
+  font-weight: 400; font-size: 22px; line-height: 1;
+  letter-spacing: -.005em; color: var(--forest);
+}
+.brand-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px; font-weight: 600; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ink-3);
+  margin-top: 4px; line-height: 1;
+}
+.site-header nav {
+  display: flex; gap: 26px; align-items: center;
+}
+.site-header nav a {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 500; color: var(--ink-2);
+  letter-spacing: -.005em;
+}
+.site-header nav a:hover { color: var(--forest); }
+.site-header .hdr-cta {
+  padding: 10px 18px; background: var(--forest); color: var(--white);
+  border-radius: var(--radius); font-size: 12px; font-weight: 600;
+  letter-spacing: .01em;
+}
+.site-header .hdr-cta:hover { background: var(--forest-2); color: var(--white); }
+@media (max-width: 768px) {
+  .site-header-inner { padding: 12px 20px; }
+  .brand-word { font-size: 18px; }
+  .brand-mark-wrap { width: 36px; height: 36px; }
+  .site-header nav a:not(.hdr-cta) { display: none; }
+}
+
+/* ─────────────────────────────────
    CTA SECTION
 ───────────────────────────────── */
 .cta-noise {
@@ -646,8 +835,40 @@ footer { background:var(--dark-2); padding:80px 0 40px; }
 
 <body>
 
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+    <rect width="200" height="200" fill="#1a3329"/>
+    <text x="100" y="108" text-anchor="middle"
+          font-family="Georgia, serif" font-size="56" font-weight="400"
+          fill="#d9c9a8" font-style="italic">B</text>
+    <text x="100" y="150" text-anchor="middle"
+          font-family="Inter, sans-serif" font-size="11" font-weight="600"
+          fill="#d9c9a8" letter-spacing="2">BRIDGEWELL</text>
+  </svg>
+</template>
+
 <!-- SKIP LINK (Accessibility) -->
 <a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="/" class="brand" aria-label="Bridgewell Advisory — home">
+      <span class="brand-mark-wrap" aria-hidden="true">
+        <img class="brand-mark" src="assets/bridgewell-logo.jpeg" alt="" loading="eager" decoding="async">
+      </span>
+      <div>
+        <div class="brand-word">BridgeWell</div>
+        <div class="brand-tag">Advisory</div>
+      </div>
+    </a>
+    <nav aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="#approach">Approach</a>
+      <a href="#who">Who it's for</a>
+      <a href="#cta" class="hdr-cta">Request a diagnostic</a>
+    </nav>
+  </div>
+</header>
 
 <main id="main-content">
 
@@ -655,6 +876,7 @@ footer { background:var(--dark-2); padding:80px 0 40px; }
      HERO
 ══════════════════════════════════════════ -->
 <section id="hero">
+  <canvas id="heroCanvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;display:block;"></canvas>
   <div class="h-noise"></div>
   <div class="h-glow hg1"></div><div class="h-glow hg2"></div>
   <div class="container h-inner">
@@ -666,7 +888,7 @@ footer { background:var(--dark-2); padding:80px 0 40px; }
 
     <div class="t-eyebrow t-eyebrow--stone">Recruitment Advisory · India</div>
 
-    <h1 class="t-hero rv">
+    <h1 class="t-hero rv visible">
       The brief is wrong.<br>The panel is wrong.<br>
       <em>The hire was decided before it started.</em>
     </h1>
@@ -678,13 +900,13 @@ footer { background:var(--dark-2); padding:80px 0 40px; }
         </div>
         
         <p class="t-lead">
-          Bridgewell Advisory is a <strong style="color:rgba(255,255,255,.82);">recruitment advisory firm</strong> for founders and CXOs across India. We work on <strong style="color:rgba(255,255,255,.82);">leadership hiring</strong> and <strong style="color:rgba(255,255,255,.82);">critical roles</strong> in Bangalore, Chennai, Kerala, Delhi NCR, and Noida. Strategic hiring partner, not a placement agency.
+          Bridgewell Advisory is a <strong style="color:rgba(255,255,255,.82);">recruitment advisory firm</strong> for founders and CXOs across India. We work on <strong style="color:rgba(255,255,255,.82);">leadership hiring</strong> and <strong style="color:rgba(255,255,255,.82);">critical roles</strong> in Bangalore, Coimbatore, Chennai, Kerala, Mumbai, Delhi NCR, and Noida. Strategic hiring partner, not a placement agency.
         </p>
         
         <div class="hero-btns">
           <a href="https://tally.so/r/rjdAGo" target="_blank" rel="noopener" class="btn btn--forest" aria-label="Request a hiring diagnostic consultation">Request a Hiring Diagnostic →</a>
           <a href="https://wa.me/917904411277?text=I%27d%20like%20to%20discuss%20a%20leadership%20hiring%20mandate%20with%20Bridgewell." target="_blank" rel="noopener" class="btn btn--ghost-dk" aria-label="Start conversation on WhatsApp">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:6px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:6px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
             WhatsApp Us
           </a>
         </div>
@@ -706,7 +928,7 @@ footer { background:var(--dark-2); padding:80px 0 40px; }
     </div>
     <span class="h-bar-tag">Strategic Partner · Not a Recruitment Agency</span>
   </div></div>
-</section>
+</div></section>
 
 <!-- PAGE NAV -->
 <nav class="page-nav" aria-label="Page sections">
@@ -727,15 +949,15 @@ footer { background:var(--dark-2); padding:80px 0 40px; }
 ══════════════════════════════════════════ -->
 <section id="wrong" class="sec">
   <div class="container">
-    <div class="grid-2 rv">
+    <div class="grid-2 rv visible">
       <div>
         <div class="t-eyebrow">The Root Problem</div>
-        <h2 class="h2">Most companies don't have a talent problem.<br><em>They have a decision problem.</em></h2>
+        <h2 class="t-h2">Most companies don't have a talent problem.<br><em>They have a decision problem.</em></h2>
         <p class="t-body" style="margin-top:18px">The failure happens before the first CV is reviewed. The brief is misaligned, the evaluation criteria are wrong, or the wrong stakeholders are making the call. Leadership hiring fails because of <strong>process failure</strong>, not talent scarcity.</p>
       </div>
       <div>
-        <p class="t-eyebrow rv d1">Where hiring decisions break down</p>
-        <div class="blist rv d2">
+        <p class="t-eyebrow rv d1 visible">Where hiring decisions break down</p>
+        <div class="blist rv d2 visible">
           <div class="blist-item"><div class="blist-dot blist-dot--red"></div><strong>Wrong brief.</strong> The JD describes the role as it existed, not as it needs to evolve. Every CV looks wrong because the spec is wrong.</div>
           <div class="blist-item"><div class="blist-dot blist-dot--red"></div><strong>Wrong evaluation signals.</strong> Brand names, degrees, confident presentation: none predict performance in your context.</div>
           <div class="blist-item"><div class="blist-dot blist-dot--red"></div><strong>Wrong decision-makers.</strong> Panels avoid conflict and pick the least objectionable option. Single managers hire people like themselves.</div>
@@ -746,12 +968,12 @@ footer { background:var(--dark-2); padding:80px 0 40px; }
     </div>
 
     <!-- HIRING FAILURE SCENARIO -->
-    <div class="failure-scenario rv d3">
+    <div class="failure-scenario rv d3 visible">
       <div style="font-size:10px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--forest);margin-bottom:12px;">Actual Hiring Failure Pattern</div>
       <p class="t-body"><strong>Series B SaaS company, Bangalore.</strong> Hired VP Engineering from a unicorn. Strong pedigree, solid interviews. 8 months in: zero shipped features, team attrition at 40%, ₹2.8Cr in runway burned. The problem: candidate was evaluated on past employer brand, not their ability to build without that infrastructure. The brief never tested for resource-constrained execution. Timeline: 18 months to recover (new hire + team rebuild).</p>
     </div>
 
-    <div class="grid-3 rv d4" style="margin-top:48px;">
+    <div class="grid-3 rv d4 visible" style="margin-top:48px;">
       <div class="card">
         <div class="card-n">₹1.2-3.6Cr</div>
         <h3 class="t-h4" style="margin-bottom:8px;">Cost of a failed VP hire</h3>
@@ -778,11 +1000,11 @@ footer { background:var(--dark-2); padding:80px 0 40px; }
 ══════════════════════════════════════════ -->
 <section id="advisory-vs-agency" class="sec--off">
   <div class="container">
-    <div class="t-eyebrow rv">The Distinction</div>
-    <h2 class="t-h2 rv d1">Recruitment advisory is not recruitment<br><em>with a different name.</em></h2>
-    <p class="t-body rv d2" >The distinction is structural. It determines whose interests are served when the hiring decision is made.</p>
+    <div class="t-eyebrow rv visible">The Distinction</div>
+    <h2 class="t-h2 rv d1 visible">Recruitment advisory is not recruitment<br><em>with a different name.</em></h2>
+    <p class="t-body rv d2 visible">The distinction is structural. It determines whose interests are served when the hiring decision is made.</p>
 
-    <div class="compare rv d3">
+    <div class="compare rv d3 visible">
       <div class="cmp-col cmp-bad-rows">
         <div class="cmp-head cmp-bad">Recruitment Agency Model</div>
         <div class="cmp-row">No diagnostic. Activated by a JD.</div>
@@ -795,6 +1017,8 @@ footer { background:var(--dark-2); padding:80px 0 40px; }
       </div>
       <div class="cmp-col cmp-good-rows">
         <div class="cmp-head cmp-good">Advisory Model (Bridgewell)</div>
+        $ sed -n '1017,$p' /home/claude/repo/project/recruitment-advisory-india/bridgewell-clean.html
+
         <div class="cmp-row">Stakeholder diagnostic before search</div>
         <div class="cmp-row">Retained fee. Outcome-aligned.</div>
         <div class="cmp-row">Success defined by role scorecard (agreed upfront)</div>
@@ -814,16 +1038,16 @@ footer { background:var(--dark-2); padding:80px 0 40px; }
 ══════════════════════════════════════════ -->
 <section id="regional-context" class="sec">
   <div class="container">
-    <div class="t-eyebrow rv">Regional Hiring Context</div>
-    <h2 class="t-h2 rv d1">
+    <div class="t-eyebrow rv visible">Regional Hiring Context</div>
+    <h2 class="t-h2 rv d1 visible">
       Regional variation is real.<br>
       <em>The root cause is the same.</em>
     </h2>
-    <p class="t-body rv d2" >
+    <p class="t-body rv d2 visible">
       Hiring failure patterns vary by market, but the structural problem remains consistent: speed pressure, wrong evaluation signals, and absent stakeholder alignment. Here's what we see in each major market.
     </p>
 
-    <div class="grid-2x2 rv d2">
+    <div class="grid-2x2 rv d2 visible">
       
       <!-- BANGALORE -->
       <div class="regional-card" style="background:var(--white);">
@@ -880,11 +1104,11 @@ footer { background:var(--dark-2); padding:80px 0 40px; }
 ══════════════════════════════════════════ -->
 <section id="why-fail" class="sec">
   <div class="container">
-    <div class="t-eyebrow rv">The Agency Problem</div>
-    <h2 class="t-h2 rv d1">Most recruitment partners optimise for placement speed.<br><em>Not decision quality.</em></h2>
-    <p class="t-body rv d2" >The contingency model creates a structural misalignment. Agencies win when they place fast, not when you hire right. This determines behavior at every step.</p>
+    <div class="t-eyebrow rv visible">The Agency Problem</div>
+    <h2 class="t-h2 rv d1 visible">Most recruitment partners optimise for placement speed.<br><em>Not decision quality.</em></h2>
+    <p class="t-body rv d2 visible">The contingency model creates a structural misalignment. Agencies win when they place fast, not when you hire right. This determines behavior at every step.</p>
 
-    <div class="grid-3 rv d3" style="margin-top:48px;">
+    <div class="grid-3 rv d3 visible" style="margin-top:48px;">
       <div class="card">
         <h3 class="t-h4" style="margin-bottom:10px;">No diagnostic phase</h3>
         <p class="t-body--sm">Search begins the day the JD arrives. The brief is never challenged. The role definition is never tested. Six months later, the hire fails because the brief was wrong.</p>
@@ -908,40 +1132,40 @@ footer { background:var(--dark-2); padding:80px 0 40px; }
 ══════════════════════════════════════════ -->
 <section id="approach" class="sec--forest">
   <div class="container">
-    <div class="t-eyebrow t-eyebrow--stone rv">How We Work</div>
-    <h2 class="t-h2 t-h2--wh rv d1">Diagnostic first.<br><em>Search second.</em><br>Accountable throughout.</h2>
-    <p class="t-body t-body--dk rv d2" >Every mandate begins with stakeholder alignment. We rebuild the brief when it's wrong. We challenge the timeline when it's compressed. The search begins only after the decision framework is clear.</p>
+    <div class="t-eyebrow t-eyebrow--stone rv visible">How We Work</div>
+    <h2 class="t-h2 t-h2--wh rv d1 visible">Diagnostic first.<br><em>Search second.</em><br>Accountable throughout.</h2>
+    <p class="t-body t-body--dk rv d2 visible">Every mandate begins with stakeholder alignment. We rebuild the brief when it's wrong. We challenge the timeline when it's compressed. The search begins only after the decision framework is clear.</p>
 
-    <div class="grid-3 rv d3" style="margin-top:48px;">
-      <div class="card--dk">
+    <div class="grid-3 rv d3 visible" style="margin-top:48px;">
+      <div class="card--dk" style="border-style: double; background-color: rgb(40, 73, 56)">
         <div class="t-step">01</div>
         <h3 class="t-h4 t-h4--wh" style="margin-bottom:10px;">Stakeholder diagnostic</h3>
-        <p class="t-body--sm t-body--sm-dk">Who decides? What are they optimising for? Where is the misalignment? We map this before the search begins.</p>
+        <p class="t-body--sm t-body--sm-dk" style="color: rgb(192, 162, 124)">Who decides? What are they optimising for? Where is the misalignment? We map this before the search begins.</p>
       </div>
-      <div class="card--dk">
+      <div class="card--dk" style="border-style: double; background-color: rgb(40, 73, 56)">
         <div class="t-step">02</div>
         <h3 class="t-h4 t-h4--wh" style="margin-bottom:10px;">Brief challenge</h3>
-        <p class="t-body--sm t-body--sm-dk">Role clarity, seniority calibration, success metrics, compensation benchmarking. Most briefs change at this stage.</p>
+        <p class="t-body--sm t-body--sm-dk" style="color: rgb(192, 162, 124)">Role clarity, seniority calibration, success metrics, compensation benchmarking. Most briefs change at this stage.</p>
       </div>
-      <div class="card--dk">
+      <div class="card--dk" style="border-style: double; background-color: rgb(40, 73, 56)">
         <div class="t-step">03</div>
         <h3 class="t-h4 t-h4--wh" style="margin-bottom:10px;">Scorecard design</h3>
-        <p class="t-body--sm t-body--sm-dk">What does good look like in 90 days? What competencies matter? How do we test for them? Agreed before search.</p>
+        <p class="t-body--sm t-body--sm-dk" style="color: rgb(192, 162, 124)">What does good look like in 90 days? What competencies matter? How do we test for them? Agreed before search.</p>
       </div>
-      <div class="card--dk">
+      <div class="card--dk" style="border-style: double; background-color: rgb(40, 73, 56)">
         <div class="t-step">04</div>
         <h3 class="t-h4 t-h4--wh" style="margin-bottom:10px;">Assessed shortlist</h3>
-        <p class="t-body--sm t-body--sm-dk">3-5 candidates. Each tested against the scorecard. Written recommendation with reasoning. Not a ranked list, a decision brief.</p>
+        <p class="t-body--sm t-body--sm-dk" style="color: rgb(192, 162, 124)">3-5 candidates. Each tested against the scorecard. Written recommendation with reasoning. Not a ranked list, a decision brief.</p>
       </div>
-      <div class="card--dk">
+      <div class="card--dk" style="border-style: double; background-color: rgb(40, 73, 56)">
         <div class="t-step">05</div>
         <h3 class="t-h4 t-h4--wh" style="margin-bottom:10px;">Offer design</h3>
-        <p class="t-body--sm t-body--sm-dk">Compensation structure, equity, role scope, reporting lines. We support the negotiation, not just connect you.</p>
+        <p class="t-body--sm t-body--sm-dk" style="color: rgb(192, 162, 124)">Compensation structure, equity, role scope, reporting lines. We support the negotiation, not just connect you.</p>
       </div>
-      <div class="card--dk">
+      <div class="card--dk" style="border-style: double; background-color: rgb(40, 73, 56)">
         <div class="t-step">06</div>
         <h3 class="t-h4 t-h4--wh" style="margin-bottom:10px;">Post-placement advisory</h3>
-        <p class="t-body--sm t-body--sm-dk">30-60-90 day check-ins included. Onboarding support, stakeholder feedback, early warning signals. Accountability continues.</p>
+        <p class="t-body--sm t-body--sm-dk" style="color: rgb(192, 162, 124)">30-60-90 day check-ins included. Onboarding support, stakeholder feedback, early warning signals. Accountability continues.</p>
       </div>
     </div>
   </div>
@@ -954,23 +1178,66 @@ footer { background:var(--dark-2); padding:80px 0 40px; }
 ══════════════════════════════════════════ -->
 <section id="who" class="sec">
   <div class="container">
-    <div class="grid-2">
+
+    <!-- Intro band: image + heading split -->
+    <div class="who-intro rv visible" style="
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+      align-items: center; margin-bottom: 72px;
+    ">
+      <figure style="margin: 0; position: relative;">
+        <div style="
+          position: relative; overflow: hidden;
+          border-radius: var(--radius);
+          background: #eef2ee;
+          aspect-ratio: 4 / 3;
+          box-shadow:
+            0 1px 0 rgba(255,255,255,.6) inset,
+            0 1px 3px rgba(20,35,25,.06),
+            0 14px 32px -12px rgba(20,35,25,.18);
+        ">
+          <img
+            src="assets/hiring-illustration.webp"
+            alt="Hands presenting candidate resumes through a monitor"
+            loading="lazy" decoding="async"
+            style="
+              display: block; width: 100%; height: 100%;
+              object-fit: cover; object-position: center;
+            ">
+        </div>
+        <figcaption style="
+          margin-top: 10px; font-size: 10px; color: var(--ink-3);
+          letter-spacing: .1em; text-transform: uppercase;
+          font-family: 'Inter', sans-serif;
+        ">
+
+        </figcaption>
+      </figure>
+
       <div>
-        <div class="t-eyebrow rv">Decision Filter</div>
-        <h2 class="t-h2 rv d1">This is not for everyone.<br><em>It is not designed to be.</em></h2>
-        <p class="t-body rv d2" style="margin-top:18px;">We work exclusively with founders and CXOs hiring leadership or critical roles (₹40L+ CTC). If your hiring challenge fits one of the patterns below, we're likely a fit. If not, we'll tell you in the first conversation.</p>
+        <div class="t-eyebrow">Decision Filter</div>
+        <h2 class="t-h2" style="margin-top: 12px;">
+          This is not for everyone.<br>
+          <em>It is not designed to be.</em>
+        </h2>
+        <p class="t-body" style="margin-top: 18px;">
+          We work exclusively with founders and CXOs hiring leadership or critical roles (₹10L+ CTC). If your hiring challenge fits one of the patterns below, we're likely a fit. If not, we'll tell you in the first conversation.
+        </p>
       </div>
-      
-      <div class="rv d2">
-        <p class="t-eyebrow" style="margin-bottom:8px;">This IS for you if</p>
-        <div class="blist" style="margin-bottom:32px;">
+    </div>
+
+    <div class="rv d2 visible" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px;">
+      <div>
+        <p class="t-eyebrow" style="margin-bottom: 8px; color: rgb(15, 119, 40)">This IS for you if</p>
+        <div class="blist">
           <div class="blist-item"><div class="blist-dot"></div>You're hiring a leadership role (VP+, Head of, CXO)</div>
           <div class="blist-item"><div class="blist-dot"></div>You've already seen 1-2 wrong hires in this function</div>
           <div class="blist-item"><div class="blist-dot"></div>You want decision quality, not placement speed</div>
           <div class="blist-item"><div class="blist-dot"></div>You're willing to challenge your own brief</div>
         </div>
+      </div>
 
-        <p class="t-eyebrow" style="margin-bottom:8px;color:var(--ink-3);">This is NOT for you if</p>
+      <div>
+        <p class="t-eyebrow" style="margin-bottom: 8px; color: rgb(228, 15, 68)">This is NOT for you if</p>
         <div class="blist">
           <div class="blist-item"><div class="blist-dot blist-dot--red"></div>You need CVs in the next 7 days</div>
           <div class="blist-item"><div class="blist-dot blist-dot--red"></div>You're comparing 3+ agencies on price</div>
@@ -981,12 +1248,12 @@ footer { background:var(--dark-2); padding:80px 0 40px; }
     </div>
 
     <!-- FEE TRANSPARENCY -->
-    <div class="rv d3" style="margin-top:64px;">
+    <div class="rv d3 visible" style="margin-top:64px;">
       <div class="t-eyebrow" style="margin-bottom:16px;">Engagement Fees</div>
       <div class="fee-table">
         <div class="fee-row">
-          <div class="fee-role">Mid-level leadership (Manager, Lead, Senior Manager)</div>
-          <div class="fee-amt">₹5L-₹8L</div>
+          <div class="fee-role">Mid-level leadership (Manager, Lead, Senior Manager) &amp; Critical Roles</div>
+          <div class="fee-amt">₹2L-₹8L</div>
           <div class="fee-note">50% upfront, 50% at shortlist delivery. 30-day post-placement check-in included.</div>
         </div>
         <div class="fee-row">
@@ -1014,48 +1281,47 @@ footer { background:var(--dark-2); padding:80px 0 40px; }
   <div class="cta-n"></div><div class="cta-bg-g"></div>
   <div class="cta-inner">
     <div class="t-eyebrow t-eyebrow--stone">Limited Mandates. Advisory-First.</div>
-    <h2 class="t-h2 t-h2--wh rv" style="margin-bottom:18px;">
+    <h2 class="t-h2 t-h2--wh rv visible" style="margin-bottom:18px;">
       Before you make a critical hire,<br>
       <em>request a hiring diagnostic.</em>
     </h2>
-    <p class="t-body t-body--dk rv d1" style="margin-bottom:32px">
+    <p class="t-body t-body--dk rv d1 visible" style="margin-bottom:32px">
       A 45-minute conversation with a named partner determines whether we're the right fit for your mandate. No pitch deck. No pressure. A direct conversation about your hiring challenge and an honest view on whether Bridgewell's advisory model aligns with what you need.
     </p>
     
     <!-- WHAT HAPPENS NEXT -->
-    <div class="cta-steps rv d2">
+    <div class="cta-steps rv d2 visible">
         <div>
           <div style="font-size:24px;font-weight:700;color:var(--stone);margin-bottom:8px;">01</div>
-          <h4 class="h5" style="color:var(--white);margin-bottom:6px;">Diagnostic call</h4>
+          <h4 style="font-size:14px;font-weight:600;color:var(--white);margin-bottom:6px;">Diagnostic call</h4>
           <p class="t-body--sm" style="color:rgba(255,255,255,.65);">We understand the role, the business context, and the decision you're trying to make.</p>
         </div>
         <div>
           <div style="font-size:24px;font-weight:700;color:var(--stone);margin-bottom:8px;">02</div>
-          <h4 class="h5" style="color:var(--white);margin-bottom:6px;">Brief challenge</h4>
+          <h4 style="font-size:14px;font-weight:600;color:var(--white);margin-bottom:6px;">Brief challenge</h4>
           <p class="t-body--sm" style="color:rgba(255,255,255,.65);">We tell you if the brief is wrong, and why. Most mandates shift at this stage.</p>
         </div>
         <div>
           <div style="font-size:24px;font-weight:700;color:var(--stone);margin-bottom:8px;">03</div>
-          <h4 class="h5" style="color:var(--white);margin-bottom:6px;">Go/no-go</h4>
+          <h4 style="font-size:14px;font-weight:600;color:var(--white);margin-bottom:6px;">Go/no-go</h4>
           <p class="t-body--sm" style="color:rgba(255,255,255,.65);">You leave with clarity, whether we work together or not. Every call delivers value.</p>
         </div>
       </div>
-    </div>
-    
-    <div class="cta-btns rv d3">
+
+    <div class="cta-btns rv d3 visible">
       <a href="https://tally.so/r/rjdAGo" target="_blank" rel="noopener" class="btn btn--white" aria-label="Request a hiring diagnostic with Bridgewell Advisory">Request a Hiring Diagnostic →</a>
       <a href="https://wa.me/917904411277?text=I%27d%20like%20to%20discuss%20a%20leadership%20hiring%20mandate%20with%20Bridgewell." target="_blank" rel="noopener" class="btn btn--ghost-dk" aria-label="Start conversation on WhatsApp">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:6px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:6px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
         WhatsApp a Partner
       </a>
     </div>
-    <div class="cta-contacts rv d4">
-      <a href="tel:+917904411277" class="cta-ct">📞 +91 79044 11277</a>
-      <a href="mailto:Zaira.s@bridgewell-advisory.in" class="cta-ct">✉ Zaira.s@bridgewell-advisory.in</a>
+    <div class="cta-contacts rv d4 visible">
+      <a href="tel:+917904411277" class="cta-ct">+91 79044 11277</a>
+      <a href="mailto:Zaira.s@bridgewell-advisory.in" class="cta-ct">Zaira.s@bridgewell-advisory.in</a>
       <a href="https://www.linkedin.com/company/bridgewell-advisory-inc" target="_blank" rel="noopener" class="cta-ct">LinkedIn →</a>
       <span class="cta-ct">Bengaluru · Pan-India</span>
     </div>
-  </div>
+  </div><!-- /cta-inner -->
 </section>
 
 <!-- ══ FOOTER ══ -->
@@ -1097,7 +1363,7 @@ footer { background:var(--dark-2); padding:80px 0 40px; }
       </div>
     </div>
     <div class="ft-bot">
-      <p>&copy; 2026 Bridgewell Advisory. All rights reserved. · <a href="/recruitment-advisory-india">Recruitment Advisory India</a></p>
+      <p>© 2026 Bridgewell Advisory. All rights reserved. · <a href="/recruitment-advisory-india">Recruitment Advisory India</a></p>
       <p><a href="https://bridgewell-advisory.in">bridgewell-advisory.in</a> · Bengaluru, India · <a href="https://www.linkedin.com/company/bridgewell-advisory-inc" target="_blank" rel="noopener">LinkedIn</a></p>
     </div>
   </div>
@@ -1106,18 +1372,131 @@ footer { background:var(--dark-2); padding:80px 0 40px; }
 </main>
 
 <!-- FLOATING WHATSAPP BUTTON -->
-<a href="https://wa.me/917904411277?text=I%27d%20like%20to%20discuss%20a%20leadership%20hiring%20mandate%20with%20Bridgewell." 
-   target="_blank"
-   rel="noopener"
-   class="wa-float"
-   aria-label="Chat with Bridgewell on WhatsApp"
-   role="button">
+<a href="https://wa.me/917904411277?text=I%27d%20like%20to%20discuss%20a%20leadership%20hiring%20mandate%20with%20Bridgewell." target="_blank" rel="noopener" class="wa-float" aria-label="Chat with Bridgewell on WhatsApp" role="button">
   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
   </svg>
 </a>
 
 <!-- SCRIPTS -->
+<script>
+/* Bridgewell hero background — Three.js particle field
+   Requires: <canvas id="heroCanvas"></canvas>
+   Usage:    <script src="hero-bg.js" defer></script>
+*/
+(function () {
+  var canvas = document.getElementById('heroCanvas');
+  if (!canvas) return;
+
+  var mql = window.matchMedia;
+  var reduced = mql && mql('(prefers-reduced-motion: reduce)').matches;
+  var isMobile = mql && mql('(max-width: 768px)').matches;
+  var count = isMobile ? 80 : 150;
+  var dpr = Math.min(window.devicePixelRatio || 1, isMobile ? 1.5 : 2);
+
+  var parent = canvas.parentElement;
+  var raf = 0;
+  var running = false;
+
+  function loadThree() {
+    return new Promise(function (resolve, reject) {
+      if (window.THREE) return resolve();
+      var s = document.createElement('script');
+      s.src = 'https://unpkg.com/three@0.160.0/build/three.min.js';
+      s.async = true;
+      s.onload = resolve;
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+
+  function start() {
+    var w = parent.clientWidth;
+    var h = parent.clientHeight;
+
+    var renderer = new THREE.WebGLRenderer({
+      canvas: canvas,
+      antialias: false,
+      alpha: true,
+      powerPreference: 'low-power'
+    });
+    renderer.setPixelRatio(dpr);
+    renderer.setSize(w, h, false);
+
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(55, w / h, 0.1, 100);
+    camera.position.z = 14;
+
+    var positions = new Float32Array(count * 3);
+    for (var i = 0; i < count * 3; i += 3) {
+      positions[i]     = (Math.random() - 0.5) * 26;
+      positions[i + 1] = (Math.random() - 0.5) * 14;
+      positions[i + 2] = (Math.random() - 0.5) * 12 - 2;
+    }
+    var geom = new THREE.BufferGeometry();
+    geom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+    var mat = new THREE.PointsMaterial({
+      color: 0xC0A27C,
+      size: 0.03,
+      sizeAttenuation: true,
+      transparent: true,
+      opacity: 0.4,
+      depthWrite: false
+    });
+
+    var points = new THREE.Points(geom, mat);
+    scene.add(points);
+
+    function resize() {
+      w = parent.clientWidth;
+      h = parent.clientHeight;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    }
+
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(resize, 150);
+    });
+
+    function frame() {
+      points.rotation.y += 0.0003;
+      renderer.render(scene, camera);
+      raf = requestAnimationFrame(frame);
+    }
+
+    function play() {
+      if (running) return;
+      running = true;
+      raf = requestAnimationFrame(frame);
+    }
+
+    function pause() {
+      running = false;
+      if (raf) cancelAnimationFrame(raf);
+      raf = 0;
+    }
+
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) pause(); else play();
+    });
+
+    if (reduced) {
+      renderer.render(scene, camera);
+    } else {
+      play();
+    }
+  }
+
+  loadThree().then(start).catch(function () { /* silent degrade */ });
+})();
+
+</script>
+
+
 <script>
 (function(){
 'use strict';
@@ -1146,5 +1525,6 @@ if(!prefersReducedMotion){
 })();
 </script>
 
-</body>
-</html>
+
+
+</body></html>
