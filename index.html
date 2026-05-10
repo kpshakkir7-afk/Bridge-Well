@@ -58,7 +58,7 @@
   "url": "https://bridgewell-advisory.in",
   "logo": {
     "@type": "ImageObject",
-    "url": "https://bridgewell-advisory.in/logo.png",
+    "url": "https://bridgewell-advisory.in/logo.jpg",
     "width": 320,
     "height": 80
   },
@@ -554,12 +554,12 @@ ul { list-style:none; }
   margin-bottom:44px; padding-bottom:32px;
   border-bottom:1px solid var(--border-dk);
 }
-.drawer-logo-img {
+.drawer--img {
   width:52px; height:52px; border-radius:10px;
   overflow:hidden; flex-shrink:0;
   background:rgba(255,255,255,.08);
 }
-.drawer-logo-img img { width:52px; height:52px; object-fit:cover; }
+.drawer--img img { width:52px; height:52px; object-fit:cover; }
 .drawer-wm {
   font-family:'Cormorant Garamond',serif;
   font-size:20px; font-weight:600; color:#fff;
@@ -1311,8 +1311,8 @@ body, p, li, a, span, div,
 .ck-ico  { border-color: rgba(196,162,88,.4); color: #C4A258; }
 
 
-/* Loader logo, white bg logo on dark: mix-blend-mode screen removes white */
-.ld-logo img {
+/* Loader , white bg  on dark: mix-blend-mode screen removes white */
+.ld- img {
   mix-blend-mode: screen;
   filter: none;
   border-radius: 0;
@@ -2807,7 +2807,7 @@ body {
 <!-- DRAWER -->
 <div class="drawer" id="drawer">
   <div class="drawer-logo">
-    <div class="drawer-logo-img"><img src="https://bridgewell-advisory.in/logo.png" alt="Bridgewell Advisory"></div>
+    <div class="drawer-logo-img"><img src="https://bridgewell-advisory.in/logo.jpg" alt="Bridgewell Advisory"></div>
     <div>
       <div class="drawer-wm">Bridgewell Advisory</div>
       <div class="drawer-sub">Executive Search &middot; HR Consulting</div>
@@ -2830,7 +2830,7 @@ body {
 <!-- NAV -->
 <nav id="nav">
   <a href="#hero" class="nav-logo">
-    <div class="nav-logo-img"><img src="https://bridgewell-advisory.in/logo.png" alt="Bridgewell Advisory"></div>
+    <div class="nav-logo-img"><img src="https://bridgewell-advisory.in/logo.jpg" alt="Bridgewell Advisory"></div>
     <div>
       <div class="nav-wm">Bridgewell Advisory</div>
       <div class="nav-sub">Executive Search &middot; HR Consulting</div>
@@ -3370,7 +3370,7 @@ body {
     <div class="ft">
       <div class="fb">
         <div class="fb-top">
-          <div class="fb-img-wrap"><img src="https://bridgewell-advisory.in/logo.png" alt="Bridgewell Advisory"></div>
+          <div class="fb-img-wrap"><img src="https://bridgewell-advisory.in/logo.jpg" alt="Bridgewell Advisory"></div>
           <div><div class="fb-wm">Bridgewell Advisory</div><div class="fb-tag">Est. 2026 &middot; Bengaluru</div></div>
         </div>
         <p>Specialist <strong>recruitment advisory</strong> and <strong>executive search</strong> for India&rsquo;s founders, CXOs, and leadership teams. Mid-to-senior hiring done right.</p>
@@ -4093,7 +4093,7 @@ document.querySelectorAll('.sec-h-underline').forEach(function(el){ ulObs.observ
     }
   }
 
-  /* ── Logo targets: sample logo PNG at high density, perfect centering ── */
+  /* ── Logo targets: sample logo JPG at high density, perfect centering ── */
   function setLogoTargets(){
     const logoImg = document.querySelector('.nav-logo-img img');
 
