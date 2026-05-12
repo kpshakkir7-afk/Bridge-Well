@@ -1804,7 +1804,56 @@ body.aw-line-height-2 p, body.aw-line-height-2 li { line-height: 2.6 !important;
   padding: 0 16px 10px; min-height: 16px; line-height: 1.4;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
+#cookie-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: #111827;
+  color: white;
+  padding: 20px;
+  border-radius: 16px;
+  display: none;
+  z-index: 99999;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
 
+.cookie-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cookie-content p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.cookie-content a {
+  color: #60a5fa;
+  text-decoration: none;
+}
+
+.cookie-actions button {
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 10px;
+  font-weight: 600;
+}
+
+.cookie-actions button:first-child {
+  background: #2563eb;
+  color: white;
+}
+
+.cookie-actions button:last-child {
+  background: #374151;
+  color: white;
+}
 </style>
 <!-- JSON-LD: Breadcrumb -->
 <script type="application/ld+json">
@@ -4338,6 +4387,40 @@ document.querySelectorAll('.sec-h-underline').forEach(function(el){ ulObs.observ
   });
 
 }());
+</script>
+     <!-- COOKIE CONSENT BANNER -->
+<div id="cookie-banner">
+  <div class="cookie-content">
+    <p>
+      We use cookies to improve your browsing experience, analyze traffic, and enhance our services.
+      <a href="/privacy-policy.html">Privacy Policy</a> |
+      <a href="/cookie-policy.html">Cookie Policy</a>
+    </p>
+
+    <div class="cookie-actions">
+      <button onclick="acceptCookies()">Accept</button>
+      <button onclick="rejectCookies()">Reject</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function acceptCookies() {
+  localStorage.setItem("cookieConsent", "accepted");
+  document.getElementById("cookie-banner").style.display = "flex";
+  document.getElementById("cookie-banner").style.display = "none";
+}
+
+function rejectCookies() {
+  localStorage.setItem("cookieConsent", "rejected");
+  document.getElementById("cookie-banner").style.display = "none";
+}
+
+window.onload = function () {
+  if (!localStorage.getItem("cookieConsent")) {
+    document.getElementById("cookie-banner").style.display = "flex";
+  }
+};
 </script>
 
 </body>
