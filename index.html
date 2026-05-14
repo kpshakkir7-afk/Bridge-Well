@@ -183,8 +183,9 @@
   "familyName": "KP",
   "honorificSuffix": "SHRM-CP",
   "jobTitle": "Founder & Principal Recruitment Advisor",
-  "description": "Shakkir KP, SHRM-CP, is the founder of Bridgewell Advisory, a specialist recruitment advisory and executive search firm in India. He personally leads every mid-to-senior and CXO mandate, working directly with founders, CEOs, and leadership teams on strategic hiring, role definition, and HR advisory. Specialises in IT, Digital, E-Commerce, FMCG, and Renewable Energy.",
-  "url": "https://bridgewell-advisory.in",
+"description": "Shakkir KP, SHRM-CP, is the Founder of Bridgewell Advisory, a boutique executive search and recruitment advisory firm based in India. He partners directly with founders, business leaders, and growth-stage organizations to solve strategic hiring challenges across mid-senior leadership and executive roles. His expertise spans talent acquisition strategy, executive search, workforce planning, role architecture, and HR advisory across IT, Digital, E-Commerce, FMCG, Manufacturing, and Renewable Energy.",
+"url": "https://shakkir.pp.ua"  
+"url": "https://bridgewell-advisory.in",
   "email": "info@bridgewell-advisory.in",
   "telephone": "+91-79044-11277",
   "image": "https://bridgewell-advisory.in/shakkir-kp.jpg",
@@ -2102,12 +2103,27 @@ body.bw-intro-active </style>
   border-top:1px solid rgba(8,20,98,.06);
   border-bottom:1px solid rgba(8,20,98,.06);
 }
-#founder::before, #founder::after {
-  content:''; position:absolute; left:0; right:0; height:1px;
-  background:linear-gradient(90deg, transparent, rgba(196,162,88,.35), transparent);
+#founder::before,
+#founder::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(196, 162, 88, 0.35) 50%,
+    transparent 100%
+  );
 }
-#founder::before { top:0; }
-#founder::after  { bottom:0; }
+
+#founder::before {
+  top: 0;
+}
+
+#founder::after {
+  bottom: 0;
+}
 
 .fnd {
   max-width:760px; margin:0 auto;
