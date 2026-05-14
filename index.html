@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Bridgewell Advisory, Recruitment Advisory India | Executive Search &amp; Leadership Hiring</title>
 <meta name="description" content="Bridgewell Advisory is India's specialist recruitment advisory and executive search firm. We are the strategic hiring partner for CXOs, founders, and leadership teams, mid to senior hiring across Bengaluru and India. Advisory-led. AI-augmented. We Diagnose Before We Deliver.">
 <meta name="keywords" content="recruitment advisory India, recruitment consultant India, recruitment partner India, leadership hiring India, executive search India, hiring partner for critical roles, mid to senior hiring India, CXO hiring India, strategic hiring advisory India, executive hiring firm India, recruitment advisory for startups India, leadership hiring for growing companies, hiring advisory for founders, critical role hiring partner, executive search Bengaluru, HR consulting India, startup hiring India, payroll management India, HR compliance India">
@@ -470,17 +470,20 @@ ul { list-style:none; }
 .nav-logo {
   display:flex; align-items:center; gap:12px;
   text-decoration:none;
+  min-width:0;
 }
+.nav-logo > div { min-width:0; }
 .nav-logo-img {
-  width:44px; height:44px; border-radius:8px;
+  width:auto; min-width:48px; height:48px; border-radius:8px;
   overflow:hidden; flex-shrink:0;
   background:#fff;
   border:1px solid var(--border-gold);
   display:flex; align-items:center; justify-content:center;
+  padding:6px 9px;
   transition:border-color .3s, box-shadow .3s;
 }
 .nav-logo-img img {
-  width:44px; height:44px; object-fit:cover;
+  width:auto; height:100%; max-height:36px; object-fit:contain; display:block;
 }
 .nav-logo:hover .nav-logo-img {
   border-color:var(--gold);
@@ -490,6 +493,7 @@ ul { list-style:none; }
   font-family:'Cormorant Garamond',serif;
   font-size:18px; font-weight:700;
   color:#fff; letter-spacing:.06em; line-height:1;
+  white-space:nowrap;
 }
 .nav-sub {
   font-family:'Inter',sans-serif;
@@ -554,12 +558,14 @@ ul { list-style:none; }
   margin-bottom:44px; padding-bottom:32px;
   border-bottom:1px solid var(--border-dk);
 }
-.drawer--img {
-  width:52px; height:52px; border-radius:10px;
+.drawer-logo-img {
+  width:auto; min-width:56px; height:56px; border-radius:10px;
   overflow:hidden; flex-shrink:0;
-  background:rgba(255,255,255,.08);
+  background:#fff;
+  display:flex; align-items:center; justify-content:center;
+  padding:7px 10px;
 }
-.drawer--img img { width:52px; height:52px; object-fit:cover; }
+.drawer-logo-img img { width:auto; height:100%; max-height:42px; object-fit:contain; display:block; }
 .drawer-wm {
   font-family:'Cormorant Garamond',serif;
   font-size:20px; font-weight:600; color:#fff;
@@ -846,6 +852,19 @@ ul { list-style:none; }
 /* Light sections */
 .sec-white { background:#fff; }
 .sec-off { background:var(--canvas); border-top:1px solid rgba(8,20,98,.07); }
+
+/* ── Responsive section-padding utilities (replaces inline styles
+   so mobile breakpoints can actually override them) ── */
+.pad-lg { padding:96px 0; }
+.pad-md { padding:64px 0; }
+@media(max-width:768px){
+  .pad-lg { padding:60px 0; }
+  .pad-md { padding:48px 0; }
+}
+@media(max-width:480px){
+  .pad-lg { padding:44px 0; }
+  .pad-md { padding:36px 0; }
+}
 /* Dark sections */
 .sec-dark { background:var(--grad-dark); }
 .sec-night { background:var(--grad-hero); position:relative; overflow:hidden; }
@@ -1044,8 +1063,8 @@ ul { list-style:none; }
 footer { background:#04061C; padding:56px 0 32px; border-top:1px solid rgba(196,162,88,.1); }
 .ft { display:grid; grid-template-columns:2fr 1fr 1fr 1.2fr; gap:60px; padding-bottom:44px; border-bottom:1px solid rgba(255,255,255,.05); }
 .fb-top { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
-.fb-img-wrap { width:44px; height:44px; border-radius:8px; overflow:hidden; background:rgba(255,255,255,.06); flex-shrink:0; }
-.fb-img-wrap img { width:44px; height:44px; object-fit:cover; }
+.fb-img-wrap { width:auto; min-width:48px; height:48px; border-radius:8px; overflow:hidden; background:#fff; flex-shrink:0; display:flex; align-items:center; justify-content:center; padding:6px 9px; }
+.fb-img-wrap img { width:auto; height:100%; max-height:36px; object-fit:contain; display:block; }
 .fb-wm { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:600; color:#fff; letter-spacing:.05em; }
 .fb-tag { font-family:'Inter',sans-serif; font-size:9px; font-weight:400; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.28); margin-top:3px; }
 .fb p { font-family:'Inter',sans-serif; font-size:13px; font-weight:300; color:rgba(255,255,255,.45); line-height:1.75; max-width:270px; }
@@ -1089,14 +1108,24 @@ footer { background:#04061C; padding:56px 0 32px; border-top:1px solid rgba(196,
   .nav-ham{display:flex}
   #nav{height:64px;padding:0 4%}
 
+  /* Logo boxes — proportionate on tablet/mobile */
+  .nav-logo-img{height:38px;min-width:40px;padding:4px 7px}
+  .nav-logo-img img{max-height:28px}
+  .nav-wm{font-size:15px;white-space:nowrap}
+  .nav-sub{font-size:7.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .drawer-logo-img{height:50px;min-width:50px;padding:6px 9px}
+  .drawer-logo-img img{max-height:38px}
+  .fb-img-wrap{height:44px;min-width:44px;padding:5px 8px}
+  .fb-img-wrap img{max-height:32px}
+
   /* Hero, kill whitespace */
   #hero{padding-top:64px;min-height:auto}
-  .hero-inner{min-height:calc(100svh - 64px)}
+  .hero-inner{min-height:auto}
   .hero-topbar{display:none}
   .hero-main{
     grid-template-columns:1fr;
     gap:28px;
-    padding:28px 4% 24px;
+    padding:28px 4% 32px;
     align-items:start;
   }
   .hero-h1{font-size:clamp(40px,10.5vw,68px);line-height:.96}
@@ -1173,6 +1202,18 @@ footer { background:#04061C; padding:56px 0 32px; border-top:1px solid rgba(196,
   /* Drawer */
   .drawer a{font-size:30px;padding:13px 0}
   .drawer{padding:0 6%}
+
+  /* Mobile overflow + wrapping hardening */
+  html,body{overflow-x:hidden;max-width:100vw}
+  *{min-width:0}
+  img,svg,canvas{max-width:100%;height:auto}
+  .hero-h1,.sec-h,.about-h,.cta-h,.faq-h{overflow-wrap:break-word;word-break:break-word;hyphens:auto}
+  .ticker,.marquee{max-width:100vw}
+
+  /* Tagline banner — tighten oversized padding on mobile */
+  .tg-banner{padding:34px 5%}
+  .tg-lbl{margin-bottom:12px;font-size:9.5px;letter-spacing:.22em}
+  .tg-quote{font-size:clamp(17px,4.6vw,22px);line-height:1.45}
 }
 
 /* ── SMALL MOBILE ──────────────────────────── */
@@ -1189,6 +1230,20 @@ footer { background:#04061C; padding:56px 0 32px; border-top:1px solid rgba(196,
   .btn{font-size:10.5px;padding:14px 20px}
   .nav-cta{display:none}
   #nav{padding:0 4%}
+
+  /* Logo — smallest screens */
+  .nav-logo{gap:7px;flex:0 1 auto;overflow:hidden}
+  .nav-logo-img{height:32px;min-width:34px;padding:3px 5px}
+  .nav-logo-img img{max-height:22px}
+  .nav-wm{font-size:13px;letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .nav-sub{display:none}  /* subtitle hidden on smallest screens — wordmark carries the brand */
+  /* Tagline banner — smallest screens */
+  .tg-banner{padding:28px 5%}
+  .tg-quote{font-size:clamp(16px,4.4vw,20px)}
+  /* right cluster never shrinks; logo group yields instead */
+  #nav > div:last-child{flex:0 0 auto}
+  .nav-wa{width:34px;height:34px}
+  .nav-ham{flex:0 0 auto}
 
   /* Hero cards: hide on very small to reduce scroll */
   .hero-cards{display:none}
@@ -1344,7 +1399,7 @@ body, p, li, a, span, div,
 ────────────────────────────────────────────────── */
 .nav-links a { color: rgba(255,255,255,.7); font-size: 13px; font-weight: 400; letter-spacing: .03em; }
 .nav-links a:hover { color: #ffffff; }
-.nav-wm { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 700; color: #ffffff; letter-spacing: .06em; }
+.nav-wm { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 700; color: #ffffff; letter-spacing: .06em; white-space: nowrap; }
 .nav-sub { font-family: 'Inter', sans-serif; font-size: 9px; color: rgba(255,255,255,.35); letter-spacing: .2em; }
 .nav-cta {
   font-size: 11.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
@@ -2976,7 +3031,7 @@ body {
 </div>
 
 <!-- STATS -->
-<section class="sec sec-off" style="padding:96px 0">
+<section class="sec sec-off pad-lg">
   <div class="wrap">
     <div class="stats-row">
       <div class="stat rv"><div class="stat-num"><span class="ctr" data-to="40">0</span><b>%</b></div><div class="stat-label">of executives hired at the senior level are pushed out, fail or quit within 18 months</div><div class="stat-src"><b>Source:</b> Heidrick &amp; Struggles, via <em>Financial Times</em></div></div>
@@ -3167,7 +3222,7 @@ body {
 </section>
 
 <!-- MID-PAGE CTA INTERRUPT -->
-<section class="sec sec-off" style="padding:64px 0;text-align:center;border-top:1px solid rgba(8,20,98,.08)">
+<section class="sec sec-off pad-md" style="text-align:center;border-top:1px solid rgba(8,20,98,.08)">
   <div class="wrap" style="max-width:640px">
     <p class="rv" style="font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.8vw,32px);font-style:italic;color:#09103A;font-weight:400;line-height:1.3;margin-bottom:28px">If this feels familiar, don't continue scrolling. Let's fix your hiring problem.</p>
     <div class="rv d1" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
@@ -3268,7 +3323,7 @@ body {
 </section>
 
 <!-- DECISION FILTER -->
-<section class="sec sec-white" style="padding:80px 0">
+<section class="sec sec-white pad-lg">
   <div class="wrap">
     <div class="proc-header" style="margin-bottom:48px">
       <div><div class="eyebrow rv">Is This For You?</div><h2 class="sec-h rv d1">Know before<br><em>you reach out.</em></h2></div>
@@ -3764,8 +3819,32 @@ var rvObs=new IntersectionObserver(function(entries){
   entries.forEach(function(e){
     if(e.isIntersecting){e.target.classList.add('in');rvObs.unobserve(e.target);}
   });
-},{threshold:0.1,rootMargin:'0px 0px -20px 0px'});
-document.querySelectorAll('.rv').forEach(function(el){rvObs.observe(el);});
+},{threshold:0,rootMargin:'0px 0px 12% 0px'});
+var _rvEls=document.querySelectorAll('.rv');
+_rvEls.forEach(function(el){rvObs.observe(el);});
+
+/* Failsafe 1 — reveal anything already in/near viewport on load (covers short pages
+   and elements taller than the viewport that never hit a threshold cleanly) */
+function _rvSweep(){
+  var vh=window.innerHeight||document.documentElement.clientHeight;
+  _rvEls.forEach(function(el){
+    if(el.classList.contains('in'))return;
+    var r=el.getBoundingClientRect();
+    if(r.top < vh*1.15 && r.bottom > -50){
+      el.classList.add('in');
+      rvObs.unobserve(el);
+    }
+  });
+}
+_rvSweep();
+window.addEventListener('load',_rvSweep);
+window.addEventListener('scroll',_rvSweep,{passive:true});
+window.addEventListener('resize',_rvSweep,{passive:true});
+
+/* Failsafe 2 — hard guarantee: nothing stays invisible past 3.5s, no matter what */
+setTimeout(function(){
+  _rvEls.forEach(function(el){el.classList.add('in');});
+},3500);
 
 /* phi-rule */
 var phiObs=new IntersectionObserver(function(entries){
