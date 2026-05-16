@@ -2786,19 +2786,24 @@ body.drawer-open #cookie-banner { display:none !important; }
 /* HOVER / REVEAL state — what activates the pill */
 .hl-pill:hover,
 .hl-pill.reveal {
-  background: linear-gradient(135deg, #6366F1 0%, #818CF8 100%);
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-lt) 100%);
   padding: 0.08em 0.42em 0.16em;
-  box-shadow: 0 8px 24px rgba(99,102,241,.28), 0 0 0 1px rgba(255,255,255,.06) inset;
+  box-shadow:
+    0 8px 24px rgba(196,162,88,.32),
+    0 0 0 1px rgba(255,255,255,.10) inset,
+    0 0 0 1px rgba(196,162,88,.20);
 }
 .hl-pill:hover .wm-inner,
 .hl-pill.reveal .wm-inner {
-  color: #ffffff !important;
+  color: #070B35 !important;            /* deep navy text on gold — premium contrast */
+  font-weight: 700 !important;          /* slight weight bump on the highlight phrase */
 }
 
 /* Touch devices: disable :hover (prevents sticky-hover ghosting on iOS).
    Mobile reveal is handled exclusively by JS scrolling .reveal class. */
 @media (hover: none) {
   .hl-pill:hover { background: transparent; padding: 0.08em 0.08em 0.14em; box-shadow: none; }
+  .hl-pill:hover .wm-inner { color: #ffffff !important; font-weight: 600 !important; }
 }
 
 @media (max-width: 768px) {
@@ -2807,7 +2812,7 @@ body.drawer-open #cookie-banner { display:none !important; }
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
     padding: 0.06em 0.36em 0.14em;
-    box-shadow: 0 5px 16px rgba(99,102,241,.32);
+    box-shadow: 0 5px 16px rgba(196,162,88,.36);
   }
   .hero-h1 { letter-spacing: -0.015em !important; }
 }
@@ -3019,7 +3024,7 @@ body.drawer-open #cookie-banner { display:none !important; }
 <!-- DRAWER -->
 <div class="drawer" id="drawer">
   <div class="drawer-logo">
-    <div class="drawer-logo-img"><img src="https://bridgewell-advisory.in/logo.jpg" alt="Bridgewell Advisory"></div>
+    <div class="drawer-logo-img"><img src="https://bridgewell-advisory.in/logo.jpg" alt="Bridgewell Advisory" loading="lazy" decoding="async"></div>
     <div>
       <div class="drawer-wm">Bridgewell Advisory</div>
       <div class="drawer-sub">Executive Search &middot; HR Consulting</div>
@@ -3042,7 +3047,7 @@ body.drawer-open #cookie-banner { display:none !important; }
 <!-- NAV -->
 <nav id="nav">
   <a href="#hero" class="nav-logo">
-    <div class="nav-logo-img"><img src="https://bridgewell-advisory.in/logo.jpg" alt="Bridgewell Advisory"></div>
+    <div class="nav-logo-img"><img src="https://bridgewell-advisory.in/logo.jpg" alt="Bridgewell Advisory" crossorigin="anonymous" fetchpriority="high" decoding="sync"></div>
     <div>
       <div class="nav-wm">Bridgewell Advisory</div>
       <div class="nav-sub">Executive Search &middot; HR Consulting</div>
@@ -3582,7 +3587,7 @@ body.drawer-open #cookie-banner { display:none !important; }
     <div class="ft">
       <div class="fb">
         <div class="fb-top">
-          <div class="fb-img-wrap"><img src="https://bridgewell-advisory.in/logo.jpg" alt="Bridgewell Advisory"></div>
+          <div class="fb-img-wrap"><img src="https://bridgewell-advisory.in/logo.jpg" alt="Bridgewell Advisory" loading="lazy" decoding="async"></div>
           <div><div class="fb-wm">Bridgewell Advisory</div><div class="fb-tag">Est. 2026 &middot; Bengaluru</div></div>
         </div>
         <p>Specialist <strong>recruitment advisory</strong> and <strong>executive search</strong> for India&rsquo;s founders, CXOs, and leadership teams. Mid-to-senior hiring done right.</p>
@@ -4338,7 +4343,7 @@ document.querySelectorAll('.sec-h-underline').forEach(function(el){ ulObs.observ
   let globalT = 0;
   let logoTargetsSet = false;
 
-  const PHASE_DUR = [10, 6, 18, 14, 10];
+  const PHASE_DUR = [20, 14, 60, 35, 20];
 
   function resize(){
     const dpr = Math.min(window.devicePixelRatio||1, 2);
@@ -4361,26 +4366,29 @@ document.querySelectorAll('.sec-h-underline').forEach(function(el){ ulObs.observ
     }
   }
 
-  /* ── Logo targets: sample logo JPG at high density, perfect centering ── */
+  /* ── Logo targets: sample logo at high density with robust polarity + load handling ── */
   function setLogoTargets(){
     const logoImg = document.querySelector('.nav-logo-img img');
 
-    /* Smart sizing: scale logo to fit comfortably in viewport with breathing room.
-       Max dimensions: 78% of W or 70% of H (whichever is smaller). */
-    const natW  = logoImg.naturalWidth || 1205;
-    const natH  = logoImg.naturalHeight || 880;
+    /* If the logo image hasn't loaded yet, retry briefly. The intro animates
+       a 3D sphere first, so we have ~600ms before the logo formation phase
+       actually needs these targets. */
+    if(logoImg && !logoImg.complete){
+      setTimeout(setLogoTargets, 120);
+      return;
+    }
+
+    /* Sizing: scale logo to fit comfortably in viewport with breathing room. */
+    const natW  = (logoImg && logoImg.naturalWidth)  ? logoImg.naturalWidth  : 1205;
+    const natH  = (logoImg && logoImg.naturalHeight) ? logoImg.naturalHeight : 880;
     const ratio = natH / natW;
 
     let lW = Math.min(W * 0.78, 640);
     let lH = lW * ratio;
-    /* If resulting height exceeds 70% of viewport, constrain by height instead */
-    if(lH > H * 0.70){
-      lH = H * 0.70;
-      lW = lH / ratio;
-    }
+    if(lH > H * 0.70){ lH = H * 0.70; lW = lH / ratio; }
 
     const ox = (W - lW) / 2;
-    const oy = (H - lH) / 2;   /* perfectly centered */
+    const oy = (H - lH) / 2;
 
     const off = document.createElement('canvas');
     off.width  = W; off.height = H;
@@ -4388,54 +4396,115 @@ document.querySelectorAll('.sec-h-underline').forEach(function(el){ ulObs.observ
     c2.clearRect(0, 0, W, H);
 
     let d;
-    try {
-      c2.drawImage(logoImg, ox, oy, lW, lH);
-      /* getImageData throws if the canvas is tainted by a cross-origin image.
-         Keep it inside the try so the intro degrades gracefully instead of crashing. */
-      d = c2.getImageData(0, 0, W, H).data;
-    } catch(e) {
-      /* Fallback: draw the brand name as text, sample THAT instead —
-         guarantees the logo-formation phase still works even if the
-         image can't be read. */
+    let drewLogo = false;
+    if(logoImg && logoImg.complete && logoImg.naturalWidth > 0){
       try {
-        c2.clearRect(0, 0, W, H);
-        c2.fillStyle = '#ffffff';
-        c2.textAlign = 'center';
-        c2.textBaseline = 'middle';
-        var fs = Math.min(W * 0.11, 96);
-        c2.font = '700 ' + fs + "px 'Cormorant Garamond', Georgia, serif";
-        c2.fillText('BRIDGEWELL', W/2, H/2 - fs*0.55);
-        c2.font = '400 ' + (fs*0.42) + "px 'Inter', Arial, sans-serif";
-        c2.fillText('ADVISORY', W/2, H/2 + fs*0.35);
+        c2.drawImage(logoImg, ox, oy, lW, lH);
         d = c2.getImageData(0, 0, W, H).data;
+        drewLogo = true;
+      } catch(e) { /* cross-origin taint — fall through to text */ }
+    }
+
+    /* If logo couldn't be drawn or sampled, draw brand name as text instead.
+       Use a FRESH canvas — once tainted by cross-origin image, a canvas
+       can never be read again, even after clearRect. */
+    if(!drewLogo){
+      try {
+        const off2 = document.createElement('canvas');
+        off2.width = W; off2.height = H;
+        const c3 = off2.getContext('2d');
+        c3.clearRect(0, 0, W, H);
+        c3.fillStyle = '#ffffff';
+        c3.textAlign = 'center';
+        c3.textBaseline = 'middle';
+        const fs = Math.min(W * 0.12, 110);
+        c3.font = '700 ' + fs + "px 'Fraunces','Cormorant Garamond',Georgia,serif";
+        c3.fillText('BRIDGEWELL', W/2, H/2 - fs*0.55);
+        c3.font = '400 ' + (fs*0.40) + "px 'Inter','Arial',sans-serif";
+        c3.fillText('ADVISORY', W/2, H/2 + fs*0.42);
+        d = c3.getImageData(0, 0, W, H).data;
       } catch(e2) {
-        /* Last resort: skip logo phase entirely, keep sphere->dissolve */
         logoTargetsSet = true; return;
       }
     }
 
     const pts  = [];
-    const step = 1;   /* sample every pixel — maximum detail capture */
+    const step = 1;
 
-    /* Detect polarity: sample a corner to learn the background, then
-       collect pixels that CONTRAST with it. Works whether we drew the
-       dark navy logo (dark-on-transparent) or the white text fallback. */
-    const bg = d[0] + d[1] + d[2];           /* top-left corner brightness */
-    const darkOnLight = bg > 380;            /* bg is light => logo is dark */
+    /* Sample 4 corners of where the logo was drawn to learn the background.
+       Then collect pixels that DIFFER from that background — those are the
+       brand-mark pixels. Works for any logo polarity (light bg/dark mark,
+       dark bg/light mark, transparent bg, etc.) */
+    function pixAt(x, y){
+      const i = (Math.floor(y) * W + Math.floor(x)) * 4;
+      return { r: d[i], g: d[i+1], b: d[i+2], a: d[i+3], bright: d[i]+d[i+1]+d[i+2] };
+    }
+    /* Corners of the drawn logo rectangle */
+    const corners = [
+      pixAt(ox + 2,        oy + 2),
+      pixAt(ox + lW - 3,   oy + 2),
+      pixAt(ox + 2,        oy + lH - 3),
+      pixAt(ox + lW - 3,   oy + lH - 3)
+    ];
+
+    /* Average corner color = best estimate of logo background */
+    let bgR = 0, bgG = 0, bgB = 0, bgA = 0;
+    corners.forEach(c => { bgR += c.r; bgG += c.g; bgB += c.b; bgA += c.a; });
+    bgR /= 4; bgG /= 4; bgB /= 4; bgA /= 4;
+    const bgBright = bgR + bgG + bgB;
+
+    /* If corners are mostly transparent, treat any visible pixel as logo */
+    const bgTransparent = bgA < 30;
+
+    /* Hit test: pixel is part of the brand mark if it differs significantly
+       from the corner background (by either color or brightness) */
+    function hitTest(r, g, b, a){
+      if(a < 30) return false;
+      if(bgTransparent) return true;       /* any visible pixel is logo */
+      const colorDist = Math.abs(r-bgR) + Math.abs(g-bgG) + Math.abs(b-bgB);
+      const brightDist = Math.abs((r+g+b) - bgBright);
+      return colorDist > 80 || brightDist > 120;
+    }
 
     for(let y = 0; y < H; y += step){
       for(let x = 0; x < W; x += step){
-        const i      = (y * W + x) * 4;
-        if(d[i+3] < 20) continue;            /* skip transparent */
-        const bright = d[i] + d[i+1] + d[i+2];
-        const hit = darkOnLight ? (bright < 520) : (bright > 300);
-        if(hit){
+        const i = (y * W + x) * 4;
+        if(hitTest(d[i], d[i+1], d[i+2], d[i+3])){
           pts.push(
             x - CX + (Math.random() - 0.5) * 0.3,
             y - CY + (Math.random() - 0.5) * 0.3
           );
         }
       }
+    }
+
+    /* If still no pixels (something weird), use the text fallback once more before giving up.
+       Fresh canvas in case the original was tainted by image draw. */
+    if(pts.length < 100 && drewLogo){
+      drewLogo = false;
+      try {
+        const off3 = document.createElement('canvas');
+        off3.width = W; off3.height = H;
+        const c4 = off3.getContext('2d');
+        c4.fillStyle = '#ffffff';
+        c4.textAlign = 'center';
+        c4.textBaseline = 'middle';
+        const fs2 = Math.min(W * 0.12, 110);
+        c4.font = '700 ' + fs2 + "px 'Fraunces','Cormorant Garamond',Georgia,serif";
+        c4.fillText('BRIDGEWELL', W/2, H/2 - fs2*0.55);
+        c4.font = '400 ' + (fs2*0.40) + "px 'Inter','Arial',sans-serif";
+        c4.fillText('ADVISORY', W/2, H/2 + fs2*0.42);
+        const d2 = c4.getImageData(0, 0, W, H).data;
+        for(let y = 0; y < H; y++){
+          for(let x = 0; x < W; x++){
+            const i = (y * W + x) * 4;
+            if(d2[i+3] > 30){
+              pts.push(x - CX + (Math.random() - 0.5) * 0.3,
+                       y - CY + (Math.random() - 0.5) * 0.3);
+            }
+          }
+        }
+      } catch(e3) { /* nothing more to try */ }
     }
 
     if(pts.length < 100){ logoTargetsSet = true; return; }
