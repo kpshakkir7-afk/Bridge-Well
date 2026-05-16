@@ -5071,6 +5071,91 @@ input.addEventListener("keypress", function(e) {
     sendMessage();
   }
 });
+<script>
+const toggle = document.getElementById("bridgewell-chat-toggle");
+const box = document.getElementById("bridgewell-chat-box");
+const input = document.getElementById("bridgewell-chat-input");
+const send = document.getElementById("bridgewell-chat-send");
+const messages = document.getElementById("bridgewell-chat-messages");
+
+const API_URL = "https://written-beaches-charges-yukon.trycloudflare.com/api/chat/completions";
+const MODEL_NAME = "gemma3:4b";
+
+toggle.onclick = () => {
+  box.style.display = box.style.display === "flex" ? "none" : "flex";
+};
+
+function addMessage(text, type) {
+  const div = document.createElement("div");
+  div.className = `message ${type}`;
+  div.innerHTML = text;
+  messages.appendChild(div);
+  messages.scrollTop = messages.scrollHeight;
+  return div;
+}
+
+async function sendMessage() {
+  const text = input.value.trim();
+  if (!text) return;
+
+  addMessage(text, "user");
+  input.value = "";
+
+  const typing = addMessage("Bridgewell AI is typing...", "bot typing");
+
+  try {
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        model: MODEL_NAME,
+        messages: [
+          {
+            role: "user",
+            content: text
+          }
+        ]
+      })
+    });
+
+    const data = await response.json();
+    console.log(data);
+
+    typing.remove();
+
+    let reply = "";
+
+    if (data.choices && data.choices[0]?.message?.content) {
+      reply = data.choices[0].message.content;
+    } else if (data.message?.content) {
+      reply = data.message.content;
+    } else if (data.response) {
+      reply = data.response;
+    } else {
+      reply = "Bridgewell AI received the request but returned an unexpected response.";
+    }
+
+    addMessage(reply, "bot");
+
+  } catch (error) {
+    typing.remove();
+    console.error(error);
+    addMessage(
+      "Bridgewell AI is temporarily unavailable.",
+      "bot"
+    );
+  }
+}
+
+send.onclick = sendMessage;
+
+input.addEventListener("keypress", function(e) {
+  if (e.key === "Enter") {
+    sendMessage();
+  }
+});
 </script>
 </body>
 </html>
