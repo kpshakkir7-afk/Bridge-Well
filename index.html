@@ -474,20 +474,16 @@ ul { list-style:none; }
 }
 .nav-logo > div { min-width:0; }
 .nav-logo-img {
-  width:auto; min-width:48px; height:48px; border-radius:8px;
-  overflow:hidden; flex-shrink:0;
-  background:#fff;
-  border:1px solid var(--border-gold);
+  width:auto; height:42px; flex-shrink:0;
   display:flex; align-items:center; justify-content:center;
-  padding:6px 9px;
-  transition:border-color .3s, box-shadow .3s;
+  transition:opacity .3s, transform .3s;
 }
 .nav-logo-img img {
-  width:auto; height:100%; max-height:36px; object-fit:contain; display:block;
+  width:auto; height:100%; max-height:42px; object-fit:contain; display:block;
 }
 .nav-logo:hover .nav-logo-img {
-  border-color:var(--gold);
-  box-shadow:0 0 14px rgba(196,162,88,.2);
+  opacity:.82;
+  transform:translateY(-1px);
 }
 .nav-wm {
   font-family:'Cormorant Garamond',serif;
@@ -1131,8 +1127,8 @@ footer { background:#04061C; padding:56px 0 32px; border-top:1px solid rgba(196,
   #nav{height:64px;padding:0 4%}
 
   /* Logo boxes — proportionate on tablet/mobile */
-  .nav-logo-img{height:38px;min-width:40px;padding:4px 7px}
-  .nav-logo-img img{max-height:28px}
+  .nav-logo-img{height:36px}
+  .nav-logo-img img{max-height:36px}
   .nav-wm{font-size:15px;white-space:nowrap}
   .nav-sub{font-size:7.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .drawer-logo-img{height:50px;min-width:50px;padding:6px 9px}
@@ -1255,8 +1251,8 @@ footer { background:#04061C; padding:56px 0 32px; border-top:1px solid rgba(196,
 
   /* Logo — smallest screens */
   .nav-logo{gap:7px;flex:0 1 auto;overflow:hidden}
-  .nav-logo-img{height:32px;min-width:34px;padding:3px 5px}
-  .nav-logo-img img{max-height:22px}
+  .nav-logo-img{height:32px}
+  .nav-logo-img img{max-height:32px}
   .nav-wm{font-size:13px;letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .nav-sub{display:none}  /* subtitle hidden on smallest screens — wordmark carries the brand */
   /* Tagline banner — smallest screens */
@@ -2758,66 +2754,208 @@ body.drawer-open #cookie-banner { display:none !important; }
 }
 
 /* ────────────────────────────────────────────────
-   PILL HIGHLIGHT — invisible by default, reveals on interaction
-   Desktop: appears on hover over the phrase
-   Mobile: appears via JS when scrolled into view (.hl-pill.reveal)
+   PHRASE ACCENT — refined gold underline, not a dominating block.
+   G-P / McKinsey restraint: emphasis through a subtle accent,
+   never a billboard fill. Invisible by default; the underline
+   draws in on hover (desktop) or scroll-into-view (mobile).
 ──────────────────────────────────────────────── */
 .hl-pill {
   display: inline-block;
-  background: transparent;             /* invisible by default */
-  padding: 0.08em 0.08em 0.14em;       /* near-zero padding so layout matches plain text */
-  border-radius: 999px;
+  position: relative;
+  background: transparent;
+  padding: 0 0 0.06em;
   margin: 0;
-  line-height: 1;
+  line-height: inherit;
   white-space: nowrap;
   vertical-align: baseline;
-  box-shadow: 0 0 0 0 rgba(99,102,241,0);
-  transition:
-    background .55s cubic-bezier(.22,1,.36,1),
-    padding .55s cubic-bezier(.22,1,.36,1),
-    box-shadow .55s cubic-bezier(.22,1,.36,1);
 }
 .hl-pill .wm-mask { vertical-align: baseline; }
 .hl-pill .wm-inner {
-  color: #ffffff !important;
-  transition: color .45s ease;
+  color: var(--gold-lt) !important;     /* the phrase itself is gold — subtle, on-brand */
+  transition: color .4s ease;
+}
+/* The animated underline */
+.hl-pill::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.02em;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold-lt) 100%);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .6s cubic-bezier(.22,1,.36,1);
+  box-shadow: 0 1px 8px rgba(196,162,88,.35);
 }
 
-/* HOVER / REVEAL state — what activates the pill */
-.hl-pill:hover,
-.hl-pill.reveal {
-  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-lt) 100%);
-  padding: 0.08em 0.42em 0.16em;
-  box-shadow:
-    0 8px 24px rgba(196,162,88,.32),
-    0 0 0 1px rgba(255,255,255,.10) inset,
-    0 0 0 1px rgba(196,162,88,.20);
+/* ACTIVATED state — underline sweeps in */
+.hl-pill:hover::after,
+.hl-pill.reveal::after {
+  transform: scaleX(1);
 }
 .hl-pill:hover .wm-inner,
 .hl-pill.reveal .wm-inner {
-  color: #070B35 !important;            /* deep navy text on gold — premium contrast */
-  font-weight: 700 !important;          /* slight weight bump on the highlight phrase */
+  color: #ffffff !important;            /* text brightens to white as the gold rule lands */
 }
 
-/* Touch devices: disable :hover (prevents sticky-hover ghosting on iOS).
-   Mobile reveal is handled exclusively by JS scrolling .reveal class. */
+/* Touch devices: no hover. Mobile reveal handled by JS .reveal class. */
 @media (hover: none) {
-  .hl-pill:hover { background: transparent; padding: 0.08em 0.08em 0.14em; box-shadow: none; }
-  .hl-pill:hover .wm-inner { color: #ffffff !important; font-weight: 600 !important; }
+  .hl-pill:hover::after { transform: scaleX(0); }
+  .hl-pill:hover .wm-inner { color: var(--gold-lt) !important; }
+  .hl-pill.reveal::after { transform: scaleX(1); }
+  .hl-pill.reveal .wm-inner { color: #ffffff !important; }
 }
 
 @media (max-width: 768px) {
-  .hl-pill.reveal {
-    white-space: normal;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
-    padding: 0.06em 0.36em 0.14em;
-    box-shadow: 0 5px 16px rgba(196,162,88,.36);
-  }
+  .hl-pill { white-space: normal; }
+  .hl-pill::after { height: 2.5px; }
   .hero-h1 { letter-spacing: -0.015em !important; }
 }
+
+/* ════════════════════════════════════════════════════════
+   G-P INSPIRED SECTIONS — 3-card grid + big-stat band
+═══════════════════════════════════════════════════════════ */
+
+/* Big-stat band: large numerals, restrained, generous whitespace */
+.gp-stats {
+  background: var(--night, #070B35);
+  padding: 88px 0;
+  border-top: 1px solid rgba(196,162,88,.12);
+  border-bottom: 1px solid rgba(196,162,88,.12);
+}
+.gp-stats-grid {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 6%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.gp-stat {
+  text-align: center;
+  position: relative;
+}
+.gp-stat:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -12px;
+  top: 18%;
+  height: 64%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(196,162,88,.25), transparent);
+}
+.gp-stat-num {
+  font-family: 'Fraunces','Cormorant Garamond',Georgia,serif;
+  font-size: clamp(48px, 6vw, 88px);
+  font-weight: 600;
+  line-height: 1;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+.gp-stat-num span { color: var(--gold-lt, #DEC07A); }
+.gp-stat-label {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.50);
+  margin-top: 14px;
+}
+
+/* 3-card capability grid (G-P "three products" pattern) */
+.gp-cards {
+  padding: 96px 0;
+  background: var(--canvas, #F7F5F0);
+}
+.gp-cards-inner { max-width: 1180px; margin: 0 auto; padding: 0 6%; }
+.gp-cards-head {
+  max-width: 720px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+.gp-cards-eyebrow {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold, #C4A258);
+  margin-bottom: 16px;
+}
+.gp-cards-title {
+  font-family: 'Fraunces','Cormorant Garamond',Georgia,serif;
+  font-size: clamp(30px, 3.6vw, 50px);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: #0C0C0A;
+}
+.gp-cards-title em { font-style: italic; color: var(--gold, #C4A258); }
+.gp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.gp-card {
+  background: #ffffff;
+  border: 1px solid rgba(12,12,10,.08);
+  border-radius: 16px;
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  transition: transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s, border-color .4s;
+}
+.gp-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px -20px rgba(12,12,10,.18);
+  border-color: rgba(196,162,88,.42);
+}
+.gp-card-icon {
+  width: 52px; height: 52px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(196,162,88,.16), rgba(196,162,88,.06));
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 24px;
+  font-size: 24px;
+}
+.gp-card h3 {
+  font-family: 'Fraunces','Cormorant Garamond',Georgia,serif;
+  font-size: 24px; font-weight: 600;
+  color: #0C0C0A;
+  letter-spacing: -0.01em;
+  margin: 0 0 12px;
+}
+.gp-card p {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px; line-height: 1.65;
+  color: rgba(12,12,10,.62);
+  margin: 0 0 24px;
+  flex: 1;
+}
+.gp-card-link {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--gold, #C4A258);
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 7px;
+  transition: gap .3s;
+}
+.gp-card-link:hover { gap: 12px; }
+
+@media (max-width: 900px) {
+  .gp-stats-grid { grid-template-columns: 1fr; gap: 44px; }
+  .gp-stat:not(:last-child)::after { display: none; }
+  .gp-stat:not(:last-child) { padding-bottom: 44px; border-bottom: 1px solid rgba(196,162,88,.14); }
+  .gp-grid { grid-template-columns: 1fr; gap: 18px; }
+  .gp-cards { padding: 64px 0; }
+  .gp-stats { padding: 60px 0; }
+}
 @media (max-width: 480px) {
-  .hl-pill.reveal { padding: 0.05em 0.30em 0.12em; }
+  .gp-stat-num { font-size: clamp(44px, 13vw, 64px); }
+  .gp-card { padding: 32px 24px; }
 }
 </style>
 
@@ -3143,6 +3281,54 @@ body.drawer-open #cookie-banner { display:none !important; }
   </div>
 </div>
 
+<!-- G-P STYLE BIG-STAT BAND -->
+<section class="gp-stats">
+  <div class="gp-stats-grid">
+    <div class="gp-stat rv">
+      <div class="gp-stat-num">8<span>+</span></div>
+      <div class="gp-stat-label">Sectors served</div>
+    </div>
+    <div class="gp-stat rv d1">
+      <div class="gp-stat-num">Mid&ndash;<span>CxO</span></div>
+      <div class="gp-stat-label">Mandate level</div>
+    </div>
+    <div class="gp-stat rv d2">
+      <div class="gp-stat-num">3</div>
+      <div class="gp-stat-label">Engagement models</div>
+    </div>
+  </div>
+</section>
+
+<!-- G-P STYLE 3-CARD CAPABILITY GRID -->
+<section class="gp-cards">
+  <div class="gp-cards-inner">
+    <div class="gp-cards-head">
+      <div class="gp-cards-eyebrow rv">What We Do</div>
+      <h2 class="gp-cards-title rv d1">Three ways we get<br>leadership hiring <em>right</em>.</h2>
+    </div>
+    <div class="gp-grid">
+      <div class="gp-card rv">
+        <div class="gp-card-icon">&#9737;</div>
+        <h3>Executive &amp; Senior Search</h3>
+        <p>Director, VP and CxO mandates run with advisory rigour &mdash; business context first, candidates second. Fewer profiles, sharper recommendations.</p>
+        <a href="#services" class="gp-card-link">Explore search &#8594;</a>
+      </div>
+      <div class="gp-card rv d1">
+        <div class="gp-card-icon">&#9636;</div>
+        <h3>Strategic HR Advisory</h3>
+        <p>Workforce planning, role design, offer structuring and org calibration. We fix the decision, not just fill the vacancy.</p>
+        <a href="#approach" class="gp-card-link">Explore advisory &#8594;</a>
+      </div>
+      <div class="gp-card rv d2">
+        <div class="gp-card-icon">&#9650;</div>
+        <h3>AI-Augmented Assessment</h3>
+        <p>Structured, AI-backed evaluation at intake and shortlist. Technology accelerates precision; senior judgement closes the hire.</p>
+        <a href="#approach" class="gp-card-link">See the method &#8594;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- STATS -->
 <section class="sec sec-off pad-lg">
   <div class="wrap">
@@ -3227,12 +3413,6 @@ body.drawer-open #cookie-banner { display:none !important; }
         <span class="svc-arr">&#8594;</span>
     </div>
 </a>
-
-    <div class="svc-meta">
-        <span class="svc-badge">New</span>
-        <span class="svc-arr">&#8594;</span>
-    </div>
-   </div>
   </div>
 </section>
 
@@ -4366,161 +4546,90 @@ document.querySelectorAll('.sec-h-underline').forEach(function(el){ ulObs.observ
     }
   }
 
-  /* ── Logo targets: sample logo at high density with robust polarity + load handling ── */
+  /* ── Logo targets: form a CRISP typographic wordmark.
+     We deliberately do NOT sample the logo JPG — at particle resolution a
+     detailed logo with a tagline reads as mud. A clean rendered wordmark is
+     sharper, always legible, and immune to CORS/CDN issues. ── */
   function setLogoTargets(){
-    const logoImg = document.querySelector('.nav-logo-img img');
+    const off = document.createElement('canvas');
+    off.width  = W;
+    off.height = H;
+    const c2 = off.getContext('2d');
 
-    /* If the logo image hasn't loaded yet, retry briefly. The intro animates
-       a 3D sphere first, so we have ~600ms before the logo formation phase
-       actually needs these targets. */
-    if(logoImg && !logoImg.complete){
-      setTimeout(setLogoTargets, 120);
+    /* Scale type to viewport. Bigger on desktop, controlled on mobile. */
+    const mainSize = Math.max(44, Math.min(W * 0.115, 132));
+    const subSize  = mainSize * 0.30;
+    const gap      = mainSize * 0.92;
+
+    c2.clearRect(0, 0, W, H);
+    c2.textAlign    = 'center';
+    c2.textBaseline = 'middle';
+
+    /* Primary wordmark — brand serif, heavy, tight tracking */
+    c2.fillStyle = '#ffffff';
+    c2.font = '600 ' + mainSize + "px 'Fraunces','Cormorant Garamond',Georgia,serif";
+    c2.fillText('BRIDGEWELL', W / 2, H / 2 - gap * 0.18);
+
+    /* Sub-wordmark — spaced uppercase, lighter */
+    c2.font = '500 ' + subSize + "px 'Inter','Helvetica Neue',Arial,sans-serif";
+    /* manual letter-spacing for ADVISORY */
+    (function(){
+      const word = 'ADVISORY';
+      const tracking = subSize * 0.46;
+      let total = 0;
+      const widths = [];
+      for(let k = 0; k < word.length; k++){
+        const w = c2.measureText(word[k]).width;
+        widths.push(w);
+        total += w + (k < word.length - 1 ? tracking : 0);
+      }
+      let cx = W / 2 - total / 2;
+      const cy = H / 2 + gap * 0.42;
+      for(let k = 0; k < word.length; k++){
+        c2.fillText(word[k], cx + widths[k] / 2, cy);
+        cx += widths[k] + tracking;
+      }
+    })();
+
+    let d;
+    try {
+      d = c2.getImageData(0, 0, W, H).data;
+    } catch(e){
+      logoTargetsSet = true;
       return;
     }
 
-    /* Sizing: scale logo to fit comfortably in viewport with breathing room. */
-    const natW  = (logoImg && logoImg.naturalWidth)  ? logoImg.naturalWidth  : 1205;
-    const natH  = (logoImg && logoImg.naturalHeight) ? logoImg.naturalHeight : 880;
-    const ratio = natH / natW;
-
-    let lW = Math.min(W * 0.78, 640);
-    let lH = lW * ratio;
-    if(lH > H * 0.70){ lH = H * 0.70; lW = lH / ratio; }
-
-    const ox = (W - lW) / 2;
-    const oy = (H - lH) / 2;
-
-    const off = document.createElement('canvas');
-    off.width  = W; off.height = H;
-    const c2   = off.getContext('2d');
-    c2.clearRect(0, 0, W, H);
-
-    let d;
-    let drewLogo = false;
-    if(logoImg && logoImg.complete && logoImg.naturalWidth > 0){
-      try {
-        c2.drawImage(logoImg, ox, oy, lW, lH);
-        d = c2.getImageData(0, 0, W, H).data;
-        drewLogo = true;
-      } catch(e) { /* cross-origin taint — fall through to text */ }
-    }
-
-    /* If logo couldn't be drawn or sampled, draw brand name as text instead.
-       Use a FRESH canvas — once tainted by cross-origin image, a canvas
-       can never be read again, even after clearRect. */
-    if(!drewLogo){
-      try {
-        const off2 = document.createElement('canvas');
-        off2.width = W; off2.height = H;
-        const c3 = off2.getContext('2d');
-        c3.clearRect(0, 0, W, H);
-        c3.fillStyle = '#ffffff';
-        c3.textAlign = 'center';
-        c3.textBaseline = 'middle';
-        const fs = Math.min(W * 0.12, 110);
-        c3.font = '700 ' + fs + "px 'Fraunces','Cormorant Garamond',Georgia,serif";
-        c3.fillText('BRIDGEWELL', W/2, H/2 - fs*0.55);
-        c3.font = '400 ' + (fs*0.40) + "px 'Inter','Arial',sans-serif";
-        c3.fillText('ADVISORY', W/2, H/2 + fs*0.42);
-        d = c3.getImageData(0, 0, W, H).data;
-      } catch(e2) {
-        logoTargetsSet = true; return;
-      }
-    }
-
+    /* Collect every painted pixel (white text on transparent canvas). */
     const pts  = [];
     const step = 1;
-
-    /* Sample 4 corners of where the logo was drawn to learn the background.
-       Then collect pixels that DIFFER from that background — those are the
-       brand-mark pixels. Works for any logo polarity (light bg/dark mark,
-       dark bg/light mark, transparent bg, etc.) */
-    function pixAt(x, y){
-      const i = (Math.floor(y) * W + Math.floor(x)) * 4;
-      return { r: d[i], g: d[i+1], b: d[i+2], a: d[i+3], bright: d[i]+d[i+1]+d[i+2] };
-    }
-    /* Corners of the drawn logo rectangle */
-    const corners = [
-      pixAt(ox + 2,        oy + 2),
-      pixAt(ox + lW - 3,   oy + 2),
-      pixAt(ox + 2,        oy + lH - 3),
-      pixAt(ox + lW - 3,   oy + lH - 3)
-    ];
-
-    /* Average corner color = best estimate of logo background */
-    let bgR = 0, bgG = 0, bgB = 0, bgA = 0;
-    corners.forEach(c => { bgR += c.r; bgG += c.g; bgB += c.b; bgA += c.a; });
-    bgR /= 4; bgG /= 4; bgB /= 4; bgA /= 4;
-    const bgBright = bgR + bgG + bgB;
-
-    /* If corners are mostly transparent, treat any visible pixel as logo */
-    const bgTransparent = bgA < 30;
-
-    /* Hit test: pixel is part of the brand mark if it differs significantly
-       from the corner background (by either color or brightness) */
-    function hitTest(r, g, b, a){
-      if(a < 30) return false;
-      if(bgTransparent) return true;       /* any visible pixel is logo */
-      const colorDist = Math.abs(r-bgR) + Math.abs(g-bgG) + Math.abs(b-bgB);
-      const brightDist = Math.abs((r+g+b) - bgBright);
-      return colorDist > 80 || brightDist > 120;
-    }
-
     for(let y = 0; y < H; y += step){
       for(let x = 0; x < W; x += step){
         const i = (y * W + x) * 4;
-        if(hitTest(d[i], d[i+1], d[i+2], d[i+3])){
+        if(d[i + 3] > 40){
           pts.push(
-            x - CX + (Math.random() - 0.5) * 0.3,
-            y - CY + (Math.random() - 0.5) * 0.3
+            x - CX + (Math.random() - 0.5) * 0.35,
+            y - CY + (Math.random() - 0.5) * 0.35
           );
         }
       }
     }
 
-    /* If still no pixels (something weird), use the text fallback once more before giving up.
-       Fresh canvas in case the original was tainted by image draw. */
-    if(pts.length < 100 && drewLogo){
-      drewLogo = false;
-      try {
-        const off3 = document.createElement('canvas');
-        off3.width = W; off3.height = H;
-        const c4 = off3.getContext('2d');
-        c4.fillStyle = '#ffffff';
-        c4.textAlign = 'center';
-        c4.textBaseline = 'middle';
-        const fs2 = Math.min(W * 0.12, 110);
-        c4.font = '700 ' + fs2 + "px 'Fraunces','Cormorant Garamond',Georgia,serif";
-        c4.fillText('BRIDGEWELL', W/2, H/2 - fs2*0.55);
-        c4.font = '400 ' + (fs2*0.40) + "px 'Inter','Arial',sans-serif";
-        c4.fillText('ADVISORY', W/2, H/2 + fs2*0.42);
-        const d2 = c4.getImageData(0, 0, W, H).data;
-        for(let y = 0; y < H; y++){
-          for(let x = 0; x < W; x++){
-            const i = (y * W + x) * 4;
-            if(d2[i+3] > 30){
-              pts.push(x - CX + (Math.random() - 0.5) * 0.3,
-                       y - CY + (Math.random() - 0.5) * 0.3);
-            }
-          }
-        }
-      } catch(e3) { /* nothing more to try */ }
-    }
-
     if(pts.length < 100){ logoTargetsSet = true; return; }
 
-    /* Shuffle */
-    for(let i = pts.length/2 - 1; i > 0; i--){
+    /* Shuffle so particles fill the wordmark evenly, not in scan-line order */
+    for(let i = pts.length / 2 - 1; i > 0; i--){
       const j  = Math.floor(Math.random() * (i + 1));
-      const ia = i*2, ja = j*2;
+      const ia = i * 2, ja = j * 2;
       let t = pts[ia]; pts[ia] = pts[ja]; pts[ja] = t;
-      t = pts[ia+1]; pts[ia+1] = pts[ja+1]; pts[ja+1] = t;
+      t = pts[ia + 1]; pts[ia + 1] = pts[ja + 1]; pts[ja + 1] = t;
     }
 
     const pc = pts.length / 2;
     for(let i = 0; i < N; i++){
       const idx = (i % pc) * 2;
-      tx[i] = pts[idx]; ty[i] = pts[idx+1]; tz[i] = 0;
+      tx[i] = pts[idx];
+      ty[i] = pts[idx + 1];
+      tz[i] = 0;
     }
     logoTargetsSet = true;
   }
