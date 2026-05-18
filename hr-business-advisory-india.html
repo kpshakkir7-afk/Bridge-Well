@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HR Business Advisory India | Org Design, Talent Strategy &amp; HR Consulting | Bridgewell Advisory</title>
+<meta name="description" content="HR business advisory for Indian founders and leadership teams. Org design, role clarity, talent strategy and compensation, turning HR from a cost centre into a business lever.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://bridgewell-advisory.in/hr-business-advisory-india">
+<meta property="og:title" content="HR Business Advisory India | Org Design &amp; Talent Strategy | Bridgewell Advisory">
+<meta property="og:description" content="HR business advisory for Indian founders. Org design, role clarity, talent strategy. HR as a business lever, not a cost centre.">
+<meta property="og:url" content="https://bridgewell-advisory.in/hr-business-advisory-india">
+<meta property="og:type" content="website">
+<link rel="icon" href="https://bridgewell-advisory.in/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="https://bridgewell-advisory.in/favicon.svg">
+<link rel="apple-touch-icon" href="https://bridgewell-advisory.in/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@300;400;500;600;700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',system-ui,sans-serif;background:#fff;color:#09103A;-webkit-font-smoothing:antialiased;}
+
+:root{
+  --night:#070B35;
+  --navy:#081462;
+  --ink:#09103A;
+  --ink-2:#1A2254;
+  --canvas:#F3F5FB;
+  --white:#ffffff;
+  --gold:#1A52CC;
+  --gold-lt:#4A78E0;
+  --border-lt:rgba(9,16,58,.10);
+  --border-gold:rgba(26,82,204,.25);
+  --grad-hero:linear-gradient(135deg,#070B35 0%,#081462 60%,#0a1a78 100%);
+  --serif:'Fraunces','Georgia',serif;
+  --sans:'Inter',system-ui,sans-serif;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  background:rgba(7,11,53,.96);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(26,82,204,.12);
+  height:64px;display:flex;align-items:center;
+}
+.nav-inner{
+  width:90%;max-width:1180px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.nav-brand-text{display:flex;flex-direction:column;}
+.nav-brand-name{font-family:var(--serif);font-size:16px;font-weight:600;color:#fff;letter-spacing:.02em;}
+.nav-brand-sub{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);}
+.nav-links{display:flex;align-items:center;gap:32px;}
+.nav-links a{font-family:var(--sans);font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s;letter-spacing:.03em;}
+.nav-links a:hover{color:#fff;}
+.nav-cta{
+  padding:9px 22px;background:transparent;
+  border:1px solid rgba(26,82,204,.6);border-radius:999px;
+  font-family:var(--sans);font-size:13px;font-weight:600;
+  color:#4A78E0;text-decoration:none;letter-spacing:.02em;
+  transition:background .25s,border-color .25s,transform .25s;
+}
+.nav-cta:hover{background:rgba(26,82,204,.12);border-color:#4A78E0;transform:translateY(-1px);}
+@media(max-width:768px){.nav-links{display:none;}}
+
+/* ── LAYOUT ── */
+.wrap{width:90%;max-width:1180px;margin:0 auto;}
+.sec{padding:96px 0;}
+.sec-navy{background:var(--grad-hero);position:relative;overflow:hidden;}
+.sec-white{background:#fff;}
+.sec-off{background:var(--canvas);}
+
+/* ── EYEBROW ── */
+.eyebrow{
+  font-family:var(--sans);font-size:11px;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:#4A78E0;margin-bottom:16px;display:block;
+}
+.eyebrow-lt{color:rgba(26,82,204,.8);}
+
+/* ── HERO ── */
+.rp-hero{
+  min-height:100vh;display:flex;align-items:center;
+  background:var(--grad-hero);position:relative;overflow:hidden;
+  padding:100px 0 60px;
+}
+.rp-hero-noise{
+  position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity:.5;pointer-events:none;
+}
+.rp-hero-inner{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+  width:90%;max-width:1180px;margin:0 auto;
+}
+.rp-hero-label{
+  font-family:var(--sans);font-size:11px;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:#4A78E0;margin-bottom:20px;display:flex;align-items:center;gap:10px;
+}
+.rp-hero-label::before{content:'';display:block;width:28px;height:1px;background:#1A52CC;}
+.rp-hero-h1{
+  font-family:var(--serif);font-size:clamp(36px,4.2vw,62px);
+  font-weight:600;line-height:1.12;letter-spacing:-.025em;
+  color:#fff;margin-bottom:24px;
+}
+.rp-hero-h1 em{font-style:normal;color:#4A78E0;}
+.rp-hero-sub{
+  font-family:var(--sans);font-size:clamp(15px,1.4vw,17px);
+  color:rgba(255,255,255,.68);line-height:1.8;margin-bottom:36px;max-width:480px;
+}
+.rp-hero-ctas{display:flex;flex-wrap:wrap;gap:14px;align-items:center;}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 28px;background:#1A52CC;
+  font-family:var(--sans);font-size:14px;font-weight:700;
+  color:#070B35;border-radius:999px;text-decoration:none;
+  transition:transform .25s,box-shadow .25s;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(26,82,204,.35);}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 24px;border:1px solid rgba(255,255,255,.25);
+  font-family:var(--sans);font-size:14px;font-weight:500;
+  color:rgba(255,255,255,.82);border-radius:999px;text-decoration:none;
+  transition:border-color .25s,background .25s;
+}
+.btn-ghost:hover{border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.06);}
+/* Right side panel */
+.rp-hero-panel{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(26,82,204,.18);
+  border-radius:20px;padding:40px;
+  display:flex;flex-direction:column;gap:28px;
+}
+.rp-hp-item{display:flex;gap:18px;align-items:flex-start;}
+.rp-hp-ico{
+  width:40px;height:40px;border-radius:10px;flex-shrink:0;
+  background:rgba(26,82,204,.12);display:flex;align-items:center;
+  justify-content:center;font-size:18px;
+}
+.rp-hp-body h4{font-family:var(--serif);font-size:17px;font-weight:600;color:#fff;margin-bottom:5px;}
+.rp-hp-body p{font-family:var(--sans);font-size:13px;color:rgba(255,255,255,.58);line-height:1.65;}
+@media(max-width:900px){
+  .rp-hero-inner{grid-template-columns:1fr;gap:48px;}
+  .rp-hero{padding:120px 0 72px;}
+  .rp-hero-panel{display:none;}
+}
+
+/* ── PROBLEM STRIP ── */
+.prob-strip{background:var(--night);padding:72px 0;border-top:1px solid rgba(26,82,204,.12);}
+.prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,.06);}
+.prob-item{background:var(--night);padding:40px 32px;}
+.prob-n{font-family:var(--serif);font-size:44px;font-weight:600;color:rgba(255,255,255,.06);line-height:1;margin-bottom:16px;}
+.prob-h{font-family:var(--serif);font-size:20px;font-weight:600;color:#fff;margin-bottom:10px;line-height:1.25;}
+.prob-p{font-family:var(--sans);font-size:13.5px;color:rgba(255,255,255,.55);line-height:1.7;}
+@media(max-width:768px){.prob-grid{grid-template-columns:1fr;}}
+
+/* ── DIFFERENCE: advisory vs volume ── */
+.diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+.diff-h{font-family:var(--serif);font-size:clamp(28px,3.2vw,46px);font-weight:600;line-height:1.14;letter-spacing:-.02em;margin-bottom:20px;}
+.diff-h em{font-style:normal;color:#4A78E0;}
+.diff-p{font-family:var(--sans);font-size:15px;color:rgba(9,16,58,.65);line-height:1.8;margin-bottom:32px;}
+.diff-cta-inline{
+  font-family:var(--sans);font-size:14px;font-weight:600;color:#4A78E0;
+  text-decoration:none;border-bottom:1px solid rgba(26,82,204,.4);
+  transition:border-color .25s;padding-bottom:2px;
+}
+.diff-cta-inline:hover{border-color:#4A78E0;}
+.compare-table{width:100%;border-collapse:collapse;}
+.compare-table th{
+  font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:rgba(9,16,58,.45);padding:14px 0;
+  border-bottom:2px solid var(--border-lt);text-align:left;
+}
+.compare-table th:last-child{color:#4A78E0;}
+.compare-table td{
+  font-family:var(--sans);font-size:14px;color:rgba(9,16,58,.72);
+  padding:14px 0;border-bottom:1px solid var(--border-lt);vertical-align:top;
+  line-height:1.5;
+}
+.compare-table td:last-child{color:var(--ink);font-weight:500;}
+.ct-dim{color:rgba(9,16,58,.42) !important;font-weight:400 !important;}
+@media(max-width:768px){.diff-grid{grid-template-columns:1fr;}}
+
+/* ── PROCESS: 4 steps ── */
+.process-sec{background:var(--night);padding:96px 0;}
+.proc-hd{text-align:center;max-width:640px;margin:0 auto 64px;}
+.proc-hd h2{font-family:var(--serif);font-size:clamp(28px,3.4vw,46px);font-weight:600;color:#fff;line-height:1.14;letter-spacing:-.02em;}
+.proc-hd h2 em{font-style:normal;color:#4A78E0;}
+.proc-hd p{font-family:var(--sans);font-size:15px;color:rgba(255,255,255,.58);line-height:1.8;margin-top:16px;}
+/* Algopage-inspired horizontal step flow */
+.steps-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(255,255,255,.06);}
+.sf-step{background:rgba(8,20,98,.4);padding:44px 28px;position:relative;overflow:hidden;}
+.sf-step::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:#1A52CC;transform:scaleX(0);transform-origin:left;
+  transition:transform .42s cubic-bezier(.22,1,.36,1);
+}
+.sf-step:hover::after{transform:scaleX(1);}
+.sf-num{
+  font-family:var(--serif);font-size:56px;font-weight:600;
+  color:rgba(255,255,255,.05);line-height:1;margin-bottom:20px;
+}
+.sf-icon{font-size:26px;margin-bottom:18px;display:block;}
+.sf-h{font-family:var(--serif);font-size:20px;font-weight:600;color:#fff;margin-bottom:12px;}
+.sf-p{font-family:var(--sans);font-size:13.5px;color:rgba(255,255,255,.55);line-height:1.7;}
+.sf-tag{
+  display:inline-block;margin-top:16px;
+  font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:#4A78E0;opacity:.7;
+}
+@media(max-width:900px){.steps-flow{grid-template-columns:1fr 1fr;}}
+@media(max-width:480px){.steps-flow{grid-template-columns:1fr;}}
+
+/* ── ROLES WE TAKE ── */
+.roles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;}
+.role-card{
+  border:1px solid var(--border-lt);border-radius:12px;padding:28px 24px;
+  transition:border-color .3s,transform .3s,box-shadow .3s;background:#fff;
+}
+.role-card:hover{
+  border-color:rgba(26,82,204,.4);
+  transform:translateY(-4px);box-shadow:0 16px 36px -12px rgba(9,16,58,.14);
+}
+.role-ico{font-size:22px;margin-bottom:14px;}
+.role-title{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--ink);margin-bottom:8px;}
+.role-desc{font-family:var(--sans);font-size:13.5px;color:rgba(9,16,58,.58);line-height:1.65;}
+@media(max-width:768px){.roles-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:480px){.roles-grid{grid-template-columns:1fr;}}
+
+/* ── AI / TECH ── */
+.ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.ai-h{font-family:var(--serif);font-size:clamp(26px,3vw,42px);font-weight:600;line-height:1.14;letter-spacing:-.02em;margin-bottom:20px;}
+.ai-h em{font-style:normal;color:#4A78E0;}
+.ai-body{font-family:var(--sans);font-size:15px;color:rgba(255,255,255,.65);line-height:1.8;margin-bottom:32px;}
+.ai-tags{display:flex;flex-wrap:wrap;gap:10px;}
+.ai-tag{
+  font-family:var(--sans);font-size:12px;font-weight:600;
+  letter-spacing:.06em;color:#4A78E0;
+  padding:8px 16px;border:1px solid rgba(26,82,204,.28);border-radius:999px;
+}
+.ai-visual{
+  background:rgba(255,255,255,.04);border:1px solid rgba(26,82,204,.15);
+  border-radius:16px;padding:36px;display:flex;flex-direction:column;gap:16px;
+}
+.ai-v-row{
+  display:flex;align-items:flex-start;gap:16px;
+  padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.06);
+}
+.ai-v-row:last-child{border-bottom:none;padding-bottom:0;}
+.ai-v-dot{
+  width:8px;height:8px;border-radius:50%;background:#1A52CC;
+  flex-shrink:0;margin-top:6px;
+}
+.ai-v-label{font-family:var(--sans);font-size:14px;color:rgba(255,255,255,.8);font-weight:500;}
+.ai-v-sub{font-family:var(--sans);font-size:12px;color:rgba(255,255,255,.42);margin-top:3px;}
+@media(max-width:768px){.ai-grid{grid-template-columns:1fr;gap:44px;}.ai-visual{display:none;}}
+
+/* ── USP WHY LIST ── */
+.usp-grid{display:flex;flex-wrap:wrap;gap:2px;background:var(--border-lt);border:1px solid var(--border-lt);border-radius:16px;overflow:hidden;margin-top:48px;}
+.usp-item{
+  flex:1 1 calc(33.333% - 2px);min-width:220px;
+  background:#fff;padding:36px 28px;
+}
+.usp-ico{font-size:24px;margin-bottom:14px;}
+.usp-h{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--ink);margin-bottom:8px;}
+.usp-p{font-family:var(--sans);font-size:13.5px;color:rgba(9,16,58,.58);line-height:1.7;}
+
+/* ── TESTIMONIAL ── */
+.testi-wrap{
+  background:var(--night);border:1px solid rgba(26,82,204,.16);
+  border-radius:20px;padding:56px 60px;
+}
+.testi-quote{font-family:var(--serif);font-size:clamp(18px,2.2vw,26px);font-weight:400;font-style:normal;color:#fff;line-height:1.65;margin-bottom:32px;position:relative;}
+.testi-quote::before{content:'\201C';font-size:80px;line-height:.7;color:#4A78E0;opacity:.3;display:block;margin-bottom:8px;}
+.testi-attr{display:flex;align-items:center;gap:16px;}
+.testi-bar{width:28px;height:2px;background:#1A52CC;flex-shrink:0;}
+.testi-name{font-family:var(--sans);font-size:14px;font-weight:600;color:#fff;}
+.testi-role{font-family:var(--sans);font-size:12px;color:rgba(255,255,255,.45);margin-top:3px;}
+.testi-conf{font-family:var(--sans);font-size:11px;color:rgba(255,255,255,.22);margin-top:28px;font-style:normal;}
+@media(max-width:768px){.testi-wrap{padding:36px 28px;}}
+
+/* ── FAQ ── */
+.faq-list{display:flex;flex-direction:column;gap:0;}
+.faq-item{border-bottom:1px solid var(--border-lt);}
+.faq-q-btn{
+  width:100%;background:none;border:0;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;
+  padding:22px 0;text-align:left;
+}
+.faq-q-text{font-family:var(--sans);font-size:15px;font-weight:500;color:var(--ink);line-height:1.4;}
+.faq-icon{font-size:18px;color:#4A78E0;flex-shrink:0;transition:transform .3s;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.22,1,.36,1);}
+.faq-item.open .faq-a{max-height:400px;}
+.faq-a-inner{font-family:var(--sans);font-size:14px;color:rgba(9,16,58,.65);line-height:1.8;padding:0 0 24px;}
+
+/* ── FINAL CTA ── */
+.rp-cta{
+  background:var(--grad-hero);position:relative;overflow:hidden;
+  padding:100px 0;text-align:center;
+}
+.rp-cta::before{
+  content:'';position:absolute;top:-60%;left:50%;
+  width:700px;height:700px;margin-left:-350px;
+  background:radial-gradient(circle,rgba(26,82,204,.09) 0%,transparent 70%);
+  pointer-events:none;
+}
+.rp-cta-inner{position:relative;z-index:2;max-width:680px;margin:0 auto;}
+.rp-cta-lbl{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#4A78E0;margin-bottom:16px;display:block;}
+.rp-cta-h{font-family:var(--serif);font-size:clamp(30px,4vw,54px);font-weight:600;color:#fff;line-height:1.14;letter-spacing:-.02em;margin-bottom:20px;}
+.rp-cta-h em{font-style:normal;color:#4A78E0;}
+.rp-cta-p{font-family:var(--sans);font-size:16px;color:rgba(255,255,255,.62);line-height:1.8;margin-bottom:40px;}
+.rp-cta-btns{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;}
+
+/* ── FOOTER (minimal) ── */
+footer.rp-foot{background:var(--night);padding:40px 0;}
+.rp-foot-inner{
+  width:90%;max-width:1180px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+}
+.rp-foot-brand{font-family:var(--serif);font-size:18px;font-weight:600;color:#fff;}
+.rp-foot-links{display:flex;gap:28px;flex-wrap:wrap;}
+.rp-foot-links a{font-family:var(--sans);font-size:12px;color:rgba(255,255,255,.38);text-decoration:none;transition:color .2s;}
+.rp-foot-links a:hover{color:rgba(255,255,255,.7);}
+.rp-foot-cr{font-family:var(--sans);font-size:11.5px;color:rgba(255,255,255,.22);width:100%;}
+
+/* ── SECTION HEADINGS ── */
+.sec-h{font-family:var(--serif);font-size:clamp(28px,3.4vw,46px);font-weight:600;line-height:1.14;letter-spacing:-.02em;margin-bottom:16px;}
+.sec-h em{font-style:normal;color:#4A78E0;}
+.sec-h-white{color:#fff;}
+.sec-p{font-family:var(--sans);font-size:15px;line-height:1.8;color:rgba(9,16,58,.62);margin-bottom:0;}
+.sec-p-white{color:rgba(255,255,255,.6);}
+.sec-hd{max-width:680px;}
+.sec-hd-center{text-align:center;margin:0 auto;max-width:680px;}
+
+/* ── BACK LINK ── */
+.back-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:13px;color:rgba(255,255,255,.45);text-decoration:none;margin-bottom:32px;transition:color .2s;}
+.back-link:hover{color:rgba(255,255,255,.8);}
+
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);}
+.rv.in{opacity:1;transform:none;}
+.rv.d1{transition-delay:.1s;}
+.rv.d2{transition-delay:.2s;}
+.rv.d3{transition-delay:.3s;}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "HR Business Advisory and Consulting",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "Bridgewell Advisory",
+    "url": "https://bridgewell-advisory.in",
+    "telephone": "+91-79044-11177",
+    "areaServed": "IN"
+  },
+  "name": "HR Business Advisory India",
+  "description": "HR business advisory for Indian founders and leadership teams: org design, role clarity, compensation structuring and talent strategy. HR built as a business lever, not a cost centre.",
+  "url": "https://bridgewell-advisory.in/hr-business-advisory-india",
+  "areaServed": { "@type": "Country", "name": "India" },
+  "audience": { "@type": "Audience", "audienceType": "Founders, CXOs and leadership teams" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Is this HR consulting or recruitment?","acceptedAnswer":{"@type":"Answer","text":"Both. Bridgewell is a recruitment advisory and HR business consulting firm. Engagements often start with structure and roles, then extend into hiring. We take all critical and senior recruitment, not only VP and CxO."}},
+    {"@type":"Question","name":"Is this only for large companies?","acceptedAnswer":{"@type":"Answer","text":"No. The founder-bottleneck is sharpest in small and growing teams. The earlier structure is built, the less it costs to fix later. Engagements scale to the size of the problem."}},
+    {"@type":"Question","name":"Do you deliver a report or build it?","acceptedAnswer":{"@type":"Answer","text":"We build it. The diagnostic ends in decisions, not a slide deck. Build and retained engagements install the structure and process and hand it over to run independently."}},
+    {"@type":"Question","name":"Who runs the engagement?","acceptedAnswer":{"@type":"Answer","text":"Every engagement is led personally by Shakkir KP, SHRM-CP, founder of Bridgewell Advisory."}},
+    {"@type":"Question","name":"How do you charge?","acceptedAnswer":{"@type":"Answer","text":"Pilot, build and retained models scoped to the engagement, with fees typically ranging from INR 5L to INR 25L depending on complexity and scope."}}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://bridgewell-advisory.in"},
+    {"@type":"ListItem","position":2,"name":"HR Business Advisory India","item":"https://bridgewell-advisory.in/hr-business-advisory-india"}
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="https://bridgewell-advisory.in" class="nav-brand">
+      <div class="nav-brand-text">
+        <span class="nav-brand-name">Bridgewell Advisory</span>
+        <span class="nav-brand-sub">People Advisory &middot; India</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="https://bridgewell-advisory.in/#about">About</a>
+      <a href="https://bridgewell-advisory.in/#services">Services</a>
+      <a href="https://bridgewell-advisory.in/recruitment-advisory-india">Recruitment</a>
+      <a href="https://tally.so/r/2EJNAV" target="_blank" rel="noopener noreferrer" class="nav-cta">Book a Consultation</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="rp-hero">
+  <div class="rp-hero-noise" aria-hidden="true"></div>
+  <div class="rp-hero-inner">
+    <div>
+      <a href="https://bridgewell-advisory.in" class="back-link">&#8592; Back to Bridgewell</a>
+      <div class="rp-hero-label">HR Business Advisory &middot; India</div>
+      <h1 class="rp-hero-h1">Most founders run HR on their <em>own shoulders</em>. We change that.</h1>
+      <p class="rp-hero-sub">Every people problem lands on you. Hiring, exits, structure, policy, payroll. You stay in operations and never reach strategy. We build the org, the roles and the system so HR stops being a cost centre and starts working as a business lever.</p>
+      <div class="rp-hero-ctas">
+        <a href="https://tally.so/r/2EJNAV" target="_blank" rel="noopener noreferrer" class="btn-primary">Book a Consultation &#8594;</a>
+        <a href="https://bridgewell-advisory.in/recruitment-advisory-india" class="btn-ghost">See Recruitment Advisory</a>
+      </div>
+    </div>
+    <div class="rp-hero-panel">
+      <div class="rp-hp-item">
+        <div class="rp-hp-ico">&#9776;</div>
+        <div class="rp-hp-body"><h4>Org &amp; Role Design</h4><p>Structure that matches where the business is going, not where it has been.</p></div>
+      </div>
+      <div class="rp-hp-item">
+        <div class="rp-hp-ico">&#9878;</div>
+        <div class="rp-hp-body"><h4>Compensation Structuring</h4><p>Pay bands and offer logic that hold up under scrutiny and scale.</p></div>
+      </div>
+      <div class="rp-hp-item">
+        <div class="rp-hp-ico">&#9881;</div>
+        <div class="rp-hp-body"><h4>Talent &amp; Process</h4><p>A people operating system, so the founder is no longer the process.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM STRIP: the founder-bottleneck -->
+<section class="prob-strip">
+  <div class="wrap">
+    <div class="sec-hd" style="margin-bottom:48px;">
+      <span class="eyebrow">The Real Cost</span>
+      <h2 class="sec-h sec-h-white">HR as a cost centre is <em>a tax on your strategy</em>.</h2>
+    </div>
+    <div class="prob-grid">
+      <div class="prob-item rv">
+        <div class="prob-n">01</div>
+        <div class="prob-h">The founder is the system</div>
+        <div class="prob-p">Every people decision routes through you. There is no structure, only your memory and your time. It does not scale and it does not survive your absence.</div>
+      </div>
+      <div class="prob-item rv d1">
+        <div class="prob-n">02</div>
+        <div class="prob-h">Roles defined by accident</div>
+        <div class="prob-p">Titles grew organically, scope overlaps, accountability is blurred. People are busy, but the org is not aligned to the business.</div>
+      </div>
+      <div class="prob-item rv d2">
+        <div class="prob-n">03</div>
+        <div class="prob-h">Strategy never gets your time</div>
+        <div class="prob-p">You wanted to work on the business. Instead you arbitrate people problems all day. The strategic work waits, indefinitely.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE REFRAME: cost centre vs business lever -->
+<section class="sec sec-white">
+  <div class="wrap">
+    <div class="diff-grid">
+      <div class="rv">
+        <span class="eyebrow">The Shift</span>
+        <h2 class="diff-h">From a cost to <em>control</em>.</h2>
+        <p class="diff-p">HR treated as overhead gets minimised. HR treated as a business lever gets built. The difference is not budget, it is whether the function is designed around the business or bolted on after it. We work the second way, always.</p>
+        <a href="https://tally.so/r/2EJNAV" target="_blank" rel="noopener noreferrer" class="diff-cta-inline">Start with one conversation &#8594;</a>
+      </div>
+      <div class="rv d1">
+        <table class="compare-table">
+          <thead><tr><th>Cost-centre HR</th><th>HR as a lever</th></tr></thead>
+          <tbody>
+            <tr><td class="ct-dim">Reacts to people problems</td><td>Designs them out in advance</td></tr>
+            <tr><td class="ct-dim">Roles emerge by accident</td><td>Roles defined to the business plan</td></tr>
+            <tr><td class="ct-dim">Pay set ad hoc, per deal</td><td>Bands and logic that scale</td></tr>
+            <tr><td class="ct-dim">Founder is the escalation path</td><td>A process owns the decision</td></tr>
+            <tr><td class="ct-dim">Measured by spend</td><td>Measured by business outcome</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE BUILD: roles grid -->
+<section class="sec sec-off">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="eyebrow">What We Build</span>
+      <h2 class="sec-h">The people infrastructure <em>under the growth</em>.</h2>
+      <p class="sec-p">Not a deck of recommendations you file away. Working structure, decided with you and built to run without us.</p>
+    </div>
+    <div class="roles-grid">
+      <div class="role-card rv">
+        <div class="role-ico">&#9776;</div>
+        <div class="role-title">Org Design</div>
+        <div class="role-desc">Reporting lines, spans and layers mapped to the next stage of the business, not the last one.</div>
+      </div>
+      <div class="role-card rv d1">
+        <div class="role-ico">&#9636;</div>
+        <div class="role-title">Role Clarity</div>
+        <div class="role-desc">Every role defined by the decision it owns and the outcome it carries. No more overlap by default.</div>
+      </div>
+      <div class="role-card rv d2">
+        <div class="role-ico">&#9878;</div>
+        <div class="role-title">Compensation</div>
+        <div class="role-desc">Bands, levelling and offer logic that survive scale and stand up to a tough negotiation.</div>
+      </div>
+      <div class="role-card rv">
+        <div class="role-ico">&#9650;</div>
+        <div class="role-title">Talent Strategy</div>
+        <div class="role-desc">A hiring and progression plan tied to the business plan, not a wishlist of headcount.</div>
+      </div>
+      <div class="role-card rv d1">
+        <div class="role-ico">&#9881;</div>
+        <div class="role-title">People Process</div>
+        <div class="role-desc">Onboarding, performance and exit run as systems, so the founder stops being the workflow.</div>
+      </div>
+      <div class="role-card rv d2">
+        <div class="role-ico">&#9737;</div>
+        <div class="role-title">Engagement</div>
+        <div class="role-desc">Retention designed in, by fixing the structural causes of attrition, not papering over them.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE ENGAGE: 4 steps -->
+<section class="process-sec">
+  <div class="wrap">
+    <div class="proc-hd">
+      <span class="eyebrow">How We Engage</span>
+      <h2>Diagnosis first. <em>Always</em>.</h2>
+      <p>We do not arrive with a template. We find what is actually breaking, then build only what the business needs.</p>
+    </div>
+    <div class="steps-flow">
+      <div class="sf-step rv">
+        <div class="sf-num">01</div>
+        <span class="sf-icon">&#9737;</span>
+        <div class="sf-h">Diagnose</div>
+        <div class="sf-p">We map where decisions get stuck, where roles collide and where the founder has become the system.</div>
+        <span class="sf-tag">Week 1&ndash;2</span>
+      </div>
+      <div class="sf-step rv d1">
+        <div class="sf-num">02</div>
+        <span class="sf-icon">&#9776;</span>
+        <div class="sf-h">Design</div>
+        <div class="sf-p">Structure, roles and pay logic built with you, grounded in the business plan, not a generic framework.</div>
+        <span class="sf-tag">Week 2&ndash;4</span>
+      </div>
+      <div class="sf-step rv d2">
+        <div class="sf-num">03</div>
+        <span class="sf-icon">&#9881;</span>
+        <div class="sf-h">Install</div>
+        <div class="sf-p">We put the process in place and walk your team through it, so adoption is real, not theoretical.</div>
+        <span class="sf-tag">Week 4&ndash;8</span>
+      </div>
+      <div class="sf-step rv d3">
+        <div class="sf-num">04</div>
+        <span class="sf-icon">&#9650;</span>
+        <div class="sf-h">Hand Over</div>
+        <div class="sf-p">It runs without us. You keep the system, the logic and the ability to make people decisions at speed.</div>
+        <span class="sf-tag">Ongoing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENGAGEMENT MODELS -->
+<section class="sec sec-white">
+  <div class="wrap">
+    <div class="sec-hd">
+      <span class="eyebrow">Engagement Models</span>
+      <h2 class="sec-h">Three ways to <em>start</em>.</h2>
+      <p class="sec-p">Scoped to the problem, not sold as a package. We also take all critical and senior recruitment alongside advisory, not only VP and CxO.</p>
+    </div>
+    <div class="usp-grid">
+      <div class="usp-item rv">
+        <div class="usp-ico">&#9737;</div>
+        <div class="usp-h">Diagnostic</div>
+        <div class="usp-p">A focused review of structure, roles and the founder-bottleneck, with a clear set of decisions you can act on, with or without us.</div>
+      </div>
+      <div class="usp-item rv d1">
+        <div class="usp-ico">&#9776;</div>
+        <div class="usp-h">Build</div>
+        <div class="usp-p">We design and install the org, role and compensation system end to end, then hand it over to run independently.</div>
+      </div>
+      <div class="usp-item rv d2">
+        <div class="usp-ico">&#9881;</div>
+        <div class="usp-h">Retained Partner</div>
+        <div class="usp-p">Ongoing people advisory plus recruitment for critical and senior roles, as a single strategic relationship.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="sec sec-off">
+  <div class="wrap">
+    <div class="testi-wrap rv">
+      <p class="testi-quote">Earlier I was running people on my shoulders. Every problem came to me, all ops, no strategy. They helped us treat HR as a business lever instead of a cost centre: org structure, role clarity, a process-first path. That shift in thinking is what stayed with me.</p>
+      <div class="testi-attr">
+        <div class="testi-bar"></div>
+        <div>
+          <div class="testi-name">Founder</div>
+          <div class="testi-role">Growth-stage Company, India</div>
+        </div>
+      </div>
+      <p class="testi-conf">Engagement outcome shared with client permission. Identity withheld under mandate confidentiality.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec sec-white">
+  <div class="wrap">
+    <div class="sec-hd" style="margin-bottom:40px;">
+      <span class="eyebrow">Common Questions</span>
+      <h2 class="sec-h">Before you <em>reach out</em>.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q-btn" aria-expanded="false"><span class="faq-q-text">Is this HR consulting or recruitment?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Both. We are a recruitment advisory and HR business consulting firm. Many engagements start with structure and roles, then extend into hiring for those roles. We take all critical and senior recruitment, not only VP and CxO.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q-btn" aria-expanded="false"><span class="faq-q-text">We are a small team. Is this only for large companies?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">No. The founder-bottleneck is sharpest in small and growing teams. The earlier the structure is built, the less it costs to fix later. Engagements scale to the size of the problem.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q-btn" aria-expanded="false"><span class="faq-q-text">Do you deliver a report or actually build it?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">We build it. The diagnostic ends in decisions, not a slide deck. Build and retained engagements install the structure and process and hand it over to run without us.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q-btn" aria-expanded="false"><span class="faq-q-text">Who runs the engagement?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Every engagement is led personally by Shakkir KP, SHRM-CP, founder of Bridgewell Advisory. You work with the principal, not a junior handoff.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q-btn" aria-expanded="false"><span class="faq-q-text">How do you charge?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Pilot, build and retained models, scoped to the engagement. Fees typically range from &#8377;5L to &#8377;25L depending on complexity and scope. The first conversation is free and ends with something useful regardless of whether we work together.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="rp-cta">
+  <div class="rp-cta-inner">
+    <span class="rp-cta-lbl">One Conversation</span>
+    <h2 class="rp-cta-h">Get HR <em>off your shoulders</em>.</h2>
+    <p class="rp-cta-p">If every people problem still routes through you, that is the problem worth fixing first. One conversation is usually enough to see where to start.</p>
+    <div class="rp-cta-btns">
+      <a href="https://tally.so/r/2EJNAV" target="_blank" rel="noopener noreferrer" class="btn-primary">Book a Consultation &#8594;</a>
+      <a href="https://bridgewell-advisory.in/recruitment-advisory-india" class="btn-ghost">See Recruitment Advisory</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="rp-foot">
+  <div class="rp-foot-inner">
+    <span class="rp-foot-brand">Bridgewell Advisory</span>
+    <div class="rp-foot-links">
+      <a href="https://bridgewell-advisory.in">Home</a>
+      <a href="https://bridgewell-advisory.in/#services">All Services</a>
+      <a href="https://bridgewell-advisory.in/recruitment-advisory-india">Recruitment Advisory</a>
+      <a href="https://bridgewell-advisory.in/#founder">About Shakkir</a>
+      <a href="https://tally.so/r/2EJNAV" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
+    </div>
+    <p class="rp-foot-cr">&copy; 2026 Bridgewell Advisory. All rights reserved. Bengaluru, India.</p>
+  </div>
+</footer>
+
+<script>
+/* Reveal observer */
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}
+      });
+    },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(el){obs.observe(el);});
+  } else {
+    els.forEach(function(el){el.classList.add('in');});
+  }
+  setTimeout(function(){els.forEach(function(el){el.classList.add('in');});},3500);
+})();
+
+/* FAQ accordion */
+(function(){
+  document.querySelectorAll('.faq-q-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var item=this.closest('.faq-item');
+      var isOpen=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open');i.querySelector('.faq-q-btn').setAttribute('aria-expanded','false');});
+      if(!isOpen){item.classList.add('open');this.setAttribute('aria-expanded','true');}
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
