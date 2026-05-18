@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Bridgewell Advisory, Recruitment Advisory India | Executive Search &amp; Leadership Hiring</title>
-<meta name="description" content="Specialist recruitment advisory &amp; executive search for India's founders and CXOs. Mid-to-senior leadership hiring, diagnosed before delivered. Founder-led.">
+<title>Bridgewell Advisory | HR Business Advisory &amp; Recruitment Advisory India | Executive Search</title>
+<meta name="description" content="India's specialist HR business advisory and recruitment advisory firm for founders and CXOs. Org design, workforce planning, executive search and HR outsourcing. We Diagnose Before We Deliver.">
 <meta name="keywords" content="recruitment advisory India, recruitment consultant India, recruitment partner India, leadership hiring India, executive search India, hiring partner for critical roles, mid to senior hiring India, CXO hiring India, strategic hiring advisory India, executive hiring firm India, recruitment advisory for startups India, leadership hiring for growing companies, hiring advisory for founders, critical role hiring partner, executive search Bengaluru, HR consulting India, startup hiring India, payroll management India, HR compliance India">
 <meta name="robots" content="index, follow">
 <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -530,6 +530,61 @@ ul { list-style:none; }
 .nav-links a:hover::after { width:100%; }
 .nav-links a.active { color:var(--gold-lt); }
 .nav-links a.active::after { width:100%; }
+
+/* ── SERVICES DROPDOWN ── */
+.nav-dd { position:relative; display:flex; align-items:center; }
+.nav-dd-trigger {
+  font-family:'Inter',sans-serif; font-size:13px; font-weight:400;
+  color:rgba(255,255,255,.65); letter-spacing:.03em;
+  background:none; border:0; cursor:pointer; padding:3px 0;
+  display:inline-flex; align-items:center; gap:5px;
+  position:relative; transition:color .2s;
+}
+.nav-dd-trigger::after {
+  content:''; position:absolute; bottom:0; left:0;
+  width:0; height:1px; background:var(--gold);
+  transition:width .32s cubic-bezier(.22,1,.36,1);
+}
+.nav-dd:hover .nav-dd-trigger, .nav-dd.open .nav-dd-trigger { color:#fff; }
+.nav-dd:hover .nav-dd-trigger::after, .nav-dd.open .nav-dd-trigger::after { width:100%; }
+.nav-dd-chev { transition:transform .3s cubic-bezier(.22,1,.36,1); }
+.nav-dd:hover .nav-dd-chev, .nav-dd.open .nav-dd-chev { transform:rotate(180deg); }
+.nav-dd-panel {
+  position:absolute; top:calc(100% + 16px); left:50%;
+  transform:translateX(-50%) translateY(-8px);
+  background:#070B35; border:1px solid rgba(196,162,88,.20);
+  border-radius:12px; padding:26px 30px;
+  display:grid; grid-template-columns:1fr 1fr; gap:14px 48px;
+  min-width:520px; box-shadow:0 24px 60px -16px rgba(0,0,0,.6);
+  opacity:0; visibility:hidden; pointer-events:none;
+  transition:opacity .28s cubic-bezier(.22,1,.36,1), transform .28s cubic-bezier(.22,1,.36,1), visibility .28s;
+  z-index:1200;
+}
+.nav-dd-panel::before {
+  content:''; position:absolute; top:-16px; left:0; right:0; height:16px;
+}
+.nav-dd:hover .nav-dd-panel, .nav-dd.open .nav-dd-panel {
+  opacity:1; visibility:visible; pointer-events:auto;
+  transform:translateX(-50%) translateY(0);
+}
+.nav-dd-col { display:flex; flex-direction:column; }
+.nav-dd-h {
+  font-family:'Inter',sans-serif; font-size:10px; font-weight:700;
+  letter-spacing:.18em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:14px; padding-bottom:8px;
+  border-bottom:1px solid rgba(196,162,88,.16);
+}
+.nav-dd-col a {
+  font-family:'Inter',sans-serif; font-size:13px; font-weight:400;
+  color:rgba(255,255,255,.62); letter-spacing:.02em;
+  padding:7px 0; text-decoration:none;
+  transition:color .2s, padding-left .2s;
+}
+.nav-dd-col a:hover { color:var(--gold-lt); padding-left:5px; }
+.nav-dd-col a::after { display:none; }
+@media (max-width:1024px) and (min-width:861px){
+  .nav-dd-panel{min-width:440px;padding:22px 24px;gap:10px 32px}
+}
 .nav-cta {
   font-family:'Inter',sans-serif;
   font-size:12px; font-weight:600; letter-spacing:.1em;
@@ -694,8 +749,8 @@ ul { list-style:none; }
   color:#ffffff; letter-spacing:-.02em;
 }
 .hero-h1 em { font-style:italic; color:var(--gold-lt); font-weight:300; }
-.wm-mask { display:inline-block; overflow:hidden; vertical-align:bottom; line-height:1.04; }
-.wm-inner { display:inline-block; transform:translateY(105%); will-change:transform; }
+.wm-mask { display:inline-block; overflow:hidden; vertical-align:bottom; line-height:1.22; padding:0.06em 0 0.16em; }
+.wm-inner { display:inline-block; transform:translateY(130%); will-change:transform; }
 .wm-sp { display:inline; white-space:pre; }
 .hero-rule {
   display:block; width:0; height:1px; margin:32px 0 28px;
@@ -1188,7 +1243,7 @@ footer { background:#04061C; padding:56px 0 32px; border-top:1px solid rgba(196,
     padding:28px 4% 32px;
     align-items:start;
   }
-  .hero-h1{font-size:clamp(40px,10vw,64px);line-height:1.02}
+  .hero-h1{font-size:clamp(30px,7.4vw,46px);line-height:1.14}
   .hero-sub{font-size:15px;max-width:100%;line-height:1.7}
   .hero-label{margin-bottom:20px;font-size:10px}
   .hero-rule{margin:22px 0 18px}
@@ -1312,8 +1367,11 @@ footer { background:#04061C; padding:56px 0 32px; border-top:1px solid rgba(196,
   /* Sections */
   .sec{padding:48px 0}
 
-  .svc-row{flex-wrap:wrap;gap:12px}
-  .svc-meta{width:100%;justify-content:flex-start}
+  .svc-row{grid-template-columns:40px 1fr;grid-template-areas:"num meta" "num body";gap:6px 14px;align-items:start}
+  .svc-row .svc-n{grid-area:num}
+  .svc-row > div:nth-child(2){grid-area:body}
+  .svc-meta{grid-area:meta;width:auto;justify-content:flex-end;align-self:start}
+  .svc-badge{white-space:nowrap}
 
   .steps{grid-template-columns:1fr}
   .stp{padding:24px 16px}
@@ -1367,7 +1425,7 @@ body, p, li, a, span, div,
 .sec-h-white            { color: #ffffff; }
 .sec-h-white em         { color: #C4A258; font-style: italic; font-weight: 300; }
 
-.hero-h1   { color: #ffffff; font-size: clamp(48px,6.5vw,96px); font-weight: 600; line-height: 1.02; letter-spacing: -.02em; }
+.hero-h1   { color: #ffffff; font-size: clamp(38px,4.6vw,68px); font-weight: 600; line-height: 1.12; letter-spacing: -.02em; }
 .hero-h1 em { color: #C4A258; font-style: italic; font-weight: 300; }
 
 .ai-h      { color: #09103A; font-size: clamp(38px,4.2vw,62px); font-weight: 700; letter-spacing: -.02em; }
@@ -2868,6 +2926,41 @@ body.drawer-open #cookie-banner { display:none !important; }
   border-top: 1px solid rgba(196,162,88,.12);
   border-bottom: 1px solid rgba(196,162,88,.12);
 }
+/* Founder-recognition persuasion block */
+.gp-recog { max-width: 860px; }
+.gp-recog-inner { text-align: center; }
+.gp-recog-lead {
+  font-family: 'Fraunces','Cormorant Garamond',Georgia,serif;
+  font-size: clamp(22px,2.6vw,34px); font-weight: 600;
+  color: #fff; line-height: 1.3; margin: 0 0 22px; letter-spacing: -.01em;
+}
+.gp-recog-body {
+  font-family: 'Inter',system-ui,sans-serif;
+  font-size: clamp(15px,1.5vw,17px); font-weight: 400;
+  color: rgba(255,255,255,.66); line-height: 1.85; margin: 0 auto 20px; max-width: 660px;
+}
+.gp-recog-turn {
+  font-family: 'Inter',system-ui,sans-serif;
+  font-size: clamp(15px,1.5vw,17px); font-weight: 500;
+  color: rgba(255,255,255,.92); line-height: 1.8; margin: 0 auto 32px; max-width: 620px;
+}
+.gp-recog-turn::after {
+  content: ''; display: block; width: 40px; height: 2px;
+  background: var(--gold,#C4A258); margin: 26px auto 0; border-radius: 2px;
+}
+.gp-recog-cta {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-family: 'Inter',system-ui,sans-serif; font-size: 14px; font-weight: 600;
+  letter-spacing: .02em; color: var(--gold-lt,#DEC07A);
+  text-decoration: none; padding: 12px 26px;
+  border: 1px solid rgba(196,162,88,.40); border-radius: 999px;
+  transition: background .3s, border-color .3s, gap .3s, transform .25s;
+}
+.gp-recog-cta:hover {
+  background: rgba(196,162,88,.10); border-color: var(--gold,#C4A258);
+  gap: 14px; transform: translateY(-2px);
+}
+@media (max-width:680px){ .gp-recog-turn::after{margin-top:20px} .gp-stats{padding:60px 0} }
 .gp-stats-grid {
   max-width: 1180px;
   margin: 0 auto;
@@ -2936,6 +3029,24 @@ body.drawer-open #cookie-banner { display:none !important; }
   color: #0C0C0A;
 }
 .gp-cards-title em { font-style: italic; color: var(--gold, #C4A258); }
+.gp-cards-sub {
+  font-family: 'Inter',system-ui,sans-serif;
+  font-size: clamp(14px,1.4vw,16px); font-weight: 400;
+  color: rgba(12,12,10,.58); line-height: 1.7;
+  max-width: 540px; margin: 18px auto 0; text-align: center;
+}
+.gp-cards-foot {
+  text-align: center; margin-top: 44px;
+}
+.gp-cards-foot p {
+  font-family: 'Inter',system-ui,sans-serif; font-size: 15px;
+  color: rgba(12,12,10,.62); margin: 0;
+}
+.gp-cards-foot a {
+  color: var(--gold,#C4A258); font-weight: 600; text-decoration: none;
+  border-bottom: 1px solid rgba(196,162,88,.35); transition: border-color .25s;
+}
+.gp-cards-foot a:hover { border-color: var(--gold,#C4A258); }
 .gp-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -3231,12 +3342,35 @@ body.drawer-open #cookie-banner { display:none !important; }
     <div class="nav-logo-img"><img src="https://bridgewell-advisory.in/logo.jpg" alt="Bridgewell Advisory" crossorigin="anonymous" fetchpriority="high" decoding="sync"></div>
     <div>
       <div class="nav-wm">Bridgewell Advisory</div>
-      <div class="nav-sub">Executive Search &middot; HR Consulting</div>
+      <div class="nav-sub">HR Advisory &middot; Executive Search &middot; Recruitment</div>
     </div>
   </a>
   <div class="nav-links">
     <a href="#about">About</a>
-    <a href="#services">Services</a>
+    <div class="nav-dd" id="navDD">
+      <button class="nav-dd-trigger" id="navDDtrigger" aria-expanded="false" aria-haspopup="true">Services <svg class="nav-dd-chev" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="nav-dd-panel" role="menu" aria-label="Services">
+        <div class="nav-dd-col">
+          <div class="nav-dd-h">Recruitment</div>
+          <a href="https://bridgewell-advisory.in/executive-search-india" role="menuitem">Executive Search</a>
+          <a href="https://bridgewell-advisory.in/mid-senior-hiring-india" role="menuitem">Mid &amp; Senior Role Hiring</a>
+          <a href="https://bridgewell-advisory.in/startup-critical-hiring-india" role="menuitem">Startup Critical Roles</a>
+          <a href="https://bridgewell-advisory.in/recruitment-advisory-india" role="menuitem">Recruitment Advisory</a>
+        </div>
+        <div class="nav-dd-col">
+          <div class="nav-dd-h">HR Advisory</div>
+          <a href="https://bridgewell-advisory.in/hr-business-advisory-india" role="menuitem">HR Business Advisory</a>
+          <a href="https://bridgewell-advisory.in/org-design-role-clarity" role="menuitem">Org Design &amp; Role Clarity</a>
+          <a href="https://bridgewell-advisory.in/workforce-planning-india" role="menuitem">Workforce Planning</a>
+          <a href="https://bridgewell-advisory.in/compensation-structuring-india" role="menuitem">Compensation Structuring</a>
+          <a href="https://bridgewell-advisory.in/ai-tna-job-analysis" role="menuitem">AI-Powered TNA &amp; Job Analysis</a>
+          <a href="https://bridgewell-advisory.in/payroll-management-india" role="menuitem">Payroll Management</a>
+          <a href="https://bridgewell-advisory.in/hr-compliance-audit-india" role="menuitem">HR Compliance Audit</a>
+          <a href="https://bridgewell-advisory.in/startup-hr-setup-india" role="menuitem">Startup HR End-to-End Setup</a>
+          <a href="https://bridgewell-advisory.in/hr-business-outsourcing-india" role="menuitem">HR Business Outsourcing</a>
+        </div>
+      </div>
+    </div>
     <a href="#approach">Approach</a>
     <a href="#founder">Founder</a>
   </div>
@@ -3272,17 +3406,17 @@ body.drawer-open #cookie-banner { display:none !important; }
     <div class="hero-main">
       <div>
         <div class="hero-label" id="heroLabel" style="opacity:0;transition:opacity .8s ease">
-          <span class="hero-keyword-cycle" id="kwCycle" aria-label="Recruitment Advisory · HR Business Consulting · Critical & Senior Hiring · India">
-            <span class="kwi active">Recruitment Advisory &middot; India</span>
-            <span class="kwi">HR Business Consulting</span>
-            <span class="kwi">Critical &amp; Senior Hiring</span>
+          <span class="hero-keyword-cycle" id="kwCycle" aria-label="HR Business Advisory · Recruitment Advisory · India">
+            <span class="kwi active">HR Business Advisory &amp; Recruitment</span>
+            <span class="kwi">Recruitment Advisory &middot; India</span>
+            <span class="kwi">Org Design &amp; People Strategy</span>
             <span class="kwi">HR as a Business Lever</span>
           </span>
         </div>
         <h1 class="hero-h1" id="heroH1" aria-label="From recruitment to HR business advisory and outsourcing, we become your strategic people partner. Bridgewell Advisory, India."></h1>
         <div class="hero-rule" id="heroRule"></div>
         <p class="hero-sub" id="heroSub" style="opacity:0;transform:translateY(14px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)">
-          Recruitment advisory and HR business consulting, from critical and senior roles to org design.<br>We diagnose the business problem before we deliver the hire.
+          From hiring strategy to org design and HR operations, Bridgewell is your end-to-end people advisory partner.<br>We diagnose the business problem before we deliver the solution.
         </p>
         <div class="hero-tagline" id="heroTag" style="opacity:0;transform:translateY(12px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)">
           <p><strong>We Diagnose Before We Deliver.</strong> No Bulk. No Noise, Just the Right Hire, Right People, Right Policies. <strong>Right from Day&nbsp;1.</strong></p>
@@ -3326,18 +3460,12 @@ body.drawer-open #cookie-banner { display:none !important; }
 
 <!-- G-P STYLE BIG-STAT BAND -->
 <section class="gp-stats">
-  <div class="gp-stats-grid">
-    <div class="gp-stat rv">
-      <div class="gp-stat-num">8<span>+</span></div>
-      <div class="gp-stat-label">Sectors served</div>
-    </div>
-    <div class="gp-stat rv d1">
-      <div class="gp-stat-num">All<span> roles</span></div>
-      <div class="gp-stat-label">Critical &amp; senior</div>
-    </div>
-    <div class="gp-stat rv d2">
-      <div class="gp-stat-num">3</div>
-      <div class="gp-stat-label">Engagement models</div>
+  <div class="gp-stats-grid gp-recog">
+    <div class="gp-recog-inner rv">
+      <p class="gp-recog-lead">If you&rsquo;re the founder, you already know the feeling.</p>
+      <p class="gp-recog-body">Every people decision routes back to you. The role nobody defined properly. The hire that didn&rsquo;t work and you&rsquo;re not sure why. The policy gap you only notice when it breaks. It all lands on your desk, between everything else you&rsquo;re supposed to be doing.</p>
+      <p class="gp-recog-turn">Most founders assume that&rsquo;s just the cost of growing. It isn&rsquo;t. It&rsquo;s the absence of a people strategy, and that&rsquo;s a fixable problem.</p>
+      <a href="#trust" class="gp-recog-cta">See how we&rsquo;ve fixed it for founders like you <span aria-hidden="true">&#8594;</span></a>
     </div>
   </div>
 </section>
@@ -3346,28 +3474,32 @@ body.drawer-open #cookie-banner { display:none !important; }
 <section class="gp-cards">
   <div class="gp-cards-inner">
     <div class="gp-cards-head">
-      <div class="gp-cards-eyebrow rv">What We Do</div>
-      <h2 class="gp-cards-title rv d1">From recruitment to HR<br>your strategic <em>people partner</em>.</h2>
+      <div class="gp-cards-eyebrow rv">Three Ways Founders Start With Us</div>
+      <h2 class="gp-cards-title rv d1">Most come for one thing.<br>They stay for <em>the whole picture</em>.</h2>
+      <p class="gp-cards-sub rv d2">However you start, the goal is the same: people decisions that stop landing on you, and start compounding for the business.</p>
     </div>
     <div class="gp-grid">
       <div class="gp-card rv">
-        <div class="gp-card-icon">&#9737;</div>
-        <h3>Recruitment &amp; Search</h3>
-        <p>From hard-to-fill specialist mandates to senior leadership hiring, we solve critical talent challenges end-to-end, run with advisory rigour. Fewer profiles, sharper recommendations.</p>
-        <a href="#services" class="gp-card-link">Explore recruitment &#8594;</a>
+        <div class="gp-card-icon">&#9650;</div>
+        <h3>You want it off your plate</h3>
+        <p>Most founders come here first. Payroll, compliance, and people operations run as a managed function, so you stop being the HR department by accident. This is usually where the relief starts.</p>
+        <a href="https://tally.so/r/2EJNAV" target="_blank" rel="noopener noreferrer" class="gp-card-link">Start with HR outsourcing &#8594;</a>
       </div>
       <div class="gp-card rv d1">
-        <div class="gp-card-icon">&#9636;</div>
-        <h3>HR Business Advisory</h3>
-        <p>Org design, role clarity, workforce planning, compensation and offer structuring. We turn HR from a cost centre into a business lever.</p>
-        <a href="#approach" class="gp-card-link">Explore advisory &#8594;</a>
+        <div class="gp-card-icon">&#9737;</div>
+        <h3>You need the right people in</h3>
+        <p>Every critical and senior role, not only VP and CxO. We start from the business problem, not the job description, so you get fewer profiles and sharper decisions. Recruitment, done the way it should have been.</p>
+        <a href="#services" class="gp-card-link">See how we hire &#8594;</a>
       </div>
       <div class="gp-card rv d2">
-        <div class="gp-card-icon">&#9650;</div>
-        <h3>HR Outsourcing</h3>
-        <p>Payroll, compliance, and people operations run as a managed function, so founders stop carrying every people problem on their shoulders.</p>
-        <a href="#approach" class="gp-card-link">See how it works &#8594;</a>
+        <div class="gp-card-icon">&#9636;</div>
+        <h3>You realise it&rsquo;s structural</h3>
+        <p>This is the one founders don&rsquo;t ask for, then can&rsquo;t imagine running without. Org design, role clarity, workforce planning. The work that makes every future hire and every people decision easier.</p>
+        <a href="#approach" class="gp-card-link">This is the real fix &#8594;</a>
       </div>
+    </div>
+    <div class="gp-cards-foot rv d3">
+      <p>Not sure which one you need? That&rsquo;s usually the sign it&rsquo;s the third one. <a href="https://tally.so/r/2EJNAV" target="_blank" rel="noopener noreferrer">One conversation will tell you &#8594;</a></p>
     </div>
   </div>
 </section>
@@ -3411,8 +3543,8 @@ body.drawer-open #cookie-banner { display:none !important; }
 <section id="services" class="sec sec-off">
   <div class="wrap">
     <div class="svc-header">
-      <div><div class="eyebrow rv">Full Service Suite</div><h2 class="sec-h rv d1 sec-h-underline">Eight disciplines.<br><em>One strategic partnership.</em></h2></div>
-      <p class="sec-p rv d2">From <strong>executive search</strong> to payroll infrastructure, everything a growing company needs to get people right from day one. Trusted <strong>recruitment advisory across India</strong>.</p>
+      <div><div class="eyebrow rv">Full Service Suite</div><h2 class="sec-h rv d1 sec-h-underline">HR Advisory + Recruitment.<br><em>One Strategic Partnership.</em></h2></div>
+      <p class="sec-p rv d2">From <strong>executive search</strong> to full HR transformation, everything a growing company needs to get people and people-strategy right from day one.</p>
     </div>
     <div class="svc-list rv d1">
       <div class="svc-row"><div class="svc-n">01</div><div><div class="svc-name">Mid &amp; Senior Role Hiring</div><div class="svc-desc">Manager, Lead, Head-of, VP and Director-level searches. Advisory-led and outcome-focused.</div></div><div class="svc-meta"><span class="svc-arr">&#8594;</span></div></div>
@@ -3553,6 +3685,7 @@ body.drawer-open #cookie-banner { display:none !important; }
       <div class="why-item rv d1"><span class="wi-ico">&#127959;&#65039;</span><h3>Hiring + HR in One</h3><p>Executive search alongside payroll, compliance and HR infrastructure in one partnership.</p></div>
       <div class="why-item rv d2"><span class="wi-ico">&#129302;</span><h3>AI-Enhanced, Human-Led</h3><p>Technology sharpens every step. Every recommendation carries senior practitioner judgement.</p></div>
       <div class="why-item rv d3"><span class="wi-ico">&#128203;</span><h3>End-to-End Accountability</h3><p>From role design to day-one onboarding, we own the outcome at every stage.</p></div>
+      <div class="why-item rv d1"><span class="wi-ico">&#9881;&#65039;</span><h3>HR runs as admin, not strategy</h3><p>When HR is treated as a compliance function, companies lose org clarity, overpay for wrong seniority, and repeat the same people mistakes every cycle. The problem isn't talent. It's the absence of a people strategy.</p></div>
     </div>
   </div>
 </section>
@@ -3697,7 +3830,7 @@ body.drawer-open #cookie-banner { display:none !important; }
     <div class="tq-grid">
       <div class="tq-card rv">
         <span class="tq-mark">&ldquo;</span>
-        <p class="tq-quote">What stood out was the training-needs and onboarding recommendations. They didn&rsquo;t just send people, they thought about how those people would actually land and perform. Quality over quantity, genuinely. We got fewer profiles and better hires.</p>
+        <p class="tq-quote">We&rsquo;d worked with two agencies before Bridgewell. Both sent CVs quickly. Neither sent the right person. What Shakkir did differently was come back and tell us the brief was wrong, the seniority was off, the scope was unclear, we were describing last year&rsquo;s problem. We rebuilt the role together. The hire we made is still with us. That&rsquo;s the difference.</p>
         <div class="tq-attr">
           <div class="tq-name">Managing Director &amp; Founder</div>
           <div class="tq-role">Trading &amp; Distribution, Saudi Arabia</div>
@@ -3705,7 +3838,7 @@ body.drawer-open #cookie-banner { display:none !important; }
       </div>
       <div class="tq-card rv d1">
         <span class="tq-mark">&ldquo;</span>
-        <p class="tq-quote">Bridgewell became an extension of our hiring team, managing critical, mid-level, and leadership mandates end-to-end while consistently delivering high-quality talent across every level.</p>
+        <p class="tq-quote">They handled our critical and mid-level roles end to end, not just leadership search. Most firms only chase senior mandates. Bridgewell took the full hiring load and the calibre held up across every level.</p>
         <div class="tq-attr">
           <div class="tq-name">Senior Manager, Human Resources</div>
           <div class="tq-role">IT Services, India</div>
@@ -3713,7 +3846,7 @@ body.drawer-open #cookie-banner { display:none !important; }
       </div>
       <div class="tq-card rv d2">
         <span class="tq-mark">&ldquo;</span>
-        <p class="tq-quote">Earlier I was running people on my shoulders. Every problem came to me, all ops, no strategy. They helped us treat HR as a business lever instead of a cost centre: org structure, role clarity, a process-first path. That shift in thinking is what stayed with me.</p>
+        <p class="tq-quote">I didn&rsquo;t realise how much of my week was being consumed by people problems until Bridgewell mapped it out. Every policy gap, every undefined role, every absence of process, it was all landing on me. They gave us structure: org clarity, role design, a way to handle HR without it needing my attention every single time. I wish I&rsquo;d done this two years earlier.</p>
         <div class="tq-attr">
           <div class="tq-name">Founder</div>
           <div class="tq-role">Growth-stage Company, India</div>
@@ -3862,7 +3995,7 @@ body.drawer-open #cookie-banner { display:none !important; }
           <div class="fb-img-wrap"><img src="https://bridgewell-advisory.in/logo.jpg" alt="Bridgewell Advisory" loading="lazy" decoding="async"></div>
           <div><div class="fb-wm">Bridgewell Advisory</div><div class="fb-tag">Est. 2026 &middot; Bengaluru, India</div></div>
         </div>
-        <p>Specialist <strong>recruitment advisory</strong> and <strong>executive search</strong> for India&rsquo;s founders, CXOs, and leadership teams. Mid-to-senior hiring, diagnosed before it&rsquo;s delivered.</p>
+        <p>Bridgewell is India&rsquo;s HR business advisory and recruitment partner for founders, CXOs, and leadership teams. From org design to executive search, diagnosed before it&rsquo;s delivered.</p>
         <a href="https://tally.so/r/2EJNAV" target="_blank" rel="noopener noreferrer" class="ft-cta">Book a Consultation &rarr;</a>
       </div>
       <div class="fc"><h5>Recruitment</h5><ul>
@@ -4587,6 +4720,32 @@ document.querySelectorAll('.sec-h-underline').forEach(function(el){ ulObs.observ
     var t=document.documentElement.scrollHeight-window.innerHeight;
     bar.style.width=(t>0?(window.scrollY/t*100).toFixed(2):0)+'%';
   },{passive:true});
+})();
+
+/* ── Services dropdown: tap-toggle on touch/mobile, outside-click close ── */
+(function(){
+  var dd=document.getElementById('navDD');
+  var trg=document.getElementById('navDDtrigger');
+  if(!dd||!trg) return;
+  var isTouch = window.matchMedia('(hover:none)').matches || ('ontouchstart' in window);
+  trg.addEventListener('click', function(e){
+    /* On hover-capable desktop the CSS :hover handles it; only intercept tap */
+    if(!isTouch && window.innerWidth>860) return;
+    e.preventDefault(); e.stopPropagation();
+    var open=dd.classList.toggle('open');
+    trg.setAttribute('aria-expanded', open?'true':'false');
+  });
+  document.addEventListener('click', function(e){
+    if(dd.classList.contains('open') && !dd.contains(e.target)){
+      dd.classList.remove('open'); trg.setAttribute('aria-expanded','false');
+    }
+  });
+  /* Close on Escape */
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape' && dd.classList.contains('open')){
+      dd.classList.remove('open'); trg.setAttribute('aria-expanded','false');
+    }
+  });
 })();
 
 </script>
