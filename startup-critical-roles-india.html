@@ -5,10 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Startup Critical Hiring India | First Key Roles for Founders | Bridgewell Advisory</title>
 <meta name="description" content="Critical first hires for Indian startups and founders. The roles where one wrong hire can stall the company, defined and filled with founder-level care, not a recruiter dump.">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://bridgewell-advisory.in/startup-critical-roles-india">
 <meta property="og:title" content="Startup Critical Hiring India | First Key Roles for Founders | Bridgewell Advisory">
 <meta property="og:description" content="Critical first hires for Indian founders. The roles where one wrong hire stalls the company, defined and filled with care.">
+<meta property="og:image" content="https://bridgewell-advisory.in/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://bridgewell-advisory.in/startup-critical-roles-india">
 <meta property="og:type" content="website">
 <link rel="icon" href="https://bridgewell-advisory.in/favicon.ico" sizes="any">
@@ -351,6 +354,254 @@ footer.rp-foot{background:var(--night);padding:40px 0;}
 .rv.d1{transition-delay:.1s;}
 .rv.d2{transition-delay:.2s;}
 .rv.d3{transition-delay:.3s;}
+
+/* ═══════════════════════════════════════════════════════
+   BRIDGEWELL ANIMATION & CONVERSION SYSTEM
+═══════════════════════════════════════════════════════ */
+
+/* 1. SCROLL PROGRESS BAR */
+.bw-progress{position:fixed;top:0;left:0;height:2px;width:0;
+  background:linear-gradient(90deg,#1A52CC,#4F7FE8);
+  z-index:99999;transition:width .12s linear;pointer-events:none;
+  box-shadow:0 0 8px rgba(26,82,204,.5);}
+
+/* 2. ENHANCED REVEAL VARIANTS */
+.rv-left{opacity:0;transform:translateX(-32px);
+  transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);}
+.rv-right{opacity:0;transform:translateX(32px);
+  transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);}
+.rv-scale{opacity:0;transform:scale(.92);
+  transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);}
+.rv-left.in,.rv-right.in,.rv-scale.in{opacity:1;transform:none;}
+
+/* 3. FLOAT CTA WIDGET */
+.bw-float{position:fixed;bottom:28px;right:24px;display:flex;
+  flex-direction:column;gap:10px;align-items:flex-end;
+  z-index:9000;opacity:0;transform:translateY(20px);
+  transition:opacity .45s cubic-bezier(.22,1,.36,1),transform .45s cubic-bezier(.22,1,.36,1);
+  pointer-events:none;}
+.bw-float.bw-visible{opacity:1;transform:none;pointer-events:auto;}
+.bw-float-wa{width:50px;height:50px;background:#25D366;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;color:#fff;
+  box-shadow:0 4px 18px rgba(37,211,102,.42);
+  transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s;
+  text-decoration:none;}
+.bw-float-wa:hover{transform:scale(1.12);box-shadow:0 8px 28px rgba(37,211,102,.55);}
+.bw-float-wa svg{width:24px;height:24px;}
+.bw-float-book{background:linear-gradient(135deg,#1A52CC 0%,#2563eb 100%);
+  color:#fff;font-family:'Inter','Figtree',system-ui,sans-serif;
+  font-size:13px;font-weight:600;padding:11px 20px;border-radius:100px;
+  text-decoration:none;white-space:nowrap;letter-spacing:.01em;
+  box-shadow:0 4px 18px rgba(26,82,204,.38);
+  transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s;
+  display:flex;align-items:center;gap:6px;}
+.bw-float-book:hover{transform:translateY(-3px);
+  box-shadow:0 10px 28px rgba(26,82,204,.48);}
+.bw-float-book::before{content:'';width:7px;height:7px;background:#4ade80;
+  border-radius:50%;display:inline-block;animation:bw-pulse-dot 2s ease infinite;}
+@keyframes bw-pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+
+/* 4. CTA BUTTON SHIMMER */
+.btn-primary,.rp-cta-btns a:first-child,.ft-cta{position:relative;overflow:hidden;}
+.btn-primary::after,.rp-cta-btns a:first-child::after{content:'';
+  position:absolute;top:0;left:-100%;width:50%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);
+  transform:skewX(-20deg);animation:bw-shimmer 3.5s ease infinite;}
+@keyframes bw-shimmer{0%{left:-100%}35%{left:160%}100%{left:160%}}
+
+/* 5. CARD HOVER LIFT */
+.role-card,.ins-card,.usp-item,.gp-card{
+  transition:transform .3s cubic-bezier(.22,1,.36,1),
+             box-shadow .3s cubic-bezier(.22,1,.36,1);}
+.role-card:hover,.ins-card:hover,.usp-item:hover,.gp-card:hover{
+  transform:translateY(-6px);box-shadow:0 20px 48px rgba(0,0,0,.1);}
+.tq-card{transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s;}
+.tq-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,.09);}
+.prob-item{cursor:default;
+  transition:border-color .3s,transform .3s cubic-bezier(.22,1,.36,1);}
+.prob-item:hover{border-color:#1A52CC;transform:translateY(-3px);}
+
+/* 6. PROCESS STEP CONNECTOR */
+.steps-flow{position:relative;}
+.sf-connector{position:absolute;top:48px;left:80px;right:80px;height:1px;
+  background:rgba(26,82,204,.12);overflow:hidden;z-index:0;pointer-events:none;}
+.sf-connector::after{content:'';position:absolute;top:0;left:0;height:100%;width:0;
+  background:linear-gradient(90deg,#1A52CC,#4F7FE8);
+  transition:width 1.6s cubic-bezier(.22,1,.36,1) .4s;}
+.sf-connector.bw-drawn::after{width:100%;}
+.sf-step{position:relative;z-index:1;}
+.sf-num{position:relative;z-index:2;}
+
+/* 7. COMPARISON TABLE */
+.compare-table tbody tr{
+  transition:background .25s;}
+.compare-table tbody tr:hover{background:rgba(26,82,204,.04);}
+.compare-table td:last-child{font-weight:600;color:#0C0C0A;position:relative;}
+.compare-table thead th:last-child{color:#1A52CC;}
+
+/* 8. FAQ SMOOTH ACCORDION */
+.faq-a{max-height:0;overflow:hidden;
+  transition:max-height .45s cubic-bezier(.22,1,.36,1);}
+.faq-item.open .faq-a{max-height:400px;}
+.faq-q-btn{width:100%;cursor:pointer;}
+.faq-icon{transition:transform .35s cubic-bezier(.22,1,.36,1);display:inline-block;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+
+/* 9. STAT COUNTER ELEMENT */
+[data-count]{display:inline-block;}
+
+/* 10. HERO ENTRANCE */
+.rp-hero-label{animation:bw-fade-up .6s cubic-bezier(.22,1,.36,1) .1s both;}
+.rp-hero-h1{animation:bw-fade-up .75s cubic-bezier(.22,1,.36,1) .25s both;}
+.rp-hero-sub{animation:bw-fade-up .75s cubic-bezier(.22,1,.36,1) .4s both;}
+.rp-hero-ctas{animation:bw-fade-up .7s cubic-bezier(.22,1,.36,1) .55s both;}
+.rp-hero-panel{animation:bw-fade-left .85s cubic-bezier(.22,1,.36,1) .35s both;}
+@keyframes bw-fade-up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes bw-fade-left{from{opacity:0;transform:translateX(32px)}to{opacity:1;transform:none}}
+
+/* 11. BACK-LINK HOVER */
+.back-link{transition:gap .25s,color .2s;display:inline-flex;align-items:center;gap:4px;}
+.back-link:hover{gap:8px;}
+
+/* 12. NAV SCROLL STATE */
+nav.bw-scrolled{box-shadow:0 2px 24px rgba(7,11,53,.18);
+  background:rgba(7,11,53,.98) !important;}
+
+/* 13. SVC-ROW HOVER */
+.svc-row{transition:background .2s,border-color .2s,transform .2s cubic-bezier(.22,1,.36,1);}
+.svc-row:hover{transform:translateX(4px);}
+
+/* 14. SECTION DIVIDER ACCENT */
+.sec-hd .eyebrow{position:relative;}
+
+/* 15. PREFERS-REDUCED-MOTION — respect OS setting */
+@media(prefers-reduced-motion:reduce){
+  .rv,.rv-left,.rv-right,.rv-scale,
+  .role-card,.ins-card,.usp-item,.gp-card,.tq-card,.prob-item,
+  .svc-row,.back-link{transition:none!important;animation:none!important;}
+  .btn-primary::after,.rp-cta-btns a:first-child::after{display:none;}
+  .sf-connector::after{width:100%!important;transition:none!important;}
+  .rp-hero-label,.rp-hero-h1,.rp-hero-sub,.rp-hero-ctas,.rp-hero-panel{
+    animation:none!important;opacity:1!important;transform:none!important;}
+}
+
+/* 16. MOBILE FLOAT */
+@media(max-width:600px){
+  .bw-float{bottom:16px;right:14px;}
+  .bw-float-book{font-size:12px;padding:9px 15px;}
+  .bw-float-wa{width:44px;height:44px;}
+}
+
+
+/* ── CONTRAST & FONT VISIBILITY FIXES ── */
+
+/* 1. CTA button - white text on blue for proper contrast */
+.btn-primary {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+.btn-primary:hover { color: #ffffff !important; }
+
+/* 2. Compare table - dim column needs readable contrast */
+.ct-dim {
+  color: rgba(12, 12, 20, 0.58) !important;
+  font-weight: 400;
+}
+
+/* 3. Compare table headers - stronger contrast */
+.compare-table thead th {
+  color: #0C0C14 !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  opacity: 1 !important;
+}
+.compare-table thead th:last-child {
+  color: #1A52CC !important;
+}
+
+/* 4. Compare table cells - full opacity */
+.compare-table tbody td {
+  color: rgba(12,12,20,.72) !important;
+  font-size: 13.5px !important;
+}
+.compare-table tbody td:last-child {
+  color: #0C0C14 !important;
+  font-weight: 600;
+}
+
+/* 5. Step tag - white text for readability on dark bg */
+.sf-tag {
+  color: rgba(255,255,255,.75) !important;
+  font-size: 11px !important;
+  letter-spacing: .06em;
+}
+
+/* 6. FAQ question - ensure full contrast */
+.faq-q-text {
+  color: #0C0C14 !important;
+  font-weight: 600 !important;
+}
+
+/* 7. Role card desc - slightly stronger */
+.role-desc {
+  color: rgba(12,12,10,.62) !important;
+}
+
+/* 8. Problem paragraph - ensure readable */
+.prob-p {
+  color: rgba(255,255,255,.72) !important;
+}
+
+/* 9. Nav brand sub - readable */
+.nav-brand-sub {
+  color: rgba(255,255,255,.55) !important;
+  letter-spacing: .12em;
+}
+
+/* 10. Footer link contrast */
+.rp-foot-links a {
+  color: rgba(255,255,255,.48) !important;
+}
+.rp-foot-links a:hover {
+  color: rgba(255,255,255,.82) !important;
+}
+
+/* 11. Eyebrow text - ensure gold is visible on all bg */
+.eyebrow {
+  opacity: 1 !important;
+}
+
+/* 12. Font fallback stack - ensure system serif for Fraunces fallback */
+.rp-hero-h1, h1, h2, h3, .diff-h, .rp-cta-h, .proc-hd h2, .sec-h {
+  font-family: 'Fraunces', 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+}
+
+/* 13. Body text fallback */
+p, .rp-hero-sub, .prob-p, .sf-p, .role-desc, .faq-a-inner, .testi-quote {
+  font-family: 'Figtree', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+
+/* 14. Button text legibility */
+.btn-primary, .btn-ghost, .nav-cta, .bw-float-book {
+  font-family: 'Figtree', 'Inter', -apple-system, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* 15. Min font sizes for zoom-out readability */
+.sf-tag { font-size: max(10px, .62rem) !important; }
+.nav-brand-sub { font-size: max(9px, .58rem) !important; }
+.rp-hero-label { font-size: max(10px, .68rem) !important; }
+.eyebrow { font-size: max(10px, .62rem) !important; }
+
+/* 16. Smooth font rendering across all zoom levels */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "serviceType": "Startup Critical Roles India", "provider": {"@type": "ProfessionalService", "name": "Bridgewell Advisory", "url": "https://bridgewell-advisory.in", "telephone": "+91-79044-11177", "areaServed": "IN"}, "name": "Startup Critical Roles India", "description": "Critical first hires for Indian startups and founders. The roles where one wrong hire can stall the company, defined and filled with founder-level care, not a recruiter dump.", "url": "https://bridgewell-advisory.in/startup-critical-roles-india", "areaServed": {"@type": "Country", "name": "India"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "We are very early. Is it too soon?", "acceptedAnswer": {"@type": "Answer", "text": "If the role is critical, the stage does not matter. The earliest critical hires carry the most leverage and the least margin for error."}}, {"@type": "Question", "name": "We cannot afford a long retained search.", "acceptedAnswer": {"@type": "Answer", "text": "Startup critical engagements are scoped to founder reality, tighter and faster than a full executive search, without dropping the bar."}}, {"@type": "Question", "name": "Can you help define the role, not just fill it?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. For most founders that is the highest-value part. A wrongly defined role cannot be rescued by good sourcing."}}, {"@type": "Question", "name": "Do you only do senior startup roles?", "acceptedAnswer": {"@type": "Answer", "text": "We take any critical or senior role, the ones where a wrong hire stalls the company, not only VP and CxO titles."}}, {"@type": "Question", "name": "Who runs it?", "acceptedAnswer": {"@type": "Answer", "text": "Shakkir KP, SHRM-CP, personally, working directly with the founder."}}]}</script>
@@ -370,7 +621,7 @@ footer.rp-foot{background:var(--night);padding:40px 0;}
       <a href="https://bridgewell-advisory.in/#about">About</a>
       <a href="https://bridgewell-advisory.in/recruitment-advisory-india">Recruitment</a>
       <a href="https://bridgewell-advisory.in/hr-business-advisory-india">HR Advisory</a>
-      <a href="https://tally.so/r/2EJNAV" target="_blank" rel="noopener noreferrer" class="nav-cta">Book a Consultation</a>
+      <a href="https://tally.so/r/rjdAGo" target="_blank" rel="noopener noreferrer" class="nav-cta">Book a Consultation</a>
     </div>
   </div>
 </nav>
@@ -381,14 +632,14 @@ footer.rp-foot{background:var(--night);padding:40px 0;}
 <h1 class="rp-hero-h1">In a small team, one wrong hire <em>is the whole quarter</em>.</h1>
 <p class="rp-hero-sub">At fifteen people there are no passengers. The first head of sales, the founding engineer, the operator who runs everything you cannot, these roles do not have margin for a mediocre hire. We treat startup critical roles with the seriousness their leverage demands.</p>
 <div class="rp-hero-ctas">
-<a href="https://tally.so/r/2EJNAV" target="_blank" rel="noopener noreferrer" class="btn-primary">Book a Consultation &#8594;</a>
+<a href="https://tally.so/r/rjdAGo" target="_blank" rel="noopener noreferrer" class="btn-primary">Book a Consultation &#8594;</a>
 <a href="https://bridgewell-advisory.in/recruitment-advisory-india" class="btn-ghost">How We Work</a>
 </div></div>
-<div class="rp-hero-panel"><div class="rp-hp-item"><div class="rp-hp-ico">&#9650;</div><div class="rp-hp-body"><h4>No Margin</h4><p>At small scale a weak critical hire is felt company-wide within weeks.</p></div></div><div class="rp-hp-item"><div class="rp-hp-ico">&#9737;</div><div class="rp-hp-body"><h4>Role First</h4><p>Most founders hire a title. We define the actual decision the role must own.</p></div></div><div class="rp-hp-item"><div class="rp-hp-ico">&#9881;</div><div class="rp-hp-body"><h4>Founder Reality</h4><p>Built for how founders actually decide: fast, high-stakes, low spare time.</p></div></div></div></div></section><section class="prob-strip"><div class="wrap"><div class="sec-hd" style="margin-bottom:48px;"><span class="eyebrow">The Founder Trap</span><h2 class="sec-h sec-h-white">You are hiring while <em>running everything else</em>.</h2></div><div class="prob-grid"><div class="prob-item rv"><div class="prob-n">01</div><div class="prob-h">The role is undefined</div><div class="prob-p">You know you need help. You have not had time to define the exact gap, so the hire is a guess.</div></div><div class="prob-item rv d1"><div class="prob-n">02</div><div class="prob-h">You hire someone like you</div><div class="prob-p">Comfortable, familiar, similar. The team gets a duplicate, not the missing capability.</div></div><div class="prob-item rv d2"><div class="prob-n">03</div><div class="prob-h">No time to run it well</div><div class="prob-p">Hiring is squeezed between everything else. The process is rushed, the decision is luck.</div></div></div></div></section><section class="process-sec"><div class="wrap"><div class="proc-hd"><span class="eyebrow">How We Help</span><h2>Built for <em>founder speed</em>.</h2><p>Tight, fast, decisive, without lowering the bar that protects a small team.</p></div><div class="steps-flow"><div class="sf-step rv"><div class="sf-num">01</div><span class="sf-icon">&#9737;</span><div class="sf-h">Define the gap</div><div class="sf-p">One focused session converts “we need someone” into the precise decision the role owns.</div><span class="sf-tag">Days, not weeks</span></div><div class="sf-step rv d1"><div class="sf-num">02</div><span class="sf-icon">&#9776;</span><div class="sf-h">Calibrate</div><div class="sf-p">We agree what excellent looks like for your stage, not a generic seniority label.</div><span class="sf-tag">Week 1</span></div><div class="sf-step rv d2"><div class="sf-num">03</div><span class="sf-icon">&#9881;</span><div class="sf-h">Source tight</div><div class="sf-p">A small, deliberate set of people who fit the stage, not just the skill.</div><span class="sf-tag">Week 1&ndash;4</span></div><div class="sf-step rv d3"><div class="sf-num">04</div><span class="sf-icon">&#9650;</span><div class="sf-h">Decide fast</div><div class="sf-p">Honest assessment and a clear recommendation, structured for a founder with no spare hours.</div><span class="sf-tag">Week 3&ndash;5</span></div></div></div></section><section class="sec sec-off"><div class="wrap"><div class="testi-wrap rv"><p class="testi-quote">What stood out was the training-needs and onboarding recommendations. They did not just send people, they thought about how those people would actually land and perform. Quality over quantity, genuinely. We got fewer profiles and better hires.</p><div class="testi-attr"><div class="testi-bar"></div><div><div class="testi-name">Managing Director and Founder</div><div class="testi-role">Trading and Distribution, Saudi Arabia</div></div></div><p class="testi-conf">Engagement outcome shared with client permission. Identity withheld under mandate confidentiality.</p></div></div></section><section class="sec sec-white"><div class="wrap"><div class="sec-hd" style="margin-bottom:40px;"><span class="eyebrow">Common Questions</span><h2 class="sec-h">Before you <em>reach out</em>.</h2></div><div class="faq-list"><div class="faq-item"><button class="faq-q-btn" aria-expanded="false"><span class="faq-q-text">We are very early. Is it too soon?</span><span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">If the role is critical, the stage does not matter. The earliest critical hires carry the most leverage and the least margin for error.</div></div></div><div class="faq-item"><button class="faq-q-btn" aria-expanded="false"><span class="faq-q-text">We cannot afford a long retained search.</span><span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Startup critical engagements are scoped to founder reality, tighter and faster than a full executive search, without dropping the bar.</div></div></div><div class="faq-item"><button class="faq-q-btn" aria-expanded="false"><span class="faq-q-text">Can you help define the role, not just fill it?</span><span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Yes. For most founders that is the highest-value part. A wrongly defined role cannot be rescued by good sourcing.</div></div></div><div class="faq-item"><button class="faq-q-btn" aria-expanded="false"><span class="faq-q-text">Do you only do senior startup roles?</span><span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">We take any critical or senior role, the ones where a wrong hire stalls the company, not only VP and CxO titles.</div></div></div><div class="faq-item"><button class="faq-q-btn" aria-expanded="false"><span class="faq-q-text">Who runs it?</span><span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Shakkir KP, SHRM-CP, personally, working directly with the founder.</div></div></div></div></div></section><section class="rp-cta"><div class="rp-cta-inner"><span class="rp-cta-lbl">One Conversation</span><h2 class="rp-cta-h">Protect the <em>next quarter</em>.</h2><p class="rp-cta-p">Before you make a critical hire with no margin for error, one conversation usually exposes the real risk. It is free and yours either way.</p><div class="rp-cta-btns"><a href="https://tally.so/r/2EJNAV" target="_blank" rel="noopener noreferrer" class="btn-primary">Book a Consultation &#8594;</a><a href="https://bridgewell-advisory.in/recruitment-advisory-india" class="btn-ghost">All Recruitment Services</a></div></div></section>
+<div class="rp-hero-panel"><div class="rp-hp-item"><div class="rp-hp-ico">&#9650;</div><div class="rp-hp-body"><h4>No Margin</h4><p>At small scale a weak critical hire is felt company-wide within weeks.</p></div></div><div class="rp-hp-item"><div class="rp-hp-ico">&#9737;</div><div class="rp-hp-body"><h4>Role First</h4><p>Most founders hire a title. We define the actual decision the role must own.</p></div></div><div class="rp-hp-item"><div class="rp-hp-ico">&#9881;</div><div class="rp-hp-body"><h4>Founder Reality</h4><p>Built for how founders actually decide: fast, high-stakes, low spare time.</p></div></div></div></div></section><section class="prob-strip"><div class="wrap"><div class="sec-hd" style="margin-bottom:48px;"><span class="eyebrow">The Founder Trap</span><h2 class="sec-h sec-h-white">You are hiring while <em>running everything else</em>.</h2></div><div class="prob-grid"><div class="prob-item rv"><div class="prob-n">01</div><div class="prob-h">The role is undefined</div><div class="prob-p">You know you need help. You have not had time to define the exact gap, so the hire is a guess.</div></div><div class="prob-item rv d1"><div class="prob-n">02</div><div class="prob-h">You hire someone like you</div><div class="prob-p">Comfortable, familiar, similar. The team gets a duplicate, not the missing capability.</div></div><div class="prob-item rv d2"><div class="prob-n">03</div><div class="prob-h">No time to run it well</div><div class="prob-p">Hiring is squeezed between everything else. The process is rushed, the decision is luck.</div></div></div></div></section><section class="process-sec"><div class="wrap"><div class="proc-hd"><span class="eyebrow">How We Help</span><h2>Built for <em>founder speed</em>.</h2><p>Tight, fast, decisive, without lowering the bar that protects a small team.</p></div><div class="steps-flow"><div class="sf-step rv"><div class="sf-num">01</div><span class="sf-icon">&#9737;</span><div class="sf-h">Define the gap</div><div class="sf-p">One focused session converts “we need someone” into the precise decision the role owns.</div><span class="sf-tag">Days, not weeks</span></div><div class="sf-step rv d1"><div class="sf-num">02</div><span class="sf-icon">&#9776;</span><div class="sf-h">Calibrate</div><div class="sf-p">We agree what excellent looks like for your stage, not a generic seniority label.</div><span class="sf-tag">Week 1</span></div><div class="sf-step rv d2"><div class="sf-num">03</div><span class="sf-icon">&#9881;</span><div class="sf-h">Source tight</div><div class="sf-p">A small, deliberate set of people who fit the stage, not just the skill.</div><span class="sf-tag">Week 1&ndash;4</span></div><div class="sf-step rv d3"><div class="sf-num">04</div><span class="sf-icon">&#9650;</span><div class="sf-h">Decide fast</div><div class="sf-p">Honest assessment and a clear recommendation, structured for a founder with no spare hours.</div><span class="sf-tag">Week 3&ndash;5</span></div></div></div></section><section class="sec sec-off"><div class="wrap"><div class="testi-wrap rv rv-scale"><p class="testi-quote">What stood out was the training-needs and onboarding recommendations. They did not just send people, they thought about how those people would actually land and perform. Quality over quantity, genuinely. We got fewer profiles and better hires.</p><div class="testi-attr"><div class="testi-bar"></div><div><div class="testi-name">Managing Director and Founder</div><div class="testi-role">Trading and Distribution, Saudi Arabia</div></div></div><p class="testi-conf">Engagement outcome shared with client permission. Identity withheld under mandate confidentiality.</p></div></div></section><section class="sec sec-white"><div class="wrap"><div class="sec-hd" style="margin-bottom:40px;"><span class="eyebrow">Common Questions</span><h2 class="sec-h">Before you <em>reach out</em>.</h2></div><div class="faq-list"><div class="faq-item"><button class="faq-q-btn" aria-expanded="false"><span class="faq-q-text">We are very early. Is it too soon?</span><span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">If the role is critical, the stage does not matter. The earliest critical hires carry the most leverage and the least margin for error.</div></div></div><div class="faq-item"><button class="faq-q-btn" aria-expanded="false"><span class="faq-q-text">We cannot afford a long retained search.</span><span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Startup critical engagements are scoped to founder reality, tighter and faster than a full executive search, without dropping the bar.</div></div></div><div class="faq-item"><button class="faq-q-btn" aria-expanded="false"><span class="faq-q-text">Can you help define the role, not just fill it?</span><span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Yes. For most founders that is the highest-value part. A wrongly defined role cannot be rescued by good sourcing.</div></div></div><div class="faq-item"><button class="faq-q-btn" aria-expanded="false"><span class="faq-q-text">Do you only do senior startup roles?</span><span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">We take any critical or senior role, the ones where a wrong hire stalls the company, not only VP and CxO titles.</div></div></div><div class="faq-item"><button class="faq-q-btn" aria-expanded="false"><span class="faq-q-text">Who runs it?</span><span class="faq-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">Shakkir KP, SHRM-CP, personally, working directly with the founder.</div></div></div></div></div></section><section class="rp-cta"><div class="rp-cta-inner"><span class="rp-cta-lbl">One Conversation</span><h2 class="rp-cta-h">Protect the <em>next quarter</em>.</h2><p class="rp-cta-p">Before you make a critical hire with no margin for error, one conversation usually exposes the real risk. It is free and yours either way.</p><div class="rp-cta-btns"><a href="https://tally.so/r/rjdAGo" target="_blank" rel="noopener noreferrer" class="btn-primary">Book a Consultation &#8594;</a><a href="https://bridgewell-advisory.in/recruitment-advisory-india" class="btn-ghost">All Recruitment Services</a></div></div></section>
 <footer class="rp-foot">
   <div class="rp-foot-inner">
     <span class="rp-foot-brand">Bridgewell Advisory</span>
-    <div class="rp-foot-links"><a href="https://bridgewell-advisory.in">Home</a><a href="https://bridgewell-advisory.in/recruitment-advisory-india">Recruitment Advisory</a><a href="https://bridgewell-advisory.in/hr-business-advisory-india">HR Advisory</a><a href="https://bridgewell-advisory.in/#founder">About Shakkir</a><a href="https://tally.so/r/2EJNAV" target=_blank rel=noopener>Book a Consultation</a></div>
+    <div class="rp-foot-links"><a href="https://bridgewell-advisory.in">Home</a><a href="https://bridgewell-advisory.in/recruitment-advisory-india">Recruitment Advisory</a><a href="https://bridgewell-advisory.in/hr-business-advisory-india">HR Advisory</a><a href="https://bridgewell-advisory.in/#founder">About Shakkir</a><a href="https://tally.so/r/rjdAGo" target=_blank rel=noopener>Book a Consultation</a></div>
     <p class="rp-foot-cr">&copy; 2026 Bridgewell Advisory. All rights reserved. Bengaluru, India.</p>
   </div>
 </footer>
@@ -413,6 +664,106 @@ footer.rp-foot{background:var(--night);padding:40px 0;}
     });
   });
 })();
+</script>
+
+<script>
+
+(function(){
+'use strict';
+/* ── PROGRESS BAR ── */
+var pb=document.createElement('div');pb.className='bw-progress';
+document.body.insertBefore(pb,document.body.firstChild);
+function upPB(){var max=document.documentElement.scrollHeight-window.innerHeight;
+pb.style.width=(max>0?Math.min(window.scrollY/max*100,100):0)+'%';}
+window.addEventListener('scroll',upPB,{passive:true});upPB();
+
+/* ── FLOAT CTA ── */
+var fc=document.createElement('div');fc.className='bw-float';
+fc.innerHTML='<a href="https://wa.me/917904411177" class="bw-float-wa" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">'
+ +'<svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.522 5.841L0 24l6.362-1.498A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.663-.502-5.195-1.378l-.373-.215-3.779.89.937-3.667-.243-.388A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>'
+ +'</a>'
+ +'<a href="https://tally.so/r/rjdAGo" class="bw-float-book" target="_blank" rel="noopener noreferrer">Book a Consultation</a>';
+document.body.appendChild(fc);
+var fcV=false;
+window.addEventListener('scroll',function(){
+ var s=window.scrollY>300;
+ if(s!==fcV){fc.classList.toggle('bw-visible',s);fcV=s;}
+},{passive:true});
+
+/* ── ENHANCED OBSERVER ── */
+var obs=new IntersectionObserver(function(entries){
+ entries.forEach(function(e){
+  if(e.isIntersecting){
+   e.target.classList.add('in');
+   if(e.target.dataset.count!==undefined)animCount(e.target);
+   obs.unobserve(e.target);
+  }
+ });
+},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv,.rv-left,.rv-right,.rv-scale').forEach(function(el){obs.observe(el);});
+
+/* ── COUNTER ── */
+function animCount(el){
+ var t=parseFloat(el.dataset.count);var suf=el.dataset.suffix||'';
+ var dur=1500;var st=performance.now();
+ (function tick(now){
+  var p=Math.min((now-st)/dur,1);var e2=1-Math.pow(1-p,3);
+  el.textContent=(Number.isInteger(t)?Math.round(t*e2):( t*e2).toFixed(1))+suf;
+  if(p<1)requestAnimationFrame(tick);else el.textContent=t+suf;
+ })(st);
+}
+
+/* ── PROCESS LINE ── */
+document.querySelectorAll('.steps-flow').forEach(function(sf){
+ if(window.innerWidth<768)return;
+ var l=document.createElement('div');l.className='sf-connector';
+ sf.insertBefore(l,sf.firstChild);
+ new IntersectionObserver(function(en){
+  if(en[0].isIntersecting){l.classList.add('bw-drawn');this.disconnect();}
+ },{threshold:0.3}).observe(sf);
+});
+
+/* ── TABLE ROW STAGGER ── */
+document.querySelectorAll('.compare-table tbody tr').forEach(function(tr,i){
+ tr.style.cssText='opacity:0;transform:translateX(-10px);transition:opacity .5s '+(i*.07)+'s ease,transform .5s '+(i*.07)+'s cubic-bezier(.22,1,.36,1)';
+ new IntersectionObserver(function(en){
+  if(en[0].isIntersecting){tr.style.opacity='1';tr.style.transform='none';this.disconnect();}
+ },{threshold:0.1}).observe(tr);
+});
+
+/* ── NAV SCROLL ── */
+var nav=document.querySelector('nav');
+if(nav)window.addEventListener('scroll',function(){
+ nav.classList.toggle('bw-scrolled',window.scrollY>60);
+},{passive:true});
+
+/* ── FAQ ── */
+document.querySelectorAll('.faq-q-btn:not([data-b])').forEach(function(btn){
+ btn.dataset.b='1';
+ btn.addEventListener('click',function(){
+  var item=this.closest('.faq-item');
+  var open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i){
+   i.classList.remove('open');i.querySelector('.faq-q-btn').setAttribute('aria-expanded','false');
+  });
+  if(!open){item.classList.add('open');this.setAttribute('aria-expanded','true');}
+ });
+});
+
+/* ── FAILSAFE ── */
+setTimeout(function(){
+ document.querySelectorAll('.rv,.rv-left,.rv-right,.rv-scale').forEach(function(el){el.classList.add('in');});
+},3500);
+
+/* ── REDUCED MOTION ── */
+if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+ document.querySelectorAll('.rv,.rv-left,.rv-right,.rv-scale').forEach(function(el){
+  el.style.transition='none';el.classList.add('in');
+ });
+}
+
+})();
+
 </script>
 </body>
 </html>
