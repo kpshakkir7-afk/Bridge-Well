@@ -1,23 +1,39 @@
 # Bridgewell Advisory — robots.txt
 # https://bridgewell-advisory.in
 
+# ── Standard crawlers ────────────────────────────
 User-agent: *
 Allow: /
+Disallow: /cdn-cgi/
+Disallow: /admin/
+Disallow: /private/
 
-# Allow Google's image crawler
+# ── Google ────────────────────────────────────────
+User-agent: Googlebot
+Allow: /
+
 User-agent: Googlebot-Image
 Allow: /
 
-# Block common admin/utility paths (update if you add a CMS)
-Disallow: /wp-admin/
-Disallow: /wp-login.php
-Disallow: /admin/
-Disallow: /private/
-Disallow: /*.json$
-Disallow: /cdn-cgi/
+# ── AI answer engines (AEO/GEO) ──────────────────
+# Allow all AI crawlers — site is optimised for answer engine citation
+User-agent: GPTBot
+Allow: /
 
-# Sitemap location — submit this to Google Search Console too
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# ── Sitemap ───────────────────────────────────────
 Sitemap: https://bridgewell-advisory.in/sitemap.xml
-
-# Crawl delay (optional — removes pressure on server)
-Crawl-delay: 5
