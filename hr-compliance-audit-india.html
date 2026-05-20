@@ -5,10 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HR Compliance Audit India | Labour Law & HR Audit Services | Bridgewell Advisory</title>
 <meta name="description" content="HR compliance audit services for Indian startups and growth-stage companies. Labour law adherence, POSH compliance, statutory filings, and HR policy review. Bridgewell Advisory, Bengaluru.">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://bridgewell-advisory.in/hr-compliance-audit-india">
 <meta property="og:title" content="HR Compliance Audit India | Bridgewell Advisory">
 <meta property="og:description" content="HR compliance audit for startups and growth-stage companies. Labour law, POSH, statutory, and policy compliance. Bengaluru, India.">
+<meta property="og:image" content="https://bridgewell-advisory.in/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://bridgewell-advisory.in/hr-compliance-audit-india">
 <meta property="og:type" content="website">
 <link rel="icon" href="https://bridgewell-advisory.in/favicon.ico" sizes="any">
@@ -28,7 +31,7 @@ html,body{overflow-x:hidden;} body{font-family:'Figtree',system-ui,sans-serif;ba
   --night:#070B35;
   --navy:#0E1C6B;
   --ink:#0d1630;
-  --accent:#1A52CC;   /* gold — used sparingly: CTA only */
+  --accent:#1A52CC;   /* gold , used sparingly: CTA only */
   --blue:#2B42B8;     /* primary accent for labels + links */
   --blue-lt:#E8ECFC;  /* light blue tint for sections */
   --slate:#F0F2F9;    /* cool light grey-blue for cards */
@@ -293,6 +296,254 @@ footer{background:#050821;padding:40px 0;}
 .rv{opacity:0;transform:translateY(24px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1);}
 .rv.in{opacity:1;transform:none;}
 .rv.d1{transition-delay:.1s;}.rv.d2{transition-delay:.2s;}.rv.d3{transition-delay:.3s;}
+
+/* ═══════════════════════════════════════════════════════
+   BRIDGEWELL ANIMATION & CONVERSION SYSTEM
+═══════════════════════════════════════════════════════ */
+
+/* 1. SCROLL PROGRESS BAR */
+.bw-progress{position:fixed;top:0;left:0;height:2px;width:0;
+  background:linear-gradient(90deg,#1A52CC,#4F7FE8);
+  z-index:99999;transition:width .12s linear;pointer-events:none;
+  box-shadow:0 0 8px rgba(26,82,204,.5);}
+
+/* 2. ENHANCED REVEAL VARIANTS */
+.rv-left{opacity:0;transform:translateX(-32px);
+  transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);}
+.rv-right{opacity:0;transform:translateX(32px);
+  transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);}
+.rv-scale{opacity:0;transform:scale(.92);
+  transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);}
+.rv-left.in,.rv-right.in,.rv-scale.in{opacity:1;transform:none;}
+
+/* 3. FLOAT CTA WIDGET */
+.bw-float{position:fixed;bottom:28px;right:24px;display:flex;
+  flex-direction:column;gap:10px;align-items:flex-end;
+  z-index:9000;opacity:0;transform:translateY(20px);
+  transition:opacity .45s cubic-bezier(.22,1,.36,1),transform .45s cubic-bezier(.22,1,.36,1);
+  pointer-events:none;}
+.bw-float.bw-visible{opacity:1;transform:none;pointer-events:auto;}
+.bw-float-wa{width:50px;height:50px;background:#25D366;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;color:#fff;
+  box-shadow:0 4px 18px rgba(37,211,102,.42);
+  transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s;
+  text-decoration:none;}
+.bw-float-wa:hover{transform:scale(1.12);box-shadow:0 8px 28px rgba(37,211,102,.55);}
+.bw-float-wa svg{width:24px;height:24px;}
+.bw-float-book{background:linear-gradient(135deg,#1A52CC 0%,#2563eb 100%);
+  color:#fff;font-family:'Inter','Figtree',system-ui,sans-serif;
+  font-size:13px;font-weight:600;padding:11px 20px;border-radius:100px;
+  text-decoration:none;white-space:nowrap;letter-spacing:.01em;
+  box-shadow:0 4px 18px rgba(26,82,204,.38);
+  transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s;
+  display:flex;align-items:center;gap:6px;}
+.bw-float-book:hover{transform:translateY(-3px);
+  box-shadow:0 10px 28px rgba(26,82,204,.48);}
+.bw-float-book::before{content:'';width:7px;height:7px;background:#4ade80;
+  border-radius:50%;display:inline-block;animation:bw-pulse-dot 2s ease infinite;}
+@keyframes bw-pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+
+/* 4. CTA BUTTON SHIMMER */
+.btn-primary,.rp-cta-btns a:first-child,.ft-cta{position:relative;overflow:hidden;}
+.btn-primary::after,.rp-cta-btns a:first-child::after{content:'';
+  position:absolute;top:0;left:-100%;width:50%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);
+  transform:skewX(-20deg);animation:bw-shimmer 3.5s ease infinite;}
+@keyframes bw-shimmer{0%{left:-100%}35%{left:160%}100%{left:160%}}
+
+/* 5. CARD HOVER LIFT */
+.role-card,.ins-card,.usp-item,.gp-card{
+  transition:transform .3s cubic-bezier(.22,1,.36,1),
+             box-shadow .3s cubic-bezier(.22,1,.36,1);}
+.role-card:hover,.ins-card:hover,.usp-item:hover,.gp-card:hover{
+  transform:translateY(-6px);box-shadow:0 20px 48px rgba(0,0,0,.1);}
+.tq-card{transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s;}
+.tq-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,.09);}
+.prob-item{cursor:default;
+  transition:border-color .3s,transform .3s cubic-bezier(.22,1,.36,1);}
+.prob-item:hover{border-color:#1A52CC;transform:translateY(-3px);}
+
+/* 6. PROCESS STEP CONNECTOR */
+.steps-flow{position:relative;}
+.sf-connector{position:absolute;top:48px;left:80px;right:80px;height:1px;
+  background:rgba(26,82,204,.12);overflow:hidden;z-index:0;pointer-events:none;}
+.sf-connector::after{content:'';position:absolute;top:0;left:0;height:100%;width:0;
+  background:linear-gradient(90deg,#1A52CC,#4F7FE8);
+  transition:width 1.6s cubic-bezier(.22,1,.36,1) .4s;}
+.sf-connector.bw-drawn::after{width:100%;}
+.sf-step{position:relative;z-index:1;}
+.sf-num{position:relative;z-index:2;}
+
+/* 7. COMPARISON TABLE */
+.compare-table tbody tr{
+  transition:background .25s;}
+.compare-table tbody tr:hover{background:rgba(26,82,204,.04);}
+.compare-table td:last-child{font-weight:600;color:#0C0C0A;position:relative;}
+.compare-table thead th:last-child{color:#1A52CC;}
+
+/* 8. FAQ SMOOTH ACCORDION */
+.faq-a{max-height:0;overflow:hidden;
+  transition:max-height .45s cubic-bezier(.22,1,.36,1);}
+.faq-item.open .faq-a{max-height:400px;}
+.faq-q-btn{width:100%;cursor:pointer;}
+.faq-icon{transition:transform .35s cubic-bezier(.22,1,.36,1);display:inline-block;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+
+/* 9. STAT COUNTER ELEMENT */
+[data-count]{display:inline-block;}
+
+/* 10. HERO ENTRANCE */
+.rp-hero-label{animation:bw-fade-up .6s cubic-bezier(.22,1,.36,1) .1s both;}
+.rp-hero-h1{animation:bw-fade-up .75s cubic-bezier(.22,1,.36,1) .25s both;}
+.rp-hero-sub{animation:bw-fade-up .75s cubic-bezier(.22,1,.36,1) .4s both;}
+.rp-hero-ctas{animation:bw-fade-up .7s cubic-bezier(.22,1,.36,1) .55s both;}
+.rp-hero-panel{animation:bw-fade-left .85s cubic-bezier(.22,1,.36,1) .35s both;}
+@keyframes bw-fade-up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes bw-fade-left{from{opacity:0;transform:translateX(32px)}to{opacity:1;transform:none}}
+
+/* 11. BACK-LINK HOVER */
+.back-link{transition:gap .25s,color .2s;display:inline-flex;align-items:center;gap:4px;}
+.back-link:hover{gap:8px;}
+
+/* 12. NAV SCROLL STATE */
+nav.bw-scrolled{box-shadow:0 2px 24px rgba(7,11,53,.18);
+  background:rgba(7,11,53,.98) !important;}
+
+/* 13. SVC-ROW HOVER */
+.svc-row{transition:background .2s,border-color .2s,transform .2s cubic-bezier(.22,1,.36,1);}
+.svc-row:hover{transform:translateX(4px);}
+
+/* 14. SECTION DIVIDER ACCENT */
+.sec-hd .eyebrow{position:relative;}
+
+/* 15. PREFERS-REDUCED-MOTION — respect OS setting */
+@media(prefers-reduced-motion:reduce){
+  .rv,.rv-left,.rv-right,.rv-scale,
+  .role-card,.ins-card,.usp-item,.gp-card,.tq-card,.prob-item,
+  .svc-row,.back-link{transition:none!important;animation:none!important;}
+  .btn-primary::after,.rp-cta-btns a:first-child::after{display:none;}
+  .sf-connector::after{width:100%!important;transition:none!important;}
+  .rp-hero-label,.rp-hero-h1,.rp-hero-sub,.rp-hero-ctas,.rp-hero-panel{
+    animation:none!important;opacity:1!important;transform:none!important;}
+}
+
+/* 16. MOBILE FLOAT */
+@media(max-width:600px){
+  .bw-float{bottom:16px;right:14px;}
+  .bw-float-book{font-size:12px;padding:9px 15px;}
+  .bw-float-wa{width:44px;height:44px;}
+}
+
+
+/* ── CONTRAST & FONT VISIBILITY FIXES ── */
+
+/* 1. CTA button - white text on blue for proper contrast */
+.btn-primary {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+.btn-primary:hover { color: #ffffff !important; }
+
+/* 2. Compare table - dim column needs readable contrast */
+.ct-dim {
+  color: rgba(12, 12, 20, 0.58) !important;
+  font-weight: 400;
+}
+
+/* 3. Compare table headers - stronger contrast */
+.compare-table thead th {
+  color: #0C0C14 !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  opacity: 1 !important;
+}
+.compare-table thead th:last-child {
+  color: #1A52CC !important;
+}
+
+/* 4. Compare table cells - full opacity */
+.compare-table tbody td {
+  color: rgba(12,12,20,.72) !important;
+  font-size: 13.5px !important;
+}
+.compare-table tbody td:last-child {
+  color: #0C0C14 !important;
+  font-weight: 600;
+}
+
+/* 5. Step tag - white text for readability on dark bg */
+.sf-tag {
+  color: rgba(255,255,255,.75) !important;
+  font-size: 11px !important;
+  letter-spacing: .06em;
+}
+
+/* 6. FAQ question - ensure full contrast */
+.faq-q-text {
+  color: #0C0C14 !important;
+  font-weight: 600 !important;
+}
+
+/* 7. Role card desc - slightly stronger */
+.role-desc {
+  color: rgba(12,12,10,.62) !important;
+}
+
+/* 8. Problem paragraph - ensure readable */
+.prob-p {
+  color: rgba(255,255,255,.72) !important;
+}
+
+/* 9. Nav brand sub - readable */
+.nav-brand-sub {
+  color: rgba(255,255,255,.55) !important;
+  letter-spacing: .12em;
+}
+
+/* 10. Footer link contrast */
+.rp-foot-links a {
+  color: rgba(255,255,255,.48) !important;
+}
+.rp-foot-links a:hover {
+  color: rgba(255,255,255,.82) !important;
+}
+
+/* 11. Eyebrow text - ensure gold is visible on all bg */
+.eyebrow {
+  opacity: 1 !important;
+}
+
+/* 12. Font fallback stack - ensure system serif for Fraunces fallback */
+.rp-hero-h1, h1, h2, h3, .diff-h, .rp-cta-h, .proc-hd h2, .sec-h {
+  font-family: 'Fraunces', 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+}
+
+/* 13. Body text fallback */
+p, .rp-hero-sub, .prob-p, .sf-p, .role-desc, .faq-a-inner, .testi-quote {
+  font-family: 'Figtree', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+
+/* 14. Button text legibility */
+.btn-primary, .btn-ghost, .nav-cta, .bw-float-book {
+  font-family: 'Figtree', 'Inter', -apple-system, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* 15. Min font sizes for zoom-out readability */
+.sf-tag { font-size: max(10px, .62rem) !important; }
+.nav-brand-sub { font-size: max(9px, .58rem) !important; }
+.rp-hero-label { font-size: max(10px, .68rem) !important; }
+.eyebrow { font-size: max(10px, .62rem) !important; }
+
+/* 16. Smooth font rendering across all zoom levels */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 </style>
 </head>
 <body>
@@ -308,7 +559,7 @@ footer{background:#050821;padding:40px 0;}
       <a href="https://bridgewell-advisory.in/#about">About</a>
       <a href="https://bridgewell-advisory.in/#services">Services</a>
       <a href="https://bridgewell-advisory.in/hr-compliance-audit-india">Compliance</a>
-      <a href="https://tally.so/r/2EJNAV" target="_blank" rel="noopener noreferrer" class="nav-cta">Book a Call</a>
+      <a href="https://tally.so/r/rjdAGo" target="_blank" rel="noopener noreferrer" class="nav-cta">Book a Call</a>
     </div>
   </div>
 </nav>
@@ -323,7 +574,7 @@ footer{background:#050821;padding:40px 0;}
       <h1 class="hero-h1">Most companies are<br>non-compliant.<br>Most don't know it.</h1>
       <p class="hero-sub">India's labour law landscape changes every cycle. What was fine two years ago may expose you today. We find the gaps before a regulator or a disgruntled ex-employee does.</p>
       <div class="hero-btns">
-        <a href="https://tally.so/r/2EJNAV" target="_blank" rel="noopener noreferrer" class="btn-primary">Schedule a Compliance Review &#8594;</a>
+        <a href="https://tally.so/r/rjdAGo" target="_blank" rel="noopener noreferrer" class="btn-primary">Schedule a Compliance Review &#8594;</a>
         <a href="#what-we-cover" class="btn-ghost">See what we audit</a>
       </div>
     </div>
@@ -451,7 +702,7 @@ footer{background:#050821;padding:40px 0;}
         <div class="proc-num">01</div>
         <div class="proc-body">
           <h3>Scoping call &amp; document request</h3>
-          <p>We understand your company stage, headcount, locations, and employment structure. A targeted document request follows — not a blanket data dump, only what we need to audit your specific risk profile.</p>
+          <p>We understand your company stage, headcount, locations, and employment structure. A targeted document request follows , not a blanket data dump, only what we need to audit your specific risk profile.</p>
           <span class="duration">&#9200; 1&ndash;2 days</span>
         </div>
       </div>
@@ -544,7 +795,7 @@ footer{background:#050821;padding:40px 0;}
       </div>
       <div class="del-item">
         <div class="del-check">&#10003;</div>
-        <div class="del-body"><h4>Document Templates (where applicable)</h4><p>For the most common gaps, we include template language you can adopt — POSH policy, offer letter clauses, contractor agreements, NDA updates.</p></div>
+        <div class="del-body"><h4>Document Templates (where applicable)</h4><p>For the most common gaps, we include template language you can adopt , POSH policy, offer letter clauses, contractor agreements, NDA updates.</p></div>
       </div>
       <div class="del-item">
         <div class="del-check">&#10003;</div>
@@ -597,7 +848,7 @@ footer{background:#050821;padding:40px 0;}
       <div class="rv">
         <div class="label"><span class="label-dot"></span>Common Questions</div>
         <h2 class="sec-h">Before you book,<br>these usually come up.</h2>
-        <p class="sec-p" style="margin-top:14px;">If your question is not here, email Shakkir directly: <a href="mailto:shakkir.kp@bridgewell-advisory.in" style="color:var(--blue);text-decoration:none;font-weight:600;">shakkir.kp@<wbr>bridgewell-advisory.in</a></p>
+        <p class="sec-p" style="margin-top:14px;">If your question is not here, email Shakkir directly: <a href="mailto:support@bridgewell-advisory.in" style="color:var(--blue);text-decoration:none;font-weight:600;">support@bridgewell-advisory.in</a></p>
       </div>
       <div class="faq-list rv d1">
         <div class="faq-item">
@@ -614,11 +865,11 @@ footer{background:#050821;padding:40px 0;}
         </div>
         <div class="faq-item">
           <button class="faq-btn" aria-expanded="false"><span class="faq-q">What documents do we need to share?</span><span class="faq-ico">+</span></button>
-          <div class="faq-ans"><div class="faq-a-inner">After the scoping call we send a specific document request. Typically this includes your offer letter and appointment letter templates, HR policies, POSH committee records, payroll structure, a sample of contractor agreements, and statutory filing summaries. We do not need individual employee data — anonymised or template documents are sufficient for most areas.</div></div>
+          <div class="faq-ans"><div class="faq-a-inner">After the scoping call we send a specific document request. Typically this includes your offer letter and appointment letter templates, HR policies, POSH committee records, payroll structure, a sample of contractor agreements, and statutory filing summaries. We do not need individual employee data , anonymised or template documents are sufficient for most areas.</div></div>
         </div>
         <div class="faq-item">
           <button class="faq-btn" aria-expanded="false"><span class="faq-q">Can Bridgewell fix the gaps they find?</span><span class="faq-ico">+</span></button>
-          <div class="faq-ans"><div class="faq-a-inner">Yes. Implementation support is a separate engagement. Some clients use us to audit, then implement fixes themselves using the templates and roadmap we provide. Others bring us back to run implementation as part of a broader HR advisory engagement. Either way is fine — we design the audit to be actionable whether or not you use us for remediation.</div></div>
+          <div class="faq-ans"><div class="faq-a-inner">Yes. Implementation support is a separate engagement. Some clients use us to audit, then implement fixes themselves using the templates and roadmap we provide. Others bring us back to run implementation as part of a broader HR advisory engagement. Either way is fine , we design the audit to be actionable whether or not you use us for remediation.</div></div>
         </div>
       </div>
     </div>
@@ -633,8 +884,8 @@ footer{background:#050821;padding:40px 0;}
     <h2 class="cta-h rv d1">A compliance gap found now costs a fraction of one found later.</h2>
     <p class="cta-p rv d2">One scoping conversation tells us what your audit should cover and gives you an honest view of your exposure. No commitment required to have that call.</p>
     <div class="cta-btns rv d3">
-      <a href="https://tally.so/r/2EJNAV" target="_blank" rel="noopener noreferrer" class="btn-primary">Schedule a Compliance Review &#8594;</a>
-      <a href="mailto:shakkir.kp@bridgewell-advisory.in" class="btn-ghost">Email Shakkir directly</a>
+      <a href="https://tally.so/r/rjdAGo" target="_blank" rel="noopener noreferrer" class="btn-primary">Schedule a Compliance Review &#8594;</a>
+      <a href="mailto:support@bridgewell-advisory.in" class="btn-ghost">Email Shakkir directly</a>
     </div>
   </div>
 </section>
@@ -648,9 +899,9 @@ footer{background:#050821;padding:40px 0;}
       <a href="https://bridgewell-advisory.in/recruitment-advisory-india">Recruitment</a>
       <a href="https://bridgewell-advisory.in/hr-business-advisory-india">HR Advisory</a>
       <a href="https://bridgewell-advisory.in/hr-business-outsourcing-india">HR Outsourcing</a>
-      <a href="https://tally.so/r/2EJNAV" target="_blank" rel="noopener noreferrer">Book a Call</a>
+      <a href="https://tally.so/r/rjdAGo" target="_blank" rel="noopener noreferrer">Book a Call</a>
     </div>
-    <p class="foot-copy">&copy; 2026 Bridgewell Advisory. All rights reserved. Bengaluru, India &middot; <a href="mailto:shakkir.kp@bridgewell-advisory.in" style="color:inherit;">shakkir.kp@bridgewell-advisory.in</a> &middot; +91 79044 11177</p>
+    <p class="foot-copy">&copy; 2026 Bridgewell Advisory. All rights reserved. Bengaluru, India &middot; <a href="mailto:support@bridgewell-advisory.in" style="color:inherit;">support@bridgewell-advisory.in</a> &middot; +91 79044 11177</p>
   </div>
 </footer>
 
@@ -674,6 +925,106 @@ footer{background:#050821;padding:40px 0;}
     });
   });
 })();
+</script>
+
+<script>
+
+(function(){
+'use strict';
+/* ── PROGRESS BAR ── */
+var pb=document.createElement('div');pb.className='bw-progress';
+document.body.insertBefore(pb,document.body.firstChild);
+function upPB(){var max=document.documentElement.scrollHeight-window.innerHeight;
+pb.style.width=(max>0?Math.min(window.scrollY/max*100,100):0)+'%';}
+window.addEventListener('scroll',upPB,{passive:true});upPB();
+
+/* ── FLOAT CTA ── */
+var fc=document.createElement('div');fc.className='bw-float';
+fc.innerHTML='<a href="https://wa.me/917904411177" class="bw-float-wa" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">'
+ +'<svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.522 5.841L0 24l6.362-1.498A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.663-.502-5.195-1.378l-.373-.215-3.779.89.937-3.667-.243-.388A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>'
+ +'</a>'
+ +'<a href="https://tally.so/r/rjdAGo" class="bw-float-book" target="_blank" rel="noopener noreferrer">Book a Consultation</a>';
+document.body.appendChild(fc);
+var fcV=false;
+window.addEventListener('scroll',function(){
+ var s=window.scrollY>300;
+ if(s!==fcV){fc.classList.toggle('bw-visible',s);fcV=s;}
+},{passive:true});
+
+/* ── ENHANCED OBSERVER ── */
+var obs=new IntersectionObserver(function(entries){
+ entries.forEach(function(e){
+  if(e.isIntersecting){
+   e.target.classList.add('in');
+   if(e.target.dataset.count!==undefined)animCount(e.target);
+   obs.unobserve(e.target);
+  }
+ });
+},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv,.rv-left,.rv-right,.rv-scale').forEach(function(el){obs.observe(el);});
+
+/* ── COUNTER ── */
+function animCount(el){
+ var t=parseFloat(el.dataset.count);var suf=el.dataset.suffix||'';
+ var dur=1500;var st=performance.now();
+ (function tick(now){
+  var p=Math.min((now-st)/dur,1);var e2=1-Math.pow(1-p,3);
+  el.textContent=(Number.isInteger(t)?Math.round(t*e2):( t*e2).toFixed(1))+suf;
+  if(p<1)requestAnimationFrame(tick);else el.textContent=t+suf;
+ })(st);
+}
+
+/* ── PROCESS LINE ── */
+document.querySelectorAll('.steps-flow').forEach(function(sf){
+ if(window.innerWidth<768)return;
+ var l=document.createElement('div');l.className='sf-connector';
+ sf.insertBefore(l,sf.firstChild);
+ new IntersectionObserver(function(en){
+  if(en[0].isIntersecting){l.classList.add('bw-drawn');this.disconnect();}
+ },{threshold:0.3}).observe(sf);
+});
+
+/* ── TABLE ROW STAGGER ── */
+document.querySelectorAll('.compare-table tbody tr').forEach(function(tr,i){
+ tr.style.cssText='opacity:0;transform:translateX(-10px);transition:opacity .5s '+(i*.07)+'s ease,transform .5s '+(i*.07)+'s cubic-bezier(.22,1,.36,1)';
+ new IntersectionObserver(function(en){
+  if(en[0].isIntersecting){tr.style.opacity='1';tr.style.transform='none';this.disconnect();}
+ },{threshold:0.1}).observe(tr);
+});
+
+/* ── NAV SCROLL ── */
+var nav=document.querySelector('nav');
+if(nav)window.addEventListener('scroll',function(){
+ nav.classList.toggle('bw-scrolled',window.scrollY>60);
+},{passive:true});
+
+/* ── FAQ ── */
+document.querySelectorAll('.faq-q-btn:not([data-b])').forEach(function(btn){
+ btn.dataset.b='1';
+ btn.addEventListener('click',function(){
+  var item=this.closest('.faq-item');
+  var open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i){
+   i.classList.remove('open');i.querySelector('.faq-q-btn').setAttribute('aria-expanded','false');
+  });
+  if(!open){item.classList.add('open');this.setAttribute('aria-expanded','true');}
+ });
+});
+
+/* ── FAILSAFE ── */
+setTimeout(function(){
+ document.querySelectorAll('.rv,.rv-left,.rv-right,.rv-scale').forEach(function(el){el.classList.add('in');});
+},3500);
+
+/* ── REDUCED MOTION ── */
+if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+ document.querySelectorAll('.rv,.rv-left,.rv-right,.rv-scale').forEach(function(el){
+  el.style.transition='none';el.classList.add('in');
+ });
+}
+
+})();
+
 </script>
 </body>
 </html>
