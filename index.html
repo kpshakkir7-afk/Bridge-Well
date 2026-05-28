@@ -349,7 +349,7 @@ ul { list-style:none; }
 .wm-sp { display:inline; white-space:pre; }
 .hero-rule {
   display:block; width:0; height:1px; margin:32px 0 28px;
-  background:#1A52CC);
+  background:#1A52CC;
   transition:width 1s cubic-bezier(.22,1,.36,1);
 }
 .hero-rule.on { width:72px; }
@@ -386,8 +386,8 @@ ul { list-style:none; }
 }
 .hcard-lbl {
   font-family:'Figtree',sans-serif;
-  font-size:10px; font-weight:600;
-  color:#4A78E0; letter-spacing:.22em;
+  font-size:10px; font-weight:700;
+  color:#6B96F0; letter-spacing:.22em;
   text-transform:uppercase; margin-bottom:8px;
 }
 .hcard-title {
@@ -397,8 +397,8 @@ ul { list-style:none; }
 }
 .hcard-sub {
   font-family:'Figtree',sans-serif;
-  font-size:13px; font-weight:300;
-  color:rgba(255,255,255,.6); margin-top:5px; line-height:1.6;
+  font-size:13px; font-weight:400;
+  color:rgba(255,255,255,.82); margin-top:5px; line-height:1.6;
 }
 .hero-bottom {
   display:flex; align-items:center; justify-content:space-between;
@@ -464,7 +464,138 @@ ul { list-style:none; }
   background:rgba(255,255,255,.05);
 }
 
-/* ── TICKER ───────────────────────────────── */
+/* ── CREDENTIAL BAR ─────────────────────── */
+.cred-bar {
+  background: #fff;
+  border-top: 1px solid rgba(8,20,98,.08);
+  border-bottom: 1px solid rgba(8,20,98,.08);
+  padding: 14px 5%;
+}
+.cred-inner {
+  max-width: 1180px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 8px 0;
+}
+.cred-item {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: 'Figtree', sans-serif;
+  font-size: 11.5px; font-weight: 500; color: #2E3A6B;
+  letter-spacing: .03em; padding: 0 20px;
+}
+.cred-item svg { color: #1A52CC; flex-shrink: 0; }
+.cred-dot {
+  width: 3px; height: 3px; border-radius: 50%;
+  background: rgba(26,82,204,.25); flex-shrink: 0;
+}
+@media(max-width:640px){
+  .cred-item{font-size:10.5px;padding:4px 12px;}
+  .cred-dot{display:none;}
+}
+
+/* ── COMPARISON TABLE ────────────────────── */
+.compare-sec {
+  background: var(--canvas); padding: 88px 0;
+  border-top: 1px solid rgba(8,20,98,.07);
+}
+.compare-head { max-width: 560px; margin: 0 auto 52px; text-align: center; }
+.compare-eyebrow {
+  font-family: 'Figtree', sans-serif; font-size: 11px;
+  font-weight: 600; letter-spacing: .24em; text-transform: uppercase;
+  color: #4A78E0; margin-bottom: 14px;
+}
+.compare-title {
+  font-family: 'Bricolage Grotesque','Fraunces',Georgia,sans-serif;
+  font-size: clamp(28px,3.2vw,42px); font-weight: 700;
+  color: #0C0C0A; line-height: 1.1; letter-spacing: -.02em;
+}
+.compare-wrap { max-width: 900px; margin: 0 auto; padding: 0 5%; overflow-x: auto; }
+.compare-table {
+  width: 100%; border-collapse: collapse;
+  font-family: 'Figtree', sans-serif;
+}
+.compare-table thead th {
+  padding: 14px 20px; text-align: left;
+  border-bottom: 2px solid rgba(8,20,98,.1);
+  font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: #0C0C14;
+}
+.compare-table thead th:first-child { width: 42%; }
+.compare-table thead th:nth-child(2) { color: rgba(12,12,10,.4); text-align: center; }
+.compare-table thead th:last-child { color: #1A52CC; text-align: center; }
+.compare-table tbody tr {
+  border-bottom: 1px solid rgba(8,20,98,.07);
+  transition: background .2s;
+}
+.compare-table tbody tr:last-child { border-bottom: none; }
+.compare-table tbody tr:hover { background: rgba(26,82,204,.04); }
+.compare-table tbody td {
+  padding: 16px 20px; font-size: 13.5px;
+  color: rgba(12,12,20,.72); line-height: 1.5;
+}
+.compare-table tbody td:nth-child(2) {
+  text-align: center; color: rgba(12,12,10,.38);
+}
+.compare-table tbody td:last-child {
+  text-align: center; font-weight: 600; color: #0C0C14;
+}
+.ct-check { color: #1A52CC; font-size: 16px; font-weight: 700; }
+.ct-cross { color: rgba(12,12,10,.25); font-size: 15px; }
+@media(max-width:600px){
+  .compare-table tbody td{padding:12px 12px;font-size:12.5px;}
+  .compare-table thead th{padding:12px 12px;}
+}
+
+/* ── CAPACITY BADGE ──────────────────────── */
+.capacity-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(26,82,204,.08); border: 1px solid rgba(26,82,204,.2);
+  border-radius: 999px; padding: 6px 16px;
+  font-family: 'Figtree', sans-serif; font-size: 11.5px;
+  font-weight: 600; color: #3A56E8; letter-spacing: .04em;
+  margin-bottom: 28px;
+}
+.capacity-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #3A56E8; animation: pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.5;transform:scale(.8)}
+}
+
+/* ── PULL QUOTE BAND ─────────────────────── */
+.pull-band {
+  background: #070B35; padding: 56px 5%;
+  border-top: 1px solid rgba(26,82,204,.15);
+  border-bottom: 1px solid rgba(26,82,204,.15);
+}
+.pull-band-inner {
+  max-width: 820px; margin: 0 auto; text-align: center;
+}
+.pull-band-mark {
+  font-size: 48px; line-height: 1; color: rgba(26,82,204,.4);
+  font-family: Georgia, serif; display: block; margin-bottom: 16px;
+}
+.pull-band-text {
+  font-family: 'Bricolage Grotesque','Fraunces',Georgia,sans-serif;
+  font-size: clamp(19px,2.4vw,28px); font-weight: 400; font-style: italic;
+  color: rgba(255,255,255,.88); line-height: 1.6; letter-spacing: -.01em;
+}
+.pull-band-text strong { font-style: normal; font-weight: 700; color: #4A78E0; }
+.pull-band-attr {
+  margin-top: 24px; font-family: 'Figtree', sans-serif;
+  font-size: 12px; font-weight: 500; color: rgba(255,255,255,.68);
+  letter-spacing: .1em; text-transform: uppercase;
+}
+
+/* ── URGENCY INLINE ──────────────────────── */
+.urgency-note {
+  font-family: 'Figtree', sans-serif; font-size: 12px;
+  color: rgba(255,255,255,.68); margin-top: 16px; letter-spacing: .02em;
+}
+.urgency-note strong { color: rgba(255,255,255,.92); }
+
+
 .ticker {
   background:var(--nav-y,linear-gradient(135deg,#070B35,#081462));
   background:linear-gradient(135deg,#070B35 0%,#081462 100%);
@@ -704,7 +835,7 @@ ul { list-style:none; }
   color:#3A56E8; font-weight:600; text-decoration:none;
   border-bottom:1px solid rgba(26,82,204,.35); transition:border-color .25s;
 }
-.proc-lp-foot a:hover { border-color:#3A56E8,#1A52CC); }
+.proc-lp-foot a:hover { border-color:#3A56E8; }
 .psl-alt { color:rgba(9,16,58,.45) !important; font-size:13.5px !important; }
 @media(max-width:900px){
   .proc-steps-lp { grid-template-columns:1fr 1fr; }
@@ -774,18 +905,18 @@ ul { list-style:none; }
 
 /* ── CTA (dark) ───────────────────────────── */
 .cta-inner { text-align:center; position:relative; z-index:1; }
-.cta-lbl { font-family:'Figtree',sans-serif; font-size:10.5px; font-weight:600; letter-spacing:.26em; text-transform:uppercase; color:rgba(26,82,204,.55); display:block; text-align:center; margin-bottom:16px; }
+.cta-lbl { font-family:'Figtree',sans-serif; font-size:10.5px; font-weight:600; letter-spacing:.26em; text-transform:uppercase; color:#82AAFF; display:block; text-align:center; margin-bottom:16px; }
 .cta-h { font-family:'Bricolage Grotesque','Fraunces',Georgia,sans-serif; font-size:clamp(40px,5.5vw,80px); font-weight:700; color:#fff; line-height:.96; letter-spacing:-.02em; margin-bottom:18px; }
 .cta-h em { font-style:normal; color:#4A78E0; font-weight:300; }
-.cta-p { font-family:'Figtree',sans-serif; font-size:16px; font-weight:300; color:rgba(255,255,255,.6); max-width:420px; margin:0 auto 48px; line-height:1.8; }
-.cta-engage { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.07); max-width:880px; margin:64px auto 0; }
-.engage { background:rgba(8,20,98,.5); padding:40px 32px; text-align:left; transition:background .3s; cursor:default; }
-.engage:hover { background:rgba(12,26,122,.5); }
-.eng-n { font-family:'Bricolage Grotesque','Fraunces',Georgia,sans-serif; font-size:44px; font-weight:700; color:rgba(255,255,255,.05); line-height:1; margin-bottom:14px; }
-.engage h4 { font-family:'Bricolage Grotesque','Fraunces',Georgia,sans-serif; font-size:20px; font-weight:700; color:#fff; margin-bottom:8px; }
-.engage p { font-family:'Figtree',sans-serif; font-size:13px; font-weight:300; color:rgba(255,255,255,.58); line-height:1.7; }
+.cta-p { font-family:'Figtree',sans-serif; font-size:16px; font-weight:300; color:rgba(255,255,255,.82); max-width:420px; margin:0 auto 48px; line-height:1.8; }
+.cta-engage { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.1); max-width:880px; margin:48px auto 0; }
+.engage { background:#0A1245; padding:40px 32px; text-align:left; transition:background .3s; cursor:default; border-top:2px solid transparent; }
+.engage:hover { background:#0D1660; border-top-color:#4A78E0; }
+.eng-n { font-family:'Bricolage Grotesque','Fraunces',Georgia,sans-serif; font-size:40px; font-weight:700; color:rgba(74,120,224,.35); line-height:1; margin-bottom:16px; }
+.engage h3 { font-family:'Bricolage Grotesque','Fraunces',Georgia,sans-serif; font-size:17px; font-weight:700; color:#fff; margin-bottom:10px; line-height:1.3; }
+.engage p { font-family:'Figtree',sans-serif; font-size:14px; font-weight:400; color:rgba(255,255,255,.78); line-height:1.72; }
 .cta-contacts { display:flex; gap:36px; justify-content:center; flex-wrap:wrap; margin-top:56px; padding-top:44px; border-top:1px solid rgba(255,255,255,.07); }
-.ct { display:inline-flex; align-items:center; gap:9px; font-family:'Figtree',sans-serif; font-size:13px; font-weight:400; color:rgba(255,255,255,.5); transition:color .25s; }
+.ct { display:inline-flex; align-items:center; gap:9px; font-family:'Figtree',sans-serif; font-size:13px; font-weight:400; color:rgba(255,255,255,.75); transition:color .25s; }
 .ct:hover { color:rgba(255,255,255,.88); }
 
 /* ── FOOTER ───────────────────────────────── */
@@ -795,11 +926,11 @@ footer { background:#04061C; padding:56px 0 32px; border-top:1px solid rgba(26,8
 .fb-img-wrap { width:auto; min-width:48px; height:48px; border-radius:8px; overflow:hidden; background:#fff; flex-shrink:0; display:flex; align-items:center; justify-content:center; padding:6px 9px; }
 .fb-img-wrap img { width:auto; height:100%; max-height:36px; object-fit:contain; display:block; }
 .fb-wm { font-family:'Bricolage Grotesque','Fraunces',Georgia,sans-serif; font-size:18px; font-weight:600; color:#fff; letter-spacing:.05em; }
-.fb-tag { font-family:'Figtree',sans-serif; font-size:9px; font-weight:400; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.28); margin-top:3px; }
+.fb-tag { font-family:'Figtree',sans-serif; font-size:9px; font-weight:400; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.62); margin-top:3px; }
 .fb p { font-family:'Figtree',sans-serif; font-size:13px; font-weight:300; color:rgba(255,255,255,.45); line-height:1.75; max-width:270px; }
-.fc h5 { font-family:'Figtree',sans-serif; font-size:10px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:rgba(26,82,204,.55); margin-bottom:20px; }
+.fc h5, .fc h3 { font-family:'Figtree',sans-serif; font-size:10px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:rgba(26,82,204,.55); margin-bottom:20px; }
 .fc ul { display:flex; flex-direction:column; gap:12px; }
-.fc a { font-family:'Figtree',sans-serif; font-size:13px; font-weight:300; color:rgba(255,255,255,.5); transition:color .2s; }
+.fc a { font-family:'Figtree',sans-serif; font-size:13px; font-weight:300; color:rgba(255,255,255,.72); transition:color .2s; }
 .fc a:hover { color:#fff; }
 .ft-cta { display:inline-flex; align-items:center; margin-top:20px; padding:11px 22px; font-family:'Figtree',sans-serif; font-size:13px; font-weight:600; letter-spacing:.02em; color:#ffffff; background:#1A52CC 100%); border-radius:8px; text-decoration:none; transition:transform .25s,box-shadow .25s; }
 .ft-cta:hover { transform:translateY(-2px); box-shadow:0 10px 24px rgba(26,82,204,.32); }
@@ -813,22 +944,22 @@ footer { background:#04061C; padding:56px 0 32px; border-top:1px solid rgba(26,8
 .trust-title em { font-style:normal; color:#4A78E0; }
 .trust-sub { font-family:'Figtree',system-ui,sans-serif; font-size:15px; line-height:1.65; color:rgba(12,12,10,.58); margin:20px auto 0; max-width:580px; }
 .tq-grid { display:flex; flex-wrap:wrap; gap:24px; }
-.tq-card { flex:1 1 calc(33.333% - 16px); min-width:260px; box-sizing:border-box; background:#fff; border:1px solid rgba(12,12,10,.08); border-radius:16px; padding:36px 32px; display:flex; flex-direction:column; }
-.tq-quote { font-family:'Bricolage Grotesque','Fraunces',Georgia,sans-serif; font-size:17px; line-height:1.6; color:#1a1a17; font-style:normal; margin:0 0 24px; flex:1; }
-.tq-mark { font-size:34px; line-height:1; color:rgba(9,16,58,.15); font-family:Georgia,serif; margin-bottom:6px; display:block; }
+.tq-card { flex:1 1 calc(33.333% - 16px); min-width:280px; box-sizing:border-box; background:#fff; border:1px solid rgba(12,12,10,.08); border-radius:20px; padding:52px 44px 44px; display:flex; flex-direction:column; min-height:420px; }
+.tq-quote { font-family:'Bricolage Grotesque','Fraunces',Georgia,sans-serif; font-size:18px; line-height:1.72; color:#1a1a17; font-style:normal; margin:0 0 32px; flex:1; letter-spacing:-.01em; }
+.tq-mark { font-size:52px; line-height:1; color:rgba(9,16,58,.12); font-family:Georgia,serif; margin-bottom:16px; display:block; }
 .tq-attr { font-family:'Figtree',sans-serif; font-size:13px; }
-.tq-role { color:rgba(12,12,10,.55); font-weight:400; }
+.tq-role { color:rgba(12,12,10,.72); font-weight:400; }
 .tq-name { color:#0C0C0A; font-weight:600; margin-bottom:2px; }
-.tq-note { text-align:center; font-family:'Figtree',sans-serif; font-size:12px; color:rgba(12,12,10,.4); margin-top:32px; letter-spacing:.02em; }
+.tq-note { text-align:center; font-family:'Figtree',sans-serif; font-size:12px; color:rgba(12,12,10,.62); margin-top:32px; letter-spacing:.02em; }
 .cl-strip { margin-top:64px; padding-top:48px; border-top:1px solid rgba(12,12,10,.10); }
 .cl-label { text-align:center; font-family:'Figtree',sans-serif; font-size:11px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:rgba(12,12,10,.38); margin-bottom:28px; }
 .cl-row { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:18px 40px; }
 .cl-item { font-family:'Bricolage Grotesque','Fraunces',Georgia,sans-serif; font-size:18px; font-weight:600; color:rgba(12,12,10,.30); letter-spacing:.04em; padding:10px 22px; border:1px dashed rgba(12,12,10,.18); border-radius:8px; }
 @media(max-width:900px){ .tq-card{flex:1 1 100%} .trust-sec{padding:64px 0} .cl-strip{margin-top:44px} }
 .fbot { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-top:26px; }
-.fbot p { font-family:'Figtree',sans-serif; font-size:11.5px; font-weight:300; color:rgba(255,255,255,.25); }
-.fbot a { color:rgba(255,255,255,.25); transition:color .2s; }
-.fbot a:hover { color:rgba(255,255,255,.55); }
+.fbot p { font-family:'Figtree',sans-serif; font-size:11.5px; font-weight:300; color:rgba(255,255,255,.52); }
+.fbot a { color:rgba(255,255,255,.52); transition:color .2s; }
+.fbot a:hover { color:rgba(255,255,255,.82); }
 
 /* ── SCROLL REVEAL ─────────────────────────── */
 .rv { opacity:0; transform:translateY(36px); transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1); }
@@ -1088,7 +1219,7 @@ body, p, li, a, span, div,
 .stat-num b { color: #1A3FCC; }
 
 .why-item h3 { color: #ffffff; font-size: 22px; font-weight: 700; }
-.engage h4   { color: #ffffff; font-size: 21px; font-weight: 600; }
+.engage h3   { color: #ffffff; font-size: 17px; font-weight: 700; }
 .tm-name     { color: #09103A; font-size: 25px; font-weight: 600; letter-spacing: -.01em; }
 .stp h3      { color: #09103A; font-size: 16px; font-weight: 700; }
 .p-b h3      { color: #09103A; font-size: 20px; font-weight: 700; }
@@ -1231,9 +1362,9 @@ body, p, li, a, span, div,
 .why-item h3 { color: #ffffff; }
 .why-item::before { background: #1A52CC; }
 .why-item:hover { background: rgba(12,26,122,.55); }
-.engage p { color: rgba(255,255,255,.65); font-size: 13.5px; font-weight: 400; }
-.cta-p { color: rgba(255,255,255,.65); font-size: 16px; font-weight: 400; }
-.ct { color: rgba(255,255,255,.55); font-size: 13px; font-weight: 500; }
+.engage p { color: rgba(255,255,255,.78); font-size: 14px; font-weight: 400; }
+.cta-p { color: rgba(255,255,255,.82); font-size: 16px; font-weight: 400; }
+.ct { color: rgba(255,255,255,.75); font-size: 13px; font-weight: 500; }
 .ct:hover { color: rgba(255,255,255,.9); }
 
 /* ─────────────────────────────────────────────────
@@ -1244,8 +1375,8 @@ body, p, li, a, span, div,
 .ft-col a:hover { color: rgba(255,255,255,.9); }
 .fb-desc { color: rgba(255,255,255,.4); font-size: 13px; font-weight: 300; line-height: 1.75; }
 .fb-wm { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: #ffffff; letter-spacing: .06em; }
-.fb-tag { color: rgba(255,255,255,.28); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; }
-.fbot-copy { color: rgba(255,255,255,.25); font-size: 11.5px; font-weight: 400; }
+.fb-tag { color: rgba(255,255,255,.62); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; }
+.fbot-copy { color: rgba(255,255,255,.52); font-size: 11.5px; font-weight: 400; }
 
 /* ─────────────────────────────────────────────────
    WHY SECTION HEADINGS, on dark navy bg
@@ -1361,7 +1492,7 @@ body, p, li, a, span, div,
 .faq-left { position: sticky; top: 110px; }
 .faq-h { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px,4vw,58px); font-weight: 700; color: #fff; line-height: 1.06; letter-spacing: -.02em; margin-bottom: 18px; }
 .faq-h em { font-style:normal; font-weight: 300; color:#4A78E0; }
-.faq-sub { font-family: 'Inter', sans-serif; font-size: 13.5px; color: rgba(255,255,255,.48); line-height: 1.75; margin-bottom: 36px; }
+.faq-sub { font-family: 'Inter', sans-serif; font-size: 13.5px; color: rgba(255,255,255,.72); line-height: 1.75; margin-bottom: 36px; }
 .faq-contact-cue { display: inline-flex; align-items: center; gap: 9px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color:#4A78E0; border: 1px solid rgba(26,82,204,.3); padding: 10px 18px; border-radius: 2px; text-decoration: none; transition: all .25s; }
 .faq-contact-cue:hover { color: #fff; border-color:#4A78E0; background: rgba(26,82,204,.1); }
 .faq-item { border-bottom: 1px solid rgba(255,255,255,.07); }
@@ -1671,7 +1802,7 @@ body.aw-line-height-2 p, body.aw-line-height-2 li { line-height: 2.6 !important;
   background: #374151;
   color: white;
 }
-.svc-section-label { font-family:'Figtree','Inter',sans-serif; font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:rgba(7,11,53,.45); padding:28px 0 10px; border-top:1px solid rgba(7,11,53,.1); margin-top:8px; }
+.svc-section-label { font-family:'Figtree','Inter',sans-serif; font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:rgba(7,11,53,.72); padding:28px 0 10px; border-top:1px solid rgba(7,11,53,.1); margin-top:8px; }
 .svc-section-label:first-of-type { border-top:none; margin-top:0; padding-top:0; }
 
 /* ── HIRING INSIGHTS ── */
@@ -1711,7 +1842,7 @@ body.aw-line-height-2 p, body.aw-line-height-2 li { line-height: 2.6 !important;
   transition:opacity .45s cubic-bezier(.22,1,.36,1),transform .45s cubic-bezier(.22,1,.36,1);
   pointer-events:none;}
 .bw-float.bw-visible{opacity:1;transform:none;pointer-events:auto;}
-.bw-float-wa{width:50px;height:50px;background:#25D366;border-radius:50%;
+.bw-float-wa{width:50px;height:50px;background:#0A786C;border-radius:50%;
   display:flex;align-items:center;justify-content:center;color:#fff;
   box-shadow:0 4px 18px rgba(37,211,102,.42);
   transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s;
@@ -1937,7 +2068,7 @@ p, .rp-hero-sub, .prob-p, .sf-p, .role-desc, .faq-a-inner, .testi-quote {
 .bw-float{flex-direction:column;gap:8px;align-items:flex-end;}
 .bw-float-label{font-family:'Figtree','Inter',system-ui,sans-serif;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);text-align:right;margin-bottom:2px;}
 .bw-float-choice{display:inline-flex;align-items:center;gap:7px;padding:10px 18px;border-radius:100px;font-family:'Figtree','Inter',system-ui,sans-serif;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;letter-spacing:.01em;transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s;}
-.bw-float-founder{background:#25D366;color:#fff !important;box-shadow:0 4px 16px rgba(37,211,102,.38);}
+.bw-float-founder{background:#0A786C;color:#fff !important;box-shadow:0 4px 16px rgba(10,120,108,.38);}
 .bw-float-hr{background:linear-gradient(135deg,#1A52CC,#2563eb);color:#fff !important;box-shadow:0 4px 16px rgba(26,82,204,.38);}
 .bw-float-choice:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 8px 24px rgba(0,0,0,.22);}
 @media(max-width:600px){.bw-float-choice{font-size:12px;padding:8px 14px;}.bw-float-label{font-size:9px;}}
@@ -2053,9 +2184,8 @@ body.bw-intro-active
 #scroll-progress {
   position:fixed; top:0; left:0; height:2px; width:0%;
   z-index:9999; pointer-events:none;
-  background:#1A52CC);
+  background:#1A52CC;
   background-size:200%; animation:shimmerProg 2s linear infinite;
-  transition:width .1s linear;
 }
 @keyframes shimmerProg {
   0%{background-position:200%} 100%{background-position:-200%}
@@ -2076,8 +2206,8 @@ body.bw-intro-active
 .ai-c     { transition:background .25s, transform .4s cubic-bezier(.22,1,.36,1) !important; }
 .ai-c:hover { transform:translateY(-5px) !important; }
 
-.engage   { transition:background .3s, transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s, border-top-color .3s; border-top:2px solid transparent; }
-.engage:hover { transform:translateY(-6px) !important; box-shadow:0 20px 56px rgba(0,0,0,.35) !important; border-top-color:#4A78E0 !important; }
+.engage   { transition:background .3s, transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s, border-top-color .3s; }
+.engage:hover { transform:translateY(-4px) !important; box-shadow:0 16px 48px rgba(0,0,0,.4) !important; }
 
 .tm       { transition:background .25s, transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s; border-bottom:2px solid transparent; }
 .tm:hover { transform:translateY(-4px) !important; box-shadow:0 16px 48px rgba(8,20,98,.08) !important; border-bottom-color:#4A78E0 !important; }
@@ -2364,7 +2494,7 @@ body.bw-intro-active
 }
 
 /* ══════════ WHATSAPP BUTTONS ══════════ */
-:root { --wa-green:#25D366; --wa-green-h:#1DA851; }
+:root { --wa-green:#0A786C; --wa-green-h:#086358; }
 
 .nav-wa {
   display:inline-flex; align-items:center; justify-content:center;
@@ -2784,7 +2914,7 @@ body.drawer-open
 }
 /* Founder-recognition persuasion block */
 .gp-recog { max-width: 860px; }
-.gp-recog-inner { text-align: center; }
+.gp-recog-inner { text-align: center; grid-column: 1 / -1; max-width: 760px; margin: 0 auto; }
 .gp-recog-lead {
   font-family: 'Fraunces','Cormorant Garamond',Georgia,serif;
   font-size: clamp(22px,2.6vw,34px); font-weight: 600;
@@ -2971,11 +3101,10 @@ body.drawer-open
 </style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Bridgewell Advisory | HR Business Advisory &amp; Recruitment Advisory India | Executive Search</title>
-<meta name="description" content="India's specialist HR business advisory and recruitment advisory firm for founders and CXOs. Org design, workforce planning, executive search and HR outsourcing. We Diagnose Before We Deliver.">
-<meta name="keywords" content="recruitment advisory India, recruitment consultant India, recruitment partner India, leadership hiring India, executive search India, hiring partner for critical roles, mid to senior hiring India, CXO hiring India, strategic hiring advisory India, executive hiring firm India, recruitment advisory for startups India, leadership hiring for growing companies, hiring advisory for founders, critical role hiring partner, executive search Bengaluru, HR consulting India, startup hiring India, payroll management India, HR compliance India">
-<meta name="robots" content="index, follow">
-<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<title>Executive Search &amp; HR Advisory Bengaluru | Bridgewell</title>
+<meta name="description" content="Bengaluru recruitment advisory and executive search for founders and CXOs. Org design, workforce planning, HR outsourcing. We Diagnose Before We Deliver.">
+<meta name="keywords" content="recruitment advisory India, recruitment consultant India, recruitment partner India, leadership hiring India, executive search India, hiring partner for critical roles, mid to senior hiring India, CXO hiring India, strategic hiring advisory India, executive hiring firm India, recruitment advisory for startups India, leadership hiring for growing companies, hiring advisory for founders, critical role hiring partner, executive search Bengaluru, executive search Bangalore, HR consulting India, HR consulting Bengaluru, HR consulting Bangalore, startup hiring India, payroll management India, HR compliance India">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <!-- AI / answer-engine crawlers: explicitly allowed for citation -->
 <meta name="GPTBot" content="index, follow">
 <meta name="Google-Extended" content="index, follow">
@@ -2997,8 +3126,8 @@ body.drawer-open
 <link rel="manifest" href="https://bridgewell-advisory.in/site.webmanifest">
 <meta name="apple-mobile-web-app-title" content="Bridgewell">
 <!-- Open Graph -->
-<meta property="og:title" content="Bridgewell Advisory, Recruitment Advisory India | Executive Search & Leadership Hiring">
-<meta property="og:description" content="India's specialist recruitment advisory for founders, CXOs and leadership teams. Mid-to-senior hiring, executive search, and HR consulting, advisory-led. We Diagnose Before We Deliver.">
+<meta property="og:title" content="Executive Search &amp; HR Advisory Bengaluru | Bridgewell Advisory">
+<meta property="og:description" content="Bengaluru recruitment advisory for founders and CXOs across India. Mid-to-senior hiring, executive search, and HR consulting. We Diagnose Before We Deliver.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bridgewell-advisory.in/">
 <meta property="og:site_name" content="Bridgewell Advisory">
@@ -3010,7 +3139,7 @@ body.drawer-open
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@bridgewell_in">
-<meta name="twitter:title" content="Bridgewell Advisory, Recruitment Advisory India">
+<meta name="twitter:title" content="Executive Search Bengaluru | Recruitment Advisory India — Bridgewell">
 <meta name="twitter:description" content="Specialist recruitment advisory and executive search firm in India. Leadership hiring for startups and growing companies. We Diagnose Before We Deliver.">
 <meta name="twitter:image" content="https://bridgewell-advisory.in/og-image.jpg">
 <meta name="twitter:image:alt" content="Bridgewell Advisory, Recruitment Advisory India">
@@ -3047,7 +3176,7 @@ body.drawer-open
   "image": "https://bridgewell-advisory.in/og-image.jpg",
   "description": "Bridgewell Advisory is India's specialist recruitment advisory and executive search firm. We are the strategic hiring partner for founders, CXOs, and leadership teams, mid-to-senior and CXO hiring across Bengaluru and India. Advisory-led. AI-augmented.",
   "slogan": "We Diagnose Before We Deliver",
-  "foundingDate": "2023",
+  "foundingDate": "2026",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Bengaluru",
@@ -3080,6 +3209,7 @@ body.drawer-open
   ],
   "sameAs": [
     "https://www.linkedin.com/company/bridgewell-advisory-inc",
+    "https://www.linkedin.com/company/bridgewell-advisory",
     "https://bridgewell-advisory.in"
   ],
   "areaServed": [
@@ -3297,7 +3427,7 @@ body.drawer-open
     "url": "https://bridgewell-advisory.in/og-image.jpg"
   },
   "inLanguage": "en-IN",
-  "dateModified": "2025-01-01",
+  "dateModified": "2026-05-28",
   "breadcrumb": {
     "@type": "BreadcrumbList",
     "itemListElement": [
@@ -3364,7 +3494,7 @@ body.drawer-open
       "name": "How does Bridgewell Advisory charge for recruitment and executive search services?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We offer pilot, partnership, and advisory models with Scoped to the engagement. depending on role complexity and engagement structure."
+        "text": "We offer three engagement models — Pilot, Partnership, and Advisory — scoped to the role, complexity, and engagement structure. Fees typically range from ₹5L to ₹25L depending on seniority and scope."
       }
     }
   ]
@@ -3385,6 +3515,7 @@ body.drawer-open
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&display=swap"></noscript>
 <link rel="dns-prefetch" href="//tally.so">
 <link rel="dns-prefetch" href="//wa.me">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <meta http-equiv="x-dns-prefetch-control" content="on">
 </head>
 <body>
@@ -3663,11 +3794,12 @@ body.drawer-open
       <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     </a>
     <a href="https://tally.so/r/rjdAGo" target="_blank" class="nav-cta" rel="noopener noreferrer">Book a Consultation</a>
-    <button class="nav-ham" id="navHam"><span></span><span></span><span></span></button>
+    <button class="nav-ham" id="navHam" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navMenu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
 <!-- HERO -->
+<main id="main-content">
 <section id="hero">
   <div class="hero-noise"></div>
   <!-- Joveo-style floating blobs -->
@@ -3684,7 +3816,7 @@ body.drawer-open
   <canvas id="heroCanvas"></canvas>
   <div class="hero-inner">
     <div class="hero-topbar">
-      <span class="htb-l">Est. 2026 &middot; Bengaluru, India</span>
+      <span class="htb-l">Bengaluru, India &middot; Executive Search &middot; HR Advisory</span>
       <div class="htb-r"><span>Executive Search</span><span>HR Advisory</span><span>AI-Augmented</span></div>
     </div>
     <div class="hero-main">
@@ -3700,7 +3832,7 @@ body.drawer-open
         <h1 class="hero-h1" id="heroH1" aria-label="Recruitment, Advisory, Outsourcing. One strategic people partner. Bridgewell Advisory, India."></h1>
         <div class="hero-rule" id="heroRule"></div>
         <p class="hero-sub" id="heroSub" style="opacity:0;transform:translateY(14px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)">
-          Critical and senior hiring. Org design. HR outsourcing.<br>We diagnose before we deliver. Founder-led. No junior handoffs.
+          Critical and senior hiring. Org design. HR outsourcing.<br>We diagnose before we deliver. Every mandate, personally led.
         </p>
         <div class="hero-tagline" id="heroTag" style="opacity:0;transform:translateY(12px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)">
           <p><strong>We Diagnose Before We Deliver.</strong> No Bulk. No Noise, Just the Right Hire, Right People, Right Policies. <strong>Right from Day&nbsp;1.</strong></p>
@@ -3729,6 +3861,17 @@ body.drawer-open
     </div>
   </div>
 </section>
+
+<!-- TRUST CREDENTIAL BAR -->
+<div class="cred-bar">
+  <div class="cred-inner">
+    <div class="cred-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>6+ Years · Senior hiring experience</div>
+    <div class="cred-dot" aria-hidden="true"></div>
+    <div class="cred-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>India-wide mandates</div>
+    <div class="cred-dot" aria-hidden="true"></div>
+    <div class="cred-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Advisory before search. Always.</div>
+  </div>
+</div>
 
 <!-- TICKER -->
 <div class="ticker"><div class="ticker-track" id="tickerTrack"></div></div>
@@ -3824,7 +3967,7 @@ body.drawer-open
 </section>
 
 <!-- SERVICES -->
-<section id="services" class="sec sec-off">
+<section id="services" class="sec sec-off" itemscope itemtype="https://schema.org/Service">
   <div class="wrap">
     <div class="svc-header">
       <div><div class="eyebrow rv">What we do</div><h2 class="sec-h rv d1 sec-h-underline">People strategy and hiring.<br>Built to compound over time.</h2></div>
@@ -3850,6 +3993,7 @@ body.drawer-open
       <a href="/hr-business-outsourcing-india" class="svc-row"><div class="svc-n">04</div><div><div class="svc-name">HR Business Outsourcing</div><div class="svc-desc">Payroll, compliance and people operations as a managed function. Get HR off your shoulders.</div></div><div class="svc-meta"><span class="svc-arr">&#8594;</span></div></a>
     </div>
       <!-- Hero pull-quote -->
+      <div id="founder" style="scroll-margin-top:80px"></div>
       <blockquote class="fnd-pull rv d1" itemprop="description">
         <span class="fnd-pull-mark" aria-hidden="true">&ldquo;</span>
         <p>Across a career leading hiring at scale, in e-commerce, renewable energy, and high-growth organisations, I've watched the same failures repeat: wrong role definition, panels choosing for comfort, and speed collapsing judgment.</p>
@@ -3877,7 +4021,7 @@ body.drawer-open
         <span class="fnd-pill">FMCG</span>
         <span class="fnd-pill">Renewable Energy</span>
       </div>
-      <p class="rv d3" style="font-family:'Figtree',sans-serif;font-size:12px;color:rgba(8,20,98,.45);margin-top:14px;letter-spacing:.02em">Informed by business thinking (MBA, Aligarh Muslim University) and structured HR frameworks (SHRM-CP). We take on a limited number of projects at a time.</p>
+      <p class="rv d3" style="font-family:'Figtree',sans-serif;font-size:12px;color:rgba(8,20,98,.72);margin-top:14px;letter-spacing:.02em">Informed by business thinking (MBA, Aligarh Muslim University) and structured HR frameworks (SHRM-CP). We take on a limited number of projects at a time.</p>
 
       <!-- CTAs -->
       <div class="fnd-cta rv d4">
@@ -3904,7 +4048,7 @@ body.drawer-open
 </section>
 
 <!-- SECTORS -->
-<section class="sec sec-off">
+<section id="approach" class="sec sec-off">
   <div class="wrap">
     <div class="sectors-grid">
       <div>
@@ -3933,7 +4077,7 @@ body.drawer-open
       <div><div class="eyebrow rv">Is This For You?</div><h2 class="sec-h rv d1">Know before<br>you reach out.</h2></div>
       <p class="sec-p rv d2">We are not the right fit for every project. This is intentional. Use this to qualify before we speak.</p>
     </div>
-    <div class="rv d2" class="filter-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(8,20,98,.08);border:1px solid rgba(8,20,98,.08)">
+    <div class="rv d2 filter-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(8,20,98,.08);border:1px solid rgba(8,20,98,.08)">
       <div style="background:#fff;padding:40px 36px">
         <div style="font-family:'Figtree',sans-serif;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#1A52CC;margin-bottom:22px">This is for you</div>
         <div style="display:flex;flex-direction:column;gap:14px">
@@ -3943,7 +4087,7 @@ body.drawer-open
         </div>
       </div>
       <div style="background:#FAFBFF;padding:40px 36px">
-        <div style="font-family:'Figtree',sans-serif;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(8,20,98,.35);margin-bottom:22px">This is not for you</div>
+        <div style="font-family:'Figtree',sans-serif;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(8,20,98,.72);margin-bottom:22px">This is not for you</div>
         <div style="display:flex;flex-direction:column;gap:14px">
           <div style="display:flex;align-items:baseline;gap:12px;font-family:'Figtree',sans-serif;font-size:14px;color:rgba(8,20,98,.6);line-height:1.6"><span style="color:rgba(8,20,98,.25);font-weight:700;flex-shrink:0">&#10007;</span>You need CVs quickly and urgency is the only SLA</div>
           <div style="display:flex;align-items:baseline;gap:12px;font-family:'Figtree',sans-serif;font-size:14px;color:rgba(8,20,98,.6);line-height:1.6"><span style="color:rgba(8,20,98,.25);font-weight:700;flex-shrink:0">&#10007;</span>You are comparing multiple agencies on cost</div>
@@ -3953,6 +4097,71 @@ body.drawer-open
     </div>
   </div>
 </section>
+
+<!-- COMPARISON TABLE -->
+<section class="compare-sec">
+  <div class="compare-head rv">
+    <div class="compare-eyebrow">Why Bridgewell</div>
+    <h2 class="compare-title">Not another agency.<br>A different model entirely.</h2>
+  </div>
+  <div class="compare-wrap rv d1">
+    <table class="compare-table" role="table" aria-label="Bridgewell Advisory compared to traditional recruitment agencies">
+      <thead>
+        <tr>
+          <th scope="col">What matters to you</th>
+          <th scope="col">Traditional Agency</th>
+          <th scope="col">Bridgewell Advisory</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Brief challenged before search begins</td>
+          <td class="ct-dim"><span class="ct-cross">&#10007;</span> Rarely</td>
+          <td><span class="ct-check">&#10003;</span> Every time</td>
+        </tr>
+        <tr>
+          <td>Senior person runs your mandate end-to-end</td>
+          <td class="ct-dim"><span class="ct-cross">&#10007;</span> Usually handed to junior</td>
+          <td><span class="ct-check">&#10003;</span> Principal-led, always</td>
+        </tr>
+        <tr>
+          <td>Role diagnosis before CVs are sent</td>
+          <td class="ct-dim"><span class="ct-cross">&#10007;</span> CV volume is the SLA</td>
+          <td><span class="ct-check">&#10003;</span> Diagnosis is the process</td>
+        </tr>
+        <tr>
+          <td>Seniority and scope calibrated to business need</td>
+          <td class="ct-dim"><span class="ct-cross">&#10007;</span> Takes your brief at face value</td>
+          <td><span class="ct-check">&#10003;</span> Brief rewritten if it's wrong</td>
+        </tr>
+        <tr>
+          <td>Passive candidate market access</td>
+          <td class="ct-dim"><span class="ct-cross">&#10007;</span> Job boards and database</td>
+          <td><span class="ct-check">&#10003;</span> Direct outreach, not job ads</td>
+        </tr>
+        <tr>
+          <td>Ongoing HR advisory included</td>
+          <td class="ct-dim"><span class="ct-cross">&#10007;</span> Mandate ends at placement</td>
+          <td><span class="ct-check">&#10003;</span> Onboarding and post-hire support</td>
+        </tr>
+        <tr>
+          <td>Limited concurrent mandates for quality</td>
+          <td class="ct-dim"><span class="ct-cross">&#10007;</span> Volume-driven model</td>
+          <td><span class="ct-check">&#10003;</span> Selective, capped intake</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- PULL QUOTE BAND -->
+<div class="pull-band">
+  <div class="pull-band-inner rv">
+    <span class="pull-band-mark" aria-hidden="true">&ldquo;</span>
+    <p class="pull-band-text">What made Shakkir and Bridgewell different was their willingness to <strong>challenge the brief instead of blindly executing it.</strong> That level of partnership is rare in recruitment.</p>
+    <div class="pull-band-attr">Managing Director &amp; Founder &nbsp;&middot;&nbsp; Trading &amp; Distribution, Saudi Arabia</div>
+  </div>
+</div>
 
 <!-- TRUST: testimonials + client logos -->
 <section class="trust-sec" id="trust">
@@ -4015,17 +4224,17 @@ body.drawer-open
     <div class="insights-grid">
       <div class="ins-card rv">
         <div class="ins-ico">&#9737;</div>
-        <h4>The brief is usually the problem</h4>
+        <h3>The brief is usually the problem</h3>
         <p>Most failed hires are decided before the search begins. The role was defined too loosely or written for last year's problem.</p>
       </div>
       <div class="ins-card rv d1">
         <div class="ins-ico">&#9776;</div>
-        <h4>Passive talent is the real market</h4>
+        <h3>Passive talent is the real market</h3>
         <p>The best people for senior roles are not looking. They respond to a credible, direct approach , not a job ad.</p>
       </div>
       <div class="ins-card rv d2">
         <div class="ins-ico">&#9878;</div>
-        <h4>Speed is mistaken for urgency</h4>
+        <h3>Speed is mistaken for urgency</h3>
         <p>Rushed mandates produce comfortable hires, not right ones. The real cost shows up six months after joining.</p>
       </div>
     </div>
@@ -4042,24 +4251,30 @@ body.drawer-open
       <span class="cta-lbl rv">Every project starts with one conversation.</span>
       <h2 class="cta-h rv d1">Every people problem<br>starts with one conversation.</h2>
       <p class="cta-p rv d2">Whether it is a critical hire, an org design question, or people-ops you need off your plate, one conversation is usually enough to find where to start.</p>
-      <div class="rv d3" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
-        <a href="https://tally.so/r/rjdAGo" target="_blank" class="btn btn-primary" style="display:inline-flex" rel="noopener noreferrer">Diagnose Your Hiring Problem <span class="btn-arr">&#8594;</span></a>
-        <a href="https://wa.me/917904411277?text=Hi%20Shakkir%2C%20I%27d%20like%20to%20fix%20our%20hiring%20brief%20%2830%20min%29." target="_blank" class="btn btn-ghost" rel="noopener noreferrer">Fix Your Hiring Brief (30 min)</a>
+
+      <!-- What Happens Next — ABOVE buttons so people know what they're signing up for -->
+      <div class="cta-engage rv d3" style="max-width:720px">
+        <div class="engage"><div class="eng-n">01</div><h3>We diagnose your actual problem</h3><p>Brief, team context, seniority calibration — we start with the business decision, not the job description. Most mandates are mis-scoped before they begin.</p></div>
+        <div class="engage"><div class="eng-n">02</div><h3>We challenge assumptions in your brief</h3><p>Seniority, scope, compensation, timing — most briefs carry at least one assumption that causes the hire to fail. We identify it before the search starts.</p></div>
+        <div class="engage"><div class="eng-n">03</div><h3>You leave with clarity, regardless</h3><p>Every first conversation produces something useful — a sharper brief, a clearer role definition, or a better decision framework — whether we work together or not.</p></div>
       </div>
 
-      <!-- What Happens Next -->
-      <div class="cta-engage rv d4" style="max-width:720px">
-        <div class="engage"><div class="eng-n">01</div><h4>We understand your role and hiring challenge</h4><p>Any critical or senior role, not only VP and CxO. We start with the business context, the team gap, and the decision you are actually trying to make.</p></div>
-        <div class="engage"><div class="eng-n">02</div><h4>We challenge assumptions in your brief</h4><p>Seniority, scope, compensation, timing, most briefs have at least one assumption that will cause the hire to fail. We find it before the search begins.</p></div>
-        <div class="engage"><div class="eng-n">03</div><h4>You leave with clarity</h4><p>Whether we work together or not. Every first conversation ends with something useful, a sharper brief, a clearer role definition, or a better decision framework.</p></div>
+      <div class="capacity-badge rv d4">
+        <span class="capacity-dot" aria-hidden="true"></span>
+        Currently accepting mandates &mdash; limited intake, Q3 2026
       </div>
+
+      <div class="rv d4" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
+        <a href="https://tally.so/r/rjdAGo" target="_blank" class="btn btn-primary" style="display:inline-flex" rel="noopener noreferrer">Diagnose Your Hiring Problem <span class="btn-arr">&#8594;</span></a>
+        <a href="https://wa.me/917904411277?text=Hi%20Shakkir%2C%20I%20came%20across%20Bridgewell%20and%20want%20to%20discuss%20a%20senior%20hiring%20challenge.%20Can%20we%20set%20up%20a%20quick%2030-min%20call%3F" target="_blank" class="btn btn-ghost" rel="noopener noreferrer">WhatsApp Shakkir (30 min)</a>
+      </div>
+      <p class="urgency-note rv d5">No pitch. No agency process. You get <strong>Shakkir directly</strong> on every call.</p>
 
       <div class="cta-contacts rv d5">
         <a href="https://bridgewell-advisory.in" class="ct" rel="noopener noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> bridgewell-advisory.in</a>
         <a href="tel:+917904411277" class="ct"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> +91 79044 11277</a>
-        <a href="https://wa.me/917904411277?text=Hi%20Shakkir%2C%20I%27d%20like%20to%20discuss%20a%20hiring%20project%20with%20Bridgewell." target="_blank" class="ct ct-wa" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> WhatsApp</a>
+        <a href="https://wa.me/917904411277?text=Hi%20Shakkir%2C%20I%20came%20across%20Bridgewell%20and%20want%20to%20discuss%20a%20senior%20hiring%20challenge.%20Can%20we%20set%20up%20a%20quick%2030-min%20call%3F" target="_blank" class="ct ct-wa" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> WhatsApp</a>
         <a href="mailto:support@bridgewell-advisory.in" class="ct"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> support@bridgewell-advisory.in</a>
-        <a href="mailto:info@bridgewell-advisory.in" class="ct"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> info@bridgewell-advisory.in</a>
       </div>
     </div>
   </div>
@@ -4109,7 +4324,7 @@ body.drawer-open
       What is recruitment advisory in India?
     </div>
     <div class="faq-a">
-      Recruitment advisory helps companies define hiring strategy, improve role clarity, and close positions faster with better quality hires.
+      Recruitment advisory is the practice of diagnosing the actual hiring problem before running any search. Most recruitment firms take your brief as given and start sourcing immediately. Advisory-led recruitment starts earlier — it questions the role definition, the seniority level, the compensation structure, and the hiring criteria before a single candidate is approached. In India's senior hiring market, where most failed hires are caused by a mis-scoped brief, the diagnostic step is where the real value is created.
     </div>
   </div>
 
@@ -4118,7 +4333,7 @@ body.drawer-open
       How is Bridgewell Advisory different from recruitment agencies?
     </div>
     <div class="faq-a">
-      Bridgewell works as a strategic hiring partner focusing on problem diagnosis and role clarity before search.
+      Three things are structurally different. First, every mandate is run by Shakkir KP directly — there are no junior recruiters, no account handoffs, and no sourcing teams the partner never meets. Second, we challenge the brief before we accept it. If the role is scoped incorrectly, we say so and reframe it before any search begins. Third, we limit the number of concurrent mandates we take on. Most agencies run 40-60 open positions at once. We don't. That is not a capacity problem — it is intentional. Selective intake is how we protect quality.
     </div>
   </div>
 
@@ -4127,7 +4342,7 @@ body.drawer-open
       What roles do you specialize in?
     </div>
     <div class="faq-a">
-      We specialize in mid to senior hiring including Managers, Leads, Heads, Directors, VPs, and CXO roles.
+      Mid-to-senior roles where one wrong hire has real business consequence — Managers, Leads, Heads-of, Directors, VPs, and CXO mandates across IT, Digital, E-Commerce, FMCG, and Renewable Energy. We are not the right partner for high-volume campus or entry-level hiring. If you need 50 BDEs sourced by Friday, there are better options. If you need the right Head of Product or VP Sales — someone you can hold accountable and will drive the business — that is the problem we are built for.
     </div>
   </div>
 
@@ -4136,7 +4351,7 @@ body.drawer-open
       Who do you work with?
     </div>
     <div class="faq-a">
-      We work with startups, founders, CXOs, and growing companies hiring for critical roles.
+      Founders, CEOs, and HR leaders at growth-stage companies typically between 50 and 2,000 employees — mostly in Bengaluru, but we run mandates across India and for Indian diaspora-owned businesses in the Gulf. The common thread is consequence: the people we help hire into actually change how the business runs. We also work with founders building their first HR function from scratch, where the priority is getting the operating model right before hiring into it.
     </div>
   </div>
 
@@ -4145,7 +4360,7 @@ body.drawer-open
       How does Bridgewell Advisory charge?
     </div>
     <div class="faq-a">
-      We offer flexible engagement models depending on role complexity and hiring scope.
+      We offer three engagement structures depending on scope. A Pilot engagement covers a single critical mandate — diagnostic, search, and close. A Partnership engagement covers an ongoing hiring calendar across multiple roles. An Advisory retainer covers strategic HR work — org design, compensation structuring, workforce planning — without a recruitment mandate attached. Fees reflect the seniority of the work and the complexity of the mandate. We do not compete on the lowest percentage. If the fee is the primary decision factor, we are probably not the right fit, and we will tell you that directly in the first call.
     </div>
   </div>
 
@@ -4153,32 +4368,42 @@ body.drawer-open
 </section>
 
 <!-- FOOTER -->
+</main>
 <footer>
+<!-- NAP: structured plain-text for crawler consistency -->
+<address style="display:none" aria-hidden="true" itemscope itemtype="https://schema.org/LocalBusiness">
+  <span itemprop="name">Bridgewell Advisory</span>,
+  <span itemprop="addressLocality">Bengaluru</span>,
+  <span itemprop="addressRegion">Karnataka</span>,
+  <span itemprop="addressCountry">India</span> —
+  <span itemprop="telephone">+91 79044 11277</span> —
+  <a itemprop="url" href="https://bridgewell-advisory.in">bridgewell-advisory.in</a>
+</address>
   <div class="wrap">
     <div class="ft">
       <div class="fb">
         <div class="fb-top">
           <div class="fb-img-wrap"><img src="https://bridgewell-advisory.in/logo.jpg" alt="Bridgewell Advisory" loading="lazy" decoding="async"></div>
-          <div><div class="fb-wm">Bridgewell Advisory</div><div class="fb-tag">Est. 2026 &middot; Bengaluru, India</div></div>
+          <div><div class="fb-wm">Bridgewell Advisory</div><div class="fb-tag">Executive Search &middot; HR Advisory &middot; Bengaluru</div></div>
         </div>
-        <p>Bridgewell is India&rsquo;s HR business advisory and recruitment partner for founders, CXOs, and leadership teams. From org design to <a href="https://bridgewell-advisory.in/recruitment-advisory-india" style="color:inherit;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(26,82,204,0.4);s delivered.</p>
+        <p>Bridgewell Advisory is India&rsquo;s specialist recruitment advisory and HR consulting vertical for founders, CXOs, and leadership teams. Executive search, org design, and people strategy &mdash; <a href="https://bridgewell-advisory.in/recruitment-advisory-india" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">advisory-led, always</a>.</p>
         <a href="https://tally.so/r/rjdAGo" target="_blank" rel="noopener noreferrer" class="ft-cta">Book a Consultation &rarr;</a>
       </div>
-      <div class="fc"><h5>Recruitment</h5><ul>
+      <div class="fc"><h3>Recruitment</h3><ul>
         <li><a href="#services">Executive Search</a></li>
         <li><a href="#services">Mid &amp; Senior Hiring</a></li>
         <li><a href="#services">Startup Critical Roles</a></li>
         <li><a href="#services">Niche &amp; Specialist Roles</a></li>
         <li><a href="https://bridgewell-advisory.in/recruitment-advisory-india" rel="noopener">Recruitment Advisory India &rarr;</a></li>
       </ul></div>
-      <div class="fc"><h5>HR Advisory</h5><ul>
+      <div class="fc"><h3>HR Advisory</h3><ul>
         <li><a href="#approach">Org &amp; Role Design</a></li>
         <li><a href="#approach">Talent Strategy</a></li>
         <li><a href="#approach">Compensation Structuring</a></li>
         <li><a href="#approach">Workforce Planning</a></li>
         <li><a href="#approach">AI-Augmented Assessment</a></li>
       </ul></div>
-      <div class="fc"><h5>Contact</h5><ul>
+      <div class="fc"><h3>Contact</h3><ul>
         <li><a href="mailto:support@bridgewell-advisory.in" style="display:inline-flex;align-items:center;gap:7px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>support@bridgewell-advisory.in</a></li>
         <li><a href="tel:+917904411277">+91 79044 11277</a></li>
         <li><a href="https://bridgewell-advisory.in" rel="noopener noreferrer">bridgewell-advisory.in</a></li>
@@ -4186,8 +4411,8 @@ body.drawer-open
       </ul></div>
     </div>
     <div class="fbot">
-      <p>&copy; 2026 Bridgewell Advisory. All rights reserved.</p>
-      <p>Bengaluru, India &middot; Founder-led projects &middot; SHRM-CP certified</p>
+      <p>&copy; 2026 Bridgewell Ventures Private Limited. All rights reserved.</p>
+      <p style="font-size:11px;color:rgba(255,255,255,.48);margin-top:4px">Bridgewell Advisory is a vertical of Bridgewell Ventures Private Limited &middot; Bengaluru, India</p>
     </div>
   </div>
 </footer>
@@ -4508,6 +4733,8 @@ if(ham) ham.addEventListener('click',function(){
   document.getElementById('drawer').classList.toggle('open',drawerOpen);
   document.body.classList.toggle('drawer-open',drawerOpen);
   document.body.style.overflow=drawerOpen?'hidden':'';
+  ham.setAttribute('aria-expanded', drawerOpen ? 'true' : 'false');
+  ham.setAttribute('aria-label', drawerOpen ? 'Close navigation menu' : 'Open navigation menu');
 });
 function closeDrawer(){
   drawerOpen=false;
@@ -4515,6 +4742,7 @@ function closeDrawer(){
   if(d) d.classList.remove('open');
   document.body.classList.remove('drawer-open');
   document.body.style.overflow='';
+  if(ham){ ham.setAttribute('aria-expanded','false'); ham.setAttribute('aria-label','Open navigation menu'); }
 }
 document.querySelectorAll('.drawer a').forEach(function(a){
   a.addEventListener('click',closeDrawer);
@@ -4628,6 +4856,9 @@ window.addEventListener('scroll', function(){
 
 /* ─── FAQ ACCORDION ─── */
 document.querySelectorAll('.faq-q').forEach(function(q){
+  q.setAttribute('aria-expanded','false');
+  q.setAttribute('role','button');
+  q.setAttribute('tabindex','0');
   q.addEventListener('click', function(){
     var item = q.closest('.faq-item');
     var isOpen = item.classList.contains('open');
@@ -5303,8 +5534,8 @@ window.addEventListener('scroll',upPB,{passive:true});upPB();
 var fc=document.createElement('div');fc.className='bw-float';
 fc.innerHTML=''
  +'<div class="bw-float-label">Are you a</div>'
- +'<a href="https://wa.me/917904411277?text=Hi+Bridgewell%2C+I+am+a+Founder+looking+to+discuss+a+hiring+or+HR+challenge." class="bw-float-choice bw-float-founder" target="_blank" rel="noopener noreferrer">Founder &#8594;</a>'
- +'<a href="https://wa.me/917904411277?text=Hi+Bridgewell%2C+I+am+an+HR+Leader+looking+to+discuss+a+hiring+or+people+strategy+challenge." class="bw-float-choice bw-float-hr" target="_blank" rel="noopener noreferrer">HR Leader &#8594;</a>'
+ +'<a href="https://wa.me/917904411277?text=Hi%20Shakkir%2C%20I%20found%20Bridgewell%20through%20your%20website.%20I%27m%20a%20founder%20dealing%20with%20a%20senior%20hiring%20challenge%20and%20want%20to%20understand%20if%20you%20can%20help.%20Can%20we%20set%20up%20a%2030-min%20call%3F" class="bw-float-choice bw-float-founder" target="_blank" rel="noopener noreferrer">Founder &#8594;</a>'
+ +'<a href="https://wa.me/917904411277?text=Hi%20Shakkir%2C%20I%20found%20Bridgewell%20through%20your%20website.%20I%27m%20an%20HR%20leader%20looking%20to%20discuss%20a%20people%20strategy%20or%20hiring%20challenge.%20Is%20now%20a%20good%20time%20to%20connect%3F" class="bw-float-choice bw-float-hr" target="_blank" rel="noopener noreferrer">HR Leader &#8594;</a>'
  +'<a href="https://tally.so/r/rjdAGo" class="bw-float-book" target="_blank" rel="noopener noreferrer">Book a Consultation</a>';
 document.body.appendChild(fc);
 var fcV=false;
