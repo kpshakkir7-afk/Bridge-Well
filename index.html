@@ -102,8 +102,8 @@ ul { list-style:none; }
 }
 .nav-sub {
   font-family:'Figtree',sans-serif;
-  font-size:9px; font-weight:400;
-  color:rgba(255,255,255,.38); letter-spacing:.18em;
+  font-size:9px; font-weight:500;
+  color:rgba(255,255,255,.62); letter-spacing:.18em;
   text-transform:uppercase; margin-top:4px;
 }
 .nav-links {
@@ -355,8 +355,8 @@ ul { list-style:none; }
 .hero-rule.on { width:72px; }
 .hero-sub {
   font-family:'Figtree',sans-serif;
-  font-size:16px; font-weight:300; line-height:1.8;
-  color:rgba(255,255,255,.7); max-width:460px;
+  font-size:16px; font-weight:400; line-height:1.8;
+  color:rgba(255,255,255,.88); max-width:460px;
 }
 .hero-tagline {
   margin-top:26px; padding:18px 22px;
@@ -366,7 +366,7 @@ ul { list-style:none; }
 .hero-tagline p {
   font-family:'Bricolage Grotesque','Fraunces',Georgia,sans-serif;
   font-size:14px; font-style:normal; font-weight:400;
-  color:rgba(255,255,255,.78); line-height:1.75;
+  color:rgba(255,255,255,.92); line-height:1.75;
 }
 .hero-tagline p strong { font-style:normal; font-weight:600; color:#4A78E0; }
 .hero-btns { display:flex; gap:14px; margin-top:32px; flex-wrap:wrap; }
@@ -619,14 +619,13 @@ ul { list-style:none; }
 .t-item {
   display:inline-flex; align-items:center; gap:20px;
   padding:0 28px;
-  flex:0 0 auto;             /* CRITICAL: don't shrink , keep natural width.
-                                Was being squashed to 56px causing text overlap. */
+  flex:0 0 auto;
   white-space:nowrap;
   font-family:'Figtree',sans-serif;
-  font-size:10.5px; font-weight:500;
-  color:rgba(26,82,204,.75); letter-spacing:.2em; text-transform:uppercase;
+  font-size:10.5px; font-weight:600;
+  color:rgba(255,255,255,.78); letter-spacing:.2em; text-transform:uppercase;
 }
-.t-dot { width:3px; height:3px; border-radius:50%; background:#1A52CC; opacity:.4; }
+.t-dot { width:3px; height:3px; border-radius:50%; background:rgba(255,255,255,.35); opacity:1; }
 
 /* ── TAGLINE BANNER ───────────────────────── */
 .tg-banner {
@@ -1277,7 +1276,7 @@ body, p, li, a, span, div,
 /* ─────────────────────────────────────────────────
    HERO, dark bg text must be bright
 ────────────────────────────────────────────────── */
-.hero-sub { color: rgba(255,255,255,.72); font-size: 16px; font-weight: 400; line-height: 1.8; }
+.hero-sub { color: rgba(255,255,255,.88); font-size: 16px; font-weight: 400; line-height: 1.8; }
 .hero-tag p { color: rgba(255,255,255,.82); font-size: 13.5px; font-style:normal; line-height: 1.8; }
 .hero-tag p strong { color: #4A78E0; font-style: normal; font-weight: 700; }
 .htb-l { color: rgba(255,255,255,.55); }
@@ -1347,8 +1346,8 @@ body, p, li, a, span, div,
 /* ─────────────────────────────────────────────────
    TICKER
 ────────────────────────────────────────────────── */
-.ticker { background: rgba(7,11,53,.98); border-color: rgba(26,82,204,.18); }
-.t-item { color: rgba(26,82,204,.8); font-size: 11px; font-weight: 500; letter-spacing: .18em; }
+.ticker { background: rgba(7,11,53,.98); border-color: rgba(255,255,255,.08); }
+.t-item { color: rgba(255,255,255,.78); font-size: 11px; font-weight: 600; letter-spacing: .18em; }
 
 /* ─────────────────────────────────────────────────
    TAGLINE BANNER
@@ -2102,17 +2101,46 @@ p, .rp-hero-sub, .prob-p, .sf-p, .role-desc, .faq-a-inner, .testi-quote {
   right: 36px;
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 11px;
-  font-weight: 500;
-  letter-spacing: .1em;
+  font-weight: 600;
+  letter-spacing: .14em;
   text-transform: uppercase;
-  color: rgba(26,82,204,.45);
+  color: rgba(255,255,255,.55);
   background: none;
   border: none;
   cursor: pointer;
   padding: 8px;
   transition: color .2s;
 }
-#bw-skip:hover { color: rgba(26,82,204,.8); }
+#bw-skip:hover { color: rgba(255,255,255,.9); }
+#bw-intro-label {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Figtree', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.38);
+  white-space: nowrap;
+  pointer-events: none;
+}
+#bw-intro-tagline {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: calc(50% + 14vw);
+  font-family: 'Figtree', sans-serif;
+  font-size: clamp(10px, 1.1vw, 14px);
+  font-weight: 500;
+  letter-spacing: .38em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.0);
+  pointer-events: none;
+  transition: color 1.2s ease;
+}
+#bw-intro-tagline.visible { color: rgba(255,255,255,.55); }
 body.bw-intro-active { overflow: hidden; }
 /* While overlay is active, freeze TEXT entrance animations at visible state.
    NEVER touch .nav-logo-img img , it needs mix-blend-mode:screen + filter:invert(1)
@@ -2923,7 +2951,7 @@ body.drawer-open
 .gp-recog-body {
   font-family: 'Inter',system-ui,sans-serif;
   font-size: clamp(15px,1.5vw,17px); font-weight: 400;
-  color: rgba(255,255,255,.66); line-height: 1.85; margin: 0 auto 20px; max-width: 660px;
+  color: rgba(255,255,255,.82); line-height: 1.85; margin: 0 auto 20px; max-width: 660px;
 }
 .gp-recog-turn {
   font-family: 'Inter',system-ui,sans-serif;
@@ -3523,6 +3551,7 @@ body.drawer-open
 <!-- PARTICLE INTRO OVERLAY -->
 <div id="bw-intro" aria-hidden="true">
   <canvas id="bw-canvas"></canvas>
+  <div id="bw-intro-tagline">People Advisory &nbsp;&middot;&nbsp; India</div>
   <button id="bw-skip">skip</button>
 </div>
 
@@ -5229,7 +5258,7 @@ document.querySelectorAll('.sec-h-underline').forEach(function(el){ ulObs.observ
 
     /* Scale type to viewport. Bigger on desktop, controlled on mobile. */
     const mainSize = Math.max(44, Math.min(W * 0.115, 132));
-    const subSize  = mainSize * 0.30;
+    const subSize  = mainSize * 0.40;
     const gap      = mainSize * 0.92;
 
     c2.clearRect(0, 0, W, H);
@@ -5330,6 +5359,11 @@ document.querySelectorAll('.sec-h-underline').forEach(function(el){ ulObs.observ
         rotY = 0;
         setLogoTargets();
       }
+      if(phase===3){
+        /* Show tagline during hold phase */
+        var tgl = document.getElementById('bw-intro-tagline');
+        if(tgl) tgl.classList.add('visible');
+      }
       if(phase >= 5) return dismiss();
     }
 
@@ -5378,17 +5412,17 @@ document.querySelectorAll('.sec-h-underline').forEach(function(el){ ulObs.observ
   function draw(){
     /* Clear frame with opacity based on phase for crisp rendering */
     if(phase === 3){
-      /* Hold phase: completely solid white , no trails, maximum logo clarity */
-      ctx.fillStyle = 'rgba(255,255,255,1.0)';
+      /* Hold phase: dark navy bg — particles will be bright white for max clarity */
+      ctx.fillStyle = 'rgba(7,11,53,1.0)';
     } else if(phase === 2){
-      /* Forming phase: near-solid white with subtle motion trails */
-      ctx.fillStyle = 'rgba(255,255,255,0.85)';
+      /* Forming phase: dark with subtle trails */
+      ctx.fillStyle = 'rgba(7,11,53,0.72)';
     } else if(phase === 4){
-      /* Dissolve: fade back to navy */
-      ctx.fillStyle = 'rgba(7,11,53,0.38)';
+      /* Dissolve: fade to navy */
+      ctx.fillStyle = 'rgba(7,11,53,0.55)';
     } else {
-      /* Sphere phase: navy with trails */
-      ctx.fillStyle = 'rgba(7,11,53,0.18)';
+      /* Sphere phase: dark with motion trails */
+      ctx.fillStyle = 'rgba(7,11,53,0.22)';
     }
     ctx.fillRect(0,0,W,H);
 
@@ -5408,20 +5442,20 @@ document.querySelectorAll('.sec-h-underline').forEach(function(el){ ulObs.observ
       let h, s, l;
 
       if(isSphere){
-        /* Teal/green sphere , brand aligned */
-        h = 155 + (i/N)*35;
-        s = 70; l = 62;
-        a *= 0.8;
+        /* Teal/cyan sphere — vivid, high contrast on dark bg */
+        h = 175 + (i/N)*25;
+        s = 80; l = 72;
+        a *= 0.9;
       } else if(phase === 3){
-        /* HOLD phase: fully solid navy, uniform size, crystal clear logo */
-        h = 221; s = 44; l = 31;
-        a = 1.0;              /* fully opaque */
-        size = 1.2;           /* uniform crisp dot */
+        /* HOLD phase: bright near-white particles — crystal clear on dark bg */
+        h = 220; s = 60; l = 92;
+        a = 1.0;
+        size = 1.3;
       } else {
-        /* Forming/dissolve phase: navy with some motion dynamics */
-        h = 221; s = 44; l = 31;
-        a = Math.min(1, 0.82 + spd * 0.05);
-        size = Math.max(0.95, size * 1.0);
+        /* Forming/dissolve: bright blue-white transition */
+        h = 220; s = 65; l = 82;
+        a = Math.min(1, 0.85 + spd * 0.06);
+        size = Math.max(1.0, size * 1.0);
       }
 
       ctx.beginPath();
