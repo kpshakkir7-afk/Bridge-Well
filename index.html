@@ -2077,70 +2077,140 @@ p, .rp-hero-sub, .prob-p, .sf-p, .role-desc, .faq-a-inner, .testi-quote {
 /* ═══════════════════════════════════════════
    PARTICLE INTRO OVERLAY , Bridgewell Advisory
 ═══════════════════════════════════════════ */
+/* ═══ PREMIUM INTRO ═══════════════════════════════ */
 #bw-intro {
   position: fixed;
   inset: 0;
   z-index: 999999;
-  background: #070B35;
+  background: #04072A;
   pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
 }
 #bw-intro.done {
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.5s cubic-bezier(.4,0,.2,1);
+  transition: opacity 0.7s cubic-bezier(.4,0,.2,1);
 }
+/* Ambient particle canvas — background only, no logo formation */
 #bw-canvas {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+  opacity: 0.55;
 }
+/* ── Core wordmark container ── */
+#bw-intro-wm {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+/* ── BRIDGEWELL — clip-path reveal ── */
+#bw-intro-name {
+  font-family: 'Fraunces','Cormorant Garamond',Georgia,serif;
+  font-size: clamp(52px, 10vw, 148px);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -.02em;
+  line-height: 1;
+  overflow: hidden;
+  clip-path: inset(0 100% 0 0);
+  animation: bw-reveal-name 1.1s cubic-bezier(.76,0,.24,1) 0.2s forwards;
+}
+@keyframes bw-reveal-name {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+/* ── Divider line ── */
+#bw-intro-rule {
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(74,120,224,.9), transparent);
+  margin: 20px 0 18px;
+  animation: bw-rule-expand 0.8s cubic-bezier(.76,0,.24,1) 1.05s forwards;
+}
+@keyframes bw-rule-expand {
+  from { width: 0; }
+  to   { width: clamp(120px, 18vw, 280px); }
+}
+/* ── ADVISORY — spaced reveal ── */
+#bw-intro-adv {
+  font-family: 'Figtree','Inter',system-ui,sans-serif;
+  font-size: clamp(11px, 1.8vw, 22px);
+  font-weight: 500;
+  letter-spacing: .55em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0);
+  animation: bw-adv-in 0.9s cubic-bezier(.4,0,.2,1) 1.15s forwards;
+}
+@keyframes bw-adv-in {
+  from { color: rgba(255,255,255,0); letter-spacing: .3em; }
+  to   { color: rgba(255,255,255,.88); letter-spacing: .55em; }
+}
+/* ── Tagline ── */
+#bw-intro-tagline {
+  font-family: 'Figtree',sans-serif;
+  font-size: clamp(9px, 1vw, 12px);
+  font-weight: 400;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0);
+  margin-top: 28px;
+  animation: bw-tag-in 0.8s ease 1.8s forwards;
+}
+@keyframes bw-tag-in {
+  from { color: rgba(255,255,255,0); transform: translateY(6px); }
+  to   { color: rgba(255,255,255,.42); transform: translateY(0); }
+}
+/* ── Skip ── */
 #bw-skip {
   position: absolute;
   bottom: 28px;
   right: 36px;
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 11px;
+  font-family: 'Figtree', sans-serif;
+  font-size: 10px;
   font-weight: 600;
-  letter-spacing: .14em;
+  letter-spacing: .18em;
   text-transform: uppercase;
-  color: rgba(255,255,255,.55);
+  color: rgba(255,255,255,0);
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px;
-  transition: color .2s;
+  padding: 10px 14px;
+  transition: color .25s;
+  animation: bw-tag-in 0.6s ease 2s forwards;
 }
-#bw-skip:hover { color: rgba(255,255,255,.9); }
-#bw-intro-label {
+#bw-skip:hover { color: rgba(255,255,255,.8) !important; }
+/* ── Subtle grid overlay ── */
+#bw-intro::before {
+  content: '';
   position: absolute;
-  bottom: 36px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: 'Figtree', sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: .32em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.38);
-  white-space: nowrap;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(74,120,224,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74,120,224,.04) 1px, transparent 1px);
+  background-size: 80px 80px;
   pointer-events: none;
+  z-index: 1;
 }
-#bw-intro-tagline {
+/* ── Corner marks ── */
+#bw-intro::after {
+  content: '';
   position: absolute;
-  width: 100%;
-  text-align: center;
-  top: calc(50% + 14vw);
-  font-family: 'Figtree', sans-serif;
-  font-size: clamp(10px, 1.1vw, 14px);
-  font-weight: 500;
-  letter-spacing: .38em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.0);
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 50%, rgba(26,82,204,.08) 0%, transparent 70%);
   pointer-events: none;
-  transition: color 1.2s ease;
+  z-index: 1;
 }
-#bw-intro-tagline.visible { color: rgba(255,255,255,.55); }
 body.bw-intro-active { overflow: hidden; }
 /* While overlay is active, freeze TEXT entrance animations at visible state.
    NEVER touch .nav-logo-img img , it needs mix-blend-mode:screen + filter:invert(1)
@@ -3151,7 +3221,7 @@ body.drawer-open
 <link rel="icon" type="image/png" sizes="32x32" href="https://bridgewell-advisory.in/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://bridgewell-advisory.in/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="https://bridgewell-advisory.in/apple-touch-icon.png">
-<link rel="manifest" href="https://bridgewell-advisory.in/site.webmanifest">
+
 <meta name="apple-mobile-web-app-title" content="Bridgewell">
 <!-- Open Graph -->
 <meta property="og:title" content="Executive Search &amp; HR Advisory Bengaluru | Bridgewell Advisory">
@@ -3538,9 +3608,22 @@ body.drawer-open
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&display=swap"></noscript>
+<script>
+/* Load Google Fonts via fetch — prevents browser CSS parser from choking on 403 HTML */
+(function(){
+  var url='https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&display=swap';
+  if(!window.fetch){return;}
+  fetch(url).then(function(r){
+    if(!r.ok) return;
+    return r.text();
+  }).then(function(css){
+    if(!css||css.trim()[0]==='<') return; /* reject HTML error pages */
+    var s=document.createElement('style');
+    s.textContent=css;
+    document.head.appendChild(s);
+  }).catch(function(){});
+})();
+</script>
 <link rel="dns-prefetch" href="//tally.so">
 <link rel="dns-prefetch" href="//wa.me">
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
@@ -3551,8 +3634,13 @@ body.drawer-open
 <!-- PARTICLE INTRO OVERLAY -->
 <div id="bw-intro" aria-hidden="true">
   <canvas id="bw-canvas"></canvas>
-  <div id="bw-intro-tagline">People Advisory &nbsp;&middot;&nbsp; India</div>
-  <button id="bw-skip">skip</button>
+  <div id="bw-intro-wm">
+    <div id="bw-intro-name">BRIDGEWELL</div>
+    <div id="bw-intro-rule"></div>
+    <div id="bw-intro-adv">Advisory</div>
+    <div id="bw-intro-tagline">People Advisory &nbsp;&middot;&nbsp; India</div>
+  </div>
+  <button id="bw-skip">Skip</button>
 </div>
 
 
@@ -3783,7 +3871,7 @@ body.drawer-open
 <!-- NAV -->
 <nav id="nav">
   <a href="#hero" class="nav-logo">
-    <div class="nav-logo-img"><img src="https://bridgewell-advisory.in/logo.jpg" alt="Bridgewell Advisory" crossorigin="anonymous" fetchpriority="high" decoding="sync"></div>
+    <div class="nav-logo-img"><img src="https://bridgewell-advisory.in/logo.jpg" alt="Bridgewell Advisory" fetchpriority="high" decoding="async" onerror="this.style.opacity=0"></div>
     <div>
       <div class="nav-wm">Bridgewell Advisory</div>
       <div class="nav-sub">People Advisory &middot; India</div>
@@ -4537,204 +4625,143 @@ function animHeadline(){
   });
 }
 
-/* ─── HERO CANVAS · Three.js Network Nodes ─── */
+/* ─── HERO CANVAS · Pure 2D Network Nodes (no external deps) ─── */
 (function () {
   'use strict';
 
   var canvas = document.getElementById('heroCanvas');
   if (!canvas) return;
 
-  /* ── 1. Device tier ───────────────────────────────────── */
+  var ctx = canvas.getContext('2d');
   var isMobile = window.innerWidth < 768;
-  var isLowEnd = (navigator.hardwareConcurrency || 4) <= 2 ||
-                 ((navigator.deviceMemory || 4) < 2);
+  var dpr = Math.min(window.devicePixelRatio || 1, isMobile ? 1 : 1.5);
 
-  /* Skip entirely on low-end mobile , let CSS gradient carry the bg */
-  if (isMobile && isLowEnd) return;
-
-  /* ── 2. Config ─────────────────────────────────────────── */
   var CFG = {
-    N          : isMobile ? 26 : 52,     /* node count */
-    connDist   : 200,                    /* world-space connection threshold (units) */
-    nodeSize   : isMobile ? 1.6 : 2.0,
-    driftSpeed : 0.055,                  /* units/frame , very slow */
-    rotSpeed   : 0.00016,               /* radians/frame , ~55s per full rotation */
-    nodeColor  : 0xC4A258,              /* brand gold */
-    lineColor  : 0xC4A258,
-    nodeAlpha  : 0.48,
-    lineAlpha  : 0.06,
-    dpr        : Math.min(window.devicePixelRatio || 1, isMobile ? 1.0 : 1.5),
+    N         : isMobile ? 22 : 48,
+    connDist  : isMobile ? 140 : 200,
+    nodeR     : isMobile ? 1.4 : 1.9,
+    drift     : 0.22,
+    rotSpeed  : 0.00014,
+    nodeColor : '196,162,88',   /* brand gold rgb */
+    nodeAlpha : 0.42,
+    lineAlpha : 0.055,
   };
 
-  /* ── 3. Lazy-load Three.js r128 ────────────────────────── */
-  var s   = document.createElement('script');
-  s.src   = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
-  s.async = true;
-  s.onload = initScene;
-  document.head.appendChild(s);
+  var W, H, nodes = [], angle = 0, raf = null, running = true;
 
-  /* ── 4. Scene init ─────────────────────────────────────── */
-  function initScene() {
-    var THREE = window.THREE;
-    var N     = CFG.N;
+  function resize() {
+    W = canvas.offsetWidth  || window.innerWidth;
+    H = canvas.offsetHeight || 600;
+    canvas.width  = W * dpr;
+    canvas.height = H * dpr;
+    canvas.style.width  = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.scale(dpr, dpr);
+  }
 
-    /* Canvas dimensions */
-    var W = canvas.offsetWidth  || window.innerWidth;
-    var H = canvas.offsetHeight || window.innerHeight;
+  function initNodes() {
+    nodes = [];
+    for (var i = 0; i < CFG.N; i++) {
+      nodes.push({
+        x : (Math.random() - 0.5) * W * 1.1,
+        y : (Math.random() - 0.5) * H * 1.1,
+        z : (Math.random() - 0.5) * 400,
+        vx: (Math.random() - 0.5) * CFG.drift,
+        vy: (Math.random() - 0.5) * CFG.drift,
+        vz: (Math.random() - 0.5) * CFG.drift * 0.3,
+      });
+    }
+  }
 
-    /* World half-extents (units) , camera at z=560, FOV 55°
-       visible half-height at z=0: 560 * tan(27.5°) ≈ 291
-       We spread nodes slightly wider so edges are populated  */
-    var HW = 580;   /* ± x */
-    var HH = 320;   /* ± y */
-    var HZ = 240;   /* ± z */
+  var connDistSq = CFG.connDist * CFG.connDist;
+  var FOV = 520, CAM = 520;
 
-    /* ── Renderer ────────────────────────────────────────── */
-    var renderer = new THREE.WebGLRenderer({
-      canvas          : canvas,
-      antialias       : false,   /* no MSAA needed , points/lines */
-      alpha           : true,
-      powerPreference : 'low-power',
-    });
-    renderer.setPixelRatio(CFG.dpr);
-    renderer.setSize(W, H, false);   /* false = don't set style width/height */
-    renderer.setClearColor(0x000000, 0);
+  function project(n) {
+    /* Rotate Y axis */
+    var cosA = Math.cos(angle), sinA = Math.sin(angle);
+    var rx = n.x * cosA - n.z * sinA;
+    var rz = n.x * sinA + n.z * cosA;
+    /* Project to 2D */
+    var sc = FOV / (rz + CAM);
+    return { sx: rx * sc + W / 2, sy: n.y * sc + H / 2, sc: sc, rz: rz };
+  }
 
-    /* ── Scene + Camera ───────────────────────────────────── */
-    var scene  = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(55, W / H, 1, 2000);
-    camera.position.z = 560;
+  function tick() {
+    if (!running) return;
+    raf = requestAnimationFrame(tick);
 
-    /* ── Node data (Float32Arrays , no GC pressure) ────────── */
-    var px = new Float32Array(N), py = new Float32Array(N), pz = new Float32Array(N);
-    var vx = new Float32Array(N), vy = new Float32Array(N), vz = new Float32Array(N);
+    ctx.clearRect(0, 0, W, H);
+    angle += CFG.rotSpeed;
 
-    for (var i = 0; i < N; i++) {
-      px[i] = (Math.random() - 0.5) * HW * 2;
-      py[i] = (Math.random() - 0.5) * HH * 2;
-      pz[i] = (Math.random() - 0.5) * HZ * 2;
-      vx[i] = (Math.random() - 0.5) * CFG.driftSpeed;
-      vy[i] = (Math.random() - 0.5) * CFG.driftSpeed;
-      vz[i] = (Math.random() - 0.5) * CFG.driftSpeed * 0.35; /* less z-movement */
+    /* Update + project */
+    var proj = [];
+    for (var i = 0; i < CFG.N; i++) {
+      var n = nodes[i];
+      n.x += n.vx; n.y += n.vy; n.z += n.vz;
+      var hw = W * 0.55, hh = H * 0.55, hz = 200;
+      if (n.x < -hw || n.x > hw) { n.vx *= -1; n.x = Math.max(-hw, Math.min(hw, n.x)); }
+      if (n.y < -hh || n.y > hh) { n.vy *= -1; n.y = Math.max(-hh, Math.min(hh, n.y)); }
+      if (n.z < -hz || n.z > hz) { n.vz *= -1; n.z = Math.max(-hz, Math.min(hz, n.z)); }
+      proj.push(project(n));
     }
 
-    /* ── Points (nodes) ─────────────────────────────────────── */
-    var ptGeo = new THREE.BufferGeometry();
-    var ptPos = new Float32Array(N * 3);
-    ptGeo.setAttribute('position', new THREE.BufferAttribute(ptPos, 3));
-
-    var ptMat = new THREE.PointsMaterial({
-      color           : CFG.nodeColor,
-      size            : CFG.nodeSize,
-      transparent     : true,
-      opacity         : CFG.nodeAlpha,
-      sizeAttenuation : true,   /* nodes further away appear smaller , adds depth */
-    });
-
-    scene.add(new THREE.Points(ptGeo, ptMat));
-
-    /* ── Line segments (connections) ────────────────────────── */
-    /* Pre-allocate the theoretical maximum: N*(N-1)/2 pairs */
-    var maxConn  = Math.ceil(N * (N - 1) / 2);
-    var lnData   = new Float32Array(maxConn * 6); /* 2 vertices × xyz per segment */
-
-    var lnGeo    = new THREE.BufferGeometry();
-    var lnAttr   = new THREE.BufferAttribute(lnData, 3);
-    lnAttr.setUsage(THREE.DynamicDrawUsage);
-    lnGeo.setAttribute('position', lnAttr);
-
-    var lnMat = new THREE.LineBasicMaterial({
-      color       : CFG.lineColor,
-      transparent : true,
-      opacity     : CFG.lineAlpha,
-    });
-
-    var lineSegs = new THREE.LineSegments(lnGeo, lnMat);
-    scene.add(lineSegs);
-
-    /* ── Animation state ────────────────────────────────────── */
-    var raf     = null;
-    var angle   = 0;
-    var running = !document.hidden;
-    var connDistSq = CFG.connDist * CFG.connDist; /* avoid sqrt in inner loop */
-
-    /* Pause/resume on tab visibility */
-    document.addEventListener('visibilitychange', function () {
-      running = !document.hidden;
-      if (running) tick();
-    });
-
-    /* ── Per-frame update ───────────────────────────────────── */
-    function tick() {
-      if (!running) return;
-      raf = requestAnimationFrame(tick);
-
-      /* Move nodes, bounce at world bounds */
-      for (var i = 0; i < N; i++) {
-        px[i] += vx[i]; py[i] += vy[i]; pz[i] += vz[i];
-        if (px[i] < -HW || px[i] > HW) { vx[i] *= -1; px[i] = Math.max(-HW, Math.min(HW, px[i])); }
-        if (py[i] < -HH || py[i] > HH) { vy[i] *= -1; py[i] = Math.max(-HH, Math.min(HH, py[i])); }
-        if (pz[i] < -HZ || pz[i] > HZ) { vz[i] *= -1; pz[i] = Math.max(-HZ, Math.min(HZ, pz[i])); }
-
-        var b = i * 3;
-        ptPos[b]     = px[i];
-        ptPos[b + 1] = py[i];
-        ptPos[b + 2] = pz[i];
-      }
-      ptGeo.getAttribute('position').needsUpdate = true;
-
-      /* Rebuild connection segments for this frame */
-      var connIdx = 0;
-      for (var a = 0; a < N - 1; a++) {
-        for (var c = a + 1; c < N; c++) {
-          var dx = px[a] - px[c];
-          var dy = py[a] - py[c];
-          var dz = pz[a] - pz[c];
-          if (dx*dx + dy*dy + dz*dz < connDistSq) {
-            var k = connIdx * 6;
-            lnData[k]   = px[a]; lnData[k+1] = py[a]; lnData[k+2] = pz[a];
-            lnData[k+3] = px[c]; lnData[k+4] = py[c]; lnData[k+5] = pz[c];
-            connIdx++;
-          }
+    /* Draw connections */
+    for (var a = 0; a < CFG.N - 1; a++) {
+      for (var b = a + 1; b < CFG.N; b++) {
+        var dx = nodes[a].x - nodes[b].x;
+        var dy = nodes[a].y - nodes[b].y;
+        var dz = nodes[a].z - nodes[b].z;
+        if (dx*dx + dy*dy + dz*dz < connDistSq) {
+          var pa = proj[a], pb = proj[b];
+          if (pa.rz + CAM < 10 || pb.rz + CAM < 10) continue;
+          ctx.beginPath();
+          ctx.moveTo(pa.sx, pa.sy);
+          ctx.lineTo(pb.sx, pb.sy);
+          ctx.strokeStyle = 'rgba(' + CFG.nodeColor + ',' + CFG.lineAlpha + ')';
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
         }
       }
-      lnGeo.setDrawRange(0, connIdx * 2);
-      lnAttr.needsUpdate = true;
-
-      /* Slow global Y rotation , gives 3D depth perception */
-      angle += CFG.rotSpeed;
-      scene.rotation.y = angle;
-
-      renderer.render(scene, camera);
     }
 
-    /* ── Resize handler ─────────────────────────────────────── */
-    var resizeTimer;
-    function onResize() {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(function () {
-        W = canvas.offsetWidth  || window.innerWidth;
-        H = canvas.offsetHeight || window.innerHeight;
-        camera.aspect = W / H;
-        camera.updateProjectionMatrix();
-        renderer.setSize(W, H, false);
-      }, 150); /* debounced , avoids thrashing on every resize pixel */
+    /* Draw nodes */
+    for (var i = 0; i < CFG.N; i++) {
+      var p = proj[i];
+      if (p.rz + CAM < 10) continue;
+      var r = Math.max(0.5, CFG.nodeR * p.sc * 0.9);
+      ctx.beginPath();
+      ctx.arc(p.sx, p.sy, r, 0, 6.2832);
+      ctx.fillStyle = 'rgba(' + CFG.nodeColor + ',' + CFG.nodeAlpha + ')';
+      ctx.fill();
     }
-    window.addEventListener('resize', onResize, { passive: true });
-
-    /* ── Memory cleanup on unload ───────────────────────────── */
-    window.addEventListener('unload', function () {
-      cancelAnimationFrame(raf);
-      ptGeo.dispose();
-      lnGeo.dispose();
-      ptMat.dispose();
-      lnMat.dispose();
-      renderer.dispose();
-    });
-
-    /* Boot */
-    tick();
   }
+
+  /* Pause on hidden tab */
+  document.addEventListener('visibilitychange', function () {
+    running = !document.hidden;
+    if (running) tick();
+  });
+
+  /* Debounced resize */
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      ctx.resetTransform();
+      resize();
+      initNodes();
+    }, 150);
+  }, { passive: true });
+
+  /* Cleanup */
+  window.addEventListener('unload', function () {
+    cancelAnimationFrame(raf);
+  });
+
+  resize();
+  initNodes();
+  connDistSq = CFG.connDist * CFG.connDist;
+  tick();
 
 }());
 /* ─── TICKER ─── */
@@ -5177,345 +5204,109 @@ document.querySelectorAll('.sec-h-underline').forEach(function(el){ ulObs.observ
 </script>
 
 <script>
-/* ═══════════════════════════════════════════
-   PARTICLE INTRO , Sphere → Logo → Reveal
+/* ═══════════════════════════════════════════════════
+   PREMIUM INTRO — CSS text reveal + ambient particles
    Bridgewell Advisory
-═══════════════════════════════════════════ */
+═══════════════════════════════════════════════════ */
 (function(){
-  /* ── INTRO: skip on return visits from subpages ── */
-  var _rm = document.referrer;
-  var _fromSubpage = _rm && _rm.indexOf('bridgewell-advisory.in') > -1 && _rm.indexOf(window.location.href) === -1;
+  var _rm   = document.referrer;
+  var _from = _rm && _rm.indexOf('bridgewell-advisory.in') > -1 && _rm !== window.location.href;
   var _seen = sessionStorage.getItem('bw_intro_seen');
-  if(_fromSubpage || _seen){
-    var _el=document.getElementById('bw-intro');
-    if(_el){_el.style.display='none';_el.remove();}
+
+  var overlay = document.getElementById('bw-intro');
+
+  function remove(){
+    if(overlay){ overlay.style.display='none'; overlay.remove(); }
     document.body.classList.remove('bw-intro-active');
-    return;
   }
-  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){
-    document.getElementById('bw-intro').remove();
-    return;
-  }
+
+  if(_from || _seen){ remove(); return; }
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){ remove(); return; }
 
   document.body.classList.add('bw-intro-active');
 
-  const overlay = document.getElementById('bw-intro');
-  const canvas  = document.getElementById('bw-canvas');
-  const skipBtn = document.getElementById('bw-skip');
-  const ctx     = canvas.getContext('2d');
+  /* ── Ambient particle canvas (background only) ── */
+  var canvas = document.getElementById('bw-canvas');
+  var ctx2d  = canvas.getContext('2d');
+  var W, H, dots = [], raf2;
+  var N_DOTS = 120;
 
-  let W, H, CX, CY, raf;
-  const N   = 5000;
-  const PHI = Math.PI * (1 + Math.sqrt(5));
-  const FOV = 540;
-  const CAM = 650;
-
-  /* typed arrays */
-  const px = new Float32Array(N), py = new Float32Array(N), pz = new Float32Array(N);
-  const vx = new Float32Array(N), vy = new Float32Array(N), vz = new Float32Array(N);
-  const tx = new Float32Array(N), ty = new Float32Array(N), tz = new Float32Array(N);
-  const ph = new Float32Array(N);
-
-  /* phase: 0=converge-sphere, 1=hold-sphere, 2=form-logo, 3=hold-logo, 4=dissolve */
-  let phase   = 0;
-  let phaseT  = 0;
-  let rotY    = 0;
-  let globalT = 0;
-  let logoTargetsSet = false;
-
-  const PHASE_DUR = [20, 14, 60, 35, 20];
-
-  function resize(){
-    const dpr = Math.min(window.devicePixelRatio||1, 2);
+  function resizeCanvas(){
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
     W = window.innerWidth; H = window.innerHeight;
-    CX = W/2; CY = H/2;
-    canvas.width  = W*dpr; canvas.height = H*dpr;
-    canvas.style.width = W+'px'; canvas.style.height = H+'px';
-    ctx.scale(dpr, dpr);
+    canvas.width  = W * dpr;
+    canvas.height = H * dpr;
+    canvas.style.width  = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx2d.scale(dpr, dpr);
   }
 
-  /* ── Sphere targets ── */
-  function setSphereTargets(){
-    const R = Math.min(W, H) * 0.28;
-    for(let i=0;i<N;i++){
-      const p = Math.acos(1 - 2*(i+.5)/N);
-      const a = PHI*i;
-      tx[i] = Math.sin(p)*Math.cos(a)*R;
-      ty[i] = Math.sin(p)*Math.sin(a)*R;
-      tz[i] = Math.cos(p)*R;
-    }
-  }
-
-  /* ── Logo targets: form a CRISP typographic wordmark.
-     We deliberately do NOT sample the logo JPG , at particle resolution a
-     detailed logo with a tagline reads as mud. A clean rendered wordmark is
-     sharper, always legible, and immune to CORS/CDN issues. ── */
-  function setLogoTargets(){
-    const off = document.createElement('canvas');
-    off.width  = W;
-    off.height = H;
-    const c2 = off.getContext('2d');
-
-    /* Scale type to viewport. Bigger on desktop, controlled on mobile. */
-    const mainSize = Math.max(44, Math.min(W * 0.115, 132));
-    const subSize  = mainSize * 0.40;
-    const gap      = mainSize * 0.92;
-
-    c2.clearRect(0, 0, W, H);
-    c2.textAlign    = 'center';
-    c2.textBaseline = 'middle';
-
-    /* Primary wordmark , brand serif, heavy, tight tracking */
-    c2.fillStyle = '#ffffff';
-    c2.font = '600 ' + mainSize + "px 'Fraunces','Cormorant Garamond',Georgia,serif";
-    c2.fillText('BRIDGEWELL', W / 2, H / 2 - gap * 0.18);
-
-    /* Sub-wordmark , spaced uppercase, lighter */
-    c2.font = '500 ' + subSize + "px 'Inter','Helvetica Neue',Arial,sans-serif";
-    /* manual letter-spacing for ADVISORY */
-    (function(){
-      const word = 'ADVISORY';
-      const tracking = subSize * 0.46;
-      let total = 0;
-      const widths = [];
-      for(let k = 0; k < word.length; k++){
-        const w = c2.measureText(word[k]).width;
-        widths.push(w);
-        total += w + (k < word.length - 1 ? tracking : 0);
-      }
-      let cx = W / 2 - total / 2;
-      const cy = H / 2 + gap * 0.42;
-      for(let k = 0; k < word.length; k++){
-        c2.fillText(word[k], cx + widths[k] / 2, cy);
-        cx += widths[k] + tracking;
-      }
-    })();
-
-    let d;
-    try {
-      d = c2.getImageData(0, 0, W, H).data;
-    } catch(e){
-      logoTargetsSet = true;
-      return;
-    }
-
-    /* Collect every painted pixel (white text on transparent canvas). */
-    const pts  = [];
-    const step = 1;
-    for(let y = 0; y < H; y += step){
-      for(let x = 0; x < W; x += step){
-        const i = (y * W + x) * 4;
-        if(d[i + 3] > 40){
-          pts.push(
-            x - CX + (Math.random() - 0.5) * 0.35,
-            y - CY + (Math.random() - 0.5) * 0.35
-          );
-        }
-      }
-    }
-
-    if(pts.length < 100){ logoTargetsSet = true; return; }
-
-    /* Shuffle so particles fill the wordmark evenly, not in scan-line order */
-    for(let i = pts.length / 2 - 1; i > 0; i--){
-      const j  = Math.floor(Math.random() * (i + 1));
-      const ia = i * 2, ja = j * 2;
-      let t = pts[ia]; pts[ia] = pts[ja]; pts[ja] = t;
-      t = pts[ia + 1]; pts[ia + 1] = pts[ja + 1]; pts[ja + 1] = t;
-    }
-
-    const pc = pts.length / 2;
-    for(let i = 0; i < N; i++){
-      const idx = (i % pc) * 2;
-      tx[i] = pts[idx];
-      ty[i] = pts[idx + 1];
-      tz[i] = 0;
-    }
-    logoTargetsSet = true;
-  }
-
-  /* ── Init ── */
-  function init(){
-    resize();
-    for(let i=0;i<N;i++){
-      px[i]=(Math.random()-.5)*W*2;
-      py[i]=(Math.random()-.5)*H*2;
-      pz[i]=(Math.random()-.5)*900;
-      vx[i]=vy[i]=vz[i]=0;
-      ph[i]=Math.random()*Math.PI*2;
-    }
-    setSphereTargets();
-  }
-
-  /* ── Update ── */
-  function update(){
-    globalT++;
-    phaseT++;
-
-    if(phaseT >= PHASE_DUR[phase]){
-      phase++;
-      phaseT = 0;
-      if(phase===2){
-        rotY = 0;
-        setLogoTargets();
-      }
-      if(phase===3){
-        /* Show tagline during hold phase */
-        var tgl = document.getElementById('bw-intro-tagline');
-        if(tgl) tgl.classList.add('visible');
-      }
-      if(phase >= 5) return dismiss();
-    }
-
-    if(phase <= 1) rotY += 0.007;
-
-    const isSphere    = phase <= 1;
-    const isDissolve  = phase === 4;
-
-    for(let i=0;i<N;i++){
-      let ttx=tx[i], tty=ty[i], ttz=tz[i];
-
-      const cy=Math.cos(rotY), sy=Math.sin(rotY);
-      const rx = ttx*cy - ttz*sy;
-      const rz = ttx*sy + ttz*cy;
-      ttx=rx; ttz=rz;
-
-      if(isSphere){
-        ttx += Math.sin(globalT*.008+ph[i])*2;
-        tty += Math.cos(globalT*.01+ph[i])*2;
-        ttz += Math.sin(globalT*.006+ph[i]*2)*2;
-      }
-
-      if(isDissolve){
-        ttx += (Math.random()-.5)*16;
-        tty += (Math.random()-.5)*16;
-        ttz += (Math.random()-.5)*16;
-      }
-
-      /* Snappier arrival to logo shape, tight hold for crisp edges */
-      const sp = isSphere ? 0.017
-               : (phase===2 ? 0.028        /* faster form */
-               : (phase===3 ? 0.12         /* tight lock to target */
-               : 0.025));
-      vx[i] += (ttx-px[i])*sp;
-      vy[i] += (tty-py[i])*sp;
-      vz[i] += (ttz-pz[i])*sp;
-
-      /* More damping during hold phase = less jitter = sharper edges */
-      const damp = phase===3 ? 0.62 : 0.80;
-      vx[i]*=damp; vy[i]*=damp; vz[i]*=damp;
-      px[i]+=vx[i]; py[i]+=vy[i]; pz[i]+=vz[i];
+  function initDots(){
+    dots = [];
+    for(var i = 0; i < N_DOTS; i++){
+      dots.push({
+        x:  Math.random() * W,
+        y:  Math.random() * H,
+        r:  Math.random() * 1.2 + 0.3,
+        vx: (Math.random() - 0.5) * 0.18,
+        vy: (Math.random() - 0.5) * 0.18,
+        a:  Math.random() * 0.35 + 0.08
+      });
     }
   }
 
-  /* ── Draw ── */
-  function draw(){
-    /* Clear frame with opacity based on phase for crisp rendering */
-    if(phase === 3){
-      /* Hold phase: dark navy bg — particles will be bright white for max clarity */
-      ctx.fillStyle = 'rgba(7,11,53,1.0)';
-    } else if(phase === 2){
-      /* Forming phase: dark with subtle trails */
-      ctx.fillStyle = 'rgba(7,11,53,0.72)';
-    } else if(phase === 4){
-      /* Dissolve: fade to navy */
-      ctx.fillStyle = 'rgba(7,11,53,0.55)';
-    } else {
-      /* Sphere phase: dark with motion trails */
-      ctx.fillStyle = 'rgba(7,11,53,0.22)';
+  function drawDots(){
+    ctx2d.clearRect(0, 0, W, H);
+    for(var i = 0; i < dots.length; i++){
+      var d = dots[i];
+      d.x += d.vx; d.y += d.vy;
+      if(d.x < 0) d.x = W;
+      if(d.x > W) d.x = 0;
+      if(d.y < 0) d.y = H;
+      if(d.y > H) d.y = 0;
+      ctx2d.beginPath();
+      ctx2d.arc(d.x, d.y, d.r, 0, 6.2832);
+      ctx2d.fillStyle = 'rgba(74,120,224,' + d.a + ')';
+      ctx2d.fill();
     }
-    ctx.fillRect(0,0,W,H);
-
-    const isSphere = phase <= 1;
-    const isLogo   = phase >= 2;
-
-    for(let i=0;i<N;i++){
-      const zPos = pz[i]+CAM;
-      if(zPos<10) continue;
-      const sc = FOV/zPos;
-      const sx = px[i]*sc+CX;
-      const sy = py[i]*sc+CY;
-      const spd = Math.sqrt(vx[i]*vx[i]+vy[i]*vy[i]+vz[i]*vz[i]);
-
-      let a    = Math.min(1, (0.15+spd*0.09)*sc*0.7);
-      let size = (0.45+spd*0.1)*sc;
-      let h, s, l;
-
-      if(isSphere){
-        /* Teal/cyan sphere — vivid, high contrast on dark bg */
-        h = 175 + (i/N)*25;
-        s = 80; l = 72;
-        a *= 0.9;
-      } else if(phase === 3){
-        /* HOLD phase: bright near-white particles — crystal clear on dark bg */
-        h = 220; s = 60; l = 92;
-        a = 1.0;
-        size = 1.3;
-      } else {
-        /* Forming/dissolve: bright blue-white transition */
-        h = 220; s = 65; l = 82;
-        a = Math.min(1, 0.85 + spd * 0.06);
-        size = Math.max(1.0, size * 1.0);
-      }
-
-      ctx.beginPath();
-      ctx.arc(sx, sy, Math.max(0.3, size), 0, 6.2832);
-      ctx.fillStyle = `hsla(${h},${s}%,${l}%,${a})`;
-      ctx.fill();
-    }
+    raf2 = requestAnimationFrame(drawDots);
   }
 
-  /* ── Loop ── */
-  function loop(){
-    if(phase >= 5) return;
-    update();
-    draw();
-    raf = requestAnimationFrame(loop);
-  }
+  resizeCanvas();
+  initDots();
+  drawDots();
 
-  /* ── Dismiss ── */
+  /* ── Dismiss: after CSS animations complete ── */
+  var TOTAL_DURATION = 3200; /* ms — matches last animation end (2s delay + ~1.2s anim) */
+
   function dismiss(){
-    cancelAnimationFrame(raf);
-    document.body.classList.remove('bw-intro-active');
-
-    /* Restart the logoFadeUp animation so it plays after the overlay leaves.
-       We do this by toggling the animation property briefly , critically we
-       only touch 'animation', never filter or mix-blend-mode, so the
-       gold-on-dark logo rendering is completely untouched. */
-    var logoImg = document.querySelector('.nav-logo-img img');
-    if(logoImg){
-      logoImg.style.animation = 'none';
-      logoImg.getBoundingClientRect(); /* force reflow */
-      logoImg.style.animation = '';    /* restore original CSS animation */
-    }
-
-    sessionStorage.setItem('bw_intro_seen','1'); overlay.classList.add('done');
-    setTimeout(function(){ try{overlay.remove();}catch(e){} }, 550);
+    sessionStorage.setItem('bw_intro_seen','1');
+    cancelAnimationFrame(raf2);
+    overlay.classList.add('done');
+    setTimeout(function(){
+      remove();
+      /* Restart hero entrance animations */
+      document.querySelectorAll('.rv').forEach(function(el){
+        el.style.animation = 'none';
+        el.offsetHeight;
+        el.style.animation = '';
+      });
+    }, 750);
   }
 
-  /* ── Skip ── */
-  function _bwSkip(){
-    if(phase < 4){ phase = 4; phaseT = 0; PHASE_DUR[4] = 6; }
-  }
-  skipBtn.addEventListener('click', _bwSkip);
-  /* tap anywhere on the overlay skips */
-  overlay.addEventListener('click', _bwSkip);
-  /* first scroll skips */
-  window.addEventListener('wheel', _bwSkip, { once: true, passive: true });
-  window.addEventListener('touchstart', _bwSkip, { once: true, passive: true });
-  /* any key skips */
-  window.addEventListener('keydown', _bwSkip, { once: true });
+  var timer = setTimeout(dismiss, TOTAL_DURATION);
 
-  /* ── Boot ── */
-  init();
-  loop();
-
-  window.addEventListener('resize',function(){
-    ctx.resetTransform(); resize();
-    if(phase<=1) setSphereTargets();
+  document.getElementById('bw-skip').addEventListener('click', function(){
+    clearTimeout(timer);
+    dismiss();
   });
 
-}());
+  window.addEventListener('resize', function(){
+    resizeCanvas();
+    initDots();
+  }, { passive: true });
+
+})();
 </script>
      <!-- COOKIE CONSENT BANNER -->
 <div id="cookie-banner">
