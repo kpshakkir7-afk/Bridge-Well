@@ -936,14 +936,14 @@ footer { background:#04061C; padding:56px 0 32px; border-top:1px solid rgba(26,8
 
 /* ── TRUST SECTION: testimonials + client logos ── */
 .trust-sec { background:var(--canvas,#F3F5FB); padding:96px 0; }
-.trust-inner { max-width:1180px; margin:0 auto; padding:0 6%; }
+.trust-inner { max-width:1320px; margin:0 auto; padding:0 4%; }
 .trust-head { text-align:center; max-width:680px; margin:0 auto 56px; }
 .trust-eyebrow { font-family:'Figtree',sans-serif; font-size:12px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:#4A78E0; margin-bottom:16px; }
 .trust-title { font-family:'Bricolage Grotesque','Fraunces',Georgia,sans-serif; font-size:clamp(28px,3.4vw,46px); font-weight:600; line-height:1.14; letter-spacing:-.02em; color:#0C0C0A; }
 .trust-title em { font-style:normal; color:#4A78E0; }
 .trust-sub { font-family:'Figtree',system-ui,sans-serif; font-size:15px; line-height:1.65; color:rgba(12,12,10,.58); margin:20px auto 0; max-width:580px; }
-.tq-grid { display:flex; flex-wrap:wrap; gap:24px; }
-.tq-card { flex:1 1 calc(33.333% - 16px); min-width:280px; box-sizing:border-box; background:#fff; border:1px solid rgba(12,12,10,.08); border-radius:20px; padding:52px 44px 44px; display:flex; flex-direction:column; min-height:420px; }
+.tq-grid { display:flex; flex-wrap:wrap; gap:20px; }
+.tq-card { flex:1 1 calc(33.333% - 14px); min-width:300px; box-sizing:border-box; background:#fff; border:1px solid rgba(12,12,10,.08); border-radius:16px; padding:36px 38px 32px; display:flex; flex-direction:column; min-height:320px; }
 .tq-quote { font-family:'Bricolage Grotesque','Fraunces',Georgia,sans-serif; font-size:15px; line-height:1.78; color:#1a1a17; font-style:normal; margin:0 0 28px; flex:1; letter-spacing:-.005em; font-weight:400; }
 .tq-mark { font-size:52px; line-height:1; color:rgba(9,16,58,.12); font-family:Georgia,serif; margin-bottom:16px; display:block; }
 .tq-attr { font-family:'Figtree',sans-serif; font-size:13px; }
@@ -2522,11 +2522,11 @@ body.bw-intro-active
 }
 .fnd-pull p {
   font-family:'Cormorant Garamond', serif;
-  font-size:clamp(24px, 3.2vw, 40px);
-  font-weight:400; font-style:normal;
-  line-height:1.28; letter-spacing:-.005em;
+  font-size:clamp(17px, 1.8vw, 22px);
+  font-weight:500; font-style:normal;
+  line-height:1.65; letter-spacing:.005em;
   color:#09103A;
-  margin-bottom:18px;
+  margin-bottom:16px;
 }
 .fnd-pull p:last-child { margin-bottom:0; }
 .fnd-pull p em {
@@ -2654,8 +2654,8 @@ body.bw-intro-active
 /* Mobile */
 @media(max-width:768px){
   #founder { padding:64px 0; }
-  .fnd-pull p { font-size:22px; }
-  .fnd-pull-mark { font-size:72px; }
+  .fnd-pull p { font-size:16px; }
+  .fnd-pull-mark { font-size:52px; }
   .fnd-cta { flex-direction:column; }
   .fnd-cta .btn { width:100%; justify-content:center; }
   .fnd-sig { gap:14px; flex-wrap:wrap; justify-content:center; }
@@ -2665,8 +2665,8 @@ body.bw-intro-active
 }
 @media(max-width:480px){
   #founder { padding:48px 0; }
-  .fnd-pull p { font-size:20px; line-height:1.32; }
-  .fnd-pull-mark { font-size:56px; }
+  .fnd-pull p { font-size:15px; line-height:1.7; }
+  .fnd-pull-mark { font-size:44px; }
   .fnd-pill { font-size:11px; padding:6px 12px; }
 }
 
@@ -4192,7 +4192,7 @@ body.drawer-open
       <a href="/hr-business-outsourcing-india" class="svc-row"><div class="svc-n">04</div><div><div class="svc-name">HR Business Outsourcing</div><div class="svc-desc">Payroll, compliance and people operations as a managed function. Get HR off your shoulders.</div></div><div class="svc-meta"><span class="svc-arr">&#8594;</span></div></a>
     </div>
       <!-- Hero pull-quote -->
-      <div id="founder" style="scroll-margin-top:80px"></div>
+      <div id="founder" style="scroll-margin-top:80px;height:0;overflow:hidden;padding:0;margin:0;border:none;background:none"></div>
       <blockquote class="fnd-pull rv d1" itemprop="description">
         <span class="fnd-pull-mark" aria-hidden="true">&ldquo;</span>
         <p>Across a career leading hiring at scale, in e-commerce, renewable energy, and high-growth organisations, I've watched the same failures repeat: wrong role definition, panels choosing for comfort, and speed collapsing judgment.</p>
@@ -4373,7 +4373,7 @@ body.drawer-open
     <div class="tq-grid">
       <div class="tq-card rv">
         <span class="tq-mark">&ldquo;</span>
-        <p class="tq-quote">Before working with Bridgewell, we had engaged with multiple agencies that focused primarily on speed and volume. CVs came in quickly, but the alignment was consistently off. What made Shakkir and Bridgewell different was their willingness to challenge the brief instead of blindly executing it. They identified gaps in the role definition, questioned the level of seniority we were targeting, and highlighted that the scope itself was solving an outdated business problem. Together, we reworked the mandate with far greater clarity and strategic alignment. The result was not just a successful hire, but someone who continues to create long-term impact within the organisation. That level of partnership is rare in recruitment.</p>
+        <p class="tq-quote">CVs came in quickly with every other agency, but the alignment was consistently off. What made Bridgewell different was their willingness to challenge the brief instead of executing it blindly. They identified gaps in the role definition, questioned seniority level, and highlighted that the scope was solving an outdated problem. The result was not just a successful hire, but someone who continues to create long-term impact. That level of partnership is rare in recruitment.</p>
         <div class="tq-attr">
           <div class="tq-name">Managing Director &amp; Founder</div>
           <div class="tq-role">Trading &amp; Distribution, Saudi Arabia</div>
@@ -4381,7 +4381,7 @@ body.drawer-open
       </div>
       <div class="tq-card rv d1">
         <span class="tq-mark">&ldquo;</span>
-        <p class="tq-quote">Bridgewell supported us far beyond just filling positions. They handled hiring across multiple levels of the organisation, from critical and strategic roles to mid-level talent, while maintaining a consistently high standard of quality throughout the process. What truly differentiated them was the depth they brought beyond recruitment. Their onboarding framework and training roadmap were structured around real business needs, not generic HR templates. They also introduced onboarding success metrics that gave us clear visibility into employee integration, engagement, and early-stage performance. The entire approach felt thoughtful, measurable, and built for long-term organisational stability rather than short-term hiring closure.</p>
+        <p class="tq-quote">Bridgewell went far beyond filling positions. What truly differentiated them was the depth they brought beyond recruitment. Their onboarding framework and training roadmap were structured around real business needs, not generic HR templates. They introduced success metrics that gave us clear visibility into early-stage performance. The entire approach felt thoughtful, measurable, and built for long-term organisational stability rather than short-term hiring closure.</p>
         <div class="tq-attr">
           <div class="tq-name">Senior Manager, Human Resources</div>
           <div class="tq-role">IT Services, India</div>
@@ -4389,7 +4389,7 @@ body.drawer-open
       </div>
       <div class="tq-card rv d2">
         <span class="tq-mark">&ldquo;</span>
-        <p class="tq-quote">I didn&rsquo;t realise how much of my week was being consumed by people-related challenges until Bridgewell mapped everything out. Every policy gap, unclear responsibility, and missing process was eventually landing on my desk. Bridgewell brought the structure we were missing by creating clearer organisational alignment, well-defined roles, and HR systems that no longer required my constant involvement. It gave the business clarity and reduced a huge amount of operational friction. Looking back, I genuinely wish we had done this two years earlier.</p>
+        <p class="tq-quote">I didn&rsquo;t realise how much of my week was consumed by people-related challenges until Bridgewell mapped everything out. Every policy gap and missing process was landing on my desk. Bridgewell brought the structure we were missing: clearer organisational alignment, well-defined roles, and HR systems that no longer required my constant involvement. Looking back, I genuinely wish we had done this two years earlier.</p>
         <div class="tq-attr">
           <div class="tq-name">Founder</div>
           <div class="tq-role">Growth-stage Company, India</div>
