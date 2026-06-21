@@ -88,7 +88,7 @@ ul { list-style:none; }
 }
 .hero-noise {
   position:absolute; inset:0; pointer-events:none; z-index:1; opacity:1;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves=[...]"
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves=[...]")
   background-size:256px;
 }
 .hero-glow {
@@ -114,8 +114,16 @@ ul { list-style:none; }
 .hero-inner { position:relative; z-index:2; display:flex; flex-direction:column; flex:1; }
 /* ... */
 .wm-mask { display:inline-block; overflow:visible; vertical-align:bottom; line-height:1.22; padding:0.06em 0 0.16em; }
-/* Disable the intro "curtain" animation by forcing wm-inner to be static */
-.wm-inner { display:inline-block; transform:none !important; will-change:auto !important; }
+/* Stronger disable for the intro "curtain" animation: override transforms, animations, and transitions */
+.wm-inner {
+  display:inline-block !important;
+  transform:none !important;
+  animation:none !important;
+  transition:none !important;
+  will-change:auto !important;
+}
+/* If JavaScript applies inline styles to move the element, explicitly unset transform on the element and its children */
+.wm-inner, .wm-inner * { transform:none !important; animation:none !important; transition:none !important; }
 .wm-sp { display:inline; white-space:pre; }
 
 /* ... remainder of original CSS and HTML unchanged ... */
