@@ -1233,16 +1233,25 @@ body.menu-open{position:fixed;left:0;right:0;width:100%}
 (()=>{
   /* --- iOS-safe scroll lock, replaces the body.menu-open toggle --- */
   const body=document.body;
+  let lastY=window.scrollY||0;
   let lockedY=0;
+  /* The original handler adds .menu-open synchronously, which makes the body
+     position:fixed and collapses window.scrollY to 0 before this observer runs.
+     Reading scrollY at lock time would therefore always capture 0, so the page
+     jumped to the top when the menu closed. Track the position continuously. */
+  addEventListener('scroll',()=>{
+    if(!body.classList.contains('menu-open')) lastY=window.scrollY||0;
+  },{passive:true});
   const lock=on=>{
     if(on){
-      lockedY=window.scrollY||0;
+      lockedY=lastY;
       body.style.top=`-${lockedY}px`;
       body.classList.add('menu-open');
     }else{
       body.classList.remove('menu-open');
       body.style.top='';
       window.scrollTo(0,lockedY);
+      lastY=lockedY;
     }
   };
 
